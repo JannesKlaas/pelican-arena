@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- Background -->
+  <rect x="0" y="0" width="500" height="500" fill="#d4e0f3" />
+
+  <!-- Ground -->
+  <rect x="0" y="360" width="500" height="140" fill="#c9b48a" />
+  <rect x="0" y="360" width="500" height="12" fill="#b39a6a" />
+
+  <!-- Ground planks -->
+  <g fill="#8b6b3d">
+    <rect x="80" y="345" width="120" height="8" />
+    <rect x="210" y="345" width="120" height="8" />
+    <rect x="340" y="345" width="80" height="8" />
+  </g>
+
+  <!-- Ground pegs -->
+  <g fill="#5c4b30">
+    <rect x="90" y="338" width="6" height="12" />
+    <rect x="150" y="338" width="6" height="12" />
+    <rect x="220" y="338" width="6" height="12" />
+    <rect x="280" y="338" width="6" height="12" />
+    <rect x="350" y="338" width="6" height="12" />
+    <rect x="400" y="338" width="6" height="12" />
+  </g>
+
+  <!-- Shadows (aligned with light from upper-left) -->
+  <g fill="rgba(0,0,0,0.18)">
+    <!-- Frame shadow -->
+    <polygon points="130,355 245,355 280,380 160,380" />
+    <!-- Counterweight shadow -->
+    <polygon points="290,260 330,260 345,275 305,275" />
+    <!-- Arm shadow -->
+    <polygon points="245,355 350,320 365,335 260,365" />
+    <!-- Sling and stone shadow -->
+    <ellipse cx="420" cy="340" rx="22" ry="10" />
+  </g>
+
+  <!-- Trebuchet frame -->
+  <g stroke="#3c2c18" stroke-width="3" stroke-linejoin="round">
+    <!-- Left support -->
+    <polygon points="130,350 200,200 270,350" fill="#a57a4a" />
+    <!-- Right support -->
+    <polygon points="210,350 280,200 350,350" fill="#a57a4a" />
+    <!-- Base beam -->
+    <rect x="130" y="340" width="220" height="10" fill="#8b6238" />
+    <!-- Cross brace -->
+    <polygon points="165,320 245,230 325,320" fill="#916136" />
+  </g>
+
+  <!-- Axle -->
+  <circle cx="245" cy="215" r="10" fill="#5c4b30" stroke="#2b1c10" stroke-width="2" />
+  <rect x="210" y="211" width="70" height="8" fill="#7a5a3c" stroke="#3c2c18" stroke-width="2" />
+
+  <!-- Throwing arm (asymmetrical) -->
+  <g stroke="#3c2c18" stroke-width="3" stroke-linecap="round">
+    <!-- Counterweight side (short) -->
+    <polygon points="245,215 275,205 292,210 265,220" fill="#b28452" />
+    <!-- Projectile side (long) -->
+    <polygon points="245,215 345,250 355,245 255,210" fill="#b28452" />
+  </g>
+
+  <!-- Counterweight box -->
+  <g stroke="#3c2c18" stroke-width="2">
+    <rect x="280" y="215" width="45" height="45" fill="#8c6b49" />
+    <rect x="285" y="220" width="35" height="35" fill="#a98257" />
+  </g>
+
+  <!-- Ropes to counterweight -->
+  <g stroke="#4a3b24" stroke-width="2" fill="none">
+    <line x1="265" y1="215" x2="285" y2="215" />
+    <line x1="270" y1="223" x2="285" y2="223" />
+  </g>
+
+  <!-- Rope supports to frame -->
+  <g stroke="#4a3b24" stroke-width="2" fill="none">
+    <line x1="245" y1="215" x2="200" y2="245" />
+    <line x1="245" y1="215" x2="290" y2="245" />
+  </g>
+
+  <!-- Sling hinge and cords -->
+  <g stroke="#4a3b24" stroke-width="2" fill="none">
+    <!-- Hinge at arm tip -->
+    <circle cx="355" cy="245" r="4" fill="#4a3b24" />
+    <!-- Two sling cords angled for ~45° launch -->
+    <line x1="355" y1="245" x2="405" y2="215" />
+    <line x1="355" y1="245" x2="415" y2="220" />
+  </g>
+
+  <!-- Sling fabric -->
+  <path d="M405,215 Q412,230 415,220" fill="#c8b59a" stroke="#7b6a4e" stroke-width="2" />
+
+  <!-- Stone projectile -->
+  <ellipse cx="414" cy="215" rx="10" ry="8" fill="#777777" stroke="#444444" stroke-width="2" />
+
+  <!-- Release pin at 45° -->
+  <g stroke="#3c2c18" stroke-width="2" stroke-linecap="round">
+    <line x1="345" y1="244" x2="333" y2="230" />
+    <circle cx="333" cy="230" r="3" fill="#3c2c18" />
+  </g>
+</svg>

@@ -1,0 +1,26 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="250" cy="180" rx="120" ry="80" fill="#E8F4FF" stroke="#B8D4E8" stroke-width="3"/>
+  <ellipse cx="180" cy="200" rx="70" ry="60" fill="#E8F4FF" stroke="#B8D4E8" stroke-width="3"/>
+  <ellipse cx="320" cy="200" rx="70" ry="60" fill="#E8F4FF" stroke="#B8D4E8" stroke-width="3"/>
+  <circle cx="210" cy="160" r="8" fill="#333"/>
+  <circle cx="290" cy="160" r="8" fill="#333"/>
+  <path d="M 220 190 Q 250 210 280 190" stroke="#333" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M 150 250 L 140 240 L 130 250 L 140 265 Z" fill="#FF69B4"/>
+  <path d="M 140 240 C 140 235, 145 230, 150 235 C 155 230, 160 235, 160 240" fill="#FF69B4"/>
+  <path d="M 220 280 L 210 270 L 200 280 L 210 295 Z" fill="#FF1493"/>
+  <path d="M 210 270 C 210 265, 215 260, 220 265 C 225 260, 230 265, 230 270" fill="#FF1493"/>
+  <path d="M 290 310 L 280 300 L 270 310 L 280 325 Z" fill="#FF69B4"/>
+  <path d="M 280 300 C 280 295, 285 290, 290 295 C 295 290, 300 295, 300 300" fill="#FF69B4"/>
+  <path d="M 360 270 L 350 260 L 340 270 L 350 285 Z" fill="#FFB6C1"/>
+  <path d="M 350 260 C 350 255, 355 250, 360 255 C 365 250, 370 255, 370 260" fill="#FFB6C1"/>
+  <path d="M 180 340 L 170 330 L 160 340 L 170 355 Z" fill="#FF1493"/>
+  <path d="M 170 330 C 170 325, 175 320, 180 325 C 185 320, 190 325, 190 330" fill="#FF1493"/>
+  <path d="M 250 360 L 240 350 L 230 360 L 240 375 Z" fill="#FF69B4"/>
+  <path d="M 240 350 C 240 345, 245 340, 250 345 C 255 340, 260 345, 260 350" fill="#FF69B4"/>
+  <path d="M 320 380 L 310 370 L 300 380 L 310 395 Z" fill="#FFB6C1"/>
+  <path d="M 310 370 C 310 365, 315 360, 320 365 C 325 360, 330 365, 330 370" fill="#FFB6C1"/>
+  <path d="M 200 410 L 190 400 L 180 410 L 190 425 Z" fill="#FF69B4"/>
+  <path d="M 190 400 C 190 395, 195 390, 200 395 C 205 390, 210 395, 210 400" fill="#FF69B4"/>
+  <path d="M 280 430 L 270 420 L 260 430 L 270 445 Z" fill="#FF1493"/>
+  <path d="M 270 420 C 270 415, 275 410, 280 415 C 285 410, 290 415, 290 420" fill="#FF1493"/>
+</svg>

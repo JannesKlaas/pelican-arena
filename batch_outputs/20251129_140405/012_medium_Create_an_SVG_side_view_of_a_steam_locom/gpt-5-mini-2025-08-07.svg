@@ -1,0 +1,199 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#eef5f7" />
+
+  <!-- Rails and sleepers -->
+  <g id="rails" stroke="#3b2f2f" stroke-linecap="round" stroke-width="6">
+    <line x1="0" y1="380" x2="500" y2="380" />
+    <line x1="0" y1="396" x2="500" y2="396" />
+  </g>
+  <g id="sleepers" fill="#8b6b4a">
+    <!-- sleepers evenly spaced -->
+    <!-- draw across canvas every 30px -->
+    <g>
+      <!-- generate sleepers manually spaced -->
+      <rect x="0" y="366" width="60" height="20" rx="2" />
+      <rect x="30" y="366" width="60" height="20" rx="2" />
+      <rect x="60" y="366" width="60" height="20" rx="2" />
+      <rect x="90" y="366" width="60" height="20" rx="2" />
+      <rect x="120" y="366" width="60" height="20" rx="2" />
+      <rect x="150" y="366" width="60" height="20" rx="2" />
+      <rect x="180" y="366" width="60" height="20" rx="2" />
+      <rect x="210" y="366" width="60" height="20" rx="2" />
+      <rect x="240" y="366" width="60" height="20" rx="2" />
+      <rect x="270" y="366" width="60" height="20" rx="2" />
+      <rect x="300" y="366" width="60" height="20" rx="2" />
+      <rect x="330" y="366" width="60" height="20" rx="2" />
+      <rect x="360" y="366" width="60" height="20" rx="2" />
+      <rect x="390" y="366" width="60" height="20" rx="2" />
+      <rect x="420" y="366" width="60" height="20" rx="2" />
+      <rect x="450" y="366" width="60" height="20" rx="2" />
+    </g>
+  </g>
+
+  <!-- Steam puffs -->
+  <g fill="#ffffff" opacity="0.9">
+    <circle cx="90" cy="170" r="18" fill="#ffffff" opacity="0.9" />
+    <circle cx="110" cy="150" r="22" fill="#ffffff" opacity="0.8" />
+    <circle cx="140" cy="140" r="26" fill="#ffffff" opacity="0.7" />
+    <circle cx="170" cy="150" r="20" fill="#ffffff" opacity="0.6" />
+    <circle cx="200" cy="160" r="16" fill="#ffffff" opacity="0.5" />
+  </g>
+
+  <!-- Locomotive body -->
+  <g id="locomotive" transform="translate(0,0)">
+    <!-- boiler -->
+    <rect x="110" y="200" width="300" height="90" rx="45" fill="#244f2b" stroke="#0f2a18" stroke-width="3" />
+    <!-- boiler top (dome and sandboxes simplified) -->
+    <ellipse cx="240" cy="190" rx="40" ry="18" fill="#2f6a3d" stroke="#0f2a18" stroke-width="2" />
+    <rect x="175" y="185" width="18" height="20" rx="3" fill="#b79b5d" />
+    <rect x="215" y="178" width="24" height="32" rx="6" fill="#b79b5d" />
+    <rect x="270" y="180" width="16" height="28" rx="4" fill="#b79b5d" />
+
+    <!-- smokebox (front left) -->
+    <g transform="translate(60,0)">
+      <ellipse cx="75" cy="245" rx="56" ry="48" fill="#2b2b2b" stroke="#111" stroke-width="3" />
+      <!-- smokebox door -->
+      <circle cx="75" cy="245" r="30" fill="#111" stroke="#444" stroke-width="3" />
+      <g stroke="#777" stroke-width="3" stroke-linecap="round">
+        <line x1="75" y1="215" x2="75" y2="275" />
+        <line x1="45" y1="245" x2="105" y2="245" />
+      </g>
+      <!-- headlamp -->
+      <g transform="translate(35,190)">
+        <ellipse cx="0" cy="0" rx="14" ry="10" fill="#ffd76a" stroke="#664d00" stroke-width="3" />
+        <rect x="-8" y="-18" width="16" height="8" rx="3" fill="#3b3b3b" />
+      </g>
+      <!-- buffer/beam -->
+      <rect x="10" y="270" width="40" height="10" rx="3" fill="#3b3b3b" />
+    </g>
+
+    <!-- tall funnel (chimney) above smokebox -->
+    <g>
+      <rect x="95" y="150" width="28" height="40" rx="6" fill="#111" stroke="#000" stroke-width="2" />
+      <ellipse cx="109" cy="148" rx="22" ry="8" fill="#111" stroke="#000" stroke-width="2" />
+    </g>
+
+    <!-- cab (rear) -->
+    <g>
+      <rect x="350" y="170" width="90" height="120" rx="6" fill="#163e2a" stroke="#072014" stroke-width="3" />
+      <rect x="370" y="190" width="50" height="40" rx="3" fill="#0d2b1a" stroke="#05160d" stroke-width="2" />
+      <rect x="385" y="220" width="20" height="36" rx="2" fill="#ffeecb" opacity="0.8" />
+    </g>
+
+    <!-- running plate / footplate -->
+    <rect x="120" y="270" width="320" height="14" rx="3" fill="#222" stroke="#000" stroke-width="2" />
+
+    <!-- cylinders and pistons (front left near smokebox) -->
+    <g id="cylinders">
+      <!-- cylinder housing -->
+      <rect x="140" y="310" width="70" height="28" rx="8" fill="#bfbfbf" stroke="#7a7a7a" stroke-width="2" transform="rotate(0,175,324)" />
+      <!-- crosshead/piston rod -->
+      <rect x="206" y="320" width="48" height="8" rx="4" fill="#cfcfcf" stroke="#8f8f8f" />
+      <rect x="252" y="316" width="10" height="16" rx="3" fill="#e8e8e8" stroke="#8f8f8f" />
+    </g>
+  </g>
+
+  <!-- Wheels group -->
+  <g id="wheels" stroke="#000" stroke-width="2" stroke-linejoin="round">
+    <!-- leading bogie (4 wheels - two axles) -->
+    <!-- leftmost small leading wheel pair -->
+    <!-- axle 1 -->
+    <g>
+      <circle cx="150" cy="330" r="18" fill="#222" />
+      <circle cx="150" cy="330" r="6" fill="#9aa5ad" />
+    </g>
+    <!-- axle 2 -->
+    <g>
+      <circle cx="182" cy="330" r="18" fill="#222" />
+      <circle cx="182" cy="330" r="6" fill="#9aa5ad" />
+    </g>
+
+    <!-- driving wheels (three large wheels) -->
+    <!-- driving wheel centers -->
+    <!-- left driving -->
+    <g id="drive1">
+      <circle cx="220" cy="330" r="40" fill="#111" />
+      <circle cx="220" cy="330" r="6" fill="#9aa5ad" />
+      <!-- spokes (stylized) -->
+      <g stroke="#6f7a80" stroke-width="3">
+        <line x1="220" y1="290" x2="220" y2="370" />
+        <line x1="180" y1="330" x2="260" y2="330" />
+        <line x1="200" y1="305" x2="240" y2="355" />
+        <line x1="200" y1="355" x2="240" y2="305" />
+      </g>
+    </g>
+
+    <!-- middle driving -->
+    <g id="drive2">
+      <circle cx="280" cy="330" r="40" fill="#111" />
+      <circle cx="280" cy="330" r="6" fill="#9aa5ad" />
+      <g stroke="#6f7a80" stroke-width="3">
+        <line x1="280" y1="290" x2="280" y2="370" />
+        <line x1="240" y1="330" x2="320" y2="330" />
+        <line x1="260" y1="305" x2="300" y2="355" />
+        <line x1="260" y1="355" x2="300" y2="305" />
+      </g>
+    </g>
+
+    <!-- right driving -->
+    <g id="drive3">
+      <circle cx="340" cy="330" r="40" fill="#111" />
+      <circle cx="340" cy="330" r="6" fill="#9aa5ad" />
+      <g stroke="#6f7a80" stroke-width="3">
+        <line x1="340" y1="290" x2="340" y2="370" />
+        <line x1="300" y1="330" x2="380" y2="330" />
+        <line x1="320" y1="305" x2="360" y2="355" />
+        <line x1="320" y1="355" x2="360" y2="305" />
+      </g>
+    </g>
+
+    <!-- trailing wheels (two wheels) -->
+    <g>
+      <circle cx="420" cy="330" r="18" fill="#222" />
+      <circle cx="420" cy="330" r="6" fill="#9aa5ad" />
+    </g>
+  </g>
+
+  <!-- Coupling rods and motion geometry -->
+  <g id="rods" fill="none" stroke="#c33b1b" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <!-- crank pin positions calculated and represented -->
+    <!-- front driving crank pin (offset on wheel) -->
+    <!-- computed approximation: drive1 pin at (246,315) -->
+    <!-- middle driving pin at (250,330) -->
+    <!-- rear driving pin at (366,345) -->
+    <!-- coupling rod connecting all three driving wheels -->
+    <path d="M246 315 L250 330 L366 345" stroke="#c33b1b" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+    <!-- add small decorative pin circles on rod -->
+    <circle cx="246" cy="315" r="6" fill="#222" stroke="#000" stroke-width="2" />
+    <circle cx="250" cy="330" r="6" fill="#222" stroke="#000" stroke-width="2" />
+    <circle cx="366" cy="345" r="6" fill="#222" stroke="#000" stroke-width="2" />
+  </g>
+
+  <!-- Main connecting rod from piston to first driving crank pin -->
+  <g id="main-rod" stroke="#d1572a" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="#d1572a">
+    <!-- piston rod anchored at crosshead approx x=252,y=324 to first drive pin at 246,315 -->
+    <path d="M252 324 L246 315" stroke="#d1572a" stroke-width="10" />
+    <circle cx="246" cy="315" r="6" fill="#222" stroke="#000" stroke-width="2" />
+  </g>
+
+  <!-- Valve gear (simplified Stephenson/Eccentric rods) -->
+  <g id="valve-gear" stroke="#b98b34" stroke-width="5" stroke-linecap="round">
+    <!-- small eccentric rod from cylinder area to gear near middle axle -->
+    <path d="M200 330 L235 342 L268 333" fill="none" />
+    <!-- expansion link -->
+    <path d="M232 338 q8 -8 18 -4" fill="none" stroke="#a67c2b" stroke-width="4" />
+    <!-- small pin -->
+    <circle cx="268" cy="333" r="4" fill="#3b3b3b" />
+  </g>
+
+  <!-- small details: side rods to trailing wheels (side bar) -->
+  <g id="sidebars" stroke="#7a7a7a" stroke-width="3" stroke-linecap="round">
+    <line x1="320" y1="330" x2="400" y2="330" />
+  </g>
+
+  <!-- subtle shadows under locomotive -->
+  <g opacity="0.15" fill="#000">
+    <ellipse cx="280" cy="390" rx="200" ry="18" />
+  </g>
+</svg>

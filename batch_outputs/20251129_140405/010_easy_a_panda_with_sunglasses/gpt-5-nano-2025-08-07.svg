@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <!-- Ears (behind head) -->
+  <circle cx="150" cy="110" r="40" fill="#000"/>
+  <circle cx="350" cy="110" r="40" fill="#000"/>
+
+  <!-- Head -->
+  <circle cx="250" cy="210" r="110" fill="#ffffff" stroke="#000" stroke-width="2"/>
+
+  <!-- Eye patches -->
+  <ellipse cx="190" cy="210" rx="40" ry="38" fill="#000"/>
+  <ellipse cx="310" cy="210" rx="40" ry="38" fill="#000"/>
+
+  <!-- Sunglasses -->
+  <rect x="120" y="190" width="80" height="40" rx="8" fill="#000"/>
+  <rect x="300" y="190" width="80" height="40" rx="8" fill="#000"/>
+  <rect x="200" y="198" width="100" height="14" rx="7" fill="#000"/>
+
+  <!-- Nose -->
+  <ellipse cx="250" cy="260" rx="8" ry="6" fill="#000"/>
+
+  <!-- Torso -->
+  <ellipse cx="250" cy="360" rx="140" ry="110" fill="#ffffff" stroke="#000" stroke-width="2"/>
+  <!-- Arms -->
+  <ellipse cx="110" cy="350" rx="40" ry="110" fill="#000"/>
+  <ellipse cx="390" cy="350" rx="40" ry="110" fill="#000"/>
+</svg>

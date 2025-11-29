@@ -1,0 +1,129 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="500" height="500" fill="#f6f4ef"/>
+
+  <!-- Ground planks -->
+  <g id="planks" fill="#d6b48b">
+    <rect x="80" y="430" width="340" height="18" rx="3"/>
+    <rect x="80" y="452" width="340" height="6" rx="3" fill="#caa97a"/>
+    <!-- planks separation lines -->
+    <g stroke="#b98f62" stroke-width="2">
+      <line x1="120" y1="430" x2="120" y2="448"/>
+      <line x1="170" y1="430" x2="170" y2="448"/>
+      <line x1="220" y1="430" x2="220" y2="448"/>
+      <line x1="270" y1="430" x2="270" y2="448"/>
+      <line x1="320" y1="430" x2="320" y2="448"/>
+      <line x1="370" y1="430" x2="370" y2="448"/>
+    </g>
+    <!-- pegs -->
+    <g fill="#4a2f1a">
+      <circle cx="95" cy="439" r="4"/>
+      <circle cx="155" cy="439" r="4"/>
+      <circle cx="215" cy="439" r="4"/>
+      <circle cx="275" cy="439" r="4"/>
+      <circle cx="335" cy="439" r="4"/>
+      <circle cx="395" cy="439" r="4"/>
+    </g>
+  </g>
+
+  <!-- Ground shadow beneath trebuchet -->
+  <ellipse cx="220" cy="462" rx="120" ry="12" fill="#000" opacity="0.06"/>
+
+  <!-- Frame legs -->
+  <g id="frame" stroke-linecap="round" stroke-linejoin="round" stroke="#5C3A21" stroke-width="16">
+    <!-- left leg -->
+    <line x1="120" y1="420" x2="220" y2="140" stroke="#8B5A2B"/>
+    <!-- right leg -->
+    <line x1="320" y1="420" x2="220" y2="140" stroke="#8B5A2B"/>
+    <!-- crossbeam near base -->
+    <line x1="150" y1="370" x2="290" y2="370" stroke="#7b4f2b" stroke-width="18"/>
+    <!-- small brace -->
+    <line x1="180" y1="300" x2="260" y2="300" stroke="#7b4f2b" stroke-width="10"/>
+  </g>
+
+  <!-- Frame shadow (subtle) -->
+  <path d="M124 430 C220 460 320 460 324 430 L324 438 C320 463 220 463 124 438 Z" fill="#000" opacity="0.03"/>
+
+  <!-- Axle -->
+  <g id="axle">
+    <circle cx="220" cy="140" r="10" fill="#777" stroke="#4a4a4a" stroke-width="2"/>
+    <circle cx="220" cy="140" r="5" fill="#e6e6e6" opacity="0.4"/>
+  </g>
+
+  <!-- Throwing arm -->
+  <g id="arm" stroke-linecap="round" stroke-linejoin="round">
+    <!-- arm shaft -->
+    <line x1="160" y1="220" x2="420" y2="90" stroke="#8B5A2B" stroke-width="18" />
+    <!-- arm inner edge for depth -->
+    <line x1="160" y1="220" x2="420" y2="90" stroke="#6d3f25" stroke-width="6" stroke-linecap="round" opacity="0.6" />
+    <!-- small metal reinforcement near axle -->
+    <rect x="206" y="126" width="28" height="8" fill="#666" transform="rotate(-14 220 140)" opacity="0.9"/>
+  </g>
+
+  <!-- Counterweight box hanging from short arm -->
+  <g id="counterweight">
+    <!-- rope from arm to box -->
+    <path d="M160 220 L160 260" stroke="#49311F" stroke-width="4" stroke-linecap="round"/>
+    <!-- box -->
+    <rect x="130" y="260" width="60" height="60" rx="4" fill="#3b2b20" stroke="#2b1d15" stroke-width="3"/>
+    <!-- box planks -->
+    <line x1="140" y1="280" x2="180" y2="280" stroke="#2b1d15" stroke-width="2"/>
+    <line x1="140" y1="300" x2="180" y2="300" stroke="#2b1d15" stroke-width="2"/>
+    <!-- box shadow on ground -->
+    <ellipse cx="160" cy="332" rx="44" ry="10" fill="#000" opacity="0.08"/>
+  </g>
+
+  <!-- Sling hinge and release pin -->
+  <g id="sling-and-pin">
+    <!-- small hinge peg at arm tip -->
+    <circle cx="410" cy="100" r="6" fill="#5a4a40" stroke="#3a3028" stroke-width="2"/>
+    <!-- release pin (angled) that lifts sling approx 45deg -->
+    <line x1="385" y1="115" x2="402" y2="98" stroke="#666" stroke-width="5" stroke-linecap="round" transform="rotate(-10 393.5 106.5)"/>
+  </g>
+
+  <!-- Sling ropes and stone -->
+  <g id="sling" stroke="#49311F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <!-- rope anchored on pin-ish point -->
+    <path d="M385 115 Q420 130 470 150" fill="none" />
+    <!-- second rope from hinge peg -->
+    <path d="M410 100 Q440 125 470 150" fill="none" />
+    <!-- sling pouch (slightly curved) -->
+    <path d="M462 142 Q470 150 462 158" fill="#6b6b6b" stroke="#4d4d4d" stroke-width="2"/>
+    <!-- stone -->
+    <circle cx="470" cy="150" r="14" fill="#9b9b9b" stroke="#6f6f6f" stroke-width="2"/>
+    <!-- stone highlight -->
+    <ellipse cx="464" cy="144" rx="4" ry="2" fill="#d9d9d9" opacity="0.6"/>
+    <!-- stone shadow -->
+    <ellipse cx="480" cy="164" rx="18" ry="6" fill="#000" opacity="0.12"/>
+  </g>
+
+  <!-- Taut ropes and small details -->
+  <g id="ropes" stroke="#3b2a1d" stroke-width="2.5" stroke-linecap="round">
+    <!-- rope from arm near axle to hinge for reinforcement -->
+    <path d="M240 155 Q300 160 410 100" fill="none" opacity="0.9"/>
+    <!-- rope from arm short side to counterweight top corners -->
+    <path d="M150 210 Q145 235 150 260" fill="none" />
+  </g>
+
+  <!-- Small metal hardware -->
+  <g id="hardware" fill="#666" stroke="#444" stroke-width="1">
+    <!-- bolt at hinge -->
+    <circle cx="410" cy="100" r="2" fill="#ddd" stroke="#444"/>
+    <!-- bolt at pin -->
+    <circle cx="392" cy="106" r="2" fill="#ddd" stroke="#444"/>
+  </g>
+
+  <!-- Alignment shadow for arm and sling (consistent direction down-right) -->
+  <g fill="#000" opacity="0.06">
+    <!-- arm shadow -->
+    <path d="M168 232 L430 102 L438 112 L176 242 Z"/>
+    <!-- sling/pin shadow -->
+    <ellipse cx="456" cy="168" rx="22" ry="7"/>
+  </g>
+
+  <!-- Decorative center point -->
+  <g>
+    <!-- center pivot ring -->
+    <circle cx="220" cy="140" r="3" fill="#333"/>
+  </g>
+</svg>

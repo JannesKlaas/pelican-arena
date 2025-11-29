@@ -1,0 +1,56 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <!-- shadow -->
+  <ellipse cx="250" cy="460" rx="120" ry="16" fill="#000" opacity="0.12"/>
+
+  <!-- cupcake wrapper -->
+  <g>
+    <path d="M130 320 L370 320 L400 430 L100 430 Z" fill="#ff9aa2" stroke="#e67a83" stroke-width="3" />
+    <!-- wrapper stripes -->
+    <rect x="145" y="322" width="16" height="106" rx="3" fill="#f07a83" opacity="0.9"/>
+    <rect x="185" y="322" width="16" height="106" rx="3" fill="#f07a83" opacity="0.9"/>
+    <rect x="225" y="322" width="16" height="106" rx="3" fill="#f07a83" opacity="0.9"/>
+    <rect x="265" y="322" width="16" height="106" rx="3" fill="#f07a83" opacity="0.9"/>
+    <rect x="305" y="322" width="16" height="106" rx="3" fill="#f07a83" opacity="0.9"/>
+  </g>
+
+  <!-- frosting -->
+  <g>
+    <path d="M140 320
+             C130 300 150 250 200 250
+             C220 200 280 200 300 250
+             C350 250 370 300 360 320
+             Z"
+          fill="#ffd6e0" stroke="#f5a6b3" stroke-width="3"/>
+    <!-- frosting highlight -->
+    <path d="M160 310
+             C150 295 165 260 205 260
+             C220 230 280 230 295 260
+             C330 260 350 295 340 310
+             C300 290 200 295 160 310
+             Z"
+          fill="#fff1f5" opacity="0.7"/>
+  </g>
+
+  <!-- crown -->
+  <g transform="translate(0,-10)">
+    <path d="M220 185 L200 140 L235 150 L250 120 L265 150 L300 140 L280 185 Z"
+          fill="#ffd24d" stroke="#e0a800" stroke-width="3" stroke-linejoin="round"/>
+    <!-- crown base -->
+    <rect x="205" y="180" width="90" height="12" rx="6" fill="#f0be3a" stroke="#d49b12" stroke-width="2"/>
+    <!-- jewels -->
+    <circle cx="200" cy="140" r="8" fill="#e74c3c" stroke="#c43a2e" stroke-width="2"/>
+    <circle cx="250" cy="120" r="8" fill="#5dade2" stroke="#347fb6" stroke-width="2"/>
+    <circle cx="300" cy="140" r="8" fill="#8bc34a" stroke="#6a9933" stroke-width="2"/>
+    <!-- crown highlight -->
+    <path d="M230 150 C240 140 260 140 270 150" fill="none" stroke="#fff8c8" stroke-width="2" opacity="0.6" stroke-linecap="round"/>
+  </g>
+
+  <!-- face -->
+  <g>
+    <circle cx="215" cy="280" r="8" fill="#453a3f"/>
+    <circle cx="285" cy="280" r="8" fill="#453a3f"/>
+    <path d="M215 300 Q250 320 285 300" fill="none" stroke="#453a3f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="220" cy="275" r="3" fill="#fff" opacity="0.9"/>
+    <circle cx="290" cy="275" r="3" fill="#fff" opacity="0.9"/>
+  </g>
+</svg>

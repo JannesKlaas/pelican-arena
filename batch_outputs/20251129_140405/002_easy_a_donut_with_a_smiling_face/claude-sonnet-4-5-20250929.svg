@@ -1,0 +1,27 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer donut circle -->
+  <circle cx="250" cy="250" r="150" fill="#FFB6C1" />
+  
+  <!-- Inner donut hole -->
+  <circle cx="250" cy="250" r="70" fill="#FFF" />
+  
+  <!-- Frosting decoration spots -->
+  <circle cx="200" cy="180" r="12" fill="#FF69B4" />
+  <circle cx="280" cy="170" r="10" fill="#FF1493" />
+  <circle cx="330" cy="220" r="11" fill="#FFD700" />
+  <circle cx="350" cy="280" r="9" fill="#FF69B4" />
+  <circle cx="310" cy="330" r="10" fill="#FF1493" />
+  <circle cx="240" cy="350" r="11" fill="#FFD700" />
+  <circle cx="170" cy="330" r="10" fill="#FF69B4" />
+  <circle cx="150" cy="260" r="12" fill="#FF1493" />
+  <circle cx="180" cy="220" r="9" fill="#FFD700" />
+  
+  <!-- Left eye -->
+  <circle cx="220" cy="240" r="15" fill="#333" />
+  
+  <!-- Right eye -->
+  <circle cx="280" cy="240" r="15" fill="#333" />
+  
+  <!-- Smile -->
+  <path d="M 220 270 Q 250 295 280 270" stroke="#333" stroke-width="8" fill="none" stroke-linecap="round" />
+</svg>

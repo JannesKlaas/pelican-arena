@@ -1,0 +1,213 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- Background sky -->
+  <rect x="0" y="0" width="500" height="500" fill="#02030a"/>
+
+  <!-- Curved lunar horizon -->
+  <path d="M-50 320 Q 250 260 550 320 L550 500 L-50 500 Z" fill="#5e5e63"/>
+
+  <!-- Distant Earth -->
+  <circle cx="380" cy="80" r="28" fill="#1b458b"/>
+  <path d="M352 80 Q365 65 384 70 Q395 72 405 85 Q395 98 380 100 Q365 104 352 90 Z" fill="#9fd4ff" opacity="0.9"/>
+
+  <!-- Long shadows (to lower-right) -->
+  <!-- Astronaut shadow -->
+  <path d="M210 280 
+           L270 330 
+           L285 360 
+           L275 365 
+           L265 345 
+           L250 350 
+           L240 330 
+           L220 310 Z" 
+        fill="#1f1f23" opacity="0.6"/>
+
+  <!-- Flag shadow -->
+  <path d="M300 260 
+           L360 295 
+           L362 303 
+           L302 268 Z" 
+        fill="#1f1f23" opacity="0.6"/>
+
+  <!-- Terrain detail / regolith texture -->
+  <ellipse cx="260" cy="360" rx="210" ry="70" fill="#6c6c72"/>
+  <ellipse cx="260" cy="365" rx="190" ry="60" fill="#707077"/>
+  <ellipse cx="260" cy="380" rx="170" ry="50" fill="#75757f"/>
+
+  <!-- Footprints -->
+  <g fill="#5a5a62">
+    <ellipse cx="225" cy="345" rx="20" ry="8"/>
+    <ellipse cx="250" cy="355" rx="20" ry="8"/>
+    <ellipse cx="275" cy="365" rx="20" ry="8"/>
+  </g>
+  <g stroke="#494950" stroke-width="1.5" fill="none">
+    <path d="M215 342 q10 2 20 0 q-10 3 -20 0"/>
+    <path d="M240 352 q10 2 20 0 q-10 3 -20 0"/>
+    <path d="M265 362 q10 2 20 0 q-10 3 -20 0"/>
+  </g>
+
+  <!-- Astronaut group -->
+  <g transform="translate(180,200)">
+    <!-- PLSS backpack -->
+    <rect x="5" y="35" width="40" height="60" rx="4" fill="#d0d3dd" stroke="#b5b8c2" stroke-width="2"/>
+    <rect x="10" y="40" width="30" height="25" rx="3" fill="#f4f5fa" stroke="#c6cad6" stroke-width="1"/>
+    <circle cx="18" cy="72" r="3" fill="#0d73b8"/>
+    <circle cx="30" cy="72" r="3" fill="#c53434"/>
+    <rect x="15" y="80" width="20" height="10" rx="2" fill="#b9bcc7"/>
+
+    <!-- Legs -->
+    <g>
+      <path d="M28 120 
+               Q20 155 18 185 
+               Q25 188 35 188 
+               Q37 160 42 130 Z" 
+            fill="#e6e8f0" stroke="#c1c4cf" stroke-width="2"/>
+      <path d="M50 120 
+               Q55 150 58 183 
+               Q67 185 77 183 
+               Q72 155 68 125 Z" 
+            fill="#e6e8f0" stroke="#c1c4cf" stroke-width="2"/>
+    </g>
+
+    <!-- Boots -->
+    <g fill="#b7bac4" stroke="#999cab" stroke-width="2">
+      <path d="M14 185 
+               Q10 195 18 203 
+               Q35 207 50 200 
+               Q45 192 35 188 Z"/>
+      <path d="M58 183 
+               Q54 195 62 205 
+               Q80 209 95 202 
+               Q90 194 77 188 Z"/>
+    </g>
+    <!-- Boot tread lines -->
+    <g stroke="#8a8d97" stroke-width="1">
+      <path d="M20 196 h26"/>
+      <path d="M22 199 h24"/>
+      <path d="M64 197 h26"/>
+      <path d="M66 200 h24"/>
+    </g>
+
+    <!-- Torso -->
+    <rect x="20" y="60" width="55" height="65" rx="8" fill="#edeff5" stroke="#c1c4cf" stroke-width="2"/>
+    <!-- Torso details -->
+    <circle cx="38" cy="88" r="4" fill="#0f6bb5"/>
+    <circle cx="52" cy="88" r="4" fill="#c93535"/>
+    <rect x="34" y="98" width="25" height="10" rx="2" fill="#c9ccd6"/>
+
+    <!-- Arms with ridged joint rings -->
+    <!-- Left arm -->
+    <g>
+      <!-- Shoulder ring -->
+      <ellipse cx="20" cy="75" rx="7" ry="10" fill="#c1c4cf"/>
+      <ellipse cx="20" cy="75" rx="5" ry="8" fill="#e6e8f0"/>
+      <!-- Upper arm -->
+      <path d="M14 78 
+               Q0 95 0 110 
+               Q5 113 10 112 
+               Q10 98 20 82 Z" 
+            fill="#e6e8f0" stroke="#c1c4cf" stroke-width="2"/>
+      <!-- Elbow ring -->
+      <ellipse cx="5" cy="112" rx="6" ry="8" fill="#c1c4cf"/>
+      <ellipse cx="5" cy="112" rx="4" ry="6" fill="#e6e8f0"/>
+      <!-- Forearm and glove -->
+      <path d="M0 115 
+               Q-8 130 -6 145 
+               Q0 148 8 146 
+               Q6 132 10 118 Z" 
+            fill="#e6e8f0" stroke="#c1c4cf" stroke-width="2"/>
+      <path d="M-4 143 
+               Q-8 152 0 157 
+               Q10 160 18 155 
+               Q12 148 8 146 Z" 
+            fill="#c3c6d1" stroke="#9a9dad" stroke-width="2"/>
+    </g>
+
+    <!-- Right arm -->
+    <g>
+      <!-- Shoulder ring -->
+      <ellipse cx="75" cy="75" rx="7" ry="10" fill="#c1c4cf"/>
+      <ellipse cx="75" cy="75" rx="5" ry="8" fill="#e6e8f0"/>
+      <!-- Upper arm -->
+      <path d="M81 78 
+               Q95 95 98 112 
+               Q93 115 88 114 
+               Q84 100 76 82 Z" 
+            fill="#e6e8f0" stroke="#c1c4cf" stroke-width="2"/>
+      <!-- Elbow ring -->
+      <ellipse cx="94" cy="113" rx="6" ry="8" fill="#c1c4cf"/>
+      <ellipse cx="94" cy="113" rx="4" ry="6" fill="#e6e8f0"/>
+      <!-- Forearm and glove holding tool -->
+      <path d="M98 116 
+               Q108 128 112 142 
+               Q108 146 100 146 
+               Q96 134 92 120 Z" 
+            fill="#e6e8f0" stroke="#c1c4cf" stroke-width="2"/>
+      <path d="M100 142 
+               Q100 154 110 158 
+               Q118 158 124 152 
+               Q118 146 112 142 Z" 
+            fill="#c3c6d1" stroke="#9a9dad" stroke-width="2"/>
+    </g>
+
+    <!-- Helmet -->
+    <circle cx="48" cy="48" r="24" fill="#e9ecf4" stroke="#c1c4cf" stroke-width="2"/>
+    <!-- Gold visor -->
+    <path d="M32 38 
+             Q48 26 64 38 
+             Q66 50 64 60 
+             Q48 66 32 60 Z" 
+          fill="#cfa400"/>
+    <path d="M34 40 
+             Q48 30 62 40 
+             Q63 48 62 57 
+             Q48 62 34 57 Z" 
+          fill="#f2c94c" opacity="0.65"/>
+
+    <!-- Helmet side detail -->
+    <circle cx="27" cy="50" r="3" fill="#b0b4c0"/>
+  </g>
+
+  <!-- American flag -->
+  <g transform="translate(300,210)">
+    <!-- Flagpole -->
+    <rect x="0" y="-20" width="4" height="120" fill="#d0d3dd"/>
+    <!-- Horizontal support rod -->
+    <rect x="2" y="-20" width="70" height="3" fill="#d0d3dd"/>
+
+    <!-- Flag cloth -->
+    <rect x="4" y="-20" width="68" height="40" fill="#b22234" stroke="#941c28" stroke-width="1"/>
+    <!-- White stripes -->
+    <g fill="#ffffff">
+      <rect x="4" y="-17" width="68" height="4"/>
+      <rect x="4" y="-9" width="68" height="4"/>
+      <rect x="4" y="-1" width="68" height="4"/>
+      <rect x="4" y="7" width="68" height="4"/>
+      <rect x="4" y="15" width="68" height="4"/>
+      <rect x="4" y="23" width="68" height="4"/>
+    </g>
+    <!-- Blue canton -->
+    <rect x="4" y="-20" width="30" height="22" fill="#3c3b6e"/>
+    <!-- Simple star field suggestion -->
+    <g fill="#ffffff">
+      <circle cx="9" cy="-16" r="1"/>
+      <circle cx="15" cy="-13" r="1"/>
+      <circle cx="21" cy="-16" r="1"/>
+      <circle cx="27" cy="-13" r="1"/>
+      <circle cx="12" cy="-8" r="1"/>
+      <circle cx="18" cy="-5" r="1"/>
+      <circle cx="24" cy="-8" r="1"/>
+      <circle cx="9" cy="-2" r="1"/>
+      <circle cx="21" cy="-2" r="1"/>
+    </g>
+  </g>
+
+  <!-- Additional small craters -->
+  <g fill="#676772">
+    <ellipse cx="90" cy="370" rx="32" ry="10"/>
+    <ellipse cx="420" cy="355" rx="28" ry="9"/>
+  </g>
+  <g fill="#5a5a64">
+    <ellipse cx="90" cy="372" rx="22" ry="6"/>
+    <ellipse cx="420" cy="357" rx="18" ry="5"/>
+  </g>
+</svg>

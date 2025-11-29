@@ -1,0 +1,27 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Rabbit Body -->
+  <ellipse cx="250" cy="300" rx="80" ry="100" fill="#D3D3D3" />
+
+  <!-- Rabbit Head -->
+  <circle cx="250" cy="180" r="70" fill="#D3D3D3" />
+
+  <!-- Rabbit Ears -->
+  <path d="M 200 120 Q 180 50 220 20 L 250 60 Q 230 100 200 120 Z" fill="#D3D3D3" />
+  <path d="M 300 120 Q 320 50 280 20 L 250 60 Q 270 100 300 120 Z" fill="#D3D3D3" />
+
+  <!-- Rabbit Eyes -->
+  <circle cx="235" cy="170" r="10" fill="black" />
+  <circle cx="265" cy="170" r="10" fill="black" />
+
+  <!-- Rabbit Nose -->
+  <circle cx="250" cy="195" r="8" fill="#FFC0CB" />
+
+  <!-- Rabbit Tail -->
+  <circle cx="170" cy="360" r="25" fill="#D3D3D3" />
+
+  <!-- Balloon String -->
+  <path d="M 280 160 L 290 100 L 295 80" stroke="brown" stroke-width="2" fill="none" />
+
+  <!-- Balloon -->
+  <circle cx="300" cy="80" r="40" fill="#4169E1" />
+</svg>

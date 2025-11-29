@@ -1,0 +1,85 @@
+<svg width="500" height="500" viewBox="0 0 500 500">
+  <defs>
+    <!-- Define a linear gradient for the water background -->
+    <linearGradient id="waterGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:hsl(200, 40%, 65%);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:hsl(200, 50%, 40%);stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Water -->
+  <rect x="0" y="0" width="500" height="500" fill="url(#waterGradient)"/>
+
+  <!-- Light Rays from above -->
+  <g opacity="0.4" fill="hsl(60, 80%, 90%)">
+    <polygon points="150 0 180 500 120 500" />
+    <polygon points="250 0 280 500 220 500" />
+    <polygon points="350 0 380 500 320 500" />
+  </g>
+
+  <!-- Shipwreck Silhouette -->
+  <path d="M-10 500 L-10 400 L 80 390 L 120 430 L 200 400 L 250 460 L 300 440 L 350 470 L 400 450 L 510 480 L 510 500 Z" fill="hsl(0, 0%, 20%)" />
+
+  <!-- Shark Body - Dorsal surface (dark gray) -->
+  <path id="shark-dorsal"
+        d="M100 250 C110 230, 150 200, 200 200 S230 180, 250 150 C270 180, 280 200, 300 200 C350 210, 400 220, 430 220
+           L440 210 C460 210, 475 220, 485 240 L450 255 C430 250, 410 240, 390 230 L380 230 L350 240 C300 250, 250 260, 100 250 Z"
+        fill="hsl(200, 10%, 30%)" />
+
+  <!-- Shark Body - Ventral surface (white) -->
+  <path id="shark-ventral"
+        d="M100 250 C120 260, 150 270, 180 280 C220 290, 260 300, 300 290 C340 280, 380 270, 410 260
+           L420 265 C440 270, 460 280, 470 295 L440 275 C420 270, 400 260, 380 250 L350 245 C300 250, 250 255, 100 250 Z"
+        fill="hsl(0, 0%, 95%)" />
+  
+  <!-- Caudal fin (connects dorsal and ventral lobes) -->
+  <path d="M450 255 L440 275 L470 295 L485 240 Z" fill="hsl(200, 10%, 30%)" />
+
+  <!-- Dorsal fin -->
+  <path d="M225 200 C235 170, 250 150, 265 170 L275 200 Z" fill="hsl(200, 10%, 30%)" />
+
+  <!-- Pectoral fin (angled slightly downward) -->
+  <path d="M160 280 C180 290, 190 300, 180 320 C170 310, 150 300, 160 280 Z" fill="hsl(200, 10%, 30%)" transform="rotate(10 170 300)" />
+  <!-- A hint of the far pectoral fin -->
+  <path d="M155 265 C170 270, 175 280, 170 290 C165 285, 150 275, 155 265 Z" fill="hsl(200, 10%, 25%)" opacity="0.7" transform="rotate(5 165 275)" />
+
+  <!-- Eye -->
+  <circle cx="120" cy="230" r="5" fill="black" />
+
+  <!-- Mouth line -->
+  <path d="M100 250 C110 255, 120 260, 130 260 S140 255, 150 250" stroke="black" stroke-width="1" fill="none" />
+
+  <!-- Teeth (triangular, serrated) -->
+  <g fill="white">
+    <polygon points="120,258 122,263 124,258" />
+    <polygon points="125,258 127,263 129,258" />
+    <polygon points="130,258 132,263 134,258" />
+    <polygon points="135,258 137,263 139,258" />
+    <polygon points="140,258 142,263 144,258" />
+  </g>
+
+  <!-- Gill slits (5 distinct) -->
+  <g stroke="hsl(200, 10%, 20%)" stroke-width="1.5" stroke-linecap="round">
+    <line x1="140" y1="210" x2="140" y2="240" />
+    <line x1="150" y1="210" x2="150" y2="240" />
+    <line x1="160" y1="210" x2="160" y2="240" />
+    <line x1="170" y1="210" x2="170" y2="240" />
+    <line x1="180" y1="210" x2="180" y2="240" />
+  </g>
+
+  <!-- Lateral line -->
+  <path d="M170 220 C200 222, 250 224, 300 224 S350 222, 380 220"
+        stroke="hsl(0, 0%, 50%)" stroke-width="0.8" fill="none" stroke-opacity="0.8"/>
+
+  <!-- Remora Fish beneath -->
+  <g transform="translate(190 310)" fill="hsl(0, 0%, 40%)">
+    <!-- Remora 1 -->
+    <path d="M0 0 L30 0 C40 5, 40 15, 30 20 L0 20 C-5 15, -5 5, 0 0 Z" />
+    <path d="M30 10 L40 5 L40 15 Z" /> <!-- Fin -->
+  </g>
+  <g transform="translate(240 320)" fill="hsl(0, 0%, 45%)">
+    <!-- Remora 2 -->
+    <path d="M0 0 L25 0 C35 4, 35 12, 25 16 L0 16 C-4 12, -4 4, 0 0 Z" />
+    <path d="M25 8 L35 4 L35 12 Z" /> <!-- Fin -->
+  </g>
+</svg>

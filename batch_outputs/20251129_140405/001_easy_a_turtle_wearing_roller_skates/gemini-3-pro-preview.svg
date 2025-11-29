@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- Definitions -->
+  <defs>
+    <!-- Roller Skate Group -->
+    <g id="skate">
+      <!-- Boot -->
+      <path d="M-25,10 L35,10 L35,-5 L20,-30 L-15,-30 L-25,-5 Z" fill="#FF6B6B" stroke="#C0392B" stroke-width="2"/>
+      <path d="M-15,-30 L-15,-5 M-5,-30 L-5,-5 M5,-30 L5,-5" stroke="#C0392B" stroke-width="2"/> <!-- Laces -->
+      <!-- Plate -->
+      <rect x="-25" y="10" width="60" height="8" fill="#95A5A6" rx="2"/>
+      <!-- Wheels -->
+      <circle cx="-10" cy="30" r="12" fill="#34495E" stroke="#7F8C8D" stroke-width="2"/>
+      <circle cx="20" cy="30" r="12" fill="#34495E" stroke="#7F8C8D" stroke-width="2"/>
+      <circle cx="-10" cy="30" r="4" fill="#BDC3C7"/>
+      <circle cx="20" cy="30" r="4" fill="#BDC3C7"/>
+    </g>
+  </defs>
+
+  <!-- Speed Lines -->
+  <path d="M50,350 L100,350 M30,370 L80,370 M60,330 L90,330" stroke="#BDC3C7" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Back Legs (Left side/Further away) -->
+  <g transform="translate(200, 320)">
+    <rect x="-15" y="-50" width="30" height="60" rx="10" fill="#5BA86B"/>
+    <use href="#skate" />
+  </g>
+  <g transform="translate(320, 320)">
+    <rect x="-15" y="-50" width="30" height="60" rx="10" fill="#5BA86B"/>
+    <use href="#skate" />
+  </g>
+
+  <!-- Tail -->
+  <path d="M150,270 L110,280 L150,290 Z" fill="#88D498" stroke="#5BA86B" stroke-width="2"/>
+
+  <!-- Neck & Head -->
+  <g transform="rotate(-5, 380, 210)">
+    <path d="M360,240 Q400,200 420,230" stroke="#88D498" stroke-width="35" stroke-linecap="round" fill="none"/>
+    <circle cx="425" cy="220" r="35" fill="#88D498" stroke="#5BA86B" stroke-width="2"/>
+    <circle cx="435" cy="210" r="4" fill="#2C3E50"/> <!-- Eye -->
+    <path d="M435,230 Q445,235 440,245" fill="none" stroke="#2C3E50" stroke-width="2"/> <!-- Smile -->
+  </g>
+
+  <!-- Shell -->
+  <g>
+    <!-- Top Shell -->
+    <path d="M140,270 Q265,80 390,270 Z" fill="#1A936F" stroke="#145A32" stroke-width="3"/>
+    <!-- Shell Pattern -->
+    <path d="M220,200 L265,150 L310,200 L265,250 Z" fill="#114B5F" opacity="0.3"/>
+    <path d="M160,250 L190,210 L220,250 Z" fill="#114B5F" opacity="0.3"/>
+    <path d="M310,250 L340,210 L370,250 Z" fill="#114B5F" opacity="0.3"/>
+    <!-- Bottom Shell (Plastron) -->
+    <rect x="135" y="270" width="260" height="35" rx="15" fill="#F3E9D2" stroke="#D35400" stroke-width="2"/>
+  </g>
+
+  <!-- Front Legs (Right side/Closer) -->
+  <g transform="translate(240, 335)">
+    <rect x="-15" y="-50" width="30" height="60" rx="10" fill="#88D498" stroke="#5BA86B" stroke-width="2"/>
+    <use href="#skate" />
+  </g>
+  <g transform="translate(360, 335)">
+    <rect x="-15" y="-50" width="30" height="60" rx="10" fill="#88D498" stroke="#5BA86B" stroke-width="2"/>
+    <use href="#skate" />
+  </g>
+</svg>

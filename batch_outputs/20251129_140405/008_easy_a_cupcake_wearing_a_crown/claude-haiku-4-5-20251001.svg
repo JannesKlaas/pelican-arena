@@ -1,0 +1,43 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Crown -->
+  <path d="M 150 80 L 180 40 L 210 60 L 250 20 L 290 60 L 320 40 L 350 80 Z" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+  <circle cx="180" cy="40" r="8" fill="#FF6B6B"/>
+  <circle cx="250" cy="20" r="8" fill="#FF6B6B"/>
+  <circle cx="320" cy="40" r="8" fill="#FF6B6B"/>
+  
+  <!-- Crown band -->
+  <rect x="150" y="80" width="200" height="15" fill="#FFD700" stroke="#DAA520" stroke-width="2" rx="3"/>
+  
+  <!-- Cupcake wrapper -->
+  <path d="M 150 95 Q 140 110 140 130 L 360 130 Q 360 110 350 95 Z" fill="#E8A76C" stroke="#C67C3C" stroke-width="2"/>
+  <line x1="155" y1="95" x2="150" y2="130" stroke="#C67C3C" stroke-width="1"/>
+  <line x1="170" y1="95" x2="160" y2="130" stroke="#C67C3C" stroke-width="1"/>
+  <line x1="185" y1="95" x2="170" y2="130" stroke="#C67C3C" stroke-width="1"/>
+  <line x1="200" y1="95" x2="180" y2="130" stroke="#C67C3C" stroke-width="1"/>
+  <line x1="215" y1="95" x2="190" y2="130" stroke="#C67C3C" stroke-width="1"/>
+  <line x1="230" y1="95" x2="200" y2="130" stroke="#C67C3C" stroke-width="1"/>
+  <line x1="245" y1="95" x2="210" y2="130" stroke="#C67C3C" stroke-width="1"/>
+  <line x1="260" y1="95" x2="220" y2="130" stroke="#C67C3C" stroke-width="1"/>
+  <line x1="275" y1="95" x2="230" y2="130" stroke="#C67C3C" stroke-width="1"/>
+  <line x1="290" y1="95" x2="240" y2="130" stroke="#C67C3C" stroke-width="1"/>
+  <line x1="305" y1="95" x2="250" y2="130" stroke="#C67C3C" stroke-width="1"/>
+  <line x1="320" y1="95" x2="260" y2="130" stroke="#C67C3C" stroke-width="1"/>
+  <line x1="335" y1="95" x2="270" y2="130" stroke="#C67C3C" stroke-width="1"/>
+  <line x1="350" y1="95" x2="280" y2="130" stroke="#C67C3C" stroke-width="1"/>
+  
+  <!-- Cake body -->
+  <ellipse cx="250" cy="200" rx="100" ry="90" fill="#D4816E" stroke="#A0573D" stroke-width="2"/>
+  
+  <!-- Frosting on top -->
+  <path d="M 150 130 Q 150 150 160 170 Q 180 200 250 220 Q 320 200 340 170 Q 350 150 350 130 Z" fill="#F4A0B0" stroke="#E08099" stroke-width="2"/>
+  
+  <!-- Frosting swirl details -->
+  <circle cx="200" cy="150" r="12" fill="#FF69B4" opacity="0.6"/>
+  <circle cx="300" cy="150" r="12" fill="#FF69B4" opacity="0.6"/>
+  <circle cx="250" cy="130" r="15" fill="#FF69B4" opacity="0.6"/>
+  
+  <!-- Cherry on top -->
+  <circle cx="250" cy="120" r="10" fill="#C41E3A"/>
+  <path d="M 250 120 Q 252 105 250 95" stroke="#8B4513" stroke-width="2" fill="none"/>
+  <ellipse cx="245" cy="100" rx="4" ry="6" fill="#90EE90" transform="rotate(-30 245 100)"/>
+</svg>

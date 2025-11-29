@@ -1,0 +1,63 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Sky -->
+  <rect width="500" height="500" fill="#bfefff"/>
+  <!-- Ground -->
+  <rect y="380" width="500" height="120" fill="#87c95f"/>
+  <!-- Shadow under dinosaur -->
+  <ellipse cx="210" cy="420" rx="90" ry="18" fill="#000" opacity="0.12"/>
+  <!-- Dinosaur group -->
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <!-- Body -->
+    <ellipse cx="210" cy="320" rx="110" ry="65" fill="#6cc86f" stroke="#2f8f3d" stroke-width="4"/>
+    <!-- Belly -->
+    <ellipse cx="185" cy="330" rx="60" ry="36" fill="#9feaa0" stroke="#2f8f3d" stroke-width="2" opacity="0.9"/>
+    <!-- Spots -->
+    <circle cx="240" cy="300" r="8" fill="#49a84a"/>
+    <circle cx="200" cy="280" r="6" fill="#49a84a"/>
+    <circle cx="160" cy="310" r="7" fill="#49a84a"/>
+    <!-- Head -->
+    <circle cx="140" cy="280" r="36" fill="#6cc86f" stroke="#2f8f3d" stroke-width="4"/>
+    <!-- Eye -->
+    <circle cx="128" cy="272" r="10" fill="#fff" stroke="#2f8f3d" stroke-width="2"/>
+    <circle cx="132" cy="274" r="4" fill="#000"/>
+    <!-- Mouth -->
+    <path d="M125 295 Q150 300 160 292" fill="none" stroke="#9b3b2b" stroke-width="3" stroke-linecap="round"/>
+    <!-- Arm holding string -->
+    <path d="M200 300 C220 285 230 280 240 295" fill="none" stroke="#2f8f3d" stroke-width="8" stroke-linecap="round"/>
+    <!-- Legs -->
+    <g stroke="#2f8f3d" stroke-width="4" fill="#6cc86f">
+      <ellipse cx="170" cy="370" rx="20" ry="26"/>
+      <ellipse cx="240" cy="370" rx="22" ry="28"/>
+    </g>
+    <!-- Tail -->
+    <path d="M290 320 C350 310 370 280 410 300 C395 290 370 295 360 305 C345 315 330 318 310 328" fill="#6cc86f" stroke="#2f8f3d" stroke-width="4"/>
+    <!-- Spikes along back -->
+    <g fill="#ffa94d" stroke="#c76a1a" stroke-width="2">
+      <path d="M120 260 L130 235 L140 260 Z"/>
+      <path d="M150 250 L160 225 L170 250 Z"/>
+      <path d="M180 245 L190 220 L200 245 Z"/>
+      <path d="M210 240 L220 215 L230 240 Z"/>
+      <path d="M240 245 L250 220 L260 245 Z"/>
+    </g>
+  </g>
+
+  <!-- Kite string -->
+  <path d="M240 295 C270 260 320 210 380 160" fill="none" stroke="#6b4a2a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Kite -->
+  <g transform="translate(0,0)">
+    <polygon points="380,80 420,120 380,160 340,120" fill="#ff6b6b" stroke="#a43a3a" stroke-width="4"/>
+    <!-- Kite cross stick -->
+    <line x1="380" y1="80" x2="380" y2="160" stroke="#7a4a2a" stroke-width="4" stroke-linecap="round"/>
+    <line x1="340" y1="120" x2="420" y2="120" stroke="#7a4a2a" stroke-width="4" stroke-linecap="round"/>
+    <!-- Kite highlights -->
+    <polygon points="380,80 380,120 420,120" fill="#ff9494" opacity="0.25"/>
+    <!-- Tail ribbons (below kite) -->
+    <g>
+      <path d="M380 160 C385 170 395 180 398 190" fill="none" stroke="#6b4a2a" stroke-width="3" stroke-linecap="round"/>
+      <polygon points="398,190 392,182 402,182" fill="#ffd166" stroke="#c78b2a" stroke-width="1"/>
+      <path d="M402 195 C408 205 416 215 422 225" fill="none" stroke="#6b4a2a" stroke-width="3" stroke-linecap="round"/>
+      <polygon points="422,225 416,218 426,218" fill="#8ecae6" stroke="#3c95b0" stroke-width="1"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,28 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="donut-glaze" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700; stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFA500; stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="donut-dough" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E0B266; stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C49A59; stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Donut dough -->
+  <circle cx="250" cy="250" r="150" fill="url(#donut-dough)" />
+
+  <!-- Donut hole -->
+  <circle cx="250" cy="250" r="70" fill="white" />
+
+  <!-- Donut glaze -->
+  <circle cx="250" cy="250" r="150" fill="url(#donut-glaze)" stroke="#DAA520" stroke-width="5" />
+
+  <!-- Eyes -->
+  <circle cx="200" cy="220" r="20" fill="black" />
+  <circle cx="300" cy="220" r="20" fill="black" />
+
+  <!-- Mouth -->
+  <path d="M 200 280 Q 250 320 300 280" stroke="black" stroke-width="10" fill="none" stroke-linecap="round" />
+</svg>

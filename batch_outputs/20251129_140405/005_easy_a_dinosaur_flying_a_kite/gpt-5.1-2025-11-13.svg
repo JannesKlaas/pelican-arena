@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- Background -->
+  <rect x="0" y="0" width="500" height="500" fill="#cceeff" />
+
+  <!-- Ground -->
+  <rect x="0" y="380" width="500" height="120" fill="#88cc88" />
+
+  <!-- Sun -->
+  <circle cx="70" cy="70" r="35" fill="#ffdd55" />
+
+  <!-- Dinosaur body -->
+  <ellipse cx="180" cy="320" rx="70" ry="50" fill="#66bb66" />
+
+  <!-- Dinosaur tail -->
+  <path d="M 230 320 C 270 310 300 320 320 340 C 290 335 260 345 235 340 Z" fill="#55aa55" />
+
+  <!-- Dinosaur legs -->
+  <ellipse cx="150" cy="360" rx="15" ry="25" fill="#55aa55" />
+  <ellipse cx="200" cy="360" rx="15" ry="25" fill="#55aa55" />
+
+  <!-- Dinosaur neck and head -->
+  <path d="M 150 280 C 140 250 140 230 150 210 C 165 200 190 205 200 220 C 210 240 205 265 190 280 Z" fill="#66bb66" />
+
+  <!-- Eye -->
+  <circle cx="185" cy="230" r="5" fill="#ffffff" />
+  <circle cx="187" cy="230" r="2" fill="#000000" />
+
+  <!-- Mouth -->
+  <path d="M 177 245 Q 185 252 195 248" stroke="#333333" stroke-width="2" fill="none" />
+
+  <!-- Dinosaur arm holding kite string -->
+  <path d="M 205 305 C 230 290 260 285 290 280" stroke="#55aa55" stroke-width="10" stroke-linecap="round" fill="none" />
+
+  <!-- Kite string -->
+  <path d="M 290 280 C 340 240 380 200 420 150" stroke="#444444" stroke-width="2" fill="none" />
+
+  <!-- Kite -->
+  <polygon points="420,120 450,150 420,180 390,150" fill="#ff6666" stroke="#cc4444" stroke-width="2" />
+  <line x1="420" y1="120" x2="420" y2="180" stroke="#ffffff" stroke-width="2" />
+  <line x1="390" y1="150" x2="450" y2="150" stroke="#ffffff" stroke-width="2" />
+
+  <!-- Kite tail -->
+  <path d="M 390 180 C 380 200 370 220 360 235" stroke="#444444" stroke-width="2" fill="none" />
+  <polygon points="365,210 355,215 365,220" fill="#ffcc66" />
+  <polygon points="375,190 365,195 375,200" fill="#66ccff" />
+</svg>

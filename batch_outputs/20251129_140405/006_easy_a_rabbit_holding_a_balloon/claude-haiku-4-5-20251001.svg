@@ -1,0 +1,43 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Balloon string -->
+  <line x1="280" y1="80" x2="280" y2="180" stroke="#333" stroke-width="2"/>
+  
+  <!-- Balloon -->
+  <circle cx="280" cy="60" r="35" fill="#FF6B9D"/>
+  <path d="M 270 85 Q 280 95 290 85" stroke="#FF6B9D" stroke-width="2" fill="none"/>
+  
+  <!-- Rabbit body -->
+  <ellipse cx="250" cy="280" rx="70" ry="90" fill="#F5DEB3"/>
+  
+  <!-- Rabbit head -->
+  <circle cx="250" cy="170" r="55" fill="#F5DEB3"/>
+  
+  <!-- Rabbit ears -->
+  <ellipse cx="220" cy="90" rx="20" ry="60" fill="#F5DEB3"/>
+  <ellipse cx="220" cy="95" rx="12" ry="50" fill="#FFB6C1"/>
+  
+  <ellipse cx="280" cy="90" rx="20" ry="60" fill="#F5DEB3"/>
+  <ellipse cx="280" cy="95" rx="12" ry="50" fill="#FFB6C1"/>
+  
+  <!-- Eyes -->
+  <circle cx="235" cy="155" r="6" fill="#333"/>
+  <circle cx="265" cy="155" r="6" fill="#333"/>
+  
+  <!-- Nose -->
+  <circle cx="250" cy="175" r="5" fill="#FF69B4"/>
+  
+  <!-- Mouth -->
+  <path d="M 250 175 Q 245 185 240 183" stroke="#333" stroke-width="2" fill="none"/>
+  <path d="M 250 175 Q 255 185 260 183" stroke="#333" stroke-width="2" fill="none"/>
+  
+  <!-- Front paws holding balloon string -->
+  <ellipse cx="220" cy="320" rx="18" ry="40" fill="#F5DEB3"/>
+  <ellipse cx="280" cy="320" rx="18" ry="40" fill="#F5DEB3"/>
+  
+  <!-- Back paws -->
+  <ellipse cx="200" cy="360" rx="25" ry="35" fill="#F5DEB3"/>
+  <ellipse cx="300" cy="360" rx="25" ry="35" fill="#F5DEB3"/>
+  
+  <!-- Tail -->
+  <circle cx="250" cy="370" r="25" fill="#FFF"/>
+</svg>

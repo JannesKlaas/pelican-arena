@@ -1,0 +1,40 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Guitar Body - Drawn first to be behind the fox's body -->
+  <path d="M 250 280 C 190 290, 180 350, 180 390 C 180 430, 200 470, 250 480 C 300 470, 320 430, 320 390 C 320 350, 310 290, 250 280 Z" fill="#8B4513"/>
+
+  <!-- Fox Body and Tail -->
+  <ellipse cx="250" cy="350" rx="90" ry="110" fill="#E87A00"/> <!-- Main body -->
+  <ellipse cx="250" cy="380" rx="60" ry="80" fill="#FFF8E7"/> <!-- Belly -->
+  <path d="M 320 380 Q 380 300, 350 250 Q 320 280, 300 380 Z" fill="#E87A00"/> <!-- Tail -->
+  <path d="M 325 270 Q 340 250, 350 250 Q 330 260, 325 270 Z" fill="#FFF8E7"/> <!-- Tail tip -->
+
+  <!-- Guitar Neck and Headstock - Drawn over the fox's body -->
+  <rect x="240" y="190" width="20" height="90" fill="#A0522D"/> <!-- Neck -->
+  <rect x="230" y="170" width="40" height="20" fill="#A0522D"/> <!-- Headstock -->
+  
+  <!-- Guitar Soundhole - On the body -->
+  <circle cx="250" cy="350" r="30" fill="#333333"/>
+  
+  <!-- Guitar Strings - On the neck and body -->
+  <line x1="242" y1="180" x2="242" y2="400" stroke="#CCCCCC" stroke-width="1"/>
+  <line x1="246" y1="180" x2="246" y2="400" stroke="#CCCCCC" stroke-width="1"/>
+  <line x1="250" y1="180" x2="250" y2="400" stroke="#CCCCCC" stroke-width="1"/>
+  <line x1="254" y1="180" x2="254" y2="400" stroke="#CCCCCC" stroke-width="1"/>
+  <line x1="258" y1="180" x2="258" y2="400" stroke="#CCCCCC" stroke-width="1"/>
+
+  <!-- Fox Head and Face - Drawn over the guitar neck -->
+  <ellipse cx="250" cy="220" rx="70" ry="70" fill="#E87A00"/> <!-- Head -->
+  <path d="M 190 170 Q 210 140, 240 160 L 220 200 Z" fill="#E87A00"/> <!-- Left outer ear -->
+  <path d="M 310 170 Q 290 140, 260 160 L 280 200 Z" fill="#E87A00"/> <!-- Right outer ear -->
+  <path d="M 205 180 Q 215 160, 230 175 L 220 190 Z" fill="#FFF8E7"/> <!-- Left inner ear -->
+  <path d="M 295 180 Q 285 160, 270 175 L 280 190 Z" fill="#FFF8E7"/> <!-- Right inner ear -->
+
+  <ellipse cx="250" cy="250" rx="40" ry="30" fill="#FFF8E7"/> <!-- Snout -->
+  <circle cx="250" cy="245" r="10" fill="#333333"/> <!-- Nose -->
+  <circle cx="225" cy="210" r="8" fill="#333333"/> <!-- Left Eye -->
+  <circle cx="275" cy="210" r="8" fill="#333333"/> <!-- Right Eye -->
+
+  <!-- Fox Arms - Drawn over the guitar neck and strings to show playing -->
+  <path d="M 230 300 Q 200 300, 210 350 L 240 340 Z" fill="#E87A00"/> <!-- Left arm -->
+  <path d="M 270 300 Q 300 300, 290 350 L 260 340 Z" fill="#E87A00"/> <!-- Right arm -->
+</svg>

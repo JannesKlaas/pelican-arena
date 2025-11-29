@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- Ears -->
+  <circle cx="140" cy="140" r="50" fill="#000000"/>
+  <circle cx="360" cy="140" r="50" fill="#000000"/>
+  
+  <!-- Shoulders/Body -->
+  <path d="M110 500 Q110 380 250 380 Q390 380 390 500 Z" fill="#000000"/>
+  
+  <!-- Head -->
+  <ellipse cx="250" cy="250" rx="140" ry="130" fill="#FFFFFF" stroke="#eeeeee" stroke-width="2"/>
+  
+  <!-- Sunglasses -->
+  <g>
+    <!-- Bridge -->
+    <rect x="230" y="225" width="40" height="10" fill="#111111"/>
+    <!-- Left Lens -->
+    <path d="M130 210 H230 A10 10 0 0 1 240 220 V260 A30 30 0 0 1 210 290 H160 A30 30 0 0 1 130 260 Z" fill="#111111"/>
+    <!-- Right Lens -->
+    <path d="M270 210 H370 A10 10 0 0 1 380 220 V260 A30 30 0 0 1 350 290 H300 A30 30 0 0 1 270 260 Z" fill="#111111"/>
+    
+    <!-- Reflections -->
+    <path d="M145 225 L215 225 L195 255 Z" fill="#FFFFFF" opacity="0.3"/>
+    <path d="M285 225 L355 225 L335 255 Z" fill="#FFFFFF" opacity="0.3"/>
+  </g>
+
+  <!-- Nose -->
+  <ellipse cx="250" cy="320" rx="20" ry="14" fill="#000000"/>
+  <circle cx="245" cy="316" r="4" fill="#FFFFFF" opacity="0.4"/>
+
+  <!-- Mouth -->
+  <path d="M210 350 Q250 380 290 350" fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round"/>
+</svg>

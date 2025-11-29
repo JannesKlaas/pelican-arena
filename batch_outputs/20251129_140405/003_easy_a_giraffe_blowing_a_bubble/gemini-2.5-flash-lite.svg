@@ -1,0 +1,46 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Giraffe Body -->
+  <rect x="150" y="150" width="100" height="200" fill="#FFD700" rx="20" ry="20"/>
+
+  <!-- Giraffe Neck -->
+  <rect x="190" y="50" width="60" height="150" fill="#FFD700" rx="10" ry="10"/>
+
+  <!-- Giraffe Head -->
+  <circle cx="220" cy="40" r="40" fill="#FFD700"/>
+
+  <!-- Giraffe Muzzle -->
+  <ellipse cx="220" cy="30" rx="20" ry="10" fill="#FFA07A"/>
+
+  <!-- Giraffe Ears -->
+  <path d="M 190 20 Q 170 0 180 20" fill="#FFD700"/>
+  <path d="M 250 20 Q 270 0 260 20" fill="#FFD700"/>
+
+  <!-- Giraffe Legs -->
+  <rect x="160" y="350" width="40" height="100" fill="#FFD700" rx="10" ry="10"/>
+  <rect x="200" y="350" width="40" height="100" fill="#FFD700" rx="10" ry="10"/>
+  <rect x="260" y="350" width="40" height="100" fill="#FFD700" rx="10" ry="10"/>
+  <rect x="300" y="350" width="40" height="100" fill="#FFD700" rx="10" ry="10"/>
+
+  <!-- Giraffe Eyes -->
+  <circle cx="210" cy="45" r="5" fill="black"/>
+  <circle cx="230" cy="45" r="5" fill="black"/>
+
+  <!-- Giraffe Spots -->
+  <circle cx="180" cy="180" r="15" fill="#E0B000"/>
+  <circle cx="220" cy="200" r="15" fill="#E0B000"/>
+  <circle cx="260" cy="180" r="15" fill="#E0B000"/>
+  <circle cx="170" cy="250" r="15" fill="#E0B000"/>
+  <circle cx="250" cy="280" r="15" fill="#E0B000"/>
+  <circle cx="200" cy="110" r="10" fill="#E0B000"/>
+  <circle cx="240" cy="130" r="10" fill="#E0B000"/>
+
+  <!-- Bubble -->
+  <circle cx="240" cy="20" r="25" fill="rgba(255, 255, 255, 0.5)" stroke="white" stroke-width="2"/>
+  <circle cx="245" cy="15" r="5" fill="rgba(255, 255, 255, 0.8)"/>
+
+  <!-- Bubble trail -->
+  <path d="M 240 20 Q 260 5 280 -10" stroke="rgba(255, 255, 255, 0.5)" stroke-width="2" fill="none"/>
+  <circle cx="260" cy="5" r="3" fill="rgba(255, 255, 255, 0.5)"/>
+  <circle cx="280" cy="-10" r="2" fill="rgba(255, 255, 255, 0.5)"/>
+
+</svg>

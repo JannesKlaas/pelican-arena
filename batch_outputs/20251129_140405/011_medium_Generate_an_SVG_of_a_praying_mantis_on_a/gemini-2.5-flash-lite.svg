@@ -1,0 +1,129 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="backgroundGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8BC34A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2E7D32;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="backgroundGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4CAF50;stop-opacity:0.7" />
+      <stop offset="100%" style="stop-color:#1B5E20;stop-opacity:0.7" />
+    </linearGradient>
+    <filter id="bokehShadow">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" />
+      <feOffset dx="0" dy="0" result="offsetblur" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.5" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="offsetblur" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Bokeh -->
+  <rect width="100%" height="100%" fill="url(#backgroundGradient1)" />
+  <circle cx="100" cy="100" r="70" fill="url(#backgroundGradient2)" filter="url(#bokehShadow)" />
+  <circle cx="400" cy="150" r="50" fill="url(#backgroundGradient2)" filter="url(#bokehShadow)" />
+  <circle cx="200" cy="400" r="60" fill="url(#backgroundGradient2)" filter="url(#bokehShadow)" />
+  <circle cx="450" cy="400" r="40" fill="url(#backgroundGradient2)" filter="url(#bokehShadow)" />
+
+  <!-- Leaf -->
+  <path d="M 100 200 Q 150 250 200 220 Q 250 260 300 230 Q 350 270 400 240 Q 350 180 300 170 Q 250 150 200 160 Q 150 170 100 200 Z" fill="#4CAF50" stroke="#388E3C" stroke-width="2"/>
+  <path d="M 120 210 C 130 220 140 215 150 225 C 160 235 170 230 180 240 C 190 250 200 245 210 255 C 220 265 230 260 240 270 C 250 280 260 275 270 285 C 280 295 290 290 300 300 C 310 310 320 305 330 315 C 340 325 350 320 360 330 C 370 340 380 335 390 345" fill="none" stroke="#33691E" stroke-width="1.5"/>
+
+  <!-- Dew Drops -->
+  <circle cx="130" cy="215" r="5" fill="#E0E0E0" opacity="0.8"/>
+  <circle cx="170" cy="230" r="4" fill="#E0E0E0" opacity="0.8"/>
+  <circle cx="220" cy="220" r="6" fill="#E0E0E0" opacity="0.8"/>
+  <circle cx="270" cy="235" r="5" fill="#E0E0E0" opacity="0.8"/>
+  <circle cx="320" cy="220" r="4" fill="#E0E0E0" opacity="0.8"/>
+  <circle cx="370" cy="230" r="5" fill="#E0E0E0" opacity="0.8"/>
+
+  <!-- Mantis Body -->
+  <g transform="translate(200, 170) scale(0.8)">
+    <!-- Head -->
+    <path d="M 0 0 L 20 -15 L 10 -30 L -10 -30 L -20 -15 Z" fill="#2E7D32" stroke="#1B5E20" stroke-width="1.5"/>
+    <!-- Compound Eyes -->
+    <ellipse cx="15" cy="-10" rx="6" ry="8" fill="#8BC34A" stroke="#1B5E20" stroke-width="1"/>
+    <ellipse cx="-15" cy="-10" rx="6" ry="8" fill="#8BC34A" stroke="#1B5E20" stroke-width="1"/>
+    <!-- Neck -->
+    <path d="M 0 0 L 0 -20" stroke="#1B5E20" stroke-width="1.5" fill="none"/>
+
+    <!-- Thorax -->
+    <path d="M 0 -20 Q 30 -40 40 -60 Q 30 -80 0 -80 Q -30 -80 -40 -60 Q -30 -40 0 -20 Z" fill="#66BB6A" stroke="#388E3C" stroke-width="1.5"/>
+
+    <!-- Legs (6 segmented) -->
+    <!-- Front Legs (Raptorial) -->
+    <g transform="translate(15, -45)">
+      <path d="M 0 0 L 10 -20 L 5 -30 L 0 -20 Z" fill="#4CAF50" stroke="#388E3C" stroke-width="1.5"/> <!-- Femur -->
+      <path d="M 5 -30 L 10 -45 L 5 -50 L 0 -45 Z" fill="#66BB6A" stroke="#388E3C" stroke-width="1.5"/> <!-- Tibia -->
+      <path d="M 10 -45 L 15 -55 L 10 -60 L 5 -55 Z" fill="#8BC34A" stroke="#388E3C" stroke-width="1.5"/> <!-- Tarsus -->
+      <!-- Spines -->
+      <line x1="7" y1="-35" x2="12" y2="-40" stroke="#1B5E20" stroke-width="1"/>
+      <line x1="6" y1="-40" x2="11" y2="-45" stroke="#1B5E20" stroke-width="1"/>
+      <line x1="12" y1="-50" x2="17" y2="-55" stroke="#1B5E20" stroke-width="1"/>
+    </g>
+    <g transform="translate(-15, -45)">
+      <path d="M 0 0 L -10 -20 L -5 -30 L 0 -20 Z" fill="#4CAF50" stroke="#388E3C" stroke-width="1.5"/> <!-- Femur -->
+      <path d="M -5 -30 L -10 -45 L -5 -50 L 0 -45 Z" fill="#66BB6A" stroke="#388E3C" stroke-width="1.5"/> <!-- Tibia -->
+      <path d="M -10 -45 L -15 -55 L -10 -60 L -5 -55 Z" fill="#8BC34A" stroke="#388E3C" stroke-width="1.5"/> <!-- Tarsus -->
+      <!-- Spines -->
+      <line x1="-7" y1="-35" x2="-12" y2="-40" stroke="#1B5E20" stroke-width="1"/>
+      <line x1="-6" y1="-40" x2="-11" y2="-45" stroke="#1B5E20" stroke-width="1"/>
+      <line x1="-12" y1="-50" x2="-17" y2="-55" stroke="#1B5E20" stroke-width="1"/>
+    </g>
+
+    <!-- Middle Legs -->
+    <g transform="translate(25, -65)">
+      <path d="M 0 0 L 10 -10 L 15 -20 L 10 -30 Z" fill="#66BB6A" stroke="#388E3C" stroke-width="1.5"/> <!-- Coxa + Femur -->
+      <path d="M 15 -20 L 20 -30 L 15 -40 Z" fill="#8BC34A" stroke="#388E3C" stroke-width="1.5"/> <!-- Tibia -->
+      <path d="M 20 -30 L 22 -35 L 18 -40 Z" fill="#A5D6A7" stroke="#388E3C" stroke-width="1"/> <!-- Tarsus -->
+    </g>
+    <g transform="translate(-25, -65)">
+      <path d="M 0 0 L -10 -10 L -15 -20 L -10 -30 Z" fill="#66BB6A" stroke="#388E3C" stroke-width="1.5"/> <!-- Coxa + Femur -->
+      <path d="M -15 -20 L -20 -30 L -15 -40 Z" fill="#8BC34A" stroke="#388E3C" stroke-width="1.5"/> <!-- Tibia -->
+      <path d="M -20 -30 L -22 -35 L -18 -40 Z" fill="#A5D6A7" stroke="#388E3C" stroke-width="1"/> <!-- Tarsus -->
+    </g>
+
+    <!-- Hind Legs -->
+    <g transform="translate(20, -75)">
+      <path d="M 0 0 L 15 -15 L 20 -30 L 15 -45 Z" fill="#66BB6A" stroke="#388E3C" stroke-width="1.5"/> <!-- Coxa + Femur -->
+      <path d="M 20 -30 L 25 -45 L 20 -55 Z" fill="#8BC34A" stroke="#388E3C" stroke-width="1.5"/> <!-- Tibia -->
+      <path d="M 25 -45 L 27 -50 L 22 -55 Z" fill="#A5D6A7" stroke="#388E3C" stroke-width="1"/> <!-- Tarsus -->
+    </g>
+    <g transform="translate(-20, -75)">
+      <path d="M 0 0 L -15 -15 L -20 -30 L -15 -45 Z" fill="#66BB6A" stroke="#388E3C" stroke-width="1.5"/> <!-- Coxa + Femur -->
+      <path d="M -20 -30 L -25 -45 L -20 -55 Z" fill="#8BC34A" stroke="#388E3C" stroke-width="1.5"/> <!-- Tibia -->
+      <path d="M -25 -45 L -27 -50 L -22 -55 Z" fill="#A5D6A7" stroke="#388E3C" stroke-width="1"/> <!-- Tarsus -->
+    </g>
+
+    <!-- Abdomen -->
+    <path d="M 0 -80 Q 40 -90 50 -120 Q 30 -150 0 -150 Q -30 -150 -50 -120 Q -40 -90 0 -80 Z" fill="#8BC34A" stroke="#388E3C" stroke-width="1.5"/>
+    <!-- Abdomen Segments -->
+    <path d="M 10 -90 Q 20 -100 25 -115" fill="none" stroke="#388E3C" stroke-width="1"/>
+    <path d="M -10 -90 Q -20 -100 -25 -115" fill="none" stroke="#388E3C" stroke-width="1"/>
+    <path d="M 5 -110 Q 10 -120 12 -135" fill="none" stroke="#388E3C" stroke-width="1"/>
+    <path d="M -5 -110 Q -10 -120 -12 -135" fill="none" stroke="#388E3C" stroke-width="1"/>
+    <path d="M 0 -130 Q 0 -140 0 -145" fill="none" stroke="#388E3C" stroke-width="1"/>
+
+    <!-- Wings -->
+    <g opacity="0.6">
+      <!-- Left Wing -->
+      <path d="M 10 -40 Q 50 -60 70 -100 L 40 -90 Q 20 -70 10 -40 Z" fill="#9CCC65" stroke="#388E3C" stroke-width="1"/>
+      <path d="M 30 -65 Q 50 -80 60 -95" fill="none" stroke="#388E3C" stroke-width="0.8"/>
+      <path d="M 20 -55 Q 35 -70 45 -85" fill="none" stroke="#388E3C" stroke-width="0.8"/>
+      <path d="M 15 -45 Q 25 -55 30 -65" fill="none" stroke="#388E3C" stroke-width="0.8"/>
+
+      <!-- Right Wing -->
+      <path d="M -10 -40 Q -50 -60 -70 -100 L -40 -90 Q -20 -70 -10 -40 Z" fill="#9CCC65" stroke="#388E3C" stroke-width="1"/>
+      <path d="M -30 -65 Q -50 -80 -60 -95" fill="none" stroke="#388E3C" stroke-width="0.8"/>
+      <path d="M -20 -55 Q -35 -70 -45 -85" fill="none" stroke="#388E3C" stroke-width="0.8"/>
+      <path d="M -15 -45 Q -25 -55 -30 -65" fill="none" stroke="#388E3C" stroke-width="0.8"/>
+    </g>
+
+    <!-- Antennae -->
+    <path d="M 15 -20 Q 30 -30 40 -45" stroke="#1B5E20" stroke-width="1.5" fill="none"/>
+    <path d="M -15 -20 Q -30 -30 -40 -45" stroke="#1B5E20" stroke-width="1.5" fill="none"/>
+  </g>
+</svg>

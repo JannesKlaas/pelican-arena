@@ -1,0 +1,66 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style type="text/css"><![CDATA[
+      .rabbit-body { fill: #D3D3D3; } /* Light grey */
+      .rabbit-inner-ear { fill: #FFC0CB; } /* Pink */
+      .rabbit-eye { fill: #000000; } /* Black */
+      .rabbit-nose { fill: #FF69B4; } /* Hot pink */
+      .rabbit-whisker { stroke: #555555; stroke-width: 1; } /* Dark grey for whiskers */
+      .balloon-body { fill: #FF0000; } /* Red */
+      .balloon-string { stroke: #404040; stroke-width: 2; } /* Dark grey for string */
+    ]]></style>
+  </defs>
+
+  <!-- Rabbit -->
+  <g id="rabbit-parts">
+    <!-- Body -->
+    <ellipse class="rabbit-body" cx="250" cy="370" rx="70" ry="80"/>
+    <!-- Head -->
+    <ellipse class="rabbit-body" cx="250" cy="270" rx="50" ry="60"/>
+
+    <!-- Ears -->
+    <!-- Left Ear -->
+    <ellipse class="rabbit-body" cx="230" cy="190" rx="20" ry="50" transform="rotate(-15 230 220)"/>
+    <ellipse class="rabbit-inner-ear" cx="230" cy="195" rx="12" ry="35" transform="rotate(-15 230 220)"/>
+    <!-- Right Ear -->
+    <ellipse class="rabbit-body" cx="270" cy="190" rx="20" ry="50" transform="rotate(15 270 220)"/>
+    <ellipse class="rabbit-inner-ear" cx="270" cy="195" rx="12" ry="35" transform="rotate(15 270 220)"/>
+
+    <!-- Eyes -->
+    <circle class="rabbit-eye" cx="235" cy="260" r="5"/>
+    <circle class="rabbit-eye" cx="265" cy="260" r="5"/>
+
+    <!-- Nose -->
+    <circle class="rabbit-nose" cx="250" cy="285" r="4"/>
+
+    <!-- Whiskers -->
+    <line class="rabbit-whisker" x1="240" y1="290" x2="220" y2="285"/>
+    <line class="rabbit-whisker" x1="240" y1="295" x2="220" y2="295"/>
+    <line class="rabbit-whisker" x1="240" y1="300" x2="220" y2="305"/>
+    <line class="rabbit-whisker" x1="260" y1="290" x2="280" y2="285"/>
+    <line class="rabbit-whisker" x1="260" y1="295" x2="280" y2="295"/>
+    <line class="rabbit-whisker" x1="260" y1="300" x2="280" y2="305"/>
+
+    <!-- Right Front Paw (not holding balloon) -->
+    <ellipse class="rabbit-body" cx="300" cy="350" rx="15" ry="25"/>
+    <!-- Hind Paws -->
+    <ellipse class="rabbit-body" cx="220" cy="430" rx="20" ry="35"/>
+    <ellipse class="rabbit-body" cx="280" cy="430" rx="20" ry="35"/>
+
+    <!-- Tail -->
+    <circle class="rabbit-body" cx="315" cy="400" r="15"/>
+  </g>
+
+  <!-- Balloon -->
+  <g id="balloon">
+    <ellipse class="balloon-body" cx="150" cy="180" rx="40" ry="60"/>
+    <!-- Balloon knot -->
+    <path d="M140 240 L160 240 L150 250 Z" class="balloon-body"/>
+    <!-- String from balloon to rabbit's left paw -->
+    <line class="balloon-string" x1="150" y1="250" x2="200" y2="330"/>
+  </g>
+  
+  <!-- Rabbit's Left Front Paw (holding the balloon string, drawn last to overlap string) -->
+  <ellipse class="rabbit-body" cx="200" cy="350" rx="15" ry="25"/>
+
+</svg>

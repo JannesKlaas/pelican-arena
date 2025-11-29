@@ -1,0 +1,145 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <linearGradient id="smokeboxGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a4a4a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2a2a2a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="boilerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8a8a8a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6a6a6a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="wheelGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3a3a3a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a1a;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="steamGradient">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Rails and Sleepers -->
+  <g id="track">
+    <line x1="0" y1="450" x2="500" y2="450" stroke="#5a5a5a" stroke-width="8" />
+    <line x1="0" y1="460" x2="500" y2="460" stroke="#5a5a5a" stroke-width="8" />
+    <circle cx="50" cy="455" r="4" fill="#4a4a4a" />
+    <circle cx="100" cy="455" r="4" fill="#4a4a4a" />
+    <circle cx="150" cy="455" r="4" fill="#4a4a4a" />
+    <circle cx="200" cy="455" r="4" fill="#4a4a4a" />
+    <circle cx="250" cy="455" r="4" fill="#4a4a4a" />
+    <circle cx="300" cy="455" r="4" fill="#4a4a4a" />
+    <circle cx="350" cy="455" r="4" fill="#4a4a4a" />
+    <circle cx="400" cy="455" r="4" fill="#4a4a4a" />
+    <circle cx="450" cy="455" r="4" fill="#4a4a4a" />
+  </g>
+
+  <!-- Steam Clouds -->
+  <g id="steam">
+    <ellipse cx="200" cy="320" rx="30" ry="15" fill="url(#steamGradient)" />
+    <ellipse cx="220" cy="300" rx="25" ry="12" fill="url(#steamGradient)" />
+    <ellipse cx="240" cy="290" rx="20" ry="10" fill="url(#steamGradient)" />
+    <ellipse cx="260" cy="295" rx="25" ry="12" fill="url(#steamGradient)" />
+    <ellipse cx="280" cy="315" rx="30" ry="15" fill="url(#steamGradient)" />
+  </g>
+
+  <!-- Locomotive -->
+  <g id="locomotive">
+    <!-- Boiler -->
+    <rect x="100" y="100" width="300" height="70" rx="10" fill="url(#boilerGradient)" />
+    <rect x="120" y="70" width="260" height="30" rx="5" fill="#aaaaaa" />
+
+    <!-- Smokebox -->
+    <path d="M 100 140 Q 110 155 120 170 L 100 170 Z" fill="url(#smokeboxGradient)" />
+    <circle cx="110" cy="155" r="8" fill="#7a7a7a" />
+    <rect x="105" y="150" width="10" height="10" fill="#8a8a8a" />
+
+    <!-- Funnel -->
+    <polygon points="130,70 150,30 170,70" fill="#5a5a5a" />
+    <rect x="135" y="30" width="30" height="40" fill="#6a6a6a" />
+
+    <!-- Headlamp -->
+    <ellipse cx="110" cy="130" rx="8" ry="5" fill="#ffffcc" />
+    <circle cx="110" cy="130" r="3" fill="#ffcc00" />
+
+    <!-- Cab -->
+    <rect x="380" y="100" width="70" height="70" rx="5" fill="#8a8a8a" />
+    <rect x="390" y="95" width="50" height="20" rx="3" fill="#7a7a7a" />
+
+    <!-- Wheels and Motion -->
+    <!-- Bogie (Leading Wheels) -->
+    <g id="leading-bogie">
+      <circle cx="180" cy="400" r="20" fill="url(#wheelGradient)" stroke="#2a2a2a" stroke-width="2"/>
+      <circle cx="205" cy="400" r="20" fill="url(#wheelGradient)" stroke="#2a2a2a" stroke-width="2"/>
+      <circle cx="230" cy="400" r="20" fill="url(#wheelGradient)" stroke="#2a2a2a" stroke-width="2"/>
+      <circle cx="255" cy="400" r="20" fill="url(#wheelGradient)" stroke="#2a2a2a" stroke-width="2"/>
+      <!-- Bogie frame -->
+      <rect x="160" y="385" width="100" height="15" fill="#3a3a3a" rx="3"/>
+    </g>
+
+    <!-- Driving Wheels -->
+    <g id="driving-wheels">
+      <circle cx="280" cy="400" r="30" fill="url(#wheelGradient)" stroke="#2a2a2a" stroke-width="3"/>
+      <circle cx="320" cy="400" r="30" fill="url(#wheelGradient)" stroke="#2a2a2a" stroke-width="3"/>
+      <circle cx="360" cy="400" r="30" fill="url(#wheelGradient)" stroke="#2a2a2a" stroke-width="3"/>
+      <circle cx="400" cy="400" r="30" fill="url(#wheelGradient)" stroke="#2a2a2a" stroke-width="3"/>
+      <circle cx="440" cy="400" r="30" fill="url(#wheelGradient)" stroke="#2a2a2a" stroke-width="3"/>
+      <circle cx="480" cy="400" r="30" fill="url(#wheelGradient)" stroke="#2a2a2a" stroke-width="3"/>
+
+      <!-- Side Rods -->
+      <line x1="280" y1="400" x2="480" y2="400" stroke="#5a5a5a" stroke-width="6" />
+      <line x1="280" y1="390" x2="480" y2="390" stroke="#5a5a5a" stroke-width="3" />
+      <line x1="280" y1="410" x2="480" y2="410" stroke="#5a5a5a" stroke-width="3" />
+
+      <!-- Coupling Rods (simplified geometry) -->
+      <line x1="320" y1="400" x2="360" y2="400" stroke="#4a4a4a" stroke-width="5" />
+      <line x1="360" y1="400" x2="400" y2="400" stroke="#4a4a4a" stroke-width="5" />
+      <line x1="400" y1="400" x2="440" y2="400" stroke="#4a4a4a" stroke-width="5" />
+      <line x1="440" y1="400" x2="480" y2="400" stroke="#4a4a4a" stroke-width="5" />
+
+      <!-- Connecting Rods (simplified) -->
+      <line x1="300" y1="400" x2="340" y2="400" stroke="#4a4a4a" stroke-width="4" />
+      <line x1="340" y1="400" x2="380" y2="400" stroke="#4a4a4a" stroke-width="4" />
+      <line x1="380" y1="400" x2="420" y2="400" stroke="#4a4a4a" stroke-width="4" />
+      <line x1="420" y1="400" x2="460" y2="400" stroke="#4a4a4a" stroke-width="4" />
+
+      <!-- Crankpins (simplified representation) -->
+      <circle cx="320" cy="400" r="4" fill="#2a2a2a" />
+      <circle cx="360" cy="400" r="4" fill="#2a2a2a" />
+      <circle cx="400" cy="400" r="4" fill="#2a2a2a" />
+      <circle cx="440" cy="400" r="4" fill="#2a2a2a" />
+      <circle cx="480" cy="400" r="4" fill="#2a2a2a" />
+    </g>
+
+    <!-- Trailing Wheels -->
+    <g id="trailing-wheels">
+      <circle cx="480" cy="360" r="18" fill="url(#wheelGradient)" stroke="#2a2a2a" stroke-width="2"/>
+      <circle cx="505" cy="360" r="18" fill="url(#wheelGradient)" stroke="#2a2a2a" stroke-width="2"/>
+      <!-- Trailing truck frame -->
+      <rect x="460" y="345" width="40" height="15" fill="#3a3a3a" rx="3"/>
+    </g>
+
+    <!-- Pistons and Valve Gear (simplified) -->
+    <g id="motion-gear">
+      <!-- Piston Rods -->
+      <line x1="270" y1="400" x2="240" y2="400" stroke="#5a5a5a" stroke-width="4" />
+      <line x1="270" y1="390" x2="230" y2="380" stroke="#5a5a5a" stroke-width="3" />
+      <line x1="270" y1="410" x2="230" y2="420" stroke="#5a5a5a" stroke-width="3" />
+
+      <!-- Crossheads (simplified) -->
+      <rect x="235" y="395" width="10" height="10" fill="#7a7a7a" />
+
+      <!-- Valve Gear (simplified eccentrics and links) -->
+      <circle cx="250" cy="370" r="8" fill="#3a3a3a" />
+      <circle cx="250" cy="430" r="8" fill="#3a3a3a" />
+      <line x1="250" y1="370" x2="265" y2="390" stroke="#5a5a5a" stroke-width="3" />
+      <line x1="250" y1="430" x2="265" y2="410" stroke="#5a5a5a" stroke-width="3" />
+      <rect x="260" y="385" width="15" height="10" fill="#4a4a4a" rx="2"/>
+    </g>
+
+    <!-- Underframe -->
+    <rect x="150" y="170" width="340" height="30" fill="#3a3a3a" />
+    <rect x="100" y="170" width="50" height="30" fill="#4a4a4a" />
+  </g>
+
+</svg>

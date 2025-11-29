@@ -1,0 +1,59 @@
+<svg viewBox="0 0 500 500">
+  <defs>
+    <!-- Simple filter for a soft bubble highlight -->
+    <filter id="bubbleHighlightFilter">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Giraffe head and neck group -->
+  <g transform="translate(60, 80)"> 
+    <!-- Neck -->
+    <path d="M100 300 Q70 200 150 100 L200 100 Q230 200 180 300 Z" fill="#F5DDAF"/>
+    
+    <!-- Neck spots -->
+    <circle cx="120" cy="250" r="20" fill="#8B4513"/>
+    <circle cx="180" cy="220" r="15" fill="#8B4513"/>
+    <path d="M110 180 Q120 160 140 170 Q130 190 110 180 Z" fill="#8B4513"/>
+
+    <!-- Head -->
+    <path d="M200 100 Q150 50 230 30 Q310 50 280 100 Z" fill="#F5DDAF"/>
+
+    <!-- Snout -->
+    <path d="M230 80 Q210 110 240 120 L250 120 Q280 110 260 80 Z" fill="#FFFAF0"/>
+    
+    <!-- Mouth opening -->
+    <ellipse cx="250" cy="120" rx="10" ry="5" fill="#8B4513"/>
+
+    <!-- Eyes -->
+    <circle cx="230" cy="60" r="8" fill="#363636"/>
+    <circle cx="265" cy="60" r="8" fill="#363636"/>
+
+    <!-- Ears -->
+    <ellipse cx="190" cy="50" rx="20" ry="10" transform="rotate(-20 190 50)" fill="#F5DDAF"/>
+    <ellipse cx="190" cy="50" rx="10" ry="5" transform="rotate(-20 190 50)" fill="#FFFAF0"/>
+    <ellipse cx="285" cy="50" rx="20" ry="10" transform="rotate(20 285 50)" fill="#F5DDAF"/>
+    <ellipse cx="285" cy="50" rx="10" ry="5" transform="rotate(20 285 50)" fill="#FFFAF0"/>
+
+    <!-- Ossicones -->
+    <rect x="200" y="0" width="10" height="25" fill="#F5DDAF"/>
+    <circle cx="205" cy="0" r="8" fill="#8B4513"/>
+    <rect x="250" y="0" width="10" height="25" fill="#F5DDAF"/>
+    <circle cx="255" cy="0" r="8" fill="#8B4513"/>
+
+    <!-- Head spots -->
+    <circle cx="220" cy="80" r="10" fill="#8B4513"/>
+    <circle cx="255" cy="70" r="8" fill="#8B4513"/>
+  </g>
+
+  <!-- Bubble -->
+  <!-- Positioned to emerge from the giraffe's mouth -->
+  <circle cx="390" cy="200" r="90" fill="rgba(173, 216, 230, 0.4)" stroke="rgba(173, 216, 230, 0.8)" stroke-width="3"/>
+  
+  <!-- Bubble highlight -->
+  <ellipse cx="360" cy="160" rx="35" ry="18" fill="rgba(255, 255, 255, 0.6)" filter="url(#bubbleHighlightFilter)" transform="rotate(-30 360 160)"/>
+</svg>

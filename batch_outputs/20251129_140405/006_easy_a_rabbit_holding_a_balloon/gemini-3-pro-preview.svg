@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- Background Shadow -->
+  <ellipse cx="250" cy="460" rx="120" ry="20" fill="#e0e0e0" opacity="0.5" />
+
+  <!-- Balloon String -->
+  <path d="M360 190 Q 360 280 320 310" stroke="#555" stroke-width="2" fill="none" />
+
+  <!-- Rabbit Left Ear -->
+  <ellipse cx="220" cy="190" rx="25" ry="75" fill="#f2f2f2" transform="rotate(-15 220 280)" />
+  <ellipse cx="220" cy="190" rx="15" ry="55" fill="#ffcdd2" transform="rotate(-15 220 280)" />
+
+  <!-- Rabbit Right Ear -->
+  <ellipse cx="280" cy="190" rx="25" ry="75" fill="#f2f2f2" transform="rotate(15 280 280)" />
+  <ellipse cx="280" cy="190" rx="15" ry="55" fill="#ffcdd2" transform="rotate(15 280 280)" />
+
+  <!-- Rabbit Feet -->
+  <ellipse cx="190" cy="440" rx="35" ry="20" fill="#f2f2f2" />
+  <ellipse cx="310" cy="440" rx="35" ry="20" fill="#f2f2f2" />
+
+  <!-- Rabbit Body -->
+  <ellipse cx="250" cy="370" rx="80" ry="90" fill="#f2f2f2" />
+  <ellipse cx="250" cy="370" rx="50" ry="60" fill="#ffffff" />
+
+  <!-- Rabbit Head -->
+  <circle cx="250" cy="270" r="70" fill="#f2f2f2" />
+
+  <!-- Face -->
+  <circle cx="225" cy="260" r="6" fill="#333" />
+  <circle cx="275" cy="260" r="6" fill="#333" />
+  <path d="M245 280 L255 280 L250 290 Z" fill="#ff8a80" />
+  <path d="M250 290 Q 240 300 230 290 M 250 290 Q 260 300 270 290" stroke="#333" stroke-width="2" fill="none" />
+  
+  <!-- Whiskers -->
+  <line x1="190" y1="280" x2="220" y2="285" stroke="#ccc" stroke-width="1" />
+  <line x1="190" y1="290" x2="220" y2="290" stroke="#ccc" stroke-width="1" />
+  <line x1="310" y1="280" x2="280" y2="285" stroke="#ccc" stroke-width="1" />
+  <line x1="310" y1="290" x2="280" y2="290" stroke="#ccc" stroke-width="1" />
+
+  <!-- Arms -->
+  <ellipse cx="170" cy="350" rx="20" ry="45" fill="#f2f2f2" transform="rotate(45 170 350)" />
+  <ellipse cx="320" cy="310" rx="20" ry="45" fill="#f2f2f2" transform="rotate(-45 320 310)" />
+
+  <!-- Balloon -->
+  <polygon points="360,190 355,200 365,200" fill="#ff5252" />
+  <ellipse cx="360" cy="130" rx="60" ry="70" fill="#ff5252" />
+  <ellipse cx="340" cy="110" rx="15" ry="25" fill="#ff8a80" transform="rotate(-45 340 110)" opacity="0.8" />
+</svg>

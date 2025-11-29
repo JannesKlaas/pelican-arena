@@ -1,0 +1,23 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" aria-label="Smiling donut">
+  <defs>
+    <radialGradient id="donutGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#ffd89f"/>
+      <stop offset="60%" stop-color="#f2b176"/>
+      <stop offset="100%" stop-color="#c07a1a"/>
+    </radialGradient>
+    <mask id="donutMask" maskUnits="userSpaceOnUse" x="0" y="0" width="500" height="500">
+      <rect x="0" y="0" width="500" height="500" fill="white"/>
+      <circle cx="250" cy="250" r="110" fill="black"/>
+    </mask>
+  </defs>
+
+  <g mask="url(#donutMask)">
+    <circle cx="250" cy="250" r="180" fill="url(#donutGrad)" stroke="#5a3e1f" stroke-width="2"/>
+    <ellipse cx="185" cy="170" rx="120" ry="60" fill="white" opacity="0.16"/>
+    <circle cx="120" cy="240" r="9" fill="#000"/>
+    <circle cx="380" cy="240" r="9" fill="#000"/>
+    <circle cx="125" cy="238" r="3" fill="#fff" opacity="0.9"/>
+    <circle cx="385" cy="238" r="3" fill="#fff" opacity="0.9"/>
+    <path d="M120 360 Q250 370 380 360" fill="none" stroke="#2b1f14" stroke-width="6" stroke-linecap="round"/>
+  </g>
+</svg>

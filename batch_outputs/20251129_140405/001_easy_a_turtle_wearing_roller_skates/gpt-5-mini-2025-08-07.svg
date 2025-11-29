@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- subtle background -->
+  <rect width="500" height="500" fill="#E8F6FF"/>
+
+  <!-- ground shadow -->
+  <ellipse cx="260" cy="380" rx="160" ry="18" fill="#000" fill-opacity="0.08"/>
+
+  <!-- turtle group -->
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <!-- shell (carapace) -->
+    <ellipse cx="260" cy="240" rx="140" ry="100" fill="#8B5A2B" stroke="#6A3F1E" stroke-width="4"/>
+
+    <!-- shell scutes -->
+    <ellipse cx="205" cy="220" rx="28" ry="18" fill="#C28A50" />
+    <ellipse cx="240" cy="205" rx="30" ry="20" fill="#C28A50" />
+    <ellipse cx="280" cy="200" rx="32" ry="22" fill="#C28A50" />
+    <ellipse cx="320" cy="215" rx="26" ry="16" fill="#C28A50" />
+    <ellipse cx="260" cy="245" rx="40" ry="28" fill="#C28A50" />
+
+    <!-- body / head -->
+    <circle cx="165" cy="230" r="28" fill="#6FBF6B" stroke="#4B8A3F" stroke-width="3"/>
+
+    <!-- eye -->
+    <circle cx="155" cy="220" r="8" fill="#fff"/>
+    <circle cx="158" cy="220" r="4" fill="#1A1A1A"/>
+    <circle cx="156" cy="218" r="1.3" fill="#fff"/>
+
+    <!-- mouth -->
+    <path d="M158 245 Q165 248 172 245" fill="none" stroke="#4B8A3F" stroke-width="3"/>
+
+    <!-- tail -->
+    <path d="M398 250 L418 244 L418 256 Z" fill="#6FBF6B" stroke="#4B8A3F" stroke-width="2"/>
+
+    <!-- legs -->
+    <ellipse cx="210" cy="270" rx="28" ry="20" fill="#6FBF6B" stroke="#4B8A3F" stroke-width="3"/>
+    <ellipse cx="310" cy="270" rx="28" ry="20" fill="#6FBF6B" stroke="#4B8A3F" stroke-width="3"/>
+    <ellipse cx="210" cy="310" rx="28" ry="20" fill="#6FBF6B" stroke="#4B8A3F" stroke-width="3"/>
+    <ellipse cx="310" cy="310" rx="28" ry="20" fill="#6FBF6B" stroke="#4B8A3F" stroke-width="3"/>
+
+    <!-- roller skates group -->
+    <!-- front-left skate -->
+    <g>
+      <rect x="183" y="294" width="54" height="18" rx="6" fill="#2B8CFF" stroke="#143E9A" stroke-width="2"/>
+      <!-- laces -->
+      <line x1="196" y1="300" x2="216" y2="300" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+      <line x1="196" y1="304" x2="216" y2="304" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+      <!-- wheels -->
+      <circle cx="195" cy="320" r="8" fill="#222" stroke="#111" stroke-width="2"/>
+      <circle cx="225" cy="320" r="8" fill="#222" stroke="#111" stroke-width="2"/>
+      <circle cx="195" cy="320" r="3.5" fill="#9CA7B6"/>
+      <circle cx="225" cy="320" r="3.5" fill="#9CA7B6"/>
+    </g>
+
+    <!-- front-right skate -->
+    <g>
+      <rect x="283" y="294" width="54" height="18" rx="6" fill="#FF7F50" stroke="#B3472B" stroke-width="2"/>
+      <line x1="296" y1="300" x2="316" y2="300" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+      <line x1="296" y1="304" x2="316" y2="304" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+      <circle cx="295" cy="320" r="8" fill="#222" stroke="#111" stroke-width="2"/>
+      <circle cx="325" cy="320" r="8" fill="#222" stroke="#111" stroke-width="2"/>
+      <circle cx="295" cy="320" r="3.5" fill="#9CA7B6"/>
+      <circle cx="325" cy="320" r="3.5" fill="#9CA7B6"/>
+    </g>
+
+    <!-- back-left skate -->
+    <g>
+      <rect x="183" y="334" width="54" height="18" rx="6" fill="#FFD24D" stroke="#B58E29" stroke-width="2"/>
+      <line x1="196" y1="340" x2="216" y2="340" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+      <line x1="196" y1="344" x2="216" y2="344" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+      <circle cx="195" cy="360" r="8" fill="#222" stroke="#111" stroke-width="2"/>
+      <circle cx="225" cy="360" r="8" fill="#222" stroke="#111" stroke-width="2"/>
+      <circle cx="195" cy="360" r="3.5" fill="#9CA7B6"/>
+      <circle cx="225" cy="360" r="3.5" fill="#9CA7B6"/>
+    </g>
+
+    <!-- back-right skate -->
+    <g>
+      <rect x="283" y="334" width="54" height="18" rx="6" fill="#9B59B6" stroke="#5B2E74" stroke-width="2"/>
+      <line x1="296" y1="340" x2="316" y2="340" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+      <line x1="296" y1="344" x2="316" y2="344" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+      <circle cx="295" cy="360" r="8" fill="#222" stroke="#111" stroke-width="2"/>
+      <circle cx="325" cy="360" r="8" fill="#222" stroke="#111" stroke-width="2"/>
+      <circle cx="295" cy="360" r="3.5" fill="#9CA7B6"/>
+      <circle cx="325" cy="360" r="3.5" fill="#9CA7B6"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,23 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Cloud -->
+  <circle cx="250" cy="200" r="80" fill="#ADD8E6"/>
+  <circle cx="180" cy="230" r="60" fill="#ADD8E6"/>
+  <circle cx="320" cy="230" r="60" fill="#ADD8E6"/>
+  <circle cx="220" cy="260" r="50" fill="#ADD8E6"/>
+  <circle cx="280" cy="260" r="50" fill="#ADD8E6"/>
+
+  <!-- Eyes -->
+  <circle cx="235" cy="190" r="10" fill="black"/>
+  <circle cx="265" cy="190" r="10" fill="black"/>
+
+  <!-- Mouth -->
+  <path d="M230 220 Q250 245 270 220" stroke="black" stroke-width="5" fill="none"/>
+
+  <!-- Raindrops (Hearts) -->
+  <g fill="#FF69B4">
+    <path d="M240 320 l 0 30 l 15 20 l 15 -20 l 0 -30 z" transform="scale(0.8)"/>
+    <path d="M280 330 l 0 30 l 15 20 l 15 -20 l 0 -30 z" transform="scale(0.8) translate(20, 0)"/>
+    <path d="M200 340 l 0 30 l 15 20 l 15 -20 l 0 -30 z" transform="scale(0.8) translate(-20, 10)"/>
+    <path d="M320 350 l 0 30 l 15 20 l 15 -20 l 0 -30 z" transform="scale(0.8) translate(30, 20)"/>
+  </g>
+</svg>

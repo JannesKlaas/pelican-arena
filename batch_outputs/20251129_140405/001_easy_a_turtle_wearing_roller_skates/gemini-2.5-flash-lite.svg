@@ -1,0 +1,36 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Turtle Shell -->
+  <ellipse cx="250" cy="250" rx="100" ry="70" fill="#77DD77" />
+
+  <!-- Turtle Head -->
+  <circle cx="180" cy="230" r="30" fill="#90EE90" />
+  <circle cx="170" cy="225" r="8" fill="black" />
+  <circle cx="190" cy="235" r="8" fill="black" />
+
+  <!-- Turtle Legs -->
+  <rect x="190" y="280" width="40" height="40" rx="10" fill="#90EE90" />
+  <rect x="270" y="280" width="40" height="40" rx="10" fill="#90EE90" />
+  <rect x="160" y="320" width="40" height="40" rx="10" fill="#90EE90" />
+  <rect x="240" y="320" width="40" height="40" rx="10" fill="#90EE90" />
+
+  <!-- Roller Skates -->
+  <!-- Left Front Skate -->
+  <rect x="185" y="315" width="50" height="20" rx="5" fill="#A9A9A9" />
+  <circle cx="195" cy="335" r="7" fill="#4682B4" />
+  <circle cx="215" cy="335" r="7" fill="#4682B4" />
+
+  <!-- Right Front Skate -->
+  <rect x="265" y="315" width="50" height="20" rx="5" fill="#A9A9A9" />
+  <circle cx="275" cy="335" r="7" fill="#4682B4" />
+  <circle cx="295" cy="335" r="7" fill="#4682B4" />
+
+  <!-- Left Back Skate -->
+  <rect x="155" y="355" width="50" height="20" rx="5" fill="#A9A9A9" />
+  <circle cx="165" cy="375" r="7" fill="#4682B4" />
+  <circle cx="185" cy="375" r="7" fill="#4682B4" />
+
+  <!-- Right Back Skate -->
+  <rect x="235" y="355" width="50" height="20" rx="5" fill="#A9A9A9" />
+  <circle cx="245" cy="375" r="7" fill="#4682B4" />
+  <circle cx="265" cy="375" r="7" fill="#4682B4" />
+</svg>

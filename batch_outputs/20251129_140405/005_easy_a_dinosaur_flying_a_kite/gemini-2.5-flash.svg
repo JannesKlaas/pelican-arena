@@ -1,0 +1,39 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Sky -->
+  <rect x="0" y="0" width="500" height="500" fill="#87CEEB" />
+
+  <!-- Ground -->
+  <rect x="0" y="400" width="500" height="100" fill="#8B4513" />
+
+  <!-- Dinosaur (Olive Green) -->
+  <g fill="#6B8E23">
+    <!-- Body, head, and tail as one continuous path -->
+    <path d="
+        M 120 400                  
+        C 70 420, 50 370, 100 360  
+        C 150 300, 200 280, 250 300 
+        C 270 290, 300 290, 300 310 
+        C 290 330, 270 330, 250 310 
+        C 270 350, 250 400, 200 410 
+        C 180 420, 120 400, 120 400 
+        Z
+    "/>
+    <!-- Eye (Dark Gray) -->
+    <circle cx="280" cy="295" r="3" fill="#333333" />
+    <!-- Legs -->
+    <rect x="190" y="390" width="20" height="40" rx="5" ry="5" />
+    <rect x="160" y="395" width="20" height="35" rx="5" ry="5" />
+    <!-- Arm holding kite string -->
+    <path d="M 240 320 Q 250 300, 240 300 Q 230 300, 240 320 Z" />
+  </g>
+
+  <!-- Kite String (Dark Gray) -->
+  <line x1="240" y1="300" x2="350" y2="80" stroke="#333333" stroke-width="2" />
+
+  <!-- Kite -->
+  <!-- Kite shape (Orange Red) -->
+  <path d="M 350 50 L 380 80 L 350 110 L 320 80 Z" fill="#FF4500" stroke="#CC3300" stroke-width="2" />
+  <!-- Kite tails (Gold and Blue Violet) -->
+  <rect x="345" y="110" width="10" height="20" fill="#FFD700" transform="rotate(5 350 120)" />
+  <rect x="345" y="135" width="10" height="20" fill="#8A2BE2" transform="rotate(-5 350 145)" />
+</svg>

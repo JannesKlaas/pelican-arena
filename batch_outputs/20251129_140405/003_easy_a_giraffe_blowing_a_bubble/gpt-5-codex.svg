@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <rect width="500" height="500" fill="#f2f7fb"/>
+  <ellipse cx="250" cy="440" rx="160" ry="30" fill="#d0e5f7" opacity="0.5"/>
+  <path d="M200 420 Q190 360 210 300 L220 260 Q190 250 180 220 Q170 190 190 170 Q210 150 250 150 Q290 150 310 170 Q330 190 320 220 Q310 250 280 260 L290 300 Q310 360 300 420" fill="#f5c25a"/>
+  <path d="M200 420 Q210 390 250 380 Q290 370 300 420" fill="#e0a140"/>
+  <path d="M230 260 Q240 200 240 160 Q240 120 250 100 Q260 80 280 90 Q310 100 320 140 Q330 180 320 220" fill="#f5c25a"/>
+  <path d="M240 100 Q250 80 270 70 Q300 60 320 80 Q330 90 335 110 Q340 130 330 150 Q320 170 300 180 Q280 190 260 180 Q240 170 235 150 Q230 130 235 115" fill="#f5c25a"/>
+  <circle cx="308" cy="124" r="9" fill="#3b2c1a"/>
+  <circle cx="270" cy="118" r="9" fill="#3b2c1a"/>
+  <circle cx="306" cy="122" r="3" fill="#fff"/>
+  <circle cx="268" cy="116" r="3" fill="#fff"/>
+  <path d="M300 160 Q280 150 260 160" stroke="#3b2c1a" stroke-width="4" fill="none"/>
+  <path d="M315 210 Q330 200 350 210 Q370 220 360 240 Q350 260 330 255" fill="#f5c25a"/>
+  <path d="M317 204 Q340 200 354 212 Q366 222 358 234 Q350 246 330 240" fill="#e0a140"/>
+  <circle cx="360" cy="226" r="36" fill="#7fd5ff" opacity="0.7"/>
+  <circle cx="343" cy="214" r="10" fill="#aee5ff" opacity="0.8"/>
+  <ellipse cx="236" cy="92" rx="10" ry="18" fill="#f5c25a"/>
+  <ellipse cx="321" cy="92" rx="10" ry="18" fill="#f5c25a"/>
+  <path d="M224 88 Q220 76 228 70 Q236 64 244 72" fill="#c8892b"/>
+  <path d="M316 88 Q320 76 312 70 Q304 64 296 72" fill="#c8892b"/>
+  <path d="M195 330 Q170 320 160 300 Q150 280 170 270 Q190 260 205 275" fill="#f5c25a"/>
+  <path d="M305 326 Q330 314 338 292 Q346 270 324 265 Q302 260 292 278" fill="#f5c25a"/>
+  <path d="M198 334 Q178 320 168 298 Q160 280 176 270" stroke="#e0a140" stroke-width="6" fill="none"/>
+  <path d="M302 330 Q320 310 330 290 Q340 270 322 268" stroke="#e0a140" stroke-width="6" fill="none"/>
+  <path d="M220 265 Q200 255 190 235 Q180 215 196 205 Q212 195 230 210" fill="#d78838" opacity="0.4"/>
+  <path d="M284 265 Q304 255 314 235 Q324 215 308 205 Q292 195 274 210" fill="#d78838" opacity="0.4"/>
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- Fox body -->
+  <ellipse cx="250" cy="340" rx="120" ry="140" fill="#F57C20"/>
+  <!-- Fox belly -->
+  <ellipse cx="250" cy="370" rx="85" ry="110" fill="#FFFFFF"/>
+  <!-- Fox head -->
+  <ellipse cx="250" cy="190" rx="60" ry="60" fill="#F57C20"/>
+  <!-- Ears -->
+  <polygon points="210,125 240,60 260,125" fill="#F57C20"/>
+  <polygon points="290,125 260,60 240,125" fill="#F57C20"/>
+  <!-- Eyes -->
+  <circle cx="235" cy="177" r="6" fill="#000"/>
+  <circle cx="265" cy="177" r="6" fill="#000"/>
+  <circle cx="232" cy="174" r="2" fill="#fff"/>
+  <circle cx="262" cy="174" r="2" fill="#fff"/>
+  <!-- Snout / muzzle -->
+  <ellipse cx="250" cy="198" rx="18" ry="12" fill="#FFFFFF"/>
+  <circle cx="250" cy="206" r="5" fill="#000"/>
+  <!-- Guitar left body -->
+  <ellipse cx="170" cy="340" rx="100" ry="70" fill="#8B5A2B"/>
+  <!-- Guitar neck -->
+  <rect x="260" y="324" width="170" height="18" rx="9" fill="#8B5A2B"/>
+  <!-- Strings -->
+  <line x1="270" y1="333" x2="430" y2="333" stroke="#EEE" stroke-width="2"/>
+  <line x1="270" y1="335" x2="430" y2="335" stroke="#EEE" stroke-width="2"/>
+  <line x1="270" y1="337" x2="430" y2="337" stroke="#EEE" stroke-width="2"/>
+  <line x1="270" y1="339" x2="430" y2="339" stroke="#EEE" stroke-width="2"/>
+  <line x1="270" y1="341" x2="430" y2="341" stroke="#EEE" stroke-width="2"/>
+  <line x1="270" y1="343" x2="430" y2="343" stroke="#EEE" stroke-width="2"/>
+  <!-- Guitar hole -->
+  <circle cx="160" cy="360" r="10" fill="#000" opacity="0.18"/>
+  <!-- Guitar headstock -->
+  <polygon points="430,330 450,338 430,346" fill="#8B5A2B"/>
+  <!-- Fox paws (holding neck) -->
+  <ellipse cx="260" cy="356" rx="28" ry="16" fill="#F57C20"/>
+  <ellipse cx="320" cy="370" rx="28" ry="16" fill="#F57C20"/>
+</svg>

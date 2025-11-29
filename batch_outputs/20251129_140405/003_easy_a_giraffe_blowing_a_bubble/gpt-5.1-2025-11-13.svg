@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- Background -->
+  <rect width="500" height="500" fill="#f0f9ff"/>
+
+  <!-- Giraffe neck -->
+  <rect x="200" y="150" width="70" height="230" rx="30" fill="#f6c15c"/>
+  <circle cx="210" cy="200" r="7" fill="#d68b3a"/>
+  <circle cx="240" cy="240" r="8" fill="#d68b3a"/>
+  <circle cx="225" cy="280" r="6" fill="#d68b3a"/>
+  <circle cx="245" cy="320" r="7" fill="#d68b3a"/>
+
+  <!-- Giraffe body (simple suggestion) -->
+  <ellipse cx="235" cy="370" rx="80" ry="50" fill="#f6c15c"/>
+  <circle cx="200" cy="365" r="10" fill="#d68b3a"/>
+  <circle cx="255" cy="380" r="9" fill="#d68b3a"/>
+
+  <!-- Giraffe head -->
+  <ellipse cx="250" cy="130" rx="60" ry="55" fill="#f6c15c"/>
+  <ellipse cx="235" cy="145" rx="40" ry="30" fill="#f9d58a"/>
+
+  <!-- Ears -->
+  <ellipse cx="215" cy="90" rx="15" ry="25" fill="#f6c15c"/>
+  <ellipse cx="285" cy="90" rx="15" ry="25" fill="#f6c15c"/>
+  <ellipse cx="215" cy="90" rx="8" ry="16" fill="#f9d58a"/>
+  <ellipse cx="285" cy="90" rx="8" ry="16" fill="#f9d58a"/>
+
+  <!-- Horns -->
+  <rect x="230" y="60" width="8" height="25" rx="4" fill="#d68b3a"/>
+  <rect x="262" y="60" width="8" height="25" rx="4" fill="#d68b3a"/>
+  <circle cx="234" cy="58" r="6" fill="#5b3b23"/>
+  <circle cx="266" cy="58" r="6" fill="#5b3b23"/>
+
+  <!-- Eyes -->
+  <circle cx="235" cy="125" r="6" fill="#2b2b2b"/>
+  <circle cx="265" cy="125" r="6" fill="#2b2b2b"/>
+  <circle cx="233" cy="123" r="2" fill="#ffffff"/>
+  <circle cx="263" cy="123" r="2" fill="#ffffff"/>
+
+  <!-- Nostrils -->
+  <circle cx="248" cy="152" r="2.5" fill="#8b5a2b" opacity="0.8"/>
+  <circle cx="258" cy="152" r="2.5" fill="#8b5a2b" opacity="0.8"/>
+
+  <!-- Mouth area -->
+  <path d="M240 160 Q255 170 270 160" stroke="#8b5a2b" stroke-width="2" fill="none"/>
+
+  <!-- Bubble wand -->
+  <line x1="280" y1="160" x2="315" y2="190" stroke="#ff9fbf" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="325" cy="200" r="10" fill="none" stroke="#ff9fbf" stroke-width="4"/>
+
+  <!-- Bubble -->
+  <circle cx="360" cy="170" r="45" fill="url(#bubbleGrad)" stroke="#99d5ff" stroke-width="3" opacity="0.9"/>
+
+  <!-- Bubble highlight -->
+  <ellipse cx="345" cy="150" rx="12" ry="7" fill="#ffffff" opacity="0.6"/>
+
+  <defs>
+    <radialGradient id="bubbleGrad" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#c0e8ff" stop-opacity="0.6"/>
+      <stop offset="80%" stop-color="#7fd0ff" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#5ab3ff" stop-opacity="0.1"/>
+    </radialGradient>
+  </defs>
+</svg>

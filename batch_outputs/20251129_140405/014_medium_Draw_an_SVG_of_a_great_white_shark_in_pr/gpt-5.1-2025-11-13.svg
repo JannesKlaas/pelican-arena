@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="waterGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3b6fb3"/>
+      <stop offset="60%" stop-color="#1f4f7d"/>
+      <stop offset="100%" stop-color="#0a2740"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="500" height="500" fill="url(#waterGrad)"/>
+
+  <!-- Light rays -->
+  <g opacity="0.2">
+    <polygon points="40,0 90,0 180,250 130,250" fill="#ffffff"/>
+    <polygon points="160,0 210,0 290,260 240,260" fill="#ffffff"/>
+    <polygon points="280,0 330,0 390,240 345,240" fill="#ffffff"/>
+    <polygon points="360,0 420,0 470,230 440,230" fill="#ffffff"/>
+  </g>
+
+  <!-- Shipwreck silhouette -->
+  <g fill="#051528" opacity="0.55">
+    <polygon points="60,380 220,320 310,330 350,310 420,320 430,340 300,360 280,420 180,440 90,420" />
+    <rect x="250" y="260" width="10" height="60"/>
+    <polygon points="255,210 240,260 270,260" />
+  </g>
+
+  <!-- Shark body -->
+  <g>
+    <!-- Main body shape -->
+    <path d="M60,260
+             C150,200 260,190 360,220
+             C410,235 455,260 480,275
+             C455,285 410,310 360,325
+             C260,355 150,340 60,285
+             Z"
+          fill="#dfe9f4"/>
+
+    <!-- Dorsal dark gray (countershading) -->
+    <path d="M60,260
+             C150,200 260,190 360,220
+             C410,235 455,260 480,275
+             C450,280 410,290 360,295
+             C260,310 155,295 60,270
+             Z"
+          fill="#4e5c66"/>
+
+    <!-- Lateral line -->
+    <path d="M80,270
+             C160,255 250,250 350,260
+             C390,265 430,272 460,277"
+          stroke="#a6b4c0" stroke-width="2" fill="none" opacity="0.7"/>
+
+    <!-- Caudal fin (tail) -->
+    <path d="M480,275
+             C495,250 500,220 490,190
+             C465,210 450,230 440,250
+             C448,260 455,270 480,275
+             Z"
+          fill="#4e5c66"/>
+    <path d="M480,275
+             C495,300 500,330 490,360
+             C465,340 450,320 440,300
+             C448,290 455,282 480,275
+             Z"
+          fill="#4e5c66"/>
+
+    <!-- Dorsal fin -->
+    <path d="M225,200
+             C240,155 260,130 270,125
+             C273,155 270,190 265,215
+             Z"
+          fill="#4e5c66"/>
+
+    <!-- Pectoral fins (angled downward) -->
+    <path d="M215,270
+             C210,305 205,330 190,345
+             C185,330 185,310 190,290
+             Z"
+          fill="#4e5c66"/>
+    <path d="M260,280
+             C255,305 252,325 240,340
+             C235,325 235,310 240,290
+             Z"
+          fill="#3e4b55" opacity="0.8"/>
+
+    <!-- Eye -->
+    <circle cx="135" cy="240" r="5" fill="#111111"/>
+    <circle cx="133" cy="238" r="2" fill="#ffffff" opacity="0.7"/>
+
+    <!-- Mouth line -->
+    <path d="M115,265
+             C135,278 165,283 195,282"
+          stroke="#1b2329" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+    <!-- Teeth (triangular, serrated) -->
+    <g fill="#f5f5f5" stroke="#c6c6c6" stroke-width="0.6">
+      <polygon points="122,266 127,276 132,266"/>
+      <polygon points="132,267 137,277 142,267"/>
+      <polygon points="142,268 147,278 152,268"/>
+      <polygon points="152,269 157,279 162,269"/>
+      <polygon points="162,270 167,280 172,270"/>
+      <polygon points="172,271 177,281 182,271"/>
+    </g>
+
+    <!-- Gill slits -->
+    <g stroke="#1b2329" stroke-width="2" stroke-linecap="round">
+      <line x1="150" y1="248" x2="148" y2="268"/>
+      <line x1="158" y1="246" x2="156" y2="268"/>
+      <line x1="166" y1="245" x2="164" y2="267"/>
+      <line x1="174" y1="245" x2="172" y2="267"/>
+      <line x1="182" y1="246" x2="180" y2="268"/>
+    </g>
+  </g>
+
+  <!-- Remora fish beneath shark -->
+  <g transform="translate(220,320) scale(0.7)">
+    <!-- Body -->
+    <ellipse cx="0" cy="0" rx="35" ry="11" fill="#88939b"/>
+    <!-- Head -->
+    <ellipse cx="-25" cy="0" rx="9" ry="10" fill="#9ea8b0"/>
+    <!-- Suction disk top -->
+    <rect x="-32" y="-8" width="18" height="4" fill="#6f7a82" rx="1" ry="1"/>
+    <!-- Tail -->
+    <path d="M32,0
+             C40,4 45,8 50,11
+             C49,4 49,-4 50,-11
+             C45,-8 40,-4 32,0
+             Z"
+          fill="#78828a"/>
+    <!-- Eye -->
+    <circle cx="-28" cy="-2" r="2" fill="#222222"/>
+    <!-- Pectoral fins -->
+    <path d="M-10,3
+             C-5,8 0,11 5,12
+             C1,8 -3,5 -10,3
+             Z"
+          fill="#747f87"/>
+    <path d="M-10,-3
+             C-5,-8 0,-11 5,-12
+             C1,-8 -3,-5 -10,-3
+             Z"
+          fill="#747f87" opacity="0.7"/>
+  </g>
+</svg>

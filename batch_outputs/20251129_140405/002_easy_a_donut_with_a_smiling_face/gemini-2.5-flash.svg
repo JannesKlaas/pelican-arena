@@ -1,0 +1,20 @@
+<svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Donut Body -->
+  <path
+    d="M 100 250 A 150 150 0 1 1 400 250 A 150 150 0 1 1 100 250 Z M 180 250 A 70 70 0 1 0 320 250 A 70 70 0 1 0 180 250 Z"
+    fill="#D2B48C" fill-rule="evenodd"
+  />
+
+  <!-- Frosting Layer -->
+  <path
+    d="M 105 250 A 145 145 0 1 1 395 250 A 145 145 0 1 1 105 250 Z M 175 250 A 75 75 0 1 0 325 250 A 75 75 0 1 0 175 250 Z"
+    fill="#FFB6C1" fill-rule="evenodd"
+  />
+
+  <!-- Eyes -->
+  <circle cx="200" cy="220" r="15" fill="black" />
+  <circle cx="300" cy="220" r="15" fill="black" />
+
+  <!-- Smile -->
+  <path d="M 210 290 Q 250 320 290 290" stroke="black" stroke-width="5" fill="none" />
+</svg>

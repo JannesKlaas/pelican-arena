@@ -1,0 +1,118 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="oceanGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a4d6d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a1f2e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="lightRays" x1="250" y1="0" x2="250" y2="500">
+      <stop offset="0%" style="stop-color:#66ccff;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#0a1f2e;stop-opacity:0" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Ocean background -->
+  <rect width="500" height="500" fill="url(#oceanGradient)"/>
+  
+  <!-- Light rays -->
+  <rect width="500" height="500" fill="url(#lightRays)"/>
+  
+  <!-- Light rays lines -->
+  <line x1="150" y1="0" x2="120" y2="500" stroke="#66ccff" stroke-width="2" opacity="0.2"/>
+  <line x1="250" y1="0" x2="250" y2="500" stroke="#66ccff" stroke-width="3" opacity="0.25"/>
+  <line x1="350" y1="0" x2="380" y2="500" stroke="#66ccff" stroke-width="2" opacity="0.2"/>
+  
+  <!-- Shipwreck silhouette in background -->
+  <g opacity="0.15">
+    <polygon points="80,400 120,350 140,360 160,340 200,380 220,360 240,390" fill="#000"/>
+    <rect x="100" y="380" width="80" height="80" fill="#000"/>
+    <polygon points="130,300 150,280 170,300" fill="#000"/>
+  </g>
+  
+  <!-- Great White Shark -->
+  <g>
+    <!-- Dorsal surface (dark gray) -->
+    <ellipse cx="250" cy="220" rx="140" ry="45" fill="#4a4a4a"/>
+    
+    <!-- Main body shape - dark gray top -->
+    <path d="M 120 220 Q 100 210 80 215 L 100 235 Q 120 235 140 225 Z" fill="#4a4a4a"/>
+    <path d="M 350 210 L 420 190 L 430 200 L 380 220 Z" fill="#4a4a4a"/>
+    
+    <!-- Ventral surface (white underside) -->
+    <ellipse cx="250" cy="235" rx="135" ry="35" fill="#f0f8ff"/>
+    
+    <!-- Head section -->
+    <ellipse cx="100" cy="225" rx="35" ry="40" fill="#4a4a4a"/>
+    <ellipse cx="95" cy="235" rx="30" ry="25" fill="#f0f8ff"/>
+    
+    <!-- Snout -->
+    <path d="M 70 220 Q 50 225 40 225 Q 50 215 70 215 Z" fill="#4a4a4a"/>
+    <path d="M 70 230 Q 50 235 40 235 Q 50 238 70 235 Z" fill="#f0f8ff"/>
+    
+    <!-- Eye -->
+    <circle cx="85" cy="210" r="4" fill="#000"/>
+    
+    <!-- Nostril -->
+    <ellipse cx="50" cy="225" rx="2" ry="3" fill="#000"/>
+    
+    <!-- Mouth with visible teeth -->
+    <path d="M 60 230 Q 50 235 45 235" stroke="#2a2a2a" stroke-width="1" fill="none"/>
+    <path d="M 60 230 Q 50 235 45 235" stroke="#000" stroke-width="0.5" fill="none"/>
+    
+    <!-- Serrated teeth -->
+    <g fill="#f0f8ff" stroke="#2a2a2a" stroke-width="0.5">
+      <polygon points="48,233 50,240 52,233"/>
+      <polygon points="53,233 55,241 57,233"/>
+      <polygon points="58,233 60,240 62,233"/>
+    </g>
+    
+    <!-- Gill slits -->
+    <g stroke="#2a2a2a" stroke-width="1.5" fill="none">
+      <path d="M 105 210 Q 110 215 105 220"/>
+      <path d="M 115 207 Q 122 215 117 223"/>
+      <path d="M 125 205 Q 132 215 128 227"/>
+      <path d="M 135 205 Q 142 215 138 228"/>
+      <path d="M 145 207 Q 151 215 147 228"/>
+    </g>
+    
+    <!-- Lateral line -->
+    <path d="M 70 225 Q 150 220 380 210" stroke="#8a8a8a" stroke-width="1" fill="none" opacity="0.6" stroke-dasharray="3,2"/>
+    
+    <!-- Dorsal fin -->
+    <polygon points="200,180 210,140 220,185" fill="#4a4a4a" stroke="#2a2a2a" stroke-width="0.5"/>
+    
+    <!-- Pectoral fin left (angled downward) -->
+    <ellipse cx="150" cy="250" rx="20" ry="35" fill="#5a5a5a" stroke="#2a2a2a" stroke-width="0.5" transform="rotate(-25 150 250)"/>
+    
+    <!-- Pectoral fin right (angled downward) -->
+    <ellipse cx="300" cy="255" rx="18" ry="32" fill="#5a5a5a" stroke="#2a2a2a" stroke-width="0.5" transform="rotate(25 300 255)"/>
+    
+    <!-- Caudal fin - crescent shaped with larger upper lobe -->
+    <path d="M 410 210 Q 450 160 460 180 Q 455 190 420 200 Z" fill="#4a4a4a" stroke="#2a2a2a" stroke-width="0.5"/>
+    <path d="M 410 240 Q 445 270 455 250 Q 445 245 420 240 Z" fill="#5a5a5a" stroke="#2a2a2a" stroke-width="0.5"/>
+    
+    <!-- Anal fin -->
+    <polygon points="320,250 330,275 340,250" fill="#5a5a5a" stroke="#2a2a2a" stroke-width="0.5"/>
+  </g>
+  
+  <!-- Remora fish beneath shark -->
+  <g>
+    <!-- Remora body -->
+    <ellipse cx="280" cy="320" rx="25" ry="12" fill="#6a6a6a" stroke="#3a3a3a" stroke-width="0.5"/>
+    
+    <!-- Remora head -->
+    <ellipse cx="265" cy="320" rx="12" ry="10" fill="#7a7a7a" stroke="#3a3a3a" stroke-width="0.5"/>
+    
+    <!-- Remora eye -->
+    <circle cx="260" cy="318" r="1.5" fill="#000"/>
+    
+    <!-- Remora tail -->
+    <polygon points="305,318 330,310 328,330" fill="#6a6a6a" stroke="#3a3a3a" stroke-width="0.5"/>
+    
+    <!-- Remora dorsal fin -->
+    <polygon points="280,308 283,300 286,309" fill="#6a6a6a" stroke="#3a3a3a" stroke-width="0.5"/>
+    
+    <!-- Remora pectoral fins -->
+    <ellipse cx="275" cy="328" rx="8" ry="5" fill="#7a7a7a" stroke="#3a3a3a" stroke-width="0.5" opacity="0.7"/>
+  </g>
+</svg>

@@ -1,0 +1,1 @@
+Create an SVG side view of a steam locomotive (4-6-2 Pacific). Show four leading wheels on a bogie, six large driving wheels connected by side rods, and two trailing wheels. Include pistons, valve gear, smokebox door, headlamp, and a tall funnel. Draw rails with sleepers at even spacing. Add steam clouds and correct coupling rods alignment and motion geometry.

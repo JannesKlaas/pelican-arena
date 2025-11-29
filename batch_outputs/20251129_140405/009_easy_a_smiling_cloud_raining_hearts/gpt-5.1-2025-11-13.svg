@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- Background -->
+  <rect width="500" height="500" fill="#f0f8ff"/>
+
+  <!-- Cloud -->
+  <g transform="translate(80,90)">
+    <ellipse cx="140" cy="120" rx="80" ry="55" fill="#ffffff" stroke="#d0d7e2" stroke-width="3"/>
+    <ellipse cx="200" cy="100" rx="70" ry="50" fill="#ffffff" stroke="#d0d7e2" stroke-width="3"/>
+    <ellipse cx="90" cy="105" rx="65" ry="50" fill="#ffffff" stroke="#d0d7e2" stroke-width="3"/>
+    <ellipse cx="160" cy="150" rx="95" ry="55" fill="#ffffff" stroke="#d0d7e2" stroke-width="3"/>
+
+    <!-- Eyes -->
+    <circle cx="150" cy="135" r="5" fill="#333333"/>
+    <circle cx="185" cy="135" r="5" fill="#333333"/>
+
+    <!-- Smile -->
+    <path d="M145 150 Q167.5 162 190 150" fill="none" stroke="#333333" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- Hearts (rain) -->
+  <g fill="#ff6b81" stroke="#e0485f" stroke-width="2" stroke-linejoin="round">
+    <!-- Heart function shape: two circles + triangle path-like -->
+    <path d="M170 260
+             C160 245 140 245 140 265
+             C140 285 170 300 170 300
+             C170 300 200 285 200 265
+             C200 245 180 245 170 260Z"/>
+    <path d="M240 290
+             C230 275 210 275 210 295
+             C210 315 240 330 240 330
+             C240 330 270 315 270 295
+             C270 275 250 275 240 290Z"/>
+    <path d="M310 260
+             C300 245 280 245 280 265
+             C280 285 310 300 310 300
+             C310 300 340 285 340 265
+             C340 245 320 245 310 260Z"/>
+    <path d="M210 340
+             C200 325 180 325 180 345
+             C180 365 210 380 210 380
+             C210 380 240 365 240 345
+             C240 325 220 325 210 340Z"/>
+    <path d="M290 360
+             C280 345 260 345 260 365
+             C260 385 290 400 290 400
+             C290 400 320 385 320 365
+             C320 345 300 345 290 360Z"/>
+  </g>
+</svg>

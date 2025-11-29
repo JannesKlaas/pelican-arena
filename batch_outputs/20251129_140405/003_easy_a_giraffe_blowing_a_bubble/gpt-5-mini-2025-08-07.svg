@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <linearGradient id="giraffeGrad" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#F8E1A0"/>
+      <stop offset="1" stop-color="#F6D166"/>
+    </linearGradient>
+    <radialGradient id="bubbleFill" cx="35%" cy="30%" r="70%">
+      <stop offset="0" stop-color="#D9F0FF" stop-opacity="0.95"/>
+      <stop offset="0.6" stop-color="#B7E2FF" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#9FD6FF" stop-opacity="0.15"/>
+    </radialGradient>
+    <linearGradient id="bubbleShine" x1="0" x2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.2" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#EAF7FF"/>
+
+  <!-- Giraffe neck -->
+  <path d="M160 420 C150 320 150 260 165 200 C180 140 200 120 245 115 C290 110 310 130 320 175 C330 220 300 260 300 360 C300 400 230 440 160 420"
+        fill="url(#giraffeGrad)" stroke="#D2A84A" stroke-width="3"/>
+
+  <!-- Spots on neck -->
+  <g fill="#9C6B2F">
+    <ellipse cx="200" cy="260" rx="24" ry="16"/>
+    <ellipse cx="220" cy="320" rx="18" ry="12" transform="rotate(-12 220 320)"/>
+    <ellipse cx="180" cy="360" rx="20" ry="14"/>
+    <ellipse cx="240" cy="200" rx="16" ry="11"/>
+  </g>
+
+  <!-- Head -->
+  <g transform="translate(120,40) rotate(-8 200 120)">
+    <ellipse cx="230" cy="120" rx="72" ry="56" fill="url(#giraffeGrad)" stroke="#D2A84A" stroke-width="3"/>
+    <!-- Muzzle -->
+    <ellipse cx="260" cy="150" rx="38" ry="22" fill="#FFEDD0" stroke="#E6C79A" stroke-width="2"/>
+    <!-- Nostrils -->
+    <ellipse cx="250" cy="150" rx="4" ry="6" fill="#6A3E22"/>
+    <ellipse cx="270" cy="150" rx="4" ry="6" fill="#6A3E22"/>
+    <!-- Eye -->
+    <circle cx="220" cy="115" r="8" fill="#1B1B1B"/>
+    <circle cx="217" cy="112" r="3" fill="#fff" opacity="0.9"/>
+    <!-- Ear left -->
+    <path d="M190 100 C170 92 168 118 186 124 C194 127 200 116 198 106 Z" fill="#F8E1A0" stroke="#D2A84A" stroke-width="2"/>
+    <!-- Ear right -->
+    <path d="M280 92 C300 84 306 106 290 118 C282 124 274 118 276 104 Z" fill="#FFDDA6" stroke="#D2A84A" stroke-width="2"/>
+    <!-- Ossicones (horns) -->
+    <g fill="#8A5A3E">
+      <rect x="212" y="48" width="10" height="26" rx="5" transform="rotate(-10 217 61)"/>
+      <circle cx="217" cy="46" r="8"/>
+      <rect x="250" y="48" width="10" height="26" rx="5" transform="rotate(10 255 61)"/>
+      <circle cx="255" cy="46" r="8"/>
+    </g>
+
+    <!-- Spots on head -->
+    <g fill="#9C6B2F">
+      <ellipse cx="210" cy="90" rx="12" ry="8" transform="rotate(-15 210 90)"/>
+      <ellipse cx="235" cy="80" rx="10" ry="7"/>
+      <ellipse cx="245" cy="122" rx="14" ry="10" transform="rotate(10 245 122)"/>
+    </g>
+
+    <!-- Mouth line -->
+    <path d="M242 150 Q255 144 272 148" stroke="#6A3E22" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Bubble chain from mouth -->
+  <g fill="url(#bubbleFill)" stroke="#ffffff" stroke-opacity="0.6" stroke-width="2">
+    <circle cx="340" cy="170" r="48" />
+    <circle cx="310" cy="160" r="14" />
+    <circle cx="298" cy="152" r="8" />
+  </g>
+
+  <!-- Bubble highlights -->
+  <g fill="url(#bubbleShine)" opacity="0.9" filter="url(#soft)">
+    <ellipse cx="330" cy="150" rx="22" ry="12" transform="rotate(-20 330 150)" />
+    <circle cx="355" cy="140" r="6"/>
+  </g>
+
+  <!-- Subtle inner rim -->
+  <circle cx="340" cy="170" r="48" fill="none" stroke="#7FC8FF" stroke-opacity="0.25" stroke-width="6"/>
+
+</svg>

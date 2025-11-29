@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <radialGradient id="donutGrad" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#ffd089"/>
+      <stop offset="60%" stop-color="#f2a66b"/>
+      <stop offset="100%" stop-color="#d77a4f"/>
+    </radialGradient>
+    <linearGradient id="icingGrad" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#ff9ecb"/>
+      <stop offset="100%" stop-color="#ff6fa3"/>
+    </linearGradient>
+    <mask id="ringMask">
+      <rect width="100%" height="100%" fill="black"/>
+      <circle cx="250" cy="250" r="180" fill="white"/>
+      <circle cx="250" cy="250" r="80" fill="black"/>
+    </mask>
+  </defs>
+
+  <!-- donut base (ring) -->
+  <circle cx="250" cy="250" r="180" fill="url(#donutGrad)" mask="url(#ringMask)"/>
+
+  <!-- icing, clipped to the ring -->
+  <g mask="url(#ringMask)">
+    <path d="M70 200 
+             Q150 90 250 100 
+             Q350 90 430 200 
+             L430 300 
+             Q360 330 320 300 
+             Q290 330 250 300 
+             Q210 330 180 300 
+             Q140 330 70 300 Z"
+          fill="url(#icingGrad)"/>
+    <!-- sprinkles -->
+    <g>
+      <rect x="170" y="200" width="6" height="14" rx="3" transform="rotate(-20 173 207)" fill="#fff48f"/>
+      <rect x="205" y="170" width="6" height="14" rx="3" transform="rotate(25 208 177)" fill="#9be7ff"/>
+      <rect x="245" y="190" width="6" height="14" rx="3" transform="rotate(-40 248 197)" fill="#ffd6a5"/>
+      <rect x="295" y="205" width="6" height="14" rx="3" transform="rotate(15 298 212)" fill="#c6ffb0"/>
+      <rect x="330" y="240" width="6" height="14" rx="3" transform="rotate(-30 333 247)" fill="#ffe0f0"/>
+    </g>
+  </g>
+
+  <!-- inner hole rim -->
+  <circle cx="250" cy="250" r="80" fill="transparent" stroke="#d9a37a" stroke-width="6"/>
+
+  <!-- smiling face -->
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <!-- eyes -->
+    <circle cx="215" cy="230" r="12" fill="#2b2b2b"/>
+    <circle cx="285" cy="230" r="12" fill="#2b2b2b"/>
+    <circle cx="222" cy="225" r="4" fill="#fff"/>
+    <circle cx="292" cy="225" r="4" fill="#fff"/>
+    <!-- smile -->
+    <path d="M200 260 Q250 300 300 260" fill="none" stroke="#2b2b2b" stroke-width="8"/>
+  </g>
+</svg>

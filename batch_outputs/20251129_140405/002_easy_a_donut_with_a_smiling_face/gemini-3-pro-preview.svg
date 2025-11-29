@@ -1,0 +1,51 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Donut Dough -->
+  <circle cx="250" cy="250" r="230" fill="#EDA868" />
+
+  <!-- Pink Icing -->
+  <path d="M250,40 
+           C310,40 360,60 400,100 
+           C440,140 460,190 460,250 
+           C460,310 440,360 410,400 
+           C380,440 320,460 250,440 
+           C180,460 120,440 90,400 
+           C60,360 40,310 40,250 
+           C40,190 60,140 100,100 
+           C140,60 190,40 250,40 Z" 
+        fill="#F48FB1" />
+
+  <!-- Donut Hole -->
+  <circle cx="250" cy="250" r="70" fill="#FFFFFF" />
+
+  <!-- Sprinkles -->
+  <g stroke-width="12" stroke-linecap="round">
+    <line x1="220" y1="100" x2="220" y2="130" stroke="#FFFFFF" transform="rotate(30 220 115)" />
+    <line x1="320" y1="120" x2="320" y2="150" stroke="#FFF176" transform="rotate(-20 320 135)" />
+    <line x1="140" y1="200" x2="140" y2="230" stroke="#81D4FA" transform="rotate(45 140 215)" />
+    <line x1="360" y1="200" x2="360" y2="230" stroke="#A5D6A7" transform="rotate(-45 360 215)" />
+    <line x1="250" y1="380" x2="250" y2="410" stroke="#FFFFFF" transform="rotate(90 250 395)" />
+    <line x1="120" y1="300" x2="120" y2="330" stroke="#FFCC80" transform="rotate(-15 120 315)" />
+    <line x1="380" y1="300" x2="380" y2="330" stroke="#B39DDB" transform="rotate(15 380 315)" />
+  </g>
+
+  <!-- Face -->
+  <g transform="translate(0, 20)">
+    <!-- Eyes -->
+    <circle cx="175" cy="220" r="18" fill="#4E342E" />
+    <circle cx="182" cy="215" r="6" fill="#FFFFFF" /> <!-- Eye Highlight -->
+    
+    <circle cx="325" cy="220" r="18" fill="#4E342E" />
+    <circle cx="332" cy="215" r="6" fill="#FFFFFF" /> <!-- Eye Highlight -->
+
+    <!-- Cheeks -->
+    <ellipse cx="150" cy="260" rx="15" ry="10" fill="#E91E63" opacity="0.3" />
+    <ellipse cx="350" cy="260" rx="15" ry="10" fill="#E91E63" opacity="0.3" />
+
+    <!-- Mouth -->
+    <path d="M 200 260 Q 250 310 300 260" 
+          fill="none" 
+          stroke="#4E342E" 
+          stroke-width="10" 
+          stroke-linecap="round" />
+  </g>
+</svg>

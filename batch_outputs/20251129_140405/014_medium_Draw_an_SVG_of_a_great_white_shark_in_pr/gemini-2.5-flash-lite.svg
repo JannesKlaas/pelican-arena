@@ -1,0 +1,52 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background: Shipwreck Silhouette -->
+  <g fill="#333" opacity="0.5">
+    <path d="M50 400 L100 350 L150 400 L200 300 L250 400 L300 350 L350 400 L400 300 L450 400 V500 H50 Z" />
+  </g>
+
+  <!-- Light Rays -->
+  <g stroke="#ADD8E6" stroke-width="2" opacity="0.6">
+    <line x1="250" y1="0" x2="150" y2="150" />
+    <line x1="250" y1="0" x2="350" y2="150" />
+    <line x1="250" y1="0" x2="200" y2="100" />
+    <line x1="250" y1="0" x2="300" y2="100" />
+  </g>
+
+  <!-- Shark Body -->
+  <path d="M100 250 C 150 180, 250 180, 300 220 C 350 260, 400 250, 420 280 C 430 300, 400 350, 380 360 C 350 370, 300 350, 270 340 C 220 320, 180 320, 150 340 C 100 360, 80 330, 100 250 Z" fill="#4682B4" />
+
+  <!-- Shark Underside -->
+  <path d="M100 250 C 150 270, 250 270, 300 260 C 350 250, 400 260, 420 280 C 430 300, 400 350, 380 360 C 350 370, 300 350, 270 340 C 220 320, 180 320, 150 340 C 100 360, 80 330, 100 250 Z" fill="white" />
+
+  <!-- Gill Slits -->
+  <g fill="#87CEEB" opacity="0.7">
+    <circle cx="250" cy="240" r="4" />
+    <circle cx="265" cy="235" r="4" />
+    <circle cx="280" cy="230" r="4" />
+    <circle cx="295" cy="228" r="4" />
+    <circle cx="310" cy="226" r="4" />
+  </g>
+
+  <!-- Caudal Fin -->
+  <polygon points="420 280, 480 250, 480 310" fill="#4682B4" />
+
+  <!-- Teeth -->
+  <g fill="white" stroke="black" stroke-width="0.5">
+    <polygon points="300 220, 305 215, 310 220" />
+    <polygon points="303 215, 308 210, 313 215" />
+    <polygon points="306 210, 311 205, 316 210" />
+  </g>
+
+  <!-- Lateral Line -->
+  <line x1="180" y1="290" x2="380" y2="300" stroke="#A9A9A9" stroke-width="2" />
+
+  <!-- Pectoral Fin -->
+  <path d="M200 320 C 230 340, 250 360, 240 380 L 180 360 Z" fill="#4682B4" />
+
+  <!-- Remora Fish -->
+  <g transform="translate(300, 380)">
+    <ellipse cx="0" cy="0" rx="15" ry="5" fill="#778899" />
+    <ellipse cx="-10" cy="0" rx="8" ry="3" fill="#A9A9A9" />
+    <line x1="-10" y1="0" x2="-18" y2="0" stroke="#A9A9A9" stroke-width="1" />
+  </g>
+</svg>

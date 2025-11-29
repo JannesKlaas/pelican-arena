@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <!-- Gradient for the sky -->
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e3f2fd;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#bbdefb;stop-opacity:1" />
+    </linearGradient>
+    <!-- Gradient for Bee Abdomen -->
+    <linearGradient id="abdomenGrad" x1="0%" y1="0%" x2="100%" y2="50%">
+      <stop offset="10%" style="stop-color:#ffd54f;stop-opacity:1" />
+      <stop offset="90%" style="stop-color:#ffca28;stop-opacity:1" />
+    </linearGradient>
+    <!-- Wing Texture -->
+    <pattern id="wingVeins" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+       <path d="M0,10 L10,0" stroke="#90a4ae" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="500" height="500" fill="url(#skyGradient)"/>
+
+  <!-- Sunflower Group -->
+  <g transform="translate(250, 320)">
+    
+    <!-- Stem -->
+    <path d="M-10,100 Q-5,150 -15,180" stroke="#558b2f" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <!-- Rough texture on stem -->
+    <path d="M-12,120 L-8,122 M-14,140 L-9,143" stroke="#33691e" stroke-width="1"/>
+
+    <!-- Serrated Leaves -->
+    <path d="M-12,130 Q-60,110 -90,150 L-85,145 L-95,140 L-90,135 L-100,120 Q-50,80 -12,120 Z" fill="#689f38" stroke="#33691e" stroke-width="1"/>
+    <path d="M-5,110 Q40,100 80,130 L75,125 L85,120 L80,115 L90,100 Q40,60 -5,100 Z" fill="#689f38" stroke="#33691e" stroke-width="1"/>
+
+    <!-- Petals (Ray Florets) - Simplified loop simulation -->
+    <g fill="#fdd835" stroke="#fbc02d" stroke-width="1">
+      <!-- Back layer -->
+      <path d="M0,0 L-40,-110 Q0,-130 40,-110 Z" transform="rotate(0)"/>
+      <path d="M0,0 L-40,-110 Q0,-130 40,-110 Z" transform="rotate(30)"/>
+      <path d="M0,0 L-40,-110 Q0,-130 40,-110 Z" transform="rotate(60)"/>
+      <path d="M0,0 L-40,-110 Q0,-130 40,-110 Z" transform="rotate(90)"/>
+      <path d="M0,0 L-40,-110 Q0,-130 40,-110 Z" transform="rotate(120)"/>
+      <path d="M0,0 L-40,-110 Q0,-130 40,-110 Z" transform="rotate(150)"/>
+      <path d="M0,0 L-40,-110 Q0,-130 40,-110 Z" transform="rotate(180)"/>
+      <path d="M0,0 L-40,-110 Q0,-130 40,-110 Z" transform="rotate(210)"/>
+      <path d="M0,0 L-40,-110 Q0,-130 40,-110 Z" transform="rotate(240)"/>
+      <path d="M0,0 L-40,-110 Q0,-130 40,-110 Z" transform="rotate(270)"/>
+      <path d="M0,0 L-40,-110 Q0,-130 40,-110 Z" transform="rotate(300)"/>
+      <path d="M0,0 L-40,-110 Q0,-130 40,-110 Z" transform="rotate(330)"/>
+      <!-- Front layer (offset) -->
+      <path d="M0,0 L-30,-100 Q0,-120 30,-100 Z" transform="rotate(15)"/>
+      <path d="M0,0 L-30,-100 Q0,-120 30,-100 Z" transform="rotate(45)"/>
+      <path d="M0,0 L-30,-100 Q0,-120 30,-100 Z" transform="rotate(75)"/>
+      <path d="M0,0 L-30,-100 Q0,-120 30,-100 Z" transform="rotate(105)"/>
+      <path d="M0,0 L-30,-100 Q0,-120 30,-100 Z" transform="rotate(135)"/>
+      <path d="M0,0 L-30,-100 Q0,-120 30,-100 Z" transform="rotate(165)"/>
+      <path d="M0,0 L-30,-100 Q0,-120 30,-100 Z" transform="rotate(195)"/>
+      <path d="M0,0 L-30,-100 Q0,-120 30,-100 Z" transform="rotate(225)"/>
+      <path d="M0,0 L-30,-100 Q0,-120 30,-100 Z" transform="rotate(255)"/>
+      <path d="M0,0 L-30,-100 Q0,-120 30,-100 Z" transform="rotate(285)"/>
+      <path d="M0,0 L-30,-100 Q0,-120 30,-100 Z" transform="rotate(315)"/>
+      <path d="M0,0 L-30,-100 Q0,-120 30,-100 Z" transform="rotate(345)"/>
+    </g>
+
+    <!-- Disc Head (Spiral Phyllotaxis Simulation) -->
+    <circle cx="0" cy="0" r="75" fill="#5d4037"/>
+    <!-- Simulated Spirals with dots -->
+    <g fill="#3e2723">
+      <circle cx="0" cy="0" r="3"/>
+      <circle cx="10" cy="0" r="3"/> <circle cx="-10" cy="0" r="3"/> <circle cx="0" cy="10" r="3"/> <circle cx="0" cy="-10" r="3"/>
+      <circle cx="14" cy="14" r="3"/> <circle cx="-14" cy="14" r="3"/> <circle cx="14" cy="-14" r="3"/> <circle cx="-14" cy="-14" r="3"/>
+      <circle cx="25" cy="5" r="3.5"/> <circle cx="-25" cy="5" r="3.5"/> <circle cx="5" cy="25" r="3.5"/> <circle cx="5" cy="-25" r="3.5"/>
+      <circle cx="20" cy="20" r="3.5"/> <circle cx="-20" cy="20" r="3.5"/> <circle cx="20" cy="-20" r="3.5"/> <circle cx="-20" cy="-20" r="3.5"/>
+      <circle cx="35" cy="0" r="4"/> <circle cx="-35" cy="0" r="4"/> <circle cx="0" cy="35" r="4"/> <circle cx="0" cy="-35" r="4"/>
+      <circle cx="30" cy="18" r="4"/> <circle cx="-30" cy="18" r="4"/> <circle cx="30" cy="-18" r="4"/> <circle cx="-30" cy="-18" r="4"/>
+      <circle cx="18" cy="30" r="4"/> <circle cx="-18" cy="30" r="4"/> <circle cx="18" cy="-30" r="4"/> <circle cx="-18" cy="-30" r="4"/>
+      <circle cx="45" cy="10" r="4"/> <circle cx="-45" cy="10" r="4"/> <circle cx="10" cy="45" r="4"/> <circle cx="10" cy="-45" r="4"/>
+      <circle cx="40" cy="30" r="4"/> <circle cx="-40" cy="30" r="4"/> <circle cx="40" cy="-30" r="4"/> <circle cx="-40" cy="-30" r="4"/>
+      <circle cx="30" cy="40" r="4"/> <circle cx="-30" cy="40" r="4"/> <circle cx="30" cy="-40" r="4"/> <circle cx="-30" cy="-40" r="4"/>
+      <circle cx="55" cy="20" r="4.5"/> <circle cx="-55" cy="20" r="4.5"/> <circle cx="20" cy="55" r="4.5"/> <circle cx="20" cy="-55" r="4.5"/>
+      <circle cx="60" cy="0" r="4.5"/> <circle cx="-60" cy="0" r="4.5"/> <circle cx="0" cy="60" r="4.5"/> <circle cx="0" cy="-60" r="4.5"/>
+    </g>
+  </g>
+
+  <!-- Bee Group -->
+  <!-- Positioned to land on the sunflower -->
+  <g transform="translate(270, 250) rotate(-15)">
+    
+    <!-- Far Legs (Behind Body) -->
+    <g fill="none" stroke="#212121" stroke-width="3" stroke-linecap="round">
+      <path d="M15,20 L10,35 L15,45"/> <!-- Far Hind -->
+      <path d="M35,20 L35,35 L38,45"/> <!-- Far Mid -->
+      <path d="M55,25 L58,35 L55,45"/> <!-- Far Front -->
+    </g>
+
+    <!-- Far Wing (Rear Pair) -->
+    <path d="M25,15 Q40,-30 80,-20 Q60,10 25,15 Z" fill="rgba(255,255,255,0.5)" stroke="#cfd8dc" stroke-width="1"/>
+
+    <!-- Abdomen -->
+    <g transform="translate(-10, 0)">
+      <ellipse cx="20" cy="20" rx="35" ry="22" fill="url(#abdomenGrad)"/>
+      <!-- Stripes -->
+      <path d="M10,0 Q20,5 20,40 Q10,35 5,37 Q5,5 10,0" fill="#212121"/>
+      <path d="M30,0 Q40,5 40,40 Q30,35 25,37 Q25,5 30,0" fill="#212121"/>
+      <path d="M-5,10 Q5,20 5,20 L-5,30 Q-15,20 -5,10" fill="#212121"/> <!-- Stinger end -->
+    </g>
+
+    <!-- Thorax (Fuzzy) -->
+    <!-- Using jagged path to simulate fuzz -->
+    <g transform="translate(45, 20)">
+      <circle cx="0" cy="0" r="18" fill="#8d6e63"/>
+      <!-- Hairs -->
+      <path d="M-15,-10 L-18,-15 M-10,-15 L-12,-20 M0,-18 L0,-23 M10,-15 L13,-20 M15,-10 L20,-15 M18,0 L23,0 M15,10 L20,15 M0,18 L0,23 M-15,10 L-20,15" stroke="#6d4c41" stroke-width="1.5"/>
+      <circle cx="0" cy="0" r="18" fill="none" stroke="#6d4c41" stroke-width="0" stroke-dasharray="2,2"/> 
+    </g>
+
+    <!-- Head -->
+    <g transform="translate(75, 25)">
+      <ellipse cx="0" cy="0" rx="12" ry="15" fill="#212121"/>
+      <!-- Eye -->
+      <ellipse cx="5" cy="-5" rx="5" ry="8" fill="#000" stroke="#424242" stroke-width="0.5"/>
+      <!-- Antennae -->
+      <path d="M5,-12 Q10,-20 20,-18" fill="none" stroke="#212121" stroke-width="1.5"/>
+      <path d="M0,-12 Q-5,-20 -15,-18" fill="none" stroke="#212121" stroke-width="1.5"/>
+      <!-- Proboscis (Extending to floret) -->
+      <path d="M5,12 Q10,30 0,45" fill="none" stroke="#3e2723" stroke-width="1.5"/>
+    </g>
+
+    <!-- Near Legs (Front of Body) -->
+    <g fill="none" stroke="#212121" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Near Hind Leg -->
+      <path d="M25,35 L20,50 L35,65 L40,70"/> <!-- Tibia + Tarsus -->
+      <!-- Near Mid Leg -->
+      <path d="M45,35 L45,55 L50,65"/>
+      <!-- Near Front Leg -->
+      <path d="M65,35 L70,50 L65,60"/>
+    </g>
+
+    <!-- Pollen Basket (Corbicula) on Hind Leg -->
+    <ellipse cx="25" cy="55" rx="6" ry="9" transform="rotate(-20 25 55)" fill="#ffab00" stroke="#ff6f00" stroke-width="1"/>
+    <!-- Pollen grains texture -->
+    <circle cx="25" cy="55" r="1" fill="#ffd180"/>
+    <circle cx="23" cy="52" r="1" fill="#ffd180"/>
+    <circle cx="27" cy="58" r="1" fill="#ffd180"/>
+
+    <!-- Near Wings (Front Pair) -->
+    <g opacity="0.8">
+      <!-- Forewing -->
+      <path d="M50,10 Q60,-50 120,-30 Q100,20 50,10 Z" fill="#e1f5fe" stroke="#90a4ae" stroke-width="1"/>
+      <!-- Veins -->
+      <path d="M50,10 Q80,-10 100,-10" fill="none" stroke="#90a4ae" stroke-width="0.5"/>
+      <path d="M70,-5 L80,5" fill="none" stroke="#90a4ae" stroke-width="0.5"/>
+      <!-- Hindwing overlap -->
+      <path d="M45,15 Q55,-20 85,-10 Q70,25 45,15 Z" fill="#e1f5fe" stroke="#90a4ae" stroke-width="1"/>
+    </g>
+
+  </g>
+</svg>

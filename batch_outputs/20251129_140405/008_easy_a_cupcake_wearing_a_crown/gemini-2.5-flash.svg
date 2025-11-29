@@ -1,0 +1,31 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Cupcake Liner Base -->
+  <path d="M170 400 L330 400 L310 300 L190 300 Z" fill="#F0DDAA" />
+
+  <!-- Cupcake Liner Pleats (simulated with lines) -->
+  <line x1="195" y1="300" x2="180" y2="400" stroke="#E0C9A6" stroke-width="3" />
+  <line x1="210" y1="300" x2="200" y2="400" stroke="#E0C9A6" stroke-width="3" />
+  <line x1="225" y1="300" x2="220" y2="400" stroke="#E0C9A6" stroke-width="3" />
+  <line x1="240" y1="300" x2="240" y2="400" stroke="#E0C9A6" stroke-width="3" />
+  <line x1="255" y1="300" x2="260" y2="400" stroke="#E0C9A6" stroke-width="3" />
+  <line x1="270" y1="300" x2="280" y2="400" stroke="#E0C9A6" stroke-width="3" />
+  <line x1="285" y1="300" x2="300" y2="400" stroke="#E0C9A6" stroke-width="3" />
+  <line x1="300" y1="300" x2="320" y2="400" stroke="#E0C9A6" stroke-width="3" />
+
+  <!-- Cupcake Cake Part (a simple ellipse on top of the liner) -->
+  <ellipse cx="250" cy="290" rx="70" ry="30" fill="#C19A6B" />
+
+  <!-- Frosting (a swirled shape) -->
+  <path d="M250 180 C200 170, 180 230, 200 270 C220 290, 280 290, 300 270 C320 230, 300 170, 250 180 Z" fill="#FFC0CB" />
+
+  <!-- Crown Base -->
+  <rect x="210" y="115" width="80" height="25" fill="#FFD700" />
+  
+  <!-- Crown Points -->
+  <polygon points="210 115, 220 95, 230 115, 240 95, 250 115, 260 95, 270 115, 280 95, 290 115" fill="#FFD700" />
+  
+  <!-- Crown Jewels -->
+  <circle cx="225" cy="118" r="3" fill="#00BFFF" />
+  <circle cx="250" cy="118" r="3" fill="#FF4500" />
+  <circle cx="275" cy="118" r="3" fill="#8A2BE2" />
+</svg>

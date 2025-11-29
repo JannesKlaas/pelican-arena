@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#f7fbff"/>
+      <stop offset="1" stop-color="#e6f9ff"/>
+    </linearGradient>
+    <linearGradient id="heartGrad" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ff7b9c"/>
+      <stop offset="1" stop-color="#ff3b5a"/>
+    </linearGradient>
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6" result="blur"/>
+      <feOffset in="blur" dx="0" dy="6" result="offset"/>
+      <feMerge>
+        <feMergeNode in="offset"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- background -->
+  <rect width="500" height="500" fill="url(#sky)"/>
+
+  <!-- cloud made of overlapping shapes -->
+  <g filter="url(#softShadow)">
+    <ellipse cx="250" cy="230" rx="140" ry="60" fill="#ffffff" stroke="#cfeefd" stroke-width="4"/>
+    <circle cx="170" cy="200" r="50" fill="#ffffff" stroke="#cfeefd" stroke-width="4"/>
+    <circle cx="240" cy="160" r="70" fill="#ffffff" stroke="#cfeefd" stroke-width="4"/>
+    <circle cx="320" cy="190" r="55" fill="#ffffff" stroke="#cfeefd" stroke-width="4"/>
+  </g>
+
+  <!-- face -->
+  <g fill="#1f3a58" stroke="none">
+    <!-- eyes -->
+    <ellipse cx="215" cy="210" rx="8" ry="12"/>
+    <ellipse cx="285" cy="210" rx="8" ry="12"/>
+    <!-- mouth -->
+    <path d="M205 240 Q250 275 295 240" fill="none" stroke="#1f3a58" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- hearts raining -->
+  <g fill="url(#heartGrad)" stroke="#e85b75" stroke-width="1">
+    <!-- heart path centered at origin, will be transformed -->
+    <path id="heart" d="M0 -20 C -15 -40, -45 -35, -45 -5 C -45 15, -20 30, 0 45 C 20 30, 45 15, 45 -5 C 45 -35, 15 -40, 0 -20 Z"/>
+    <!-- copies -->
+    <use href="#heart" transform="translate(200,320) scale(0.7) rotate(-15)" opacity="0.95"/>
+    <use href="#heart" transform="translate(260,360) scale(0.9) rotate(10)" opacity="1"/>
+    <use href="#heart" transform="translate(320,300) scale(0.6) rotate(-5)" opacity="0.9"/>
+    <use href="#heart" transform="translate(220,400) scale(0.5) rotate(5)" opacity="0.85"/>
+    <use href="#heart" transform="translate(340,350) scale(0.65) rotate(20)" opacity="0.9"/>
+    <use href="#heart" transform="translate(280,420) scale(0.45) rotate(-10)" opacity="0.8"/>
+  </g>
+</svg>

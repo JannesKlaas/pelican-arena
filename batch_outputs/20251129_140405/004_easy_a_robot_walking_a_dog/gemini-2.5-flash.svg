@@ -1,0 +1,57 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Ground -->
+  <rect x="0" y="380" width="500" height="120" fill="#8BC34A" />
+
+  <!-- Robot Group -->
+  <g id="robot" transform="translate(180, 0)">
+    <!-- Body -->
+    <rect x="0" y="250" width="60" height="90" rx="5" ry="5" fill="#607D8B" />
+    <!-- Head -->
+    <circle cx="30" cy="220" r="35" fill="#90A4AE" />
+    <!-- Antenna -->
+    <line x1="30" y1="185" x2="30" y2="165" stroke="#90A4AE" stroke-width="5" stroke-linecap="round" />
+    <circle cx="30" cy="160" r="7" fill="#FFC107" />
+    <!-- Eyes -->
+    <circle cx="18" cy="215" r="5" fill="#212121" />
+    <circle cx="42" cy="215" r="5" fill="#212121" />
+    <!-- Mouth -->
+    <rect x="18" y="230" width="24" height="6" rx="2" ry="2" fill="#212121" />
+
+    <!-- Left Arm (forward) -->
+    <rect x="-10" y="260" width="20" height="60" fill="#455A64" transform="rotate(-15 0 260)" />
+    <!-- Right Arm (backward, holding leash) -->
+    <rect x="50" y="260" width="20" height="60" fill="#455A64" transform="rotate(15 60 260)" />
+
+    <!-- Left Leg (forward) -->
+    <rect x="10" y="340" width="20" height="70" fill="#455A64" transform="rotate(-10 20 340)" />
+    <!-- Right Leg (backward) -->
+    <rect x="40" y="340" width="20" height="70" fill="#455A64" transform="rotate(10 50 340)" />
+  </g>
+
+  <!-- Dog Group -->
+  <g id="dog" transform="translate(50, 0)">
+    <!-- Body -->
+    <rect x="50" y="300" width="100" height="50" rx="15" ry="15" fill="#795548" />
+    <!-- Head -->
+    <circle cx="70" cy="290" r="25" fill="#A1887F" />
+    <!-- Snout -->
+    <ellipse cx="60" cy="298" rx="15" ry="8" fill="#5D4037" />
+    <!-- Nose -->
+    <circle cx="55" cy="298" r="3" fill="#212121" />
+    <!-- Eye -->
+    <circle cx="68" cy="285" r="3" fill="#212121" />
+    <!-- Ears -->
+    <path d="M70 265 L80 270 L75 290 Z" fill="#A1887F" />
+    <path d="M70 265 L60 270 L65 290 Z" fill="#A1887F" />
+
+    <!-- Legs -->
+    <rect x="65" y="340" width="15" height="40" fill="#5D4037" transform="rotate(-5 72 340)" />
+    <rect x="120" y="340" width="15" height="40" fill="#5D4037" transform="rotate(5 127 340)" />
+
+    <!-- Tail -->
+    <path d="M145 315 Q160 305 165 315 T150 325 Z" fill="#795548" />
+  </g>
+
+  <!-- Leash -->
+  <path d="M250 310 Q220 280 130 295" stroke="#F44336" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

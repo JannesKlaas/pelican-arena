@@ -1,0 +1,205 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- Background sky -->
+  <rect width="500" height="500" fill="#000"/>
+  <!-- Earth in black sky (upper-right) -->
+  <g transform="translate(360,70)">
+    <circle cx="0" cy="0" r="34" fill="#1ea0ff" />
+    <path d="M-22,-6 C-10,-18 8,-14 22,-10 C10,-2 -2,6 -22,-6" fill="#0b6b2f" opacity="0.95"/>
+    <path d="M-20,10 C-4,2 6,6 20,4" stroke="#003366" stroke-width="3" fill="none" opacity="0.7"/>
+    <circle cx="-6" cy="-8" r="3.5" fill="#bfefff" opacity="0.9"/>
+  </g>
+
+  <!-- Large moon curvature (horizon) -->
+  <g>
+    <!-- big circle centered below canvas to create curved horizon -->
+    <circle cx="250" cy="900" r="700" fill="#9f9f9f"/>
+    <!-- subtle darker band near horizon -->
+    <ellipse cx="250" cy="250" rx="600" ry="60" fill="#8f8f8f" opacity="0.25"/>
+  </g>
+
+  <!-- Ground foreground (regolith) -->
+  <g>
+    <rect x="0" y="260" width="500" height="240" fill="#bdbdbd"/>
+    <!-- some subtle darker patches for texture -->
+    <ellipse cx="120" cy="340" rx="40" ry="12" fill="#a9a9a9" opacity="0.45"/>
+    <ellipse cx="320" cy="380" rx="60" ry="18" fill="#9e9e9e" opacity="0.35"/>
+  </g>
+
+  <!-- Long shadows (sun low on left) -->
+  <g fill="#4a4a4a" opacity="0.55">
+    <!-- astronaut shadow elongated to right-down -->
+    <path d="M220 310 C260 340 330 380 360 420 L360 430 C330 390 270 350 220 310 Z" />
+    <!-- flag shadow -->
+    <path d="M350 240 L420 320 L420 330 L350 250 Z" />
+  </g>
+
+  <!-- Flag with horizontal support rod -->
+  <g transform="translate(320,190)">
+    <!-- pole -->
+    <rect x="-4" y="-50" width="8" height="210" fill="#ddd" stroke="#bdbdbd" stroke-width="1"/>
+    <!-- horizontal rod at top -->
+    <rect x="-4" y="-50" width="60" height="6" fill="#ddd" stroke="#bdbdbd" stroke-width="1"/>
+    <!-- flag -->
+    <g transform="translate(56,-48)">
+      <rect x="0" y="0" width="60" height="36" fill="#b30000" stroke="#8c0000" stroke-width="1"/>
+      <!-- stripes -->
+      <rect x="0" y="0" width="60" height="6" fill="#fff"/>
+      <rect x="0" y="6" width="60" height="6" fill="#b30000"/>
+      <rect x="0" y="12" width="60" height="6" fill="#fff"/>
+      <rect x="0" y="18" width="60" height="6" fill="#b30000"/>
+      <rect x="0" y="24" width="60" height="6" fill="#fff"/>
+      <!-- canton -->
+      <rect x="0" y="0" width="24" height="18" fill="#012169"/>
+      <!-- simplified stars -->
+      <g fill="#fff" transform="translate(3,2)" >
+        <circle cx="2" cy="2" r="1.1"/>
+        <circle cx="7" cy="2" r="1.1"/>
+        <circle cx="12" cy="2" r="1.1"/>
+        <circle cx="2" cy="6" r="1.1"/>
+        <circle cx="7" cy="6" r="1.1"/>
+        <circle cx="12" cy="6" r="1.1"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- Footprints behind astronaut (crisp) -->
+  <g fill="#8e8e8e">
+    <!-- three left footprints -->
+    <g transform="translate(170,375) rotate(-10)">
+      <ellipse cx="0" cy="0" rx="10" ry="18" />
+      <ellipse cx="-22" cy="-20" rx="8" ry="14" />
+      <ellipse cx="-40" cy="-36" rx="6" ry="10" />
+    </g>
+    <!-- three right footprints -->
+    <g transform="translate(200,380) rotate(-6)">
+      <ellipse cx="0" cy="0" rx="11" ry="20" />
+      <ellipse cx="-26" cy="-22" rx="9" ry="15" />
+      <ellipse cx="-48" cy="-38" rx="6.5" ry="11" />
+    </g>
+    <!-- two crisp boot imprints under astronaut (fore) -->
+    <g fill="#7f7f7f">
+      <ellipse cx="220" cy="420" rx="12" ry="22" />
+      <ellipse cx="248" cy="420" rx="12" ry="22" />
+    </g>
+  </g>
+
+  <!-- Astronaut (Apollo A7L style, simplified) -->
+  <g transform="translate(215,230)">
+    <!-- PLSS backpack behind (slightly right) -->
+    <g transform="translate(-30,-10)">
+      <rect x="-36" y="-30" width="72" height="90" rx="6" fill="#eaeaea" stroke="#cfcfcf" stroke-width="2"/>
+      <!-- control panel -->
+      <rect x="-12" y="-8" width="24" height="28" fill="#d5d5d5" stroke="#bdbdbd" stroke-width="1"/>
+      <circle cx="0" cy="-2" r="3" fill="#ff6b6b"/>
+      <circle cx="8" cy="6" r="2" fill="#5fbf5f"/>
+      <!-- hose to helmet -->
+      <path d="M36 -10 C52 -18 58 -38 54 -54" stroke="#bdbdbd" stroke-width="4" fill="none" stroke-linecap="round"/>
+    </g>
+
+    <!-- shadow under helmet to suggest reflect -->
+    <ellipse cx="8" cy="-90" rx="30" ry="10" fill="#000" opacity="0.06"/>
+
+    <!-- torso -->
+    <g>
+      <rect x="-28" y="-50" width="56" height="70" rx="8" fill="#fff" stroke="#e6e6e6" stroke-width="2"/>
+      <!-- chest detail -->
+      <rect x="-18" y="-20" width="36" height="26" rx="4" fill="#f2f2f2" stroke="#d1d1d1" stroke-width="1"/>
+    </g>
+
+    <!-- arms with ridged joint rings -->
+    <g stroke="#d0d0d0" stroke-width="2" fill="#fff">
+      <!-- left upper arm -->
+      <g transform="translate(-28,-30) rotate(-10)">
+        <rect x="-6" y="0" width="18" height="36" rx="6" fill="#fff" stroke="#e6e6e6"/>
+        <!-- shoulder rings -->
+        <g transform="translate(3,0)">
+          <rect x="-10" y="-6" width="20" height="4" fill="#e6e6e6"/>
+          <rect x="-10" y="-0" width="20" height="4" fill="#e6e6e6"/>
+        </g>
+        <!-- elbow ring -->
+        <g transform="translate(3,36)">
+          <rect x="-10" y="-2" width="20" height="4" fill="#e6e6e6"/>
+        </g>
+      </g>
+
+      <!-- right upper arm -->
+      <g transform="translate(28,-30) rotate(18)">
+        <rect x="-6" y="0" width="18" height="36" rx="6" fill="#fff" stroke="#e6e6e6"/>
+        <!-- shoulder rings -->
+        <g transform="translate(3,0)">
+          <rect x="-10" y="-6" width="20" height="4" fill="#e6e6e6"/>
+          <rect x="-10" y="-0" width="20" height="4" fill="#e6e6e6"/>
+        </g>
+        <!-- elbow ring -->
+        <g transform="translate(3,36)">
+          <rect x="-10" y="-2" width="20" height="4" fill="#e6e6e6"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- legs -->
+    <g fill="#fff" stroke="#e6e6e6" stroke-width="2">
+      <g transform="translate(-12,20)">
+        <rect x="-8" y="0" width="20" height="62" rx="8" fill="#fff" />
+        <!-- knee ring -->
+        <rect x="-12" y="28" width="28" height="6" fill="#e6e6e6"/>
+      </g>
+      <g transform="translate(12,20)">
+        <rect x="-8" y="0" width="20" height="62" rx="8" fill="#fff" />
+        <!-- knee ring -->
+        <rect x="-12" y="28" width="28" height="6" fill="#e6e6e6"/>
+      </g>
+    </g>
+
+    <!-- boots -->
+    <g fill="#d9d9d9" stroke="#bfbfbf" stroke-width="2">
+      <ellipse cx="-2" cy="84" rx="14" ry="18"/>
+      <ellipse cx="26" cy="84" rx="14" ry="18"/>
+      <!-- boot treads (simple) -->
+      <g stroke="#9e9e9e" stroke-width="1.5" stroke-linecap="round">
+        <path d="M-12 80 L2 88" />
+        <path d="M-12 86 L2 94" />
+        <path d="M14 80 L28 88" />
+        <path d="M14 86 L28 94" />
+      </g>
+    </g>
+
+    <!-- helmet and gold visor -->
+    <g>
+      <!-- helmet shell -->
+      <circle cx="8" cy="-92" r="30" fill="#f8f8f8" stroke="#e6e6e6" stroke-width="2"/>
+      <!-- gold visor -->
+      <ellipse cx="8" cy="-92" rx="22" ry="16" fill="url(#goldVisor)" stroke="#b8860b" stroke-width="1"/>
+      <!-- visor highlight -->
+      <path d="M-4,-100 C0,-108 16,-106 28,-98" stroke="#ffd" stroke-width="2" opacity="0.4" fill="none"/>
+    </g>
+
+    <!-- neck ring -->
+    <g transform="translate(8,-64)">
+      <rect x="-22" y="-2" width="44" height="8" rx="4" fill="#e6e6e6"/>
+      <rect x="-22" y="-2" width="44" height="3" fill="#d0d0d0"/>
+    </g>
+
+    <!-- small mission patch and details -->
+    <g transform="translate(-6,-12)">
+      <circle cx="22" cy="2" r="4" fill="#c02b2b"/>
+      <rect x="-18" y="-8" width="12" height="8" rx="2" fill="#dcdcdc"/>
+    </g>
+  </g>
+
+  <!-- subtle surface highlights and small rocks -->
+  <g fill="#b0b0b0" opacity="0.9">
+    <ellipse cx="400" cy="440" rx="8" ry="4"/>
+    <ellipse cx="60" cy="420" rx="6" ry="3"/>
+    <ellipse cx="260" cy="330" rx="10" ry="4" opacity="0.5"/>
+  </g>
+
+  <!-- Definitions -->
+  <defs>
+    <linearGradient id="goldVisor" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffd54f"/>
+      <stop offset="0.6" stop-color="#ffb300"/>
+      <stop offset="1" stop-color="#b8860b"/>
+    </linearGradient>
+  </defs>
+</svg>

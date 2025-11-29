@@ -1,0 +1,84 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="oceanGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#006994;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#001e2b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="rayGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Ocean Background -->
+  <rect width="500" height="500" fill="url(#oceanGrad)" />
+
+  <!-- Light Rays -->
+  <path d="M100 0 L200 500 L350 500 L250 0 Z" fill="url(#rayGrad)" />
+  <path d="M300 0 L450 500 L500 500 L400 0 Z" fill="url(#rayGrad)" />
+  <path d="M0 0 L50 500 L150 500 L50 0 Z" fill="url(#rayGrad)" />
+
+  <!-- Shipwreck Silhouette -->
+  <path d="M50 500 L120 380 L140 300 L150 380 L350 420 L400 350 L420 500 Z" fill="#000f14" opacity="0.6" />
+  <rect x="135" y="310" width="10" height="80" transform="rotate(-10 140 350)" fill="#000f14" opacity="0.6" />
+
+  <!-- Shark Group -->
+  <g transform="translate(20, 50)">
+    <!-- Main Body (Dark Dorsal) -->
+    <path d="M50 200 
+             Q150 160 220 160 
+             L240 80 L270 160 
+             Q350 170 400 200 
+             L450 120 
+             L420 210 
+             L440 280 
+             L390 240 
+             Q300 290 220 280 
+             L200 350 L170 270 
+             Q100 270 50 200 Z" 
+          fill="#4a5a63" stroke="none"/>
+
+    <!-- White Underside (Countershading) -->
+    <path d="M50 200 
+             Q80 210 120 215
+             L150 220
+             Q250 230 390 240
+             L400 255
+             Q300 300 200 285
+             Q120 280 70 230 
+             L80 220
+             Z" 
+          fill="#e0e0e0" />
+
+    <!-- Pectoral Fin (Dark - placed over belly) -->
+    <path d="M180 230 L140 330 L220 260 Z" fill="#4a5a63" stroke="#333" stroke-width="1"/>
+
+    <!-- Mouth and Teeth -->
+    <path d="M60 220 L90 215" stroke="#333" stroke-width="2" fill="none"/>
+    <!-- Serrated Teeth -->
+    <path d="M62 220 L64 225 L66 220 L68 225 L70 220 L72 225 L74 220 L76 225 L78 220" 
+          fill="white" stroke="none" />
+
+    <!-- Eye -->
+    <circle cx="90" cy="195" r="3" fill="black" />
+
+    <!-- 5 Gill Slits -->
+    <g stroke="#222" stroke-width="2" fill="none" opacity="0.7">
+      <path d="M130 200 Q125 215 130 230" />
+      <path d="M138 200 Q133 215 138 230" />
+      <path d="M146 200 Q141 215 146 230" />
+      <path d="M154 202 Q149 215 154 228" />
+      <path d="M162 204 Q157 215 162 226" />
+    </g>
+
+    <!-- Lateral Line -->
+    <path d="M160 205 Q250 210 390 220" fill="none" stroke="#333" stroke-width="1" opacity="0.3" />
+
+    <!-- Remora Fish -->
+    <g transform="translate(230, 300) rotate(10)">
+      <ellipse cx="0" cy="0" rx="35" ry="6" fill="#554433" />
+      <path d="M20 0 L35 -10 L35 0 Z" fill="#554433" />
+      <circle cx="-25" cy="-2" r="1" fill="white" />
+    </g>
+  </g>
+</svg>

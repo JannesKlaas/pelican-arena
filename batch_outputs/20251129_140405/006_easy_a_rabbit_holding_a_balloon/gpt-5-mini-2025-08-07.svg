@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- Background -->
+  <rect width="500" height="500" fill="#E8F8FF"/>
+
+  <!-- Balloon -->
+  <g>
+    <defs>
+      <radialGradient id="balloonGrad" cx="35%" cy="25%">
+        <stop offset="0%" stop-color="#FF9AA2"/>
+        <stop offset="100%" stop-color="#FF6B6B"/>
+      </radialGradient>
+    </defs>
+    <ellipse cx="380" cy="110" rx="52" ry="66" fill="url(#balloonGrad)" stroke="#E85B5B" stroke-width="2"/>
+    <!-- balloon highlight -->
+    <ellipse cx="365" cy="90" rx="14" ry="22" fill="rgba(255,255,255,0.45)"/>
+  </g>
+
+  <!-- String -->
+  <path d="M380 166 C360 200 340 230 305 266" fill="none" stroke="#6B6B6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Rabbit shadow -->
+  <ellipse cx="250" cy="430" rx="110" ry="18" fill="#000" opacity="0.06"/>
+
+  <!-- Rabbit body -->
+  <g stroke="#CCC2B8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="250" cy="330" rx="85" ry="95" fill="#FFF5E6"/>
+    <!-- head -->
+    <circle cx="250" cy="210" r="60" fill="#FFF5E6"/>
+    <!-- ears -->
+    <g>
+      <ellipse cx="218" cy="120" rx="18" ry="48" fill="#FFF5E6" transform="rotate(-15 218 120)"/>
+      <ellipse cx="282" cy="112" rx="18" ry="52" fill="#FFF5E6" transform="rotate(12 282 112)"/>
+      <!-- inner ear pinks -->
+      <ellipse cx="220" cy="125" rx="8" ry="28" fill="#FFD6E0" transform="rotate(-15 220 125)"/>
+      <ellipse cx="286" cy="118" rx="8" ry="30" fill="#FFD6E0" transform="rotate(12 286 118)"/>
+    </g>
+
+    <!-- legs -->
+    <ellipse cx="220" cy="390" rx="22" ry="12" fill="#FFF5E6"/>
+    <ellipse cx="280" cy="390" rx="22" ry="12" fill="#FFF5E6"/>
+
+    <!-- arms -->
+    <path d="M200 300 C210 300 220 310 232 314" fill="none" stroke="#CCC2B8" stroke-width="6"/>
+    <path d="M300 290 C305 285 320 280 305 270" fill="none" stroke="#CCC2B8" stroke-width="6"/>
+    <!-- right hand holding string -->
+    <circle cx="305" cy="270" r="8" fill="#FFF5E6"/>
+  </g>
+
+  <!-- Face details -->
+  <g>
+    <!-- eyes -->
+    <circle cx="235" cy="205" r="6" fill="#333"/>
+    <circle cx="265" cy="205" r="6" fill="#333"/>
+    <!-- nose -->
+    <path d="M250 222 L244 230 L256 230 Z" fill="#FFB6C1" stroke="#E6A3B0" stroke-width="1"/>
+    <!-- mouth -->
+    <path d="M244 235 C246 238 254 238 256 235" fill="none" stroke="#B88080" stroke-width="2" stroke-linecap="round"/>
+    <!-- whiskers -->
+    <path d="M216 228 L242 226" stroke="#BDBDBD" stroke-width="2" stroke-linecap="round"/>
+    <path d="M216 236 L242 236" stroke="#BDBDBD" stroke-width="2" stroke-linecap="round"/>
+    <path d="M258 226 L284 224" stroke="#BDBDBD" stroke-width="2" stroke-linecap="round"/>
+    <path d="M258 236 L284 236" stroke="#BDBDBD" stroke-width="2" stroke-linecap="round"/>
+  </g>
+</svg>

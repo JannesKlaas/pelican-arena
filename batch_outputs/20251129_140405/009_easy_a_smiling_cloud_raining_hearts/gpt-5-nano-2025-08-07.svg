@@ -1,0 +1,43 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Hearts raining behind the cloud -->
+  <g fill="#e11d48" stroke="none">
+    <g transform="translate(210,210) scale(0.75)">
+      <circle cx="-8" cy="0" r="8"/>
+      <circle cx="8" cy="0" r="8"/>
+      <polygon points="-16,8 0,24 16,8"/>
+    </g>
+    <g transform="translate(240,235) scale(0.75)">
+      <circle cx="-8" cy="0" r="8"/>
+      <circle cx="8" cy="0" r="8"/>
+      <polygon points="-16,8 0,24 16,8"/>
+    </g>
+    <g transform="translate(270,260) scale(0.75)">
+      <circle cx="-8" cy="0" r="8"/>
+      <circle cx="8" cy="0" r="8"/>
+      <polygon points="-16,8 0,24 16,8"/>
+    </g>
+    <g transform="translate(200,285) scale(0.75)">
+      <circle cx="-8" cy="0" r="8"/>
+      <circle cx="8" cy="0" r="8"/>
+      <polygon points="-16,8 0,24 16,8"/>
+    </g>
+    <g transform="translate(235,310) scale(0.75)">
+      <circle cx="-8" cy="0" r="8"/>
+      <circle cx="8" cy="0" r="8"/>
+      <polygon points="-16,8 0,24 16,8"/>
+    </g>
+  </g>
+
+  <!-- Cloud with smiling face on top -->
+  <g fill="#d9d9d9">
+    <circle cx="210" cy="190" r="40"/>
+    <circle cx="250" cy="170" r="50"/>
+    <circle cx="290" cy="190" r="40"/>
+    <circle cx="250" cy="230" r="50"/>
+    <!-- Eyes -->
+    <circle cx="238" cy="176" r="6" fill="#1f1f1f"/>
+    <circle cx="262" cy="176" r="6" fill="#1f1f1f"/>
+    <!-- Smile -->
+    <path d="M230 192 Q250 204 270 192" stroke="#1f1f1f" stroke-width="4" fill="none" stroke-linecap="round"/>
+  </g>
+</svg>

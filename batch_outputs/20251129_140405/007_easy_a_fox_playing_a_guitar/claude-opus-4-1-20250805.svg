@@ -1,0 +1,60 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fox body -->
+  <ellipse cx="250" cy="320" rx="70" ry="90" fill="#ff6b35"/>
+  
+  <!-- Fox head -->
+  <ellipse cx="250" cy="200" rx="60" ry="55" fill="#ff6b35"/>
+  
+  <!-- Fox ears -->
+  <polygon points="210,180 200,140 225,160" fill="#ff6b35"/>
+  <polygon points="290,180 300,140 275,160" fill="#ff6b35"/>
+  <polygon points="210,160 205,145 220,155" fill="#2d2d2d"/>
+  <polygon points="290,160 295,145 280,155" fill="#2d2d2d"/>
+  
+  <!-- Fox snout -->
+  <ellipse cx="250" cy="220" rx="25" ry="20" fill="#fff5e6"/>
+  
+  <!-- Fox eyes -->
+  <ellipse cx="230" cy="195" rx="8" ry="12" fill="#2d2d2d"/>
+  <ellipse cx="270" cy="195" rx="8" ry="12" fill="#2d2d2d"/>
+  <circle cx="232" cy="192" r="3" fill="#ffffff"/>
+  <circle cx="272" cy="192" r="3" fill="#ffffff"/>
+  
+  <!-- Fox nose -->
+  <ellipse cx="250" cy="225" rx="6" ry="5" fill="#2d2d2d"/>
+  
+  <!-- Fox tail -->
+  <ellipse cx="340" cy="330" rx="45" ry="70" transform="rotate(30 340 330)" fill="#ff6b35"/>
+  <ellipse cx="355" cy="345" rx="25" ry="40" transform="rotate(30 355 345)" fill="#fff5e6"/>
+  
+  <!-- Guitar body -->
+  <ellipse cx="220" cy="340" rx="55" ry="70" fill="#8b4513"/>
+  <ellipse cx="220" cy="340" rx="45" ry="60" fill="#654321"/>
+  <circle cx="220" cy="340" r="20" fill="#2d2d2d"/>
+  
+  <!-- Guitar neck -->
+  <rect x="215" y="270" width="10" height="100" fill="#654321"/>
+  <rect x="215" y="230" width="10" height="50" fill="#8b4513"/>
+  
+  <!-- Guitar headstock -->
+  <rect x="210" y="220" width="20" height="15" fill="#654321"/>
+  
+  <!-- Guitar strings -->
+  <line x1="217" y1="230" x2="217" y2="380" stroke="#c0c0c0" stroke-width="1"/>
+  <line x1="220" y1="230" x2="220" y2="380" stroke="#c0c0c0" stroke-width="1"/>
+  <line x1="223" y1="230" x2="223" y2="380" stroke="#c0c0c0" stroke-width="1"/>
+  
+  <!-- Fox arms -->
+  <ellipse cx="210" cy="290" rx="12" ry="40" transform="rotate(-20 210 290)" fill="#ff6b35"/>
+  <ellipse cx="280" cy="320" rx="12" ry="35" transform="rotate(45 280 320)" fill="#ff6b35"/>
+  
+  <!-- Fox paws on guitar -->
+  <ellipse cx="200" cy="260" rx="10" ry="8" fill="#2d2d2d"/>
+  <ellipse cx="245" cy="350" rx="10" ry="8" fill="#2d2d2d"/>
+  
+  <!-- Fox legs -->
+  <ellipse cx="230" cy="390" rx="15" ry="25" fill="#ff6b35"/>
+  <ellipse cx="270" cy="390" rx="15" ry="25" fill="#ff6b35"/>
+  <ellipse cx="225" cy="405" rx="12" ry="8" fill="#2d2d2d"/>
+  <ellipse cx="275" cy="405" rx="12" ry="8" fill="#2d2d2d"/>
+</svg>

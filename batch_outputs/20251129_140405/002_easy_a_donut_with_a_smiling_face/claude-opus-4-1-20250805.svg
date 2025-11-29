@@ -1,0 +1,23 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Donut base -->
+  <circle cx="250" cy="250" r="150" fill="#D4A574" stroke="#B8956A" stroke-width="3"/>
+  <circle cx="250" cy="250" r="70" fill="#FFFFFF"/>
+  
+  <!-- Pink frosting -->
+  <path d="M 250 100 A 150 150 0 1 1 249 100" fill="#FF69B4" opacity="0.9"/>
+  <path d="M 250 180 A 70 70 0 1 1 249 180" fill="#FFFFFF"/>
+  
+  <!-- Sprinkles -->
+  <rect x="200" y="140" width="25" height="6" rx="3" fill="#FFD700" transform="rotate(45 212 143)"/>
+  <rect x="280" y="160" width="25" height="6" rx="3" fill="#00CED1" transform="rotate(-30 292 163)"/>
+  <rect x="320" y="200" width="25" height="6" rx="3" fill="#FF6347" transform="rotate(60 332 203)"/>
+  <rect x="150" y="190" width="25" height="6" rx="3" fill="#32CD32" transform="rotate(-45 162 193)"/>
+  <rect x="180" y="230" width="25" height="6" rx="3" fill="#FFD700" transform="rotate(20 192 233)"/>
+  <rect x="310" y="260" width="25" height="6" rx="3" fill="#00CED1" transform="rotate(-60 322 263)"/>
+  <rect x="260" y="130" width="25" height="6" rx="3" fill="#FF6347" transform="rotate(15 272 133)"/>
+  
+  <!-- Smiling face -->
+  <circle cx="210" cy="220" r="8" fill="#000000"/>
+  <circle cx="290" cy="220" r="8" fill="#000000"/>
+  <path d="M 210 260 Q 250 290 290 260" stroke="#000000" stroke-width="5" stroke-linecap="round" fill="none"/>
+</svg>

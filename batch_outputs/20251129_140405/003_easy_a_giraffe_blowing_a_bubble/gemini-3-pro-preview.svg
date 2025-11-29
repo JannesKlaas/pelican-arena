@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <radialGradient id="bubbleGrad" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#87CEEB" stop-opacity="0.3"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="500" height="500" fill="#F0F8FF"/>
+
+  <!-- Neck -->
+  <path d="M220 500 L220 300 L280 300 L280 500 Z" fill="#F4C430"/>
+  
+  <!-- Spots on Neck -->
+  <path d="M230 450 Q240 430 255 445 Q260 460 240 465 Z" fill="#8B4513" opacity="0.8"/>
+  <path d="M250 350 Q270 340 270 360 Q260 375 245 365 Z" fill="#8B4513" opacity="0.8"/>
+
+  <!-- Ears -->
+  <ellipse cx="180" cy="220" rx="35" ry="15" fill="#F4C430" transform="rotate(-20 180 220)"/>
+  <ellipse cx="320" cy="220" rx="35" ry="15" fill="#F4C430" transform="rotate(20 320 220)"/>
+  <ellipse cx="180" cy="220" rx="20" ry="8" fill="#654321" transform="rotate(-20 180 220)"/>
+  <ellipse cx="320" cy="220" rx="20" ry="8" fill="#654321" transform="rotate(20 320 220)"/>
+
+  <!-- Ossicones (Horns) -->
+  <rect x="225" y="150" width="10" height="60" rx="5" fill="#F4C430"/>
+  <circle cx="230" cy="150" r="8" fill="#8B4513"/>
+  <rect x="265" y="150" width="10" height="60" rx="5" fill="#F4C430"/>
+  <circle cx="270" cy="150" r="8" fill="#8B4513"/>
+
+  <!-- Head -->
+  <ellipse cx="250" cy="230" rx="60" ry="75" fill="#F4C430"/>
+  
+  <!-- Spot on Head -->
+  <circle cx="280" cy="200" r="10" fill="#8B4513" opacity="0.8"/>
+
+  <!-- Muzzle area -->
+  <ellipse cx="250" cy="275" rx="45" ry="35" fill="#FFE4B5"/>
+  
+  <!-- Nostrils -->
+  <circle cx="235" cy="265" r="4" fill="#5D4037"/>
+  <circle cx="265" cy="265" r="4" fill="#5D4037"/>
+
+  <!-- Eyes -->
+  <circle cx="220" cy="220" r="8" fill="#333"/>
+  <circle cx="222" cy="218" r="3" fill="#FFF"/>
+  <circle cx="280" cy="220" r="8" fill="#333"/>
+  <circle cx="278" cy="218" r="3" fill="#FFF"/>
+
+  <!-- Mouth (Pursed lips) -->
+  <circle cx="250" cy="295" r="8" fill="#333"/>
+
+  <!-- The Bubble -->
+  <circle cx="250" cy="335" r="50" fill="url(#bubbleGrad)" stroke="#87CEEB" stroke-width="2"/>
+  
+  <!-- Bubble Highlight -->
+  <path d="M230 315 A 30 30 0 0 1 250 305" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+  <circle cx="275" cy="355" r="5" fill="white" opacity="0.6"/>
+</svg>

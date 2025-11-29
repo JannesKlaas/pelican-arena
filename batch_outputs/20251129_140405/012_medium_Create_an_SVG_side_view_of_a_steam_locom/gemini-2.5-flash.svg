@@ -1,0 +1,142 @@
+<svg width="500" height="500" viewBox="0 0 500 500">
+  <defs>
+    <!-- Filter for steam effect: generates noise and applies diffuse lighting to simulate cloud texture -->
+    <filter id="steamFilter" x="-50%" y="-50%" width="200%" height="200%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" seed="0" result="noise" />
+      <feDiffuseLighting in="noise" lighting-color="white" surfaceScale="2">
+        <fePointLight x="100" y="100" z="200" />
+      </feDiffuseLighting>
+      <feBlend in="SourceGraphic" in2="diffuseLighting" mode="multiply" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.8" intercept="0"/> <!-- Adjusts opacity of the steam -->
+      </feComponentTransfer>
+    </filter>
+  </defs>
+
+  <!-- Ground / Ballast beneath the tracks -->
+  <rect x="0" y="415" width="500" height="85" fill="#6B4226"/>
+
+  <!-- Sleepers (wooden ties) -->
+  <g id="sleepers">
+    <rect x="10" y="405" width="25" height="15" fill="#8B4513"/>
+    <rect x="45" y="405" width="25" height="15" fill="#8B4513"/>
+    <rect x="80" y="405" width="25" height="15" fill="#8B4513"/>
+    <rect x="115" y="405" width="25" height="15" fill="#8B4513"/>
+    <rect x="150" y="405" width="25" height="15" fill="#8B4513"/>
+    <rect x="185" y="405" width="25" height="15" fill="#8B4513"/>
+    <rect x="220" y="405" width="25" height="15" fill="#8B4513"/>
+    <rect x="255" y="405" width="25" height="15" fill="#8B4513"/>
+    <rect x="290" y="405" width="25" height="15" fill="#8B4513"/>
+    <rect x="325" y="405" width="25" height="15" fill="#8B4513"/>
+    <rect x="360" y="405" width="25" height="15" fill="#8B4513"/>
+    <rect x="395" y="405" width="25" height="15" fill="#8B4513"/>
+    <rect x="430" y="405" width="25" height="15" fill="#8B4513"/>
+    <rect x="465" y="405" width="25" height="15" fill="#8B4513"/>
+  </g>
+
+  <!-- Rails -->
+  <g id="rails">
+    <rect x="0" y="408" width="500" height="4" fill="#666"/>
+    <rect x="0" y="418" width="500" height="4" fill="#666"/>
+  </g>
+
+  <!-- Locomotive Chassis Frame -->
+  <rect x="60" y="380" width="420" height="20" fill="#333" stroke="#222" stroke-width="1"/>
+  <rect x="60" y="320" width="420" height="10" fill="#333" stroke="#222" stroke-width="1"/> <!-- Upper part of chassis frame -->
+
+  <!-- Wheels -->
+  <g id="wheels">
+    <!-- Leading Wheels (4-wheel bogie, 2 visible in side view) -->
+    <rect x="80" y="385" width="70" height="10" fill="#555" stroke="#333" stroke-width="1"/> <!-- Bogie frame connecting two wheels -->
+    <circle cx="95" cy="390" r="15" fill="#222" stroke="#444" stroke-width="2"/>
+    <circle cx="95" cy="390" r="5" fill="#555"/> <!-- Axle hub -->
+    <circle cx="135" cy="390" r="15" fill="#222" stroke="#444" stroke-width="2"/>
+    <circle cx="135" cy="390" r="5" fill="#555"/> <!-- Axle hub -->
+
+    <!-- Driving Wheels (6 large, 3 visible in side view) -->
+    <circle cx="210" cy="350" r="35" fill="#222" stroke="#444" stroke-width="3"/>
+    <circle cx="210" cy="350" r="10" fill="#555"/> <!-- Axle hub -->
+    <circle cx="280" cy="350" r="35" fill="#222" stroke="#444" stroke-width="3"/>
+    <circle cx="280" cy="350" r="10" fill="#555"/> <!-- Axle hub -->
+    <circle cx="350" cy="350" r="35" fill="#222" stroke="#444" stroke-width="3"/>
+    <circle cx="350" cy="350" r="10" fill="#555"/> <!-- Axle hub -->
+
+    <!-- Trailing Wheels (2, 1 visible in side view) -->
+    <circle cx="430" cy="380" r="25" fill="#222" stroke="#444" stroke-width="2"/>
+    <circle cx="430" cy="380" r="8" fill="#555"/> <!-- Axle hub -->
+  </g>
+
+  <!-- Locomotive Body -->
+  <g id="locomotive-body">
+    <!-- Boiler -->
+    <rect x="140" y="200" width="280" height="100" rx="15" ry="15" fill="#A52A2A" stroke="#222" stroke-width="2"/>
+
+    <!-- Smokebox (front part of boiler) -->
+    <circle cx="140" cy="250" r="50" fill="#36454F" stroke="#222" stroke-width="2"/>
+
+    <!-- Firebox (rear part of boiler, above driving wheels) -->
+    <path d="M 420 300 L 420 340 L 480 340 L 480 250 L 440 250 L 420 260 Z" fill="#8B0000" stroke="#222" stroke-width="2"/>
+
+    <!-- Cab -->
+    <path d="M 440 200 L 440 250 L 480 250 L 480 200 Z" fill="#A52A2A" stroke="#222" stroke-width="2"/>
+    <rect x="450" y="210" width="20" height="25" fill="#ADD8E6" stroke="#222" stroke-width="1"/> <!-- Cab window -->
+    <rect x="450" y="210" width="20" height="25" fill="none" stroke="#222" stroke-width="1"/> <!-- Window frame -->
+
+    <!-- Smokebox Door -->
+    <circle cx="140" cy="250" r="35" fill="#222" stroke="#444" stroke-width="2"/>
+    <circle cx="140" cy="250" r="5" fill="#AAA"/> <!-- Door handle/latch -->
+
+    <!-- Headlamp -->
+    <rect x="110" y="215" width="20" height="20" rx="5" ry="5" fill="#FFD700" stroke="#222" stroke-width="1"/>
+    <rect x="112" y="217" width="16" height="16" rx="3" ry="3" fill="#FFF"/> <!-- Light lens -->
+
+    <!-- Funnel (Chimney) - Tall as requested -->
+    <path d="M 160 170 L 190 170 L 180 110 L 170 110 L 160 170 Z" fill="#222" stroke="#444" stroke-width="2"/>
+    <rect x="160" y="100" width="30" height="10" fill="#222"/> <!-- Funnel top rim -->
+
+    <!-- Bell (simplified) -->
+    <circle cx="250" cy="180" r="10" fill="#DAA520" stroke="#222" stroke-width="1"/>
+    <rect x="248" y="170" width="4" height="10" fill="#DAA520"/> <!-- Bell support -->
+
+    <!-- Whistle (simplified) -->
+    <rect x="380" y="180" width="5" height="20" fill="#C0C0C0" stroke="#222" stroke-width="1"/>
+  </g>
+
+  <!-- Cylinders, Pistons, and Rods (Motion Gear) -->
+  <g id="motion">
+    <!-- Cylinder (where the piston moves) -->
+    <rect x="60" y="310" width="50" height="30" fill="#444" stroke="#222" stroke-width="1"/>
+    <rect x="110" y="318" width="20" height="15" fill="#666" stroke="#222" stroke-width="1"/> <!-- Crosshead guide -->
+    <line x1="110" y1="325" x2="140" y2="325" stroke="#777" stroke-width="3" stroke-linecap="round"/> <!-- Piston rod -->
+    <circle cx="140" cy="325" r="4" fill="#777" stroke="#222"/> <!-- Crosshead pin -->
+
+    <!-- Side Rods (connect all driving wheels) -->
+    <line x1="210" y1="350" x2="280" y2="350" stroke="#777" stroke-width="8" stroke-linecap="round"/>
+    <line x1="280" y1="350" x2="350" y2="350" stroke="#777" stroke-width="8" stroke-linecap="round"/>
+
+    <!-- Main Connecting Rod (from piston to a driving wheel) -->
+    <line x1="140" y1="325" x2="280" y2="350" stroke="#999" stroke-width="8" stroke-linecap="round"/>
+
+    <!-- Simplified Valve Gear (Walschaerts-like representation) -->
+    <!-- Union Link (connects crosshead to combination lever) -->
+    <line x1="140" y1="325" x2="180" y2="290" stroke="#999" stroke-width="3" stroke-linecap="round"/>
+    <!-- Combination Lever -->
+    <line x1="180" y1="290" x2="210" y2="290" stroke="#999" stroke-width="3" stroke-linecap="round"/>
+    <!-- Radius Rod (simplified connection point) -->
+    <line x1="210" y1="290" x2="250" y2="270" stroke="#999" stroke-width="3" stroke-linecap="round"/>
+    <!-- Valve Rod (simplified connection point to valve chest) -->
+    <line x1="210" y1="290" x2="250" y2="300" stroke="#999" stroke-width="3" stroke-linecap="round"/>
+    <!-- Eccentric Rod (simplified connection from driving wheel to expansion link) -->
+    <line x1="280" y1="350" x2="250" y2="300" stroke="#777" stroke-width="3" stroke-linecap="round"/>
+    <!-- Pin on the driving wheel where eccentric rod connects -->
+    <circle cx="280" cy="350" r="5" fill="#777"/>
+  </g>
+
+  <!-- Steam Clouds -->
+  <g id="steam-clouds" filter="url(#steamFilter)">
+    <ellipse cx="170" cy="90" rx="40" ry="30" fill="rgba(255,255,255,0.7)"/>
+    <ellipse cx="190" cy="70" rx="50" ry="35" fill="rgba(255,255,255,0.6)"/>
+    <ellipse cx="150" cy="80" rx="35" ry="25" fill="rgba(255,255,255,0.8)"/>
+    <ellipse cx="210" cy="80" rx="45" ry="30" fill="rgba(255,255,255,0.65)"/>
+  </g>
+</svg>

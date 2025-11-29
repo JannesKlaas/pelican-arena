@@ -1,0 +1,41 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Panda ears -->
+  <ellipse cx="150" cy="120" rx="60" ry="65" fill="#1a1a1a"/>
+  <ellipse cx="350" cy="120" rx="60" ry="65" fill="#1a1a1a"/>
+  
+  <!-- Panda head -->
+  <ellipse cx="250" cy="200" rx="130" ry="120" fill="#ffffff"/>
+  
+  <!-- Eye patches -->
+  <ellipse cx="200" cy="180" rx="45" ry="50" fill="#1a1a1a"/>
+  <ellipse cx="300" cy="180" rx="45" ry="50" fill="#1a1a1a"/>
+  
+  <!-- Sunglasses -->
+  <rect x="140" y="160" width="85" height="60" rx="10" fill="#000000" opacity="0.9"/>
+  <rect x="275" y="160" width="85" height="60" rx="10" fill="#000000" opacity="0.9"/>
+  <rect x="225" y="185" width="50" height="8" fill="#000000"/>
+  <rect x="130" y="185" width="20" height="8" fill="#000000"/>
+  <rect x="350" y="185" width="20" height="8" fill="#000000"/>
+  
+  <!-- Sunglasses shine -->
+  <ellipse cx="180" cy="180" rx="15" ry="20" fill="#ffffff" opacity="0.3"/>
+  <ellipse cx="315" cy="180" rx="15" ry="20" fill="#ffffff" opacity="0.3"/>
+  
+  <!-- Nose -->
+  <ellipse cx="250" cy="230" rx="15" ry="12" fill="#1a1a1a"/>
+  
+  <!-- Mouth -->
+  <path d="M 250 240 Q 230 260 210 250" stroke="#1a1a1a" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M 250 240 Q 270 260 290 250" stroke="#1a1a1a" stroke-width="3" fill="none" stroke-linecap="round"/>
+  
+  <!-- Body -->
+  <ellipse cx="250" cy="380" rx="100" ry="90" fill="#ffffff"/>
+  
+  <!-- Arms -->
+  <ellipse cx="160" cy="340" rx="40" ry="70" fill="#1a1a1a"/>
+  <ellipse cx="340" cy="340" rx="40" ry="70" fill="#1a1a1a"/>
+  
+  <!-- Feet -->
+  <ellipse cx="200" cy="450" rx="45" ry="35" fill="#1a1a1a"/>
+  <ellipse cx="300" cy="450" rx="45" ry="35" fill="#1a1a1a"/>
+</svg>

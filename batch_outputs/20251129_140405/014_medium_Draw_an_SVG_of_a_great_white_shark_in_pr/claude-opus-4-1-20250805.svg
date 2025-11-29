@@ -1,0 +1,78 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="500" height="500" fill="#0a4d68"/>
+  
+  <!-- Light rays from above -->
+  <polygon points="100,0 80,200 120,200" fill="#1e7095" opacity="0.3"/>
+  <polygon points="200,0 180,250 220,250" fill="#1e7095" opacity="0.3"/>
+  <polygon points="300,0 280,200 320,200" fill="#1e7095" opacity="0.3"/>
+  <polygon points="400,0 380,250 420,250" fill="#1e7095" opacity="0.3"/>
+  
+  <!-- Shipwreck silhouette -->
+  <g fill="#05293a" opacity="0.5">
+    <rect x="50" y="380" width="200" height="80" rx="5"/>
+    <rect x="100" y="350" width="20" height="40"/>
+    <rect x="180" y="340" width="15" height="50"/>
+    <polygon points="60,380 40,420 60,420"/>
+    <polygon points="240,380 260,420 240,420"/>
+  </g>
+  
+  <!-- Great White Shark -->
+  <g transform="translate(250,200)">
+    <!-- Body with countershading -->
+    <ellipse cx="0" cy="0" rx="120" ry="45" fill="#4a4a4a"/>
+    <ellipse cx="0" cy="5" rx="115" ry="35" fill="#f0f0f0"/>
+    
+    <!-- Head -->
+    <path d="M -120,0 Q -140,-5 -145,-2 Q -145,8 -120,10 Z" fill="#4a4a4a"/>
+    <path d="M -120,10 Q -140,8 -145,8 Q -140,12 -120,10 Z" fill="#f0f0f0"/>
+    
+    <!-- Caudal fin (crescent-shaped with larger upper lobe) -->
+    <path d="M 100,-5 Q 130,-35 145,-40 Q 140,-20 115,0" fill="#4a4a4a"/>
+    <path d="M 100,5 Q 125,20 135,25 Q 130,15 115,0" fill="#4a4a4a"/>
+    
+    <!-- Dorsal fin -->
+    <path d="M -20,-45 L 5,-45 L 0,-15 Z" fill="#4a4a4a"/>
+    
+    <!-- Pectoral fins (angled slightly downward) -->
+    <path d="M -60,15 L -40,25 L -30,35 L -45,20 Z" fill="#4a4a4a"/>
+    <path d="M -60,15 L -45,20 L -30,35 L -35,30 Z" fill="#e0e0e0"/>
+    
+    <!-- Pelvic fin -->
+    <path d="M 40,20 L 50,25 L 45,15 Z" fill="#4a4a4a"/>
+    
+    <!-- Anal fin -->
+    <path d="M 70,20 L 80,25 L 75,15 Z" fill="#e0e0e0"/>
+    
+    <!-- Eye -->
+    <circle cx="-100" cy="-5" r="4" fill="#000000"/>
+    <circle cx="-99" cy="-5" r="1" fill="#ffffff"/>
+    
+    <!-- Gill slits -->
+    <line x1="-70" y1="-10" x2="-65" y2="5" stroke="#2a2a2a" stroke-width="1.5"/>
+    <line x1="-60" y1="-10" x2="-55" y2="5" stroke="#2a2a2a" stroke-width="1.5"/>
+    <line x1="-50" y1="-10" x2="-45" y2="5" stroke="#2a2a2a" stroke-width="1.5"/>
+    <line x1="-40" y1="-10" x2="-35" y2="5" stroke="#2a2a2a" stroke-width="1.5"/>
+    <line x1="-30" y1="-10" x2="-25" y2="5" stroke="#2a2a2a" stroke-width="1.5"/>
+    
+    <!-- Lateral line -->
+    <path d="M -110,0 Q -50,2 0,0 Q 50,-2 100,-5" fill="none" stroke="#3a3a3a" stroke-width="0.5" stroke-dasharray="2,2"/>
+    
+    <!-- Teeth (triangular serrated) -->
+    <g fill="#ffffff">
+      <polygon points="-135,2 -133,6 -131,2"/>
+      <polygon points="-132,2 -130,6 -128,2"/>
+      <polygon points="-129,2 -127,6 -125,2"/>
+    </g>
+  </g>
+  
+  <!-- Remora fish beneath -->
+  <g transform="translate(240,260)">
+    <ellipse cx="0" cy="0" rx="25" ry="6" fill="#5a5a5a"/>
+    <rect x="-20" y="-4" width="15" height="3" fill="#7a7a7a"/>
+    <line x1="-18" y1="-3" x2="-8" y2="-3" stroke="#4a4a4a" stroke-width="0.5"/>
+    <line x1="-18" y1="-2" x2="-8" y2="-2" stroke="#4a4a4a" stroke-width="0.5"/>
+    <line x1="-18" y1="-1" x2="-8" y2="-1" stroke="#4a4a4a" stroke-width="0.5"/>
+    <circle cx="15" cy="-1" r="1" fill="#000000"/>
+  </g>
+</svg>

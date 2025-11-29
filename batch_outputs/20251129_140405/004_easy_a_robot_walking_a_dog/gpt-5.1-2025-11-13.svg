@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <rect width="500" height="500" fill="#f0f5ff"/>
+
+  <!-- Ground -->
+  <rect x="0" y="350" width="500" height="150" fill="#e2f0d9"/>
+
+  <!-- Sun -->
+  <circle cx="70" cy="70" r="30" fill="#ffd966"/>
+
+  <!-- Robot Body -->
+  <rect x="200" y="180" width="80" height="90" rx="10" fill="#b0bec5" stroke="#546e7a" stroke-width="3"/>
+
+  <!-- Robot Head -->
+  <rect x="205" y="120" width="70" height="55" rx="8" fill="#cfd8dc" stroke="#546e7a" stroke-width="3"/>
+
+  <!-- Robot Antenna -->
+  <line x1="240" y1="110" x2="240" y2="95" stroke="#546e7a" stroke-width="3"/>
+  <circle cx="240" cy="90" r="5" fill="#ff5252"/>
+
+  <!-- Robot Eyes -->
+  <circle cx="225" cy="140" r="6" fill="#263238"/>
+  <circle cx="255" cy="140" r="6" fill="#263238"/>
+
+  <!-- Robot Mouth -->
+  <rect x="222" y="155" width="36" height="6" rx="3" fill="#78909c"/>
+
+  <!-- Robot Arms -->
+  <line x1="200" y1="200" x2="165" y2="235" stroke="#546e7a" stroke-width="6" stroke-linecap="round"/>
+  <line x1="280" y1="200" x2="320" y2="225" stroke="#546e7a" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- Robot Hand (holding leash) -->
+  <circle cx="320" cy="225" r="6" fill="#546e7a"/>
+
+  <!-- Robot Legs -->
+  <line x1="220" y1="270" x2="210" y2="325" stroke="#546e7a" stroke-width="8" stroke-linecap="round"/>
+  <line x1="260" y1="270" x2="270" y2="325" stroke="#546e7a" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Robot Feet -->
+  <rect x="198" y="325" width="26" height="10" rx="3" fill="#78909c"/>
+  <rect x="266" y="325" width="26" height="10" rx="3" fill="#78909c"/>
+
+  <!-- Leash -->
+  <path d="M 323 227 Q 350 240 370 260" fill="none" stroke="#8d6e63" stroke-width="3"/>
+
+  <!-- Dog Body -->
+  <rect x="360" y="265" width="70" height="35" rx="12" fill="#ffcc80" stroke="#8d6e63" stroke-width="3"/>
+
+  <!-- Dog Head -->
+  <rect x="340" y="260" width="30" height="28" rx="8" fill="#ffb74d" stroke="#8d6e63" stroke-width="3"/>
+
+  <!-- Dog Ear -->
+  <path d="M 344 260 Q 336 250 344 248 Q 352 250 348 260 Z" fill="#fb8c00"/>
+
+  <!-- Dog Eye -->
+  <circle cx="352" cy="270" r="3" fill="#4e342e"/>
+
+  <!-- Dog Nose -->
+  <circle cx="342" cy="276" r="3" fill="#4e342e"/>
+
+  <!-- Dog Tail -->
+  <path d="M 430 270 Q 445 260 440 250" fill="none" stroke="#8d6e63" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Dog Legs -->
+  <line x1="370" y1="300" x2="370" y2="320" stroke="#8d6e63" stroke-width="5" stroke-linecap="round"/>
+  <line x1="390" y1="300" x2="390" y2="320" stroke="#8d6e63" stroke-width="5" stroke-linecap="round"/>
+  <line x1="410" y1="300" x2="410" y2="320" stroke="#8d6e63" stroke-width="5" stroke-linecap="round"/>
+  <line x1="430" y1="300" x2="430" y2="320" stroke="#8d6e63" stroke-width="5" stroke-linecap="round"/>
+</svg>

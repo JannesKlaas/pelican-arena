@@ -23,18 +23,15 @@ assert GOOGLE_BASE_URL, "GOOGLE_BASE_URL is not set"
 
 def openai_response(model: str, prompt: str) -> str:
     client = openai.OpenAI(api_key=OPENAI_API_KEY, base_url=OPENAI_BASE_URL)
-    response = client.chat.completions.create(
-        model=model,
-        messages=[{"role": "user", "content": prompt}]
-    )
-    return response.choices[0].message.content
+    response = client.responses.create(model=model, input=prompt)
+    return response.output_text
 
 def anthropic_response(model: str, prompt: str) -> str:
     client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY, base_url=ANTHROPIC_BASE_URL)
     response = client.messages.create(
         model=model,
         messages=[{"role": "user", "content": prompt}],
-        max_tokens=4096*4
+        max_tokens=4096
     )
     return response.content[0].text
 

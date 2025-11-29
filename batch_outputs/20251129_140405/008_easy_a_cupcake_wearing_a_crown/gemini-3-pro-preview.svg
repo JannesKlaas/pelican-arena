@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- Cupcake Wrapper -->
+  <path d="M170 400 L330 400 L360 260 L140 260 Z" fill="#E6C288" stroke="#8B4513" stroke-width="4" stroke-linejoin="round"/>
+  
+  <!-- Wrapper Ridges -->
+  <path d="M220 400 L210 260 M280 400 L290 260 M250 400 L250 260" stroke="#8B4513" stroke-width="3" stroke-opacity="0.4"/>
+
+  <!-- Frosting -->
+  <path d="M130 265 C110 180 190 150 220 180 C220 130 280 130 280 180 C310 150 390 180 370 265 Q250 290 130 265 Z" fill="#FFAAE3" stroke="#FF1493" stroke-width="4" stroke-linejoin="round"/>
+
+  <!-- Sprinkles -->
+  <rect x="180" y="210" width="12" height="6" rx="3" fill="#FFF" transform="rotate(45 180 210)"/>
+  <rect x="300" y="220" width="12" height="6" rx="3" fill="#40E0D0" transform="rotate(-30 300 220)"/>
+  <rect x="240" y="240" width="12" height="6" rx="3" fill="#FFD700" transform="rotate(10 240 240)"/>
+  <rect x="260" y="190" width="12" height="6" rx="3" fill="#90EE90" transform="rotate(80 260 190)"/>
+  <rect x="210" y="250" width="12" height="6" rx="3" fill="#87CEEB" transform="rotate(-10 210 250)"/>
+
+  <!-- Crown -->
+  <path d="M200 165 L200 100 L225 125 L250 60 L275 125 L300 100 L300 165 Q250 180 200 165 Z" fill="#FFD700" stroke="#DAA520" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- Crown Jewels -->
+  <circle cx="200" cy="100" r="5" fill="#FF4500" stroke="#B22222" stroke-width="1"/>
+  <circle cx="250" cy="60" r="6" fill="#1E90FF" stroke="#0000CD" stroke-width="1"/>
+  <circle cx="300" cy="100" r="5" fill="#FF4500" stroke="#B22222" stroke-width="1"/>
+</svg>

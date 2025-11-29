@@ -1,0 +1,160 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .rail { stroke: #333; stroke-width: 4; fill: none; }
+      .sleeper { stroke: #8B4513; stroke-width: 3; fill: #A0522D; }
+      .locomotive-body { fill: #1a1a1a; stroke: #333; stroke-width: 2; }
+      .wheel { fill: #222; stroke: #444; stroke-width: 1; }
+      .metal { fill: #888; stroke: #666; stroke-width: 1; }
+      .boiler { fill: #333; stroke: #555; stroke-width: 2; }
+      .steam { fill: #e0e0ff; opacity: 0.6; }
+      .text-label { font-size: 10px; fill: #333; }
+    </style>
+    <filter id="blur">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+    </filter>
+  </defs>
+
+  <!-- Rails -->
+  <line class="rail" x1="0" y1="380" x2="500" y2="380"/>
+  <line class="rail" x1="0" y1="420" x2="500" y2="420"/>
+
+  <!-- Sleepers -->
+  <rect class="sleeper" x="20" y="375" width="60" height="50"/>
+  <rect class="sleeper" x="100" y="375" width="60" height="50"/>
+  <rect class="sleeper" x="180" y="375" width="60" height="50"/>
+  <rect class="sleeper" x="260" y="375" width="60" height="50"/>
+  <rect class="sleeper" x="340" y="375" width="60" height="50"/>
+  <rect class="sleeper" x="420" y="375" width="60" height="50"/>
+
+  <!-- Leading Bogie (4 wheels - 2x2) -->
+  <!-- Front left wheel -->
+  <circle class="wheel" cx="80" cy="380" r="18"/>
+  <circle cx="80" cy="380" r="12" fill="none" stroke="#666" stroke-width="1"/>
+  <!-- Front right wheel -->
+  <circle class="wheel" cx="110" cy="380" r="18"/>
+  <circle cx="110" cy="380" r="12" fill="none" stroke="#666" stroke-width="1"/>
+  <!-- Rear left wheel of bogie -->
+  <circle class="wheel" cx="80" cy="360" r="18"/>
+  <circle cx="80" cy="360" r="12" fill="none" stroke="#666" stroke-width="1"/>
+  <!-- Rear right wheel of bogie -->
+  <circle class="wheel" cx="110" cy="360" r="18"/>
+  <circle cx="110" cy="360" r="12" fill="none" stroke="#666" stroke-width="1"/>
+
+  <!-- Bogie Frame -->
+  <rect class="metal" x="75" y="355" width="40" height="30" fill="#555"/>
+
+  <!-- Driving Wheels (6 large wheels) -->
+  <circle class="wheel" cx="160" cy="380" r="25"/>
+  <circle cx="160" cy="380" r="18" fill="none" stroke="#888" stroke-width="2"/>
+  
+  <circle class="wheel" cx="220" cy="380" r="25"/>
+  <circle cx="220" cy="380" r="18" fill="none" stroke="#888" stroke-width="2"/>
+  
+  <circle class="wheel" cx="280" cy="380" r="25"/>
+  <circle cx="280" cy="380" r="18" fill="none" stroke="#888" stroke-width="2"/>
+  
+  <circle class="wheel" cx="340" cy="380" r="25"/>
+  <circle cx="340" cy="380" r="18" fill="none" stroke="#888" stroke-width="2"/>
+  
+  <circle class="wheel" cx="400" cy="380" r="25"/>
+  <circle cx="400" cy="380" r="18" fill="none" stroke="#888" stroke-width="2"/>
+  
+  <circle class="wheel" cx="460" cy="380" r="25"/>
+  <circle cx="460" cy="380" r="18" fill="none" stroke="#888" stroke-width="2"/>
+
+  <!-- Coupling Rods (connecting driving wheels) -->
+  <line stroke="#666" stroke-width="3" x1="160" y1="405" x2="220" y2="405"/>
+  <line stroke="#666" stroke-width="3" x1="220" y1="405" x2="280" y2="405"/>
+  <line stroke="#666" stroke-width="3" x1="280" y1="405" x2="340" y2="405"/>
+  <line stroke="#666" stroke-width="3" x1="340" y1="405" x2="400" y2="405"/>
+  <line stroke="#666" stroke-width="3" x1="400" y1="405" x2="460" y2="405"/>
+
+  <!-- Trailing Wheels (2 wheels) -->
+  <circle class="wheel" cx="480" cy="380" r="15"/>
+  <circle cx="480" cy="380" r="10" fill="none" stroke="#666" stroke-width="1"/>
+  
+  <circle class="wheel" cx="490" cy="360" r="15"/>
+  <circle cx="490" cy="360" r="10" fill="none" stroke="#666" stroke-width="1"/>
+
+  <!-- Trailing Truck -->
+  <rect class="metal" x="475" y="355" width="20" height="30" fill="#555"/>
+
+  <!-- Main Boiler -->
+  <ellipse class="boiler" cx="250" cy="280" rx="120" ry="50"/>
+
+  <!-- Smokebox (Front) -->
+  <circle class="locomotive-body" cx="100" cy="280" r="35"/>
+  <circle cx="100" cy="280" r="30" fill="#222"/>
+
+  <!-- Smokebox Door -->
+  <circle cx="100" cy="280" r="20" fill="#444" stroke="#666" stroke-width="2"/>
+  <circle cx="95" cy="275" r="2" fill="#999"/>
+
+  <!-- Firebox (Rear) -->
+  <rect class="locomotive-body" x="330" y="240" width="60" height="80" rx="10"/>
+
+  <!-- Funnel (Chimney) -->
+  <rect x="115" y="210" width="12" height="60" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+  <ellipse cx="121" cy="210" rx="8" ry="4" fill="#444" stroke="#555" stroke-width="1"/>
+  <path d="M 115 210 Q 113 200 121 195 Q 129 200 127 210" fill="#666" stroke="#555" stroke-width="1"/>
+
+  <!-- Headlamp -->
+  <circle cx="75" cy="250" r="8" fill="#FFD700" stroke="#666" stroke-width="1"/>
+  <rect x="70" y="258" width="10" height="15" fill="#666" stroke="#333" stroke-width="1"/>
+
+  <!-- Pistons and Valve Gear -->
+  <!-- Left side piston rod -->
+  <rect x="140" y="315" width="35" height="6" fill="#888" stroke="#666" stroke-width="1"/>
+  <!-- Right side piston rod -->
+  <rect x="140" y="345" width="35" height="6" fill="#888" stroke="#666" stroke-width="1"/>
+
+  <!-- Connecting Rod Links -->
+  <line stroke="#777" stroke-width="2" x1="175" y1="318" x2="160" y2="405"/>
+  <line stroke="#777" stroke-width="2" x1="175" y1="348" x2="160" y2="405"/>
+
+  <!-- Valve Gear Links (Walschaerts) -->
+  <line stroke="#666" stroke-width="2" x1="145" y1="280" x2="200" y2="270"/>
+  <line stroke="#666" stroke-width="2" x1="145" y1="290" x2="200" y2="300"/>
+  <circle cx="200" cy="270" r="3" fill="#888"/>
+  <circle cx="200" cy="300" r="3" fill="#888"/>
+
+  <!-- Cab (rear section) -->
+  <rect class="locomotive-body" x="300" y="220" width="80" height="70" stroke="#333" stroke-width="2"/>
+  <rect x="310" y="235" width="20" height="25" fill="#444" stroke="#333" stroke-width="1"/>
+  <rect x="340" y="235" width="20" height="25" fill="#444" stroke="#333" stroke-width="1"/>
+  <line stroke="#333" stroke-width="1" x1="330" y1="220" x2="330" y2="290"/>
+  <line stroke="#333" stroke-width="1" x1="360" y1="220" x2="360" y2="290"/>
+
+  <!-- Buffer Beam (Front Coupling) -->
+  <rect x="50" y="345" width="30" height="70" fill="#666" stroke="#333" stroke-width="1"/>
+  <circle cx="60" cy="380" r="4" fill="#888"/>
+  <circle cx="75" cy="380" r="4" fill="#888"/>
+
+  <!-- Coupling Hook (Rear) -->
+  <rect x="455" y="345" width="30" height="70" fill="#666" stroke="#333" stroke-width="1"/>
+
+  <!-- Steam Clouds -->
+  <circle class="steam" cx="110" cy="180" r="15" filter="url(#blur)"/>
+  <circle class="steam" cx="125" cy="175" r="18" filter="url(#blur)"/>
+  <circle class="steam" cx="140" cy="185" r="16" filter="url(#blur)"/>
+  
+  <circle class="steam" cx="95" cy="200" r="12" filter="url(#blur)" opacity="0.4"/>
+  <circle class="steam" cx="115" cy="195" r="14" filter="url(#blur)" opacity="0.4"/>
+  <circle class="steam" cx="135" cy="205" r="13" filter="url(#blur)" opacity="0.4"/>
+
+  <!-- Sandbox (Top of Boiler) -->
+  <ellipse cx="200" cy="215" rx="15" ry="10" fill="#8B4513" stroke="#666" stroke-width="1"/>
+  <ellipse cx="280" cy="215" rx="15" ry="10" fill="#8B4513" stroke="#666" stroke-width="1"/>
+
+  <!-- Handrails -->
+  <line stroke="#666" stroke-width="2" x1="80" y1="355" x2="80" y2="240"/>
+  <line stroke="#666" stroke-width="2" x1="110" y1="355" x2="110" y2="240"/>
+  <path stroke="#666" stroke-width="2" fill="none" d="M 80 240 Q 95 230 110 240"/>
+  <path stroke="#666" stroke-width="2" fill="none" d="M 380 220 Q 395 210 410 220"/>
+  <line stroke="#666" stroke-width="2" x1="380" y1="220" x2="380" y2="290"/>
+  <line stroke="#666" stroke-width="2" x1="410" y1="220" x2="410" y2="290"/>
+
+  <!-- Locomotive Label -->
+  <text class="text-label" x="200" y="450">4-6-2 Pacific Steam Locomotive</text>
+</svg>

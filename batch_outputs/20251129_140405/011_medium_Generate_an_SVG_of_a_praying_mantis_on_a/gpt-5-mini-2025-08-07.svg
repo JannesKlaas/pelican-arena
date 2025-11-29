@@ -1,0 +1,219 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <!-- Background radial gradient -->
+    <radialGradient id="bgGrad" cx="30%" cy="30%" r="80%">
+      <stop offset="0%" stop-color="#e8ffe8"/>
+      <stop offset="50%" stop-color="#d8f7d8"/>
+      <stop offset="100%" stop-color="#bfe6bf"/>
+    </radialGradient>
+
+    <!-- Leaf gradient -->
+    <linearGradient id="leafGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5ca86a"/>
+      <stop offset="50%" stop-color="#4a974f"/>
+      <stop offset="100%" stop-color="#3b7a3a"/>
+    </linearGradient>
+
+    <!-- Eye gradient -->
+    <radialGradient id="eyeGrad" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#fff59a"/>
+      <stop offset="60%" stop-color="#b6ff6d"/>
+      <stop offset="100%" stop-color="#62b530"/>
+    </radialGradient>
+
+    <!-- Wing fill -->
+    <linearGradient id="wingGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#c8ffd0" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#9fe0a8" stop-opacity="0.6"/>
+    </linearGradient>
+
+    <!-- Soft blur for bokeh -->
+    <filter id="softBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="24" result="blur"/>
+      <feBlend in="SourceGraphic" in2="blur" mode="normal"/>
+    </filter>
+
+    <!-- Glow for dewdrops -->
+    <filter id="dropGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Shadow under mantis -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feOffset dx="4" dy="8" result="off"/>
+      <feComposite in="off" in2="SourceAlpha" operator="in" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Stroke style for veins -->
+    <style type="text/css"><![CDATA[
+      .vein { stroke:#3b6b34; stroke-width:1.2; stroke-linecap:round; stroke-linejoin:round; opacity:0.6; }
+      .legSeg { fill:#7fb86a; stroke:#2f6a34; stroke-width:1.6; stroke-linejoin:round; }
+    ]]></style>
+  </defs>
+
+  <!-- Background with soft bokeh -->
+  <rect width="100%" height="100%" fill="url(#bgGrad)"/>
+  <g filter="url(#softBlur)" opacity="0.6">
+    <circle cx="80" cy="60" r="40" fill="#eaffea" opacity="0.5"/>
+    <circle cx="420" cy="80" r="60" fill="#e6ffe9" opacity="0.4"/>
+    <circle cx="300" cy="30" r="30" fill="#f2fff5" opacity="0.35"/>
+    <circle cx="200" cy="120" r="50" fill="#e9ffea" opacity="0.25"/>
+    <circle cx="360" cy="200" r="36" fill="#e6ffea" opacity="0.28"/>
+  </g>
+
+  <!-- Leaf -->
+  <g transform="translate(60,240) rotate(-12)">
+    <path d="M10 150 C 60 40, 260 10, 420 110 C 460 150, 420 220, 310 230 C 220 240, 110 210, 10 150 Z"
+          fill="url(#leafGrad)" stroke="#2f6a34" stroke-width="2.5"/>
+    <!-- central vein -->
+    <path d="M40 150 C 160 100, 300 95, 380 130" stroke="#2c5d2e" stroke-width="2" fill="none" opacity="0.6"/>
+    <!-- lateral veins -->
+    <path d="M80 140 C 120 120, 160 110, 200 120" stroke="#3a7136" stroke-width="1.2" opacity="0.6" fill="none"/>
+    <path d="M120 160 C 170 140, 210 140, 260 150" stroke="#3a7136" stroke-width="1.2" opacity="0.6" fill="none"/>
+    <path d="M190 160 C 250 150, 300 160, 340 180" stroke="#3a7136" stroke-width="1.1" opacity="0.5" fill="none"/>
+    <!-- dew drops -->
+    <g filter="url(#dropGlow)">
+      <ellipse cx="320" cy="80" rx="14" ry="9" fill="#dff6ff" opacity="0.9"/>
+      <circle cx="360" cy="110" r="10" fill="#dff6ff" opacity="0.85"/>
+      <circle cx="90" cy="90" r="8" fill="#e6fbff" opacity="0.9"/>
+      <!-- highlights -->
+      <ellipse cx="323" cy="76" rx="5" ry="2.2" fill="#ffffff" opacity="0.7"/>
+      <ellipse cx="362" cy="106" rx="3.2" ry="1.6" fill="#ffffff" opacity="0.7"/>
+      <ellipse cx="94" cy="88" rx="2.8" ry="1.2" fill="#ffffff" opacity="0.75"/>
+    </g>
+  </g>
+
+  <!-- Mantis group positioned on the leaf (three-quarter view facing left slightly) -->
+  <g id="mantis" transform="translate(230,190) scale(0.9)">
+
+    <!-- Shadow under mantis -->
+    <ellipse cx="40" cy="230" rx="70" ry="20" fill="#000" opacity="0.12" filter="url(#softBlur)"/>
+
+    <!-- Thorax and body -->
+    <g transform="translate(0,0)">
+      <!-- neck (flexible) -->
+      <path d="M50 60 C 60 42, 72 38, 86 44" fill="none" stroke="#6fb76a" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+      <!-- head (triangular) -->
+      <path d="M86 44 L110 32 L110 68 Z" fill="#7bd070" stroke="#2f6a34" stroke-width="2"/>
+      <!-- compound eyes -->
+      <circle cx="106" cy="38" r="10" fill="url(#eyeGrad)" stroke="#2b6a28" stroke-width="1.6"/>
+      <circle cx="106" cy="62" r="10" fill="url(#eyeGrad)" stroke="#2b6a28" stroke-width="1.6"/>
+
+      <!-- antennae -->
+      <path d="M108 30 C 140 8, 170 2, 200 -6" stroke="#2f6a34" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+      <path d="M108 68 C 140 86, 170 98, 206 120" stroke="#2f6a34" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+
+      <!-- prothorax (neck extension) -->
+      <path d="M86 44 C 80 64, 74 94, 70 120 C 68 132, 84 140, 82 152" fill="#88d07a" stroke="#2f6a34" stroke-width="2"/>
+
+      <!-- folded raptorial forelegs (first pair) with spines -->
+      <g transform="translate(60,110) rotate(-18)">
+        <!-- coxa -->
+        <ellipse cx="0" cy="0" rx="10" ry="6" class="legSeg"/>
+        <!-- femur (folded) -->
+        <path d="M6 -2 L60 -24 C66 -26, 72 -22, 70 -16 L48 -8 C44 -6, 12 6, 6 -2 Z" fill="#7fb86a" stroke="#2f6a34" stroke-width="1.6"/>
+        <!-- tibia (folded inward) -->
+        <path d="M48 -8 L92 -34 C98 -38, 102 -30, 96 -26 L74 -12 C70 -8, 52 4, 48 -8 Z" fill="#78bf63" stroke="#2f6a34" stroke-width="1.6"/>
+        <!-- tarsus (claw) -->
+        <path d="M96 -26 C100 -22, 106 -18, 110 -12 C106 -10, 100 -8, 94 -6" fill="#6fae55" stroke="#245022" stroke-width="1.6" stroke-linecap="round"/>
+        <!-- spines on inner edge -->
+        <g fill="#5b8a3f" stroke="#2f6a34" stroke-width="0.8">
+          <polygon points="32 -18 38 -14 27 -12"/>
+          <polygon points="50 -24 56 -18 44 -16"/>
+          <polygon points="70 -32 76 -26 64 -24"/>
+        </g>
+      </g>
+
+      <!-- other foreleg (right) mirrored slightly -->
+      <g transform="translate(70,118) scale(-1,1) rotate(10)">
+        <ellipse cx="0" cy="0" rx="10" ry="6" class="legSeg"/>
+        <path d="M6 -2 L60 -24 C66 -26, 72 -22, 70 -16 L48 -8 C44 -6, 12 6, 6 -2 Z" fill="#7fb86a" stroke="#2f6a34" stroke-width="1.6"/>
+        <path d="M48 -8 L92 -34 C98 -38, 102 -30, 96 -26 L74 -12 C70 -8, 52 4, 48 -8 Z" fill="#78bf63" stroke="#2f6a34" stroke-width="1.6"/>
+        <path d="M96 -26 C100 -22, 106 -18, 110 -12 C106 -10, 100 -8, 94 -6" fill="#6fae55" stroke="#245022" stroke-width="1.6" stroke-linecap="round"/>
+        <g fill="#5b8a3f" stroke="#2f6a34" stroke-width="0.8">
+          <polygon points="32 -18 38 -14 27 -12"/>
+          <polygon points="50 -24 56 -18 44 -16"/>
+          <polygon points="70 -32 76 -26 64 -24"/>
+        </g>
+      </g>
+
+      <!-- middle legs (pair 2) - segmented: coxa, femur, tibia, tarsus -->
+      <g transform="translate(40,150) rotate(8)">
+        <!-- left middle leg -->
+        <g transform="translate(-10,0) rotate(-14)">
+          <ellipse cx="0" cy="0" rx="7" ry="4" class="legSeg"/>
+          <rect x="4" y="-6" width="36" height="10" rx="5" class="legSeg" transform="rotate(-10 22 0)"/>
+          <rect x="36" y="-10" width="38" height="8" rx="4" fill="#7fb86a" stroke="#2f6a34" stroke-width="1.4" transform="rotate(-22 55  -6)"/>
+          <path d="M78 -14 L94 -8" stroke="#2f6a34" stroke-width="2" stroke-linecap="round"/>
+        </g>
+        <!-- right middle leg (visible) -->
+        <g transform="translate(50,4) rotate(12)">
+          <ellipse cx="0" cy="0" rx="7" ry="4" class="legSeg"/>
+          <rect x="4" y="-6" width="36" height="10" rx="5" class="legSeg" transform="rotate(6 22 0)"/>
+          <rect x="36" y="-10" width="38" height="8" rx="4" fill="#7fb86a" stroke="#2f6a34" stroke-width="1.4" transform="rotate(18 55 -6)"/>
+          <path d="M78 -8 L96 6" stroke="#2f6a34" stroke-width="2" stroke-linecap="round"/>
+        </g>
+      </g>
+
+      <!-- hind legs (pair 3) - larger segments -->
+      <g transform="translate(10,200) rotate(-6)">
+        <!-- left hind -->
+        <g transform="translate(-30,6) rotate(6)">
+          <ellipse cx="0" cy="0" rx="8" ry="5" class="legSeg"/>
+          <rect x="6" y="-6" width="48" height="12" rx="6" class="legSeg" transform="rotate(-6 30 0)"/>
+          <rect x="52" y="-12" width="56" height="10" rx="5" fill="#7fb86a" stroke="#2f6a34" stroke-width="1.6" transform="rotate(-18 80 -6)"/>
+          <path d="M110 -18 L140 -6" stroke="#2f6a34" stroke-width="2.2" stroke-linecap="round"/>
+        </g>
+        <!-- right hind -->
+        <g transform="translate(80,10) rotate(18)">
+          <ellipse cx="0" cy="0" rx="8" ry="5" class="legSeg"/>
+          <rect x="6" y="-6" width="48" height="12" rx="6" class="legSeg" transform="rotate(6 30 0)"/>
+          <rect x="52" y="-12" width="56" height="10" rx="5" fill="#7fb86a" stroke="#2f6a34" stroke-width="1.6" transform="rotate(24 80 -6)"/>
+          <path d="M110 -8 L140 14" stroke="#2f6a34" stroke-width="2.2" stroke-linecap="round"/>
+        </g>
+      </g>
+
+      <!-- wings (semi-transparent veined) over abdomen -->
+      <g transform="translate(20,120)">
+        <g opacity="0.85">
+          <path d="M10 60 C 40 20, 120 6, 180 40 C 230 66, 200 130, 120 150 C 60 165, 8 110, 10 60 Z"
+                fill="url(#wingGrad)" stroke="#3b6b34" stroke-width="1" opacity="0.75"/>
+          <!-- veins -->
+          <path class="vein" d="M30 70 C 70 54, 110 46, 150 60"/>
+          <path class="vein" d="M40 92 C 80 80, 120 86, 160 106"/>
+          <path class="vein" d="M60 120 C 100 100, 140 106, 170 124"/>
+          <path class="vein" d="M20 76 C 46 70, 82 68, 118 82" opacity="0.55"/>
+        </g>
+
+        <!-- subtle second wing underneath -->
+        <g opacity="0.6" transform="translate(-6,8) rotate(-6)">
+          <path d="M10 60 C 40 20, 120 6, 180 40 C 230 66, 200 130, 120 150 C 60 165, 8 110, 10 60 Z"
+                fill="#d9f6da" stroke="#2f6a34" stroke-width="0.8" opacity="0.5"/>
+        </g>
+      </g>
+
+      <!-- abdomen (slender, segmented) -->
+      <g transform="translate(22,160)">
+        <path d="M0 0 C -6 24, -12 54, -6 86 C -2 106, 16 126, 48 140 C 82 154, 122 146, 150 122 C 170 104, 166 80, 154 64 C 132 36, 108 18, 80 6 C 58 -4, 36 -6, 12 2 Z"
+              fill="#76bf66" stroke="#2c6a31" stroke-width="1.8"/>
+        <!-- segmentation lines -->
+        <g stroke="#2b6a31" stroke-width="1.2" opacity="0.9">
+          <path d="M6 18 C 34 10, 66 6, 96 12"/>
+          <path d="M18 40 C 50 36, 86 38, 116 50"/>
+          <path d="M36 70 C 68 66, 104 70, 132 86"/>
+        </g>
+      </g>
+
+    </g>
+
+  </g>
+</svg>

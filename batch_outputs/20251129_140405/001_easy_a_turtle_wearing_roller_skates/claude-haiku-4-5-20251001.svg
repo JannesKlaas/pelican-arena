@@ -1,0 +1,55 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Ground -->
+  <rect x="0" y="420" width="500" height="80" fill="#90EE90"/>
+  
+  <!-- Left roller skate -->
+  <g>
+    <!-- Left boot -->
+    <ellipse cx="140" cy="380" rx="25" ry="20" fill="#FF6B6B"/>
+    <!-- Left wheels -->
+    <circle cx="120" cy="395" r="8" fill="#333"/>
+    <circle cx="160" cy="395" r="8" fill="#333"/>
+  </g>
+  
+  <!-- Right roller skate -->
+  <g>
+    <!-- Right boot -->
+    <ellipse cx="300" cy="380" rx="25" ry="20" fill="#FF6B6B"/>
+    <!-- Right wheels -->
+    <circle cx="280" cy="395" r="8" fill="#333"/>
+    <circle cx="320" cy="395" r="8" fill="#333"/>
+  </g>
+  
+  <!-- Turtle legs on skates -->
+  <ellipse cx="140" cy="320" rx="20" ry="35" fill="#8B7355"/>
+  <ellipse cx="300" cy="320" rx="20" ry="35" fill="#8B7355"/>
+  
+  <!-- Turtle body shell -->
+  <ellipse cx="220" cy="240" rx="80" ry="100" fill="#2D5016"/>
+  
+  <!-- Shell pattern -->
+  <circle cx="190" cy="200" r="15" fill="#3D6B1F"/>
+  <circle cx="220" cy="180" r="15" fill="#3D6B1F"/>
+  <circle cx="250" cy="200" r="15" fill="#3D6B1F"/>
+  <circle cx="190" cy="260" r="15" fill="#3D6B1F"/>
+  <circle cx="220" cy="280" r="15" fill="#3D6B1F"/>
+  <circle cx="250" cy="260" r="15" fill="#3D6B1F"/>
+  
+  <!-- Turtle head -->
+  <circle cx="220" cy="120" r="45" fill="#5D8C3D"/>
+  
+  <!-- Eyes -->
+  <circle cx="205" cy="110" r="6" fill="#FFF"/>
+  <circle cx="235" cy="110" r="6" fill="#FFF"/>
+  <circle cx="205" cy="110" r="3" fill="#000"/>
+  <circle cx="235" cy="110" r="3" fill="#000"/>
+  
+  <!-- Mouth -->
+  <path d="M 210 130 Q 220 140 230 130" stroke="#000" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- Front left leg -->
+  <ellipse cx="160" cy="200" rx="18" ry="40" fill="#5D8C3D" transform="rotate(-25 160 200)"/>
+  
+  <!-- Front right leg -->
+  <ellipse cx="280" cy="200" rx="18" ry="40" fill="#5D8C3D" transform="rotate(25 280 200)"/>
+</svg>

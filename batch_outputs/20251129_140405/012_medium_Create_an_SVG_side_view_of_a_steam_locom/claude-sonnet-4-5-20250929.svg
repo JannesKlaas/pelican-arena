@@ -1,0 +1,130 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Sky background -->
+  <rect width="500" height="500" fill="#87CEEB"/>
+  
+  <!-- Ground -->
+  <rect y="350" width="500" height="150" fill="#8B7355"/>
+  
+  <!-- Rails and sleepers -->
+  <g id="track">
+    <!-- Sleepers -->
+    <rect x="0" y="360" width="40" height="8" fill="#654321"/>
+    <rect x="50" y="360" width="40" height="8" fill="#654321"/>
+    <rect x="100" y="360" width="40" height="8" fill="#654321"/>
+    <rect x="150" y="360" width="40" height="8" fill="#654321"/>
+    <rect x="200" y="360" width="40" height="8" fill="#654321"/>
+    <rect x="250" y="360" width="40" height="8" fill="#654321"/>
+    <rect x="300" y="360" width="40" height="8" fill="#654321"/>
+    <rect x="350" y="360" width="40" height="8" fill="#654321"/>
+    <rect x="400" y="360" width="40" height="8" fill="#654321"/>
+    <rect x="450" y="360" width="40" height="8" fill="#654321"/>
+    
+    <!-- Rails -->
+    <rect x="0" y="356" width="500" height="4" fill="#696969"/>
+    <rect x="0" y="368" width="500" height="4" fill="#696969"/>
+  </g>
+  
+  <!-- Steam clouds -->
+  <circle cx="160" cy="120" r="25" fill="#E0E0E0" opacity="0.7"/>
+  <circle cx="180" cy="110" r="30" fill="#F0F0F0" opacity="0.6"/>
+  <circle cx="200" cy="100" r="28" fill="#E8E8E8" opacity="0.7"/>
+  <circle cx="220" cy="95" r="25" fill="#F0F0F0" opacity="0.6"/>
+  
+  <!-- Locomotive body -->
+  <!-- Boiler -->
+  <ellipse cx="280" cy="260" rx="120" ry="45" fill="#2C2C2C"/>
+  <rect x="160" y="215" width="240" height="90" fill="#2C2C2C"/>
+  
+  <!-- Smokebox -->
+  <circle cx="160" cy="260" r="45" fill="#1A1A1A"/>
+  <circle cx="160" cy="260" r="25" fill="#3A3A3A"/>
+  <circle cx="160" cy="260" r="15" fill="#4A4A4A"/>
+  
+  <!-- Firebox -->
+  <rect x="370" y="230" width="50" height="75" fill="#2C2C2C"/>
+  
+  <!-- Cab -->
+  <rect x="400" y="200" width="60" height="105" fill="#8B0000"/>
+  <rect x="410" y="210" width="35" height="40" fill="#87CEEB" opacity="0.5"/>
+  
+  <!-- Funnel/Chimney -->
+  <rect x="145" y="150" width="30" height="65" fill="#1A1A1A"/>
+  <rect x="140" y="145" width="40" height="10" fill="#1A1A1A"/>
+  <rect x="138" y="140" width="44" height="8" fill="#2C2C2C"/>
+  
+  <!-- Headlamp -->
+  <circle cx="160" cy="220" r="8" fill="#FFD700"/>
+  <circle cx="160" cy="220" r="6" fill="#FFFF00"/>
+  
+  <!-- Boiler bands -->
+  <rect x="200" y="215" width="4" height="90" fill="#4A4A4A"/>
+  <rect x="250" y="215" width="4" height="90" fill="#4A4A4A"/>
+  <rect x="300" y="215" width="4" height="90" fill="#4A4A4A"/>
+  <rect x="350" y="215" width="4" height="90" fill="#4A4A4A"/>
+  
+  <!-- Wheels -->
+  <!-- Leading bogie wheels (4 wheels, 2 visible) -->
+  <g id="leading-wheels">
+    <circle cx="110" cy="340" r="18" fill="#4A4A4A" stroke="#2C2C2C" stroke-width="2"/>
+    <circle cx="110" cy="340" r="8" fill="#696969"/>
+    <circle cx="150" cy="340" r="18" fill="#4A4A4A" stroke="#2C2C2C" stroke-width="2"/>
+    <circle cx="150" cy="340" r="8" fill="#696969"/>
+  </g>
+  
+  <!-- Driving wheels (6 large wheels) -->
+  <g id="driving-wheels">
+    <circle cx="210" cy="340" r="35" fill="#4A4A4A" stroke="#2C2C2C" stroke-width="3"/>
+    <circle cx="210" cy="340" r="15" fill="#696969"/>
+    
+    <circle cx="280" cy="340" r="35" fill="#4A4A4A" stroke="#2C2C2C" stroke-width="3"/>
+    <circle cx="280" cy="340" r="15" fill="#696969"/>
+    
+    <circle cx="350" cy="340" r="35" fill="#4A4A4A" stroke="#2C2C2C" stroke-width="3"/>
+    <circle cx="350" cy="340" r="15" fill="#696969"/>
+  </g>
+  
+  <!-- Trailing wheels (2 wheels) -->
+  <g id="trailing-wheels">
+    <circle cx="410" cy="340" r="20" fill="#4A4A4A" stroke="#2C2C2C" stroke-width="2"/>
+    <circle cx="410" cy="340" r="10" fill="#696969"/>
+  </g>
+  
+  <!-- Coupling rods connecting driving wheels -->
+  <g id="coupling-rods">
+    <!-- Main coupling rod -->
+    <rect x="210" y="335" width="70" height="10" fill="#8B0000"/>
+    <rect x="280" y="335" width="70" height="10" fill="#8B0000"/>
+    
+    <!-- Connecting points -->
+    <circle cx="210" cy="340" r="6" fill="#696969"/>
+    <circle cx="280" cy="340" r="6" fill="#696969"/>
+    <circle cx="350" cy="340" r="6" fill="#696969"/>
+  </g>
+  
+  <!-- Piston and valve gear -->
+  <g id="valve-gear">
+    <!-- Piston cylinder -->
+    <rect x="140" y="290" width="80" height="15" fill="#2C2C2C" rx="3"/>
+    <rect x="220" y="295" width="30" height="5" fill="#4A4A4A"/>
+    
+    <!-- Connecting rod to driving wheel -->
+    <line x1="220" y1="297" x2="210" y2="320" stroke="#696969" stroke-width="4"/>
+    
+    <!-- Valve gear eccentric -->
+    <circle cx="210" cy="330" r="4" fill="#8B0000"/>
+    <line x1="210" y1="330" x2="190" y2="310" stroke="#696969" stroke-width="3"/>
+    <circle cx="190" cy="310" r="3" fill="#4A4A4A"/>
+  </g>
+  
+  <!-- Running board -->
+  <rect x="110" y="305" width="310" height="5" fill="#2C2C2C"/>
+  
+  <!-- Buffer beam -->
+  <rect x="100" y="280" width="8" height="40" fill="#8B0000"/>
+  <circle cx="104" cy="290" r="4" fill="#696969"/>
+  <circle cx="104" cy="310" r="4" fill="#696969"/>
+  
+  <!-- Additional steam effect -->
+  <ellipse cx="160" cy="150" rx="20" ry="15" fill="#F0F0F0" opacity="0.6"/>
+  <ellipse cx="165" cy="140" rx="15" ry="12" fill="#E8E8E8" opacity="0.5"/>
+</svg>

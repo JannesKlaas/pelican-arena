@@ -1,0 +1,105 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background water -->
+  <rect width="500" height="500" fill="#1a4d6d"/>
+  
+  <!-- Light rays from above -->
+  <g opacity="0.3">
+    <polygon points="100,0 90,500 110,500" fill="#6fb3d9"/>
+    <polygon points="200,0 185,500 215,500" fill="#6fb3d9"/>
+    <polygon points="320,0 300,500 340,500" fill="#6fb3d9"/>
+    <polygon points="420,0 405,500 435,500" fill="#6fb3d9"/>
+  </g>
+  
+  <!-- Shipwreck silhouette -->
+  <g opacity="0.4" fill="#0a1f2e">
+    <rect x="50" y="420" width="120" height="60"/>
+    <polygon points="60,420 50,440 170,440 160,420"/>
+    <rect x="80" y="400" width="15" height="20"/>
+    <rect x="120" y="395" width="15" height="25"/>
+    <polygon points="170,440 200,460 200,480 50,480 50,460"/>
+  </g>
+  
+  <!-- Great White Shark -->
+  <g id="shark">
+    <!-- Body - dark gray top (dorsal) -->
+    <ellipse cx="280" cy="180" rx="120" ry="35" fill="#4a5c6a"/>
+    
+    <!-- Body - white bottom (ventral/countershading) -->
+    <ellipse cx="280" cy="195" rx="115" ry="28" fill="#e8f0f5"/>
+    
+    <!-- Head dark -->
+    <ellipse cx="390" cy="180" rx="45" ry="32" fill="#4a5c6a"/>
+    
+    <!-- Head white underside -->
+    <ellipse cx="390" cy="192" rx="42" ry="22" fill="#e8f0f5"/>
+    
+    <!-- Snout -->
+    <ellipse cx="425" cy="182" rx="20" ry="18" fill="#5a6c7a"/>
+    <ellipse cx="425" cy="190" rx="18" ry="12" fill="#d5e3ea"/>
+    
+    <!-- Eye -->
+    <circle cx="405" cy="175" r="5" fill="#1a1a1a"/>
+    
+    <!-- Mouth line -->
+    <path d="M 420 195 Q 410 198 395 198" stroke="#3a4c5a" stroke-width="2" fill="none"/>
+    
+    <!-- Teeth -->
+    <g fill="#f5f5f5">
+      <polygon points="415,195 413,200 411,195"/>
+      <polygon points="410,196 408,201 406,196"/>
+      <polygon points="405,197 403,202 401,197"/>
+      <polygon points="400,197 398,202 396,197"/>
+    </g>
+    
+    <!-- Gill slits -->
+    <g stroke="#2a3c4a" stroke-width="1.5" fill="none">
+      <line x1="375" y1="185" x2="373" y2="195"/>
+      <line x1="370" y1="186" x2="368" y2="196"/>
+      <line x1="365" y1="187" x2="363" y2="197"/>
+      <line x1="360" y1="188" x2="358" y2="198"/>
+      <line x1="355" y1="189" x2="353" y2="199"/>
+    </g>
+    
+    <!-- Lateral line -->
+    <line x1="420" y1="182" x2="180" y2="178" stroke="#3a4c5a" stroke-width="1" opacity="0.6"/>
+    
+    <!-- Dorsal fin -->
+    <polygon points="260,180 240,130 270,175" fill="#4a5c6a"/>
+    
+    <!-- Pectoral fins (angled downward) -->
+    <polygon points="340,195 360,230 350,200" fill="#5a6c7a"/>
+    <polygon points="340,195 320,225 335,198" fill="#5a6c7a" opacity="0.8"/>
+    
+    <!-- Pelvic fins -->
+    <polygon points="240,200 245,225 250,200" fill="#5a6c7a"/>
+    
+    <!-- Anal fin -->
+    <polygon points="200,200 195,220 205,202" fill="#5a6c7a"/>
+    
+    <!-- Caudal fin (tail) - crescent shaped with larger upper lobe -->
+    <g>
+      <!-- Upper lobe (larger) -->
+      <path d="M 160,175 Q 120,140 100,120 Q 115,145 140,170 Z" fill="#4a5c6a"/>
+      <!-- Lower lobe (smaller) -->
+      <path d="M 160,195 Q 130,210 115,220 Q 125,210 145,198 Z" fill="#5a6c7a"/>
+      <!-- Tail base -->
+      <ellipse cx="165" cy="183" rx="12" ry="20" fill="#4a5c6a"/>
+    </g>
+  </g>
+  
+  <!-- Remora fish beneath shark -->
+  <g id="remora">
+    <ellipse cx="300" cy="250" rx="25" ry="8" fill="#6a7a8a"/>
+    <ellipse cx="320" cy="250" rx="8" ry="6" fill="#5a6a7a"/>
+    <!-- Remora sucker disk -->
+    <rect x="290" y="248" width="20" height="3" fill="#4a5a6a"/>
+    <line x1="292" y1="248" x2="292" y2="251" stroke="#3a4a5a" stroke-width="0.5"/>
+    <line x1="295" y1="248" x2="295" y2="251" stroke="#3a4a5a" stroke-width="0.5"/>
+    <line x1="298" y1="248" x2="298" y2="251" stroke="#3a4a5a" stroke-width="0.5"/>
+    <line x1="301" y1="248" x2="301" y2="251" stroke="#3a4a5a" stroke-width="0.5"/>
+    <line x1="304" y1="248" x2="304" y2="251" stroke="#3a4a5a" stroke-width="0.5"/>
+    <line x1="307" y1="248" x2="307" y2="251" stroke="#3a4a5a" stroke-width="0.5"/>
+    <!-- Tail -->
+    <polygon points="275,250 268,247 268,253" fill="#6a7a8a"/>
+  </g>
+</svg>

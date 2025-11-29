@@ -3,3 +3,5 @@ outputs/
 __pycache__/
 .env
 .uv.lock
+.ipynb_checkpoints/
+*.ipynb 

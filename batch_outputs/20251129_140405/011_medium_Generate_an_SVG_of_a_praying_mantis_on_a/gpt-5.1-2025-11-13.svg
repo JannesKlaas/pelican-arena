@@ -1,0 +1,305 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+
+  <!-- Background soft bokeh -->
+  <defs>
+    <radialGradient id="bgRadial" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#e8f8ff"/>
+      <stop offset="45%" stop-color="#b7e4c7"/>
+      <stop offset="100%" stop-color="#40916c"/>
+    </radialGradient>
+
+    <radialGradient id="bokeh1" cx="0.3" cy="0.2" r="0.2">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="bokeh2" cx="0.8" cy="0.4" r="0.25">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="bokeh3" cx="0.4" cy="0.8" r="0.3">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Leaf gradient -->
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2d6a4f"/>
+      <stop offset="40%" stop-color="#40916c"/>
+      <stop offset="100%" stop-color="#74c69d"/>
+    </linearGradient>
+
+    <!-- Dew drop gradient -->
+    <radialGradient id="dewGrad" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#e0f7ff" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#6bc5ff" stop-opacity="0.1"/>
+    </radialGradient>
+
+    <!-- Wing gradient -->
+    <linearGradient id="wingGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e3f8ff" stop-opacity="0.3"/>
+      <stop offset="50%" stop-color="#c2f0e9" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#a5e4d3" stop-opacity="0.35"/>
+    </linearGradient>
+
+    <!-- Abdomen gradient -->
+    <linearGradient id="abdomenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8fd694"/>
+      <stop offset="100%" stop-color="#4c9f6b"/>
+    </linearGradient>
+
+    <!-- Leg gradient -->
+    <linearGradient id="legGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#78c679"/>
+      <stop offset="100%" stop-color="#3a8f55"/>
+    </linearGradient>
+
+    <!-- Foreleg gradient -->
+    <linearGradient id="foreLegGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#9add7a"/>
+      <stop offset="100%" stop-color="#4a8f46"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="500" height="500" fill="url(#bgRadial)"/>
+
+  <circle cx="80" cy="70" r="90" fill="url(#bokeh1)"/>
+  <circle cx="410" cy="150" r="130" fill="url(#bokeh2)"/>
+  <circle cx="260" cy="390" r="140" fill="url(#bokeh3)"/>
+
+  <!-- Leaf -->
+  <path d="M -40 380
+           Q 150 320 320 340
+           T 560 360
+           Q 360 420 200 430
+           T -40 380 Z"
+        fill="url(#leafGrad)"/>
+
+  <!-- Leaf central vein -->
+  <path d="M -20 375
+           Q 180 340 340 350
+           T 540 355"
+        stroke="#d8f3dc" stroke-width="2.5" fill="none" opacity="0.5"/>
+
+  <!-- Smaller side veins -->
+  <path d="M 60 370 Q 120 360 180 365" stroke="#d8f3dc" stroke-width="1.2" fill="none" opacity="0.5"/>
+  <path d="M 150 380 Q 210 368 265 374" stroke="#d8f3dc" stroke-width="1.2" fill="none" opacity="0.5"/>
+  <path d="M 250 390 Q 310 378 360 382" stroke="#d8f3dc" stroke-width="1.2" fill="none" opacity="0.5"/>
+
+  <!-- Dew drops -->
+  <circle cx="120" cy="360" r="10" fill="url(#dewGrad)" stroke="#ffffff" stroke-opacity="0.8" stroke-width="1"/>
+  <circle cx="210" cy="345" r="7" fill="url(#dewGrad)" stroke="#ffffff" stroke-opacity="0.8" stroke-width="0.8"/>
+  <circle cx="300" cy="370" r="9" fill="url(#dewGrad)" stroke="#ffffff" stroke-opacity="0.8" stroke-width="1"/>
+  <circle cx="360" cy="355" r="6" fill="url(#dewGrad)" stroke="#ffffff" stroke-opacity="0.8" stroke-width="0.8"/>
+
+  <!-- Mantis group (three-quarter view) -->
+  <g transform="translate(110,70)">
+
+    <!-- Abdomen -->
+    <path d="M 130 210
+             C 150 200 190 195 220 200
+             C 240 205 255 215 265 230
+             C 275 247 275 265 265 280
+             C 255 295 235 305 210 308
+             C 185 311 160 305 140 292
+             C 120 279 112 260 115 240
+             C 118 225 122 216 130 210 Z"
+          fill="url(#abdomenGrad)" stroke="#2d6a4f" stroke-width="1.8"/>
+
+    <!-- Abdomen segments -->
+    <path d="M 150 215 C 175 214 205 215 230 220"
+          stroke="#2f6f52" stroke-width="1.3" fill="none" opacity="0.7"/>
+    <path d="M 145 233 C 175 232 210 235 240 242"
+          stroke="#2f6f52" stroke-width="1.3" fill="none" opacity="0.7"/>
+    <path d="M 142 252 C 172 252 210 258 245 266"
+          stroke="#2f6f52" stroke-width="1.3" fill="none" opacity="0.7"/>
+    <path d="M 140 272 C 170 274 205 283 238 293"
+          stroke="#2f6f52" stroke-width="1.3" fill="none" opacity="0.7"/>
+
+    <!-- Thorax (prothorax / mesothorax simplified) -->
+    <path d="M 115 195
+             C 130 182 160 178 190 182
+             C 210 185 225 192 235 205
+             C 245 220 242 232 235 243
+             C 225 258 208 268 185 270
+             C 160 271 140 264 125 250
+             C 115 240 110 226 115 195 Z"
+          fill="#6bc46b" stroke="#2d6a4f" stroke-width="1.8"/>
+
+    <!-- Neck (flexible) -->
+    <path d="M 115 175
+             C 125 168 143 166 160 166
+             C 178 166 194 170 204 178
+             C 196 188 190 198 182 202
+             C 170 208 155 210 140 205
+             C 128 200 120 192 115 175 Z"
+          fill="#78cf75" stroke="#2d6a4f" stroke-width="1.5"/>
+
+    <!-- Head (triangular) -->
+    <path d="M 130 135
+             L 175 118
+             L 215 145
+             Q 205 160 188 170
+             Q 170 180 148 178
+             Q 135 170 128 155
+             Z"
+          fill="#7fe08a" stroke="#25644c" stroke-width="1.7"/>
+
+    <!-- Compound eyes -->
+    <ellipse cx="145" cy="146" rx="11" ry="15"
+             fill="#102a43" stroke="#0b1925" stroke-width="1.2"/>
+    <ellipse cx="202" cy="148" rx="12" ry="16"
+             fill="#102a43" stroke="#0b1925" stroke-width="1.2"/>
+
+    <!-- Eye highlights -->
+    <circle cx="141" cy="141" r="4" fill="#f4ffff" opacity="0.9"/>
+    <circle cx="198" cy="143" r="4" fill="#f4ffff" opacity="0.9"/>
+
+    <!-- Antennae -->
+    <path d="M 148 132
+             Q 130 100 115 70
+             Q 105 48 100 40"
+          stroke="#234f38" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M 202 136
+             Q 220 104 245 74
+             Q 260 56 270 48"
+          stroke="#234f38" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+    <!-- Wings (semi-transparent, veined) -->
+    <g opacity="0.7">
+      <!-- Left (rear) wing -->
+      <path d="M 170 210
+               C 210 195 250 190 300 200
+               C 330 210 350 225 365 245
+               C 350 255 330 265 310 270
+               C 280 278 255 278 230 272
+               C 205 266 185 252 172 235
+               C 168 228 167 218 170 210 Z"
+            fill="url(#wingGrad)" stroke="#6aa19b" stroke-width="1.2"/>
+
+      <!-- Right (front) wing -->
+      <path d="M 162 215
+               C 200 202 240 200 285 210
+               C 315 219 335 232 350 248
+               C 334 258 310 270 285 276
+               C 255 283 228 282 205 276
+               C 184 269 168 258 158 245
+               C 155 236 157 222 162 215 Z"
+            fill="url(#wingGrad)" stroke="#679b91" stroke-width="1.2"/>
+
+      <!-- Wing veins (simplified) -->
+      <path d="M 170 212 L 310 250" stroke="#7aa89d" stroke-width="1" opacity="0.7"/>
+      <path d="M 180 224 L 300 260" stroke="#7aa89d" stroke-width="0.9" opacity="0.7"/>
+      <path d="M 190 235 L 290 270" stroke="#7aa89d" stroke-width="0.9" opacity="0.7"/>
+      <path d="M 200 245 L 280 278" stroke="#7aa89d" stroke-width="0.9" opacity="0.7"/>
+    </g>
+
+    <!-- Middle and hind legs (each segmented: coxa, femur, tibia, tarsus) -->
+
+    <!-- Left middle leg -->
+    <g fill="none" stroke="url(#legGrad)" stroke-width="3" stroke-linecap="round">
+      <!-- Coxa -->
+      <line x1="155" y1="210" x2="145" y2="230"/>
+      <!-- Femur -->
+      <line x1="145" y1="230" x2="125" y2="255"/>
+      <!-- Tibia -->
+      <line x1="125" y1="255" x2="105" y2="285"/>
+      <!-- Tarsus -->
+      <line x1="105" y1="285" x2="95" y2="305"/>
+    </g>
+
+    <!-- Right middle leg -->
+    <g fill="none" stroke="url(#legGrad)" stroke-width="3" stroke-linecap="round">
+      <!-- Coxa -->
+      <line x1="190" y1="210" x2="200" y2="232"/>
+      <!-- Femur -->
+      <line x1="200" y1="232" x2="225" y2="260"/>
+      <!-- Tibia -->
+      <line x1="225" y1="260" x2="250" y2="290"/>
+      <!-- Tarsus -->
+      <line x1="250" y1="290" x2="265" y2="310"/>
+    </g>
+
+    <!-- Left hind leg -->
+    <g fill="none" stroke="url(#legGrad)" stroke-width="3" stroke-linecap="round">
+      <!-- Coxa -->
+      <line x1="150" y1="230" x2="138" y2="255"/>
+      <!-- Femur -->
+      <line x1="138" y1="255" x2="125" y2="290"/>
+      <!-- Tibia -->
+      <line x1="125" y1="290" x2="115" y2="325"/>
+      <!-- Tarsus -->
+      <line x1="115" y1="325" x2="110" y2="345"/>
+    </g>
+
+    <!-- Right hind leg -->
+    <g fill="none" stroke="url(#legGrad)" stroke-width="3" stroke-linecap="round">
+      <!-- Coxa -->
+      <line x1="195" y1="230" x2="210" y2="255"/>
+      <!-- Femur -->
+      <line x1="210" y1="255" x2="235" y2="292"/>
+      <!-- Tibia -->
+      <line x1="235" y1="292" x2="255" y2="325"/>
+      <!-- Tarsus -->
+      <line x1="255" y1="325" x2="265" y2="345"/>
+    </g>
+
+    <!-- Raptorial forelegs (folded, with spines, segmented) -->
+
+    <!-- Left foreleg -->
+    <g stroke-linecap="round">
+      <!-- Coxa -->
+      <line x1="135" y1="188" x2="120" y2="205"
+            stroke="url(#foreLegGrad)" stroke-width="3.2"/>
+      <!-- Femur (large segment with spines) -->
+      <path d="M 120 205 L 100 235"
+            stroke="url(#foreLegGrad)" stroke-width="4.2" fill="none"/>
+      <!-- Femur spines -->
+      <path d="M 112 215 L 104 218" stroke="#27552f" stroke-width="1.4"/>
+      <path d="M 108 225 L 99 229" stroke="#27552f" stroke-width="1.4"/>
+      <path d="M 105 235 L 96 240" stroke="#27552f" stroke-width="1.4"/>
+
+      <!-- Tibia (folded inward) -->
+      <path d="M 100 235 L 118 255"
+            stroke="url(#foreLegGrad)" stroke-width="3.6" fill="none"/>
+      <!-- Tibial spines -->
+      <path d="M 104 240 L 98 244" stroke="#27552f" stroke-width="1.2"/>
+      <path d="M 110 247 L 104 252" stroke="#27552f" stroke-width="1.2"/>
+
+      <!-- Tarsus (claws) -->
+      <path d="M 118 255 L 125 265"
+            stroke="url(#foreLegGrad)" stroke-width="2.8" fill="none"/>
+      <path d="M 125 265 L 129 272" stroke="#27552f" stroke-width="1.4"/>
+    </g>
+
+    <!-- Right foreleg -->
+    <g stroke-linecap="round">
+      <!-- Coxa -->
+      <line x1="182" y1="188" x2="200" y2="205"
+            stroke="url(#foreLegGrad)" stroke-width="3.2"/>
+      <!-- Femur -->
+      <path d="M 200 205 L 225 235"
+            stroke="url(#foreLegGrad)" stroke-width="4.2" fill="none"/>
+      <!-- Femur spines -->
+      <path d="M 210 214 L 220 220" stroke="#27552f" stroke-width="1.4"/>
+      <path d="M 214 224 L 225 231" stroke="#27552f" stroke-width="1.4"/>
+      <path d="M 218 233 L 228 240" stroke="#27552f" stroke-width="1.4"/>
+
+      <!-- Tibia (folded inward) -->
+      <path d="M 225 235 L 205 257"
+            stroke="url(#foreLegGrad)" stroke-width="3.6" fill="none"/>
+      <!-- Tibial spines -->
+      <path d="M 220 240 L 227 246" stroke="#27552f" stroke-width="1.2"/>
+      <path d="M 214 248 L 220 255" stroke="#27552f" stroke-width="1.2"/>
+
+      <!-- Tarsus -->
+      <path d="M 205 257 L 198 268"
+            stroke="url(#foreLegGrad)" stroke-width="2.8" fill="none"/>
+      <path d="M 198 268 L 194 276" stroke="#27552f" stroke-width="1.4"/>
+    </g>
+
+  </g>
+</svg>

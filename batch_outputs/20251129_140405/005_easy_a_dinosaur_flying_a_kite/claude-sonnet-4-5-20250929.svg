@@ -1,0 +1,59 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Sky background -->
+  <rect width="500" height="500" fill="#87CEEB"/>
+  
+  <!-- Kite string -->
+  <line x1="180" y1="220" x2="350" y2="80" stroke="#666" stroke-width="2"/>
+  
+  <!-- Kite -->
+  <polygon points="350,80 380,110 350,140 320,110" fill="#FF6B6B"/>
+  <polygon points="350,80 380,110 350,140 320,110" fill="none" stroke="#D63031" stroke-width="2"/>
+  <line x1="320" y1="110" x2="380" y2="110" stroke="#D63031" stroke-width="2"/>
+  <line x1="350" y1="80" x2="350" y2="140" stroke="#D63031" stroke-width="2"/>
+  
+  <!-- Kite tail -->
+  <path d="M 350 140 Q 345 160 350 180 Q 355 200 350 220" stroke="#FF1493" stroke-width="3" fill="none"/>
+  <circle cx="350" cy="160" r="4" fill="#FF1493"/>
+  <circle cx="350" cy="200" r="4" fill="#FFD700"/>
+  
+  <!-- Dinosaur body -->
+  <ellipse cx="150" cy="280" rx="60" ry="50" fill="#7CB342"/>
+  
+  <!-- Dinosaur tail -->
+  <path d="M 90 280 Q 50 270 40 250" stroke="#7CB342" stroke-width="25" fill="none" stroke-linecap="round"/>
+  
+  <!-- Dinosaur neck -->
+  <ellipse cx="180" cy="250" rx="25" ry="35" fill="#7CB342"/>
+  
+  <!-- Dinosaur head -->
+  <ellipse cx="190" cy="220" rx="22" ry="25" fill="#8BC34A"/>
+  
+  <!-- Dinosaur eye -->
+  <circle cx="198" cy="215" r="4" fill="#000"/>
+  
+  <!-- Dinosaur mouth -->
+  <path d="M 205 225 Q 210 227 208 230" stroke="#000" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- Dinosaur arm holding string -->
+  <path d="M 170 260 L 180 220" stroke="#7CB342" stroke-width="12" fill="none" stroke-linecap="round"/>
+  
+  <!-- Dinosaur back leg -->
+  <ellipse cx="130" cy="320" rx="15" ry="30" fill="#689F38"/>
+  
+  <!-- Dinosaur front leg -->
+  <ellipse cx="170" cy="320" rx="15" ry="30" fill="#689F38"/>
+  
+  <!-- Dinosaur spikes on back -->
+  <polygon points="120,260 115,245 125,255" fill="#558B2F"/>
+  <polygon points="135,255 130,240 140,250" fill="#558B2F"/>
+  <polygon points="150,253 145,238 155,248" fill="#558B2F"/>
+  
+  <!-- Ground -->
+  <ellipse cx="150" cy="350" rx="80" ry="15" fill="#9E9E9E" opacity="0.3"/>
+  
+  <!-- Clouds -->
+  <ellipse cx="80" cy="100" rx="30" ry="20" fill="#FFF" opacity="0.8"/>
+  <ellipse cx="100" cy="95" rx="25" ry="18" fill="#FFF" opacity="0.8"/>
+  <ellipse cx="420" cy="130" rx="35" ry="22" fill="#FFF" opacity="0.8"/>
+  <ellipse cx="445" cy="125" rx="28" ry="20" fill="#FFF" opacity="0.8"/>
+</svg>

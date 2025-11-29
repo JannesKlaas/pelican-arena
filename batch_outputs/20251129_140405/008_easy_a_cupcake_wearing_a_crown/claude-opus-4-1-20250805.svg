@@ -1,0 +1,31 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Crown -->
+  <polygon points="200,80 180,120 210,110 230,140 250,110 270,140 290,110 320,120 300,80" fill="#FFD700" stroke="#FFA500" stroke-width="2"/>
+  <circle cx="210" cy="85" r="5" fill="#FF69B4"/>
+  <circle cx="250" cy="75" r="5" fill="#FF69B4"/>
+  <circle cx="290" cy="85" r="5" fill="#FF69B4"/>
+  
+  <!-- Cupcake wrapper -->
+  <path d="M 180 280 L 190 400 L 310 400 L 320 280 Z" fill="#D2691E" stroke="#8B4513" stroke-width="2"/>
+  <line x1="200" y1="280" x2="205" y2="400" stroke="#8B4513" stroke-width="1.5"/>
+  <line x1="220" y1="280" x2="225" y2="400" stroke="#8B4513" stroke-width="1.5"/>
+  <line x1="240" y1="280" x2="245" y2="400" stroke="#8B4513" stroke-width="1.5"/>
+  <line x1="260" y1="280" x2="265" y2="400" stroke="#8B4513" stroke-width="1.5"/>
+  <line x1="280" y1="280" x2="285" y2="400" stroke="#8B4513" stroke-width="1.5"/>
+  <line x1="300" y1="280" x2="295" y2="400" stroke="#8B4513" stroke-width="1.5"/>
+  
+  <!-- Frosting -->
+  <ellipse cx="250" cy="280" rx="70" ry="25" fill="#FFB6C1"/>
+  <path d="M 180 280 Q 170 240 180 210 Q 200 160 250 150 Q 300 160 320 210 Q 330 240 320 280" fill="#FFB6C1" stroke="#FF69B4" stroke-width="2"/>
+  
+  <!-- Sprinkles -->
+  <rect x="220" y="200" width="15" height="4" rx="2" fill="#FF0000" transform="rotate(25 227 202)"/>
+  <rect x="260" y="220" width="15" height="4" rx="2" fill="#00FF00" transform="rotate(-30 267 222)"/>
+  <rect x="240" y="240" width="15" height="4" rx="2" fill="#0000FF" transform="rotate(45 247 242)"/>
+  <rect x="270" y="190" width="15" height="4" rx="2" fill="#FFFF00" transform="rotate(-20 277 192)"/>
+  <rect x="200" y="230" width="15" height="4" rx="2" fill="#FF00FF" transform="rotate(60 207 232)"/>
+  
+  <!-- Cherry on top -->
+  <circle cx="250" cy="150" r="12" fill="#DC143C"/>
+  <path d="M 250 150 Q 255 135 260 130" stroke="#228B22" stroke-width="2" fill="none"/>
+</svg>

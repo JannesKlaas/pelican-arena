@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d5a27;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a3315;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Bokeh Gradient -->
+    <radialGradient id="bokehGrad" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#85c97e;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#85c97e;stop-opacity:0" />
+    </radialGradient>
+
+    <!-- Leaf Gradient -->
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6bb85c" />
+      <stop offset="100%" style="stop-color:#3e7a33" />
+    </linearGradient>
+
+    <!-- Mantis Body Gradient -->
+    <linearGradient id="mantisBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#a3d977" />
+      <stop offset="100%" style="stop-color:#69a84f" />
+    </linearGradient>
+
+    <!-- Eye Gradient (Pseudopupil) -->
+    <radialGradient id="eyeGrad" cx="30%" cy="30%" r="70%">
+      <stop offset="10%" style="stop-color:#000000;stop-opacity:0.8" />
+      <stop offset="20%" style="stop-color:#cceecc" />
+      <stop offset="100%" style="stop-color:#88cc88" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background with Bokeh -->
+  <rect width="500" height="500" fill="url(#bgGrad)" />
+  <circle cx="100" cy="100" r="60" fill="url(#bokehGrad)" />
+  <circle cx="400" cy="80" r="80" fill="url(#bokehGrad)" />
+  <circle cx="350" cy="400" r="50" fill="url(#bokehGrad)" />
+  <circle cx="50" cy="350" r="90" fill="url(#bokehGrad)" />
+
+  <!-- The Leaf -->
+  <g transform="translate(0, 50)">
+    <path d="M -50 350 Q 250 250 550 380 L 550 550 L -50 550 Z" fill="url(#leafGrad)" />
+    <!-- Leaf Veins -->
+    <path d="M -50 350 Q 250 250 550 380" stroke="#2d5a27" stroke-width="2" fill="none" opacity="0.3"/>
+    <path d="M 200 295 L 220 350" stroke="#2d5a27" stroke-width="1" opacity="0.2"/>
+    <path d="M 300 305 L 280 360" stroke="#2d5a27" stroke-width="1" opacity="0.2"/>
+    
+    <!-- Dew Drops -->
+    <g opacity="0.8">
+        <circle cx="150" cy="320" r="8" fill="#cceeff" />
+        <circle cx="153" cy="317" r="2" fill="#ffffff" />
+        <circle cx="350" cy="360" r="12" fill="#cceeff" />
+        <circle cx="355" cy="355" r="3" fill="#ffffff" />
+    </g>
+  </g>
+
+  <!-- The Praying Mantis -->
+  <g transform="translate(220, 250) scale(1.2)">
+    
+    <!-- Back/Mid Legs (Walking legs behind body) -->
+    <g stroke="#4a7a38" stroke-width="3" fill="none" stroke-linecap="round">
+        <!-- Mid Left -->
+        <polyline points="10,50 10,80 -20,100" />
+        <!-- Back Left -->
+        <polyline points="40,50 60,80 40,110" />
+    </g>
+
+    <!-- Abdomen (Segmented) -->
+    <g fill="url(#mantisBody)">
+        <ellipse cx="40" cy="55" rx="45" ry="15" transform="rotate(15)" />
+        <path d="M 10 55 Q 40 45 70 65" stroke="#4a7a38" stroke-width="1" fill="none" opacity="0.5"/>
+        <path d="M 15 60 Q 45 50 75 70" stroke="#4a7a38" stroke-width="1" fill="none" opacity="0.5"/>
+    </g>
+
+    <!-- Wings (Semi-transparent) -->
+    <g opacity="0.6">
+        <path d="M -10 30 C 30 20, 80 40, 100 80 L 20 50 Z" fill="#d0f0c0" stroke="#88aa77" stroke-width="1"/>
+        <!-- Wing Veins -->
+        <path d="M -5 32 L 90 75" stroke="#4a7a38" stroke-width="0.5" fill="none"/>
+        <path d="M -5 32 L 80 80" stroke="#4a7a38" stroke-width="0.5" fill="none"/>
+    </g>
+
+    <!-- Thorax (Neck) -->
+    <path d="M -10 30 L -40 -20 L -30 -25 L 0 25 Z" fill="url(#mantisBody)" />
+    
+    <!-- Front/Mid Legs (Walking legs facing viewer) -->
+    <g stroke="#7ec464" stroke-width="3" fill="none" stroke-linecap="round">
+         <!-- Mid Right -->
+        <polyline points="15,55 20,90 0,110" />
+         <!-- Back Right -->
+        <polyline points="50,60 70,90 60,120" />
+    </g>
+
+    <!-- Raptorial Forelegs -->
+    <g transform="translate(-35, -20)">
+        <!-- Left Foreleg (Background) -->
+        <g transform="translate(10, -5) scale(0.9)">
+            <path d="M 0 0 L 20 -30" stroke="#4a7a38" stroke-width="4" stroke-linecap="round" /> <!-- Coxa -->
+            <path d="M 20 -30 L 50 -10" stroke="#4a7a38" stroke-width="5" stroke-linecap="round" /> <!-- Femur -->
+            <path d="M 50 -10 L 25 0" stroke="#4a7a38" stroke-width="2" stroke-linecap="round" /> <!-- Tibia -->
+        </g>
+
+        <!-- Right Foreleg (Foreground) -->
+        <g>
+            <!-- Coxa -->
+            <path d="M 0 0 L 25 -35" stroke="#8edb74" stroke-width="5" stroke-linecap="round" />
+            <!-- Femur (with spines) -->
+            <path d="M 25 -35 L 60 -15 Q 45 -25 25 -35 Z" fill="#69a84f" /> 
+            <path d="M 25 -35 L 60 -15" stroke="#8edb74" stroke-width="6" stroke-linecap="round" />
+            <!-- Spines -->
+            <path d="M 30 -30 L 32 -25 M 35 -27 L 37 -22 M 40 -24 L 42 -19" stroke="#2d5a27" stroke-width="1" />
+            <!-- Tibia -->
+            <path d="M 60 -15 L 30 -5" stroke="#a3d977" stroke-width="3" stroke-linecap="round" />
+            <!-- Tarsus -->
+            <path d="M 30 -5 L 25 0" stroke="#a3d977" stroke-width="1" />
+        </g>
+    </g>
+
+    <!-- Head -->
+    <g transform="translate(-40, -25)">
+        <!-- Antennae -->
+        <path d="M 5 0 Q -10 -30 -5 -50" stroke="#a3d977" stroke-width="1" fill="none"/>
+        <path d="M 15 0 Q 30 -30 35 -50" stroke="#a3d977" stroke-width="1" fill="none"/>
+
+        <!-- Triangular Head Shape -->
+        <path d="M 0 0 L 20 0 L 10 15 Z" fill="#8edb74" />
+        
+        <!-- Compound Eyes -->
+        <ellipse cx="0" cy="0" rx="6" ry="8" fill="url(#eyeGrad)" transform="rotate(-15)" />
+        <ellipse cx="20" cy="0" rx="6" ry="8" fill="url(#eyeGrad)" transform="rotate(15)" />
+        
+        <!-- Mandibles -->
+        <path d="M 8 15 L 10 18 L 12 15" fill="#4a7a38" />
+    </g>
+
+  </g>
+</svg>

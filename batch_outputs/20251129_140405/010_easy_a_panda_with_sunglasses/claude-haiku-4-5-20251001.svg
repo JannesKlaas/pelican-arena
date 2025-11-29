@@ -1,0 +1,45 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Head -->
+  <circle cx="250" cy="250" r="120" fill="white" stroke="black" stroke-width="2"/>
+  
+  <!-- Ears -->
+  <circle cx="180" cy="160" r="35" fill="black"/>
+  <circle cx="320" cy="160" r="35" fill="black"/>
+  
+  <!-- Eye patches (under sunglasses) -->
+  <ellipse cx="200" cy="240" rx="40" ry="50" fill="black"/>
+  <ellipse cx="300" cy="240" rx="40" ry="50" fill="black"/>
+  
+  <!-- Sunglasses - left lens -->
+  <rect x="150" y="220" width="70" height="55" rx="10" fill="#1a1a1a" stroke="gold" stroke-width="3"/>
+  <rect x="150" y="220" width="70" height="55" rx="10" fill="none" stroke="gold" stroke-width="3" opacity="0.5"/>
+  <!-- Left lens shine -->
+  <ellipse cx="170" cy="235" rx="15" ry="12" fill="white" opacity="0.4"/>
+  
+  <!-- Sunglasses - right lens -->
+  <rect x="280" y="220" width="70" height="55" rx="10" fill="#1a1a1a" stroke="gold" stroke-width="3"/>
+  <rect x="280" y="220" width="70" height="55" rx="10" fill="none" stroke="gold" stroke-width="3" opacity="0.5"/>
+  <!-- Right lens shine -->
+  <ellipse cx="300" cy="235" rx="15" ry="12" fill="white" opacity="0.4"/>
+  
+  <!-- Sunglasses bridge -->
+  <rect x="220" y="240" width="60" height="8" fill="gold" stroke="gold" stroke-width="2"/>
+  
+  <!-- Nose -->
+  <ellipse cx="250" cy="290" rx="12" ry="15" fill="black"/>
+  
+  <!-- Mouth -->
+  <path d="M 250 290 Q 230 320 220 330" stroke="black" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M 250 290 Q 270 320 280 330" stroke="black" stroke-width="3" fill="none" stroke-linecap="round"/>
+  
+  <!-- Body -->
+  <ellipse cx="250" cy="400" rx="90" ry="70" fill="black"/>
+  
+  <!-- Arms -->
+  <ellipse cx="140" cy="370" rx="35" ry="60" fill="black"/>
+  <ellipse cx="360" cy="370" rx="35" ry="60" fill="black"/>
+  
+  <!-- Feet -->
+  <ellipse cx="200" cy="460" rx="30" ry="25" fill="black"/>
+  <ellipse cx="300" cy="460" rx="30" ry="25" fill="black"/>
+</svg>

@@ -1,0 +1,137 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Bokeh background -->
+  <defs>
+    <radialGradient id="bokeh1">
+      <stop offset="0%" stop-color="#c8e6c9" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#a5d6a7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bokeh2">
+      <stop offset="0%" stop-color="#fff9c4" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#f0f4c3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bokeh3">
+      <stop offset="0%" stop-color="#b2dfdb" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#80cbc4" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4a7c59"/>
+      <stop offset="100%" stop-color="#2d5016"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="500" height="500" fill="#87a96b"/>
+  
+  <!-- Bokeh circles -->
+  <circle cx="80" cy="100" r="50" fill="url(#bokeh1)"/>
+  <circle cx="400" cy="150" r="60" fill="url(#bokeh2)"/>
+  <circle cx="120" cy="400" r="45" fill="url(#bokeh3)"/>
+  <circle cx="380" cy="380" r="55" fill="url(#bokeh1)"/>
+  <circle cx="250" cy="80" r="40" fill="url(#bokeh2)"/>
+  
+  <!-- Leaf -->
+  <ellipse cx="250" cy="320" rx="150" ry="80" fill="url(#leafGrad)" opacity="0.9"/>
+  <path d="M 100 320 Q 250 310 400 320" stroke="#3d5a2e" stroke-width="2" fill="none"/>
+  <path d="M 250 240 Q 230 280 250 320" stroke="#3d5a2e" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <path d="M 250 320 Q 270 360 250 400" stroke="#3d5a2e" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <path d="M 250 320 Q 200 300 150 310" stroke="#3d5a2e" stroke-width="1" fill="none" opacity="0.5"/>
+  <path d="M 250 320 Q 300 300 350 310" stroke="#3d5a2e" stroke-width="1" fill="none" opacity="0.5"/>
+  
+  <!-- Dew drops on leaf -->
+  <circle cx="180" cy="300" r="5" fill="#d4f1f4" opacity="0.8"/>
+  <circle cx="320" cy="310" r="4" fill="#d4f1f4" opacity="0.8"/>
+  <circle cx="210" cy="340" r="3" fill="#d4f1f4" opacity="0.8"/>
+  <circle cx="290" cy="335" r="4" fill="#d4f1f4" opacity="0.8"/>
+  
+  <!-- Back legs (middle) -->
+  <!-- Left middle leg -->
+  <g id="leftMiddleLeg">
+    <line x1="240" y1="260" x2="200" y2="280" stroke="#8fb569" stroke-width="3"/>
+    <line x1="200" y1="280" x2="170" y2="310" stroke="#8fb569" stroke-width="2.5"/>
+    <line x1="170" y1="310" x2="150" y2="340" stroke="#8fb569" stroke-width="2"/>
+    <line x1="150" y1="340" x2="145" y2="355" stroke="#7a9d54" stroke-width="1.5"/>
+  </g>
+  
+  <!-- Right middle leg -->
+  <g id="rightMiddleLeg">
+    <line x1="260" y1="260" x2="300" y2="275" stroke="#8fb569" stroke-width="3"/>
+    <line x1="300" y1="275" x2="335" y2="295" stroke="#8fb569" stroke-width="2.5"/>
+    <line x1="335" y1="295" x2="360" y2="320" stroke="#8fb569" stroke-width="2"/>
+    <line x1="360" y1="320" x2="365" y2="335" stroke="#7a9d54" stroke-width="1.5"/>
+  </g>
+  
+  <!-- Back legs (rear) -->
+  <!-- Left rear leg -->
+  <g id="leftRearLeg">
+    <line x1="240" y1="275" x2="210" y2="300" stroke="#8fb569" stroke-width="3"/>
+    <line x1="210" y1="300" x2="185" y2="330" stroke="#8fb569" stroke-width="2.5"/>
+    <line x1="185" y1="330" x2="175" y2="360" stroke="#8fb569" stroke-width="2"/>
+    <line x1="175" y1="360" x2="172" y2="375" stroke="#7a9d54" stroke-width="1.5"/>
+  </g>
+  
+  <!-- Right rear leg -->
+  <g id="rightRearLeg">
+    <line x1="260" y1="275" x2="290" y2="295" stroke="#8fb569" stroke-width="3"/>
+    <line x1="290" y1="295" x2="315" y2="320" stroke="#8fb569" stroke-width="2.5"/>
+    <line x1="315" y1="320" x2="330" y2="350" stroke="#8fb569" stroke-width="2"/>
+    <line x1="330" y1="350" x2="333" y2="365" stroke="#7a9d54" stroke-width="1.5"/>
+  </g>
+  
+  <!-- Abdomen -->
+  <g id="abdomen">
+    <ellipse cx="250" cy="270" rx="18" ry="35" fill="#a8c978"/>
+    <ellipse cx="250" cy="280" rx="16" ry="32" fill="#9bb869"/>
+    <line x1="250" y1="245" x2="250" y2="305" stroke="#7a9d54" stroke-width="0.5" opacity="0.6"/>
+    <line x1="240" y1="260" x2="260" y2="260" stroke="#7a9d54" stroke-width="0.3" opacity="0.4"/>
+    <line x1="240" y1="275" x2="260" y2="275" stroke="#7a9d54" stroke-width="0.3" opacity="0.4"/>
+    <line x1="240" y1="290" x2="260" y2="290" stroke="#7a9d54" stroke-width="0.3" opacity="0.4"/>
+  </g>
+  
+  <!-- Wings -->
+  <g id="wings" opacity="0.6">
+    <path d="M 248 245 Q 220 220 210 190 Q 215 210 230 230 Z" fill="#d4e5c3" stroke="#9bb869" stroke-width="0.5"/>
+    <path d="M 252 245 Q 280 225 295 200 Q 285 215 270 232 Z" fill="#d4e5c3" stroke="#9bb869" stroke-width="0.5"/>
+    <line x1="220" y1="210" x2="240" y2="240" stroke="#9bb869" stroke-width="0.3" opacity="0.4"/>
+    <line x1="280" y1="215" x2="260" y2="240" stroke="#9bb869" stroke-width="0.3" opacity="0.4"/>
+  </g>
+  
+  <!-- Thorax -->
+  <ellipse cx="250" cy="235" rx="20" ry="25" fill="#a8c978"/>
+  
+  <!-- Raptorial forelegs (folded) -->
+  <!-- Left foreleg -->
+  <g id="leftForeleg">
+    <line x1="245" y1="225" x2="230" y2="210" stroke="#a8c978" stroke-width="4"/>
+    <line x1="230" y1="210" x2="235" y2="230" stroke="#9bb869" stroke-width="5"/>
+    <line x1="233" y1="215" x2="235" y2="219" stroke="#5d7a3e" stroke-width="1.5"/>
+    <line x1="232" y1="221" x2="234" y2="225" stroke="#5d7a3e" stroke-width="1.5"/>
+    <line x1="233" y1="227" x2="235" y2="230" stroke="#5d7a3e" stroke-width="1.5"/>
+  </g>
+  
+  <!-- Right foreleg -->
+  <g id="rightForeleg">
+    <line x1="255" y1="225" x2="270" y2="215" stroke="#a8c978" stroke-width="4"/>
+    <line x1="270" y1="215" x2="265" y2="235" stroke="#9bb869" stroke-width="5"/>
+    <line x1="267" y1="220" x2="265" y2="224" stroke="#5d7a3e" stroke-width="1.5"/>
+    <line x1="268" y1="226" x2="266" y2="230" stroke="#5d7a3e" stroke-width="1.5"/>
+    <line x1="267" y1="232" x2="265" y2="235" stroke="#5d7a3e" stroke-width="1.5"/>
+  </g>
+  
+  <!-- Neck -->
+  <rect x="245" y="205" width="10" height="15" fill="#a8c978" rx="2"/>
+  
+  <!-- Head (triangular) -->
+  <path d="M 250 190 L 230 210 L 270 210 Z" fill="#b8d988"/>
+  
+  <!-- Compound eyes -->
+  <ellipse cx="240" cy="202" rx="8" ry="10" fill="#3d5a2e" opacity="0.8"/>
+  <ellipse cx="260" cy="202" rx="8" ry="10" fill="#3d5a2e" opacity="0.8"/>
+  <circle cx="238" cy="200" r="3" fill="#7a9d54"/>
+  <circle cx="258" cy="200" r="3" fill="#7a9d54"/>
+  <circle cx="239" cy="199" r="1.5" fill="#d4f1f4"/>
+  <circle cx="259" cy="199" r="1.5" fill="#d4f1f4"/>
+  
+  <!-- Antennae -->
+  <path d="M 242 192 Q 235 175 230 165" stroke="#7a9d54" stroke-width="1.5" fill="none"/>
+  <path d="M 258 192 Q 265 178 270 168" stroke="#7a9d54" stroke-width="1.5" fill="none"/>
+</svg>

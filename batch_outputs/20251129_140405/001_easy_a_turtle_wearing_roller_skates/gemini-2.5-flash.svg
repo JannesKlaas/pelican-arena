@@ -1,0 +1,61 @@
+<svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow (underneath the whole turtle) -->
+  <ellipse cx="250" cy="450" rx="180" ry="40" fill="rgba(0,0,0,0.15)"/>
+
+  <!-- Back-Left Leg -->
+  <ellipse cx="130" cy="280" rx="30" ry="20" fill="olivedrab" stroke="darkgreen" stroke-width="3"/>
+  <!-- Back-Right Leg -->
+  <ellipse cx="370" cy="280" rx="30" ry="20" fill="olivedrab" stroke="darkgreen" stroke-width="3"/>
+
+  <!-- Turtle Shell -->
+  <ellipse cx="250" cy="270" rx="150" ry="100" fill="forestgreen" stroke="darkgreen" stroke-width="5"/>
+
+  <!-- Front-Left Leg (mostly covered by skate) -->
+  <ellipse cx="180" cy="300" rx="40" ry="25" fill="olivedrab" stroke="darkgreen" stroke-width="3"/>
+  <!-- Front-Right Leg (mostly covered by skate) -->
+  <ellipse cx="320" cy="300" rx="40" ry="25" fill="olivedrab" stroke="darkgreen" stroke-width="3"/>
+
+  <!-- Turtle Head -->
+  <circle cx="200" cy="180" r="60" fill="olivedrab" stroke="darkgreen" stroke-width="3"/>
+  <!-- Eyes -->
+  <circle cx="180" cy="165" r="10" fill="white"/>
+  <circle cx="185" cy="168" r="5" fill="black"/>
+  <circle cx="220" cy="165" r="10" fill="white"/>
+  <circle cx="225" cy="168" r="5" fill="black"/>
+  <!-- Smile -->
+  <path d="M190,200 Q200,210 210,200" stroke="black" stroke-width="2" fill="none"/>
+
+  <!-- Back Skates (simplified, just wheels peeking) -->
+  <circle cx="150" cy="350" r="12" fill="darkslategray" stroke="black" stroke-width="1"/>
+  <circle cx="350" cy="350" r="12" fill="darkslategray" stroke="black" stroke-width="1"/>
+
+  <!-- Front-Left Skate -->
+  <!-- Rotated slightly for dynamism, centered around the skate's general area -->
+  <g transform="rotate(-10 195 310)">
+    <!-- Shoe part -->
+    <rect x="150" y="280" width="100" height="60" rx="10" ry="10" fill="deepskyblue" stroke="navy" stroke-width="3"/>
+    <!-- Base plate -->
+    <rect x="140" y="330" width="120" height="25" fill="lightgray" stroke="gray" stroke-width="2"/>
+    <!-- Wheels (front pair more prominent) -->
+    <circle cx="160" cy="355" r="15" fill="darkslategray" stroke="black" stroke-width="2"/>
+    <circle cx="210" cy="355" r="15" fill="darkslategray" stroke="black" stroke-width="2"/>
+    <!-- Wheels (back pair, slightly offset for perspective) -->
+    <circle cx="170" cy="365" r="12" fill="darkslategray" stroke="black" stroke-width="1"/>
+    <circle cx="220" cy="365" r="12" fill="darkslategray" stroke="black" stroke-width="1"/>
+  </g>
+
+  <!-- Front-Right Skate -->
+  <!-- Rotated slightly for dynamism, centered around the skate's general area -->
+  <g transform="rotate(10 300 310)">
+    <!-- Shoe part -->
+    <rect x="250" y="280" width="100" height="60" rx="10" ry="10" fill="deepskyblue" stroke="navy" stroke-width="3"/>
+    <!-- Base plate -->
+    <rect x="240" y="330" width="120" height="25" fill="lightgray" stroke="gray" stroke-width="2"/>
+    <!-- Wheels (front pair more prominent) -->
+    <circle cx="260" cy="355" r="15" fill="darkslategray" stroke="black" stroke-width="2"/>
+    <circle cx="310" cy="355" r="15" fill="darkslategray" stroke="black" stroke-width="2"/>
+    <!-- Wheels (back pair, slightly offset for perspective) -->
+    <circle cx="270" cy="365" r="12" fill="darkslategray" stroke="black" stroke-width="1"/>
+    <circle cx="320" cy="365" r="12" fill="darkslategray" stroke="black" stroke-width="1"/>
+  </g>
+</svg>

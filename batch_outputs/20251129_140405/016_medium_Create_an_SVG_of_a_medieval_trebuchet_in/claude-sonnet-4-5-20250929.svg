@@ -1,0 +1,67 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Ground -->
+  <rect x="0" y="400" width="500" height="100" fill="#8B7355"/>
+  
+  <!-- Ground planks -->
+  <rect x="50" y="395" width="400" height="12" fill="#654321"/>
+  <rect x="50" y="410" width="400" height="12" fill="#5C3A1E"/>
+  
+  <!-- Shadows -->
+  <ellipse cx="250" cy="415" rx="120" ry="15" fill="#00000030"/>
+  
+  <!-- Pegs in ground -->
+  <rect x="100" y="395" width="8" height="25" fill="#4A2511"/>
+  <rect x="390" y="395" width="8" height="25" fill="#4A2511"/>
+  
+  <!-- Base frame supports -->
+  <rect x="140" y="380" width="220" height="20" fill="#654321"/>
+  
+  <!-- Left triangular frame -->
+  <polygon points="180,400 160,400 250,150" fill="#8B6F47" stroke="#654321" stroke-width="3"/>
+  
+  <!-- Right triangular frame -->
+  <polygon points="320,400 340,400 250,150" fill="#8B6F47" stroke="#654321" stroke-width="3"/>
+  
+  <!-- Cross braces -->
+  <line x1="180" y1="350" x2="250" y2="250" stroke="#654321" stroke-width="4"/>
+  <line x1="320" y1="350" x2="250" y2="250" stroke="#654321" stroke-width="4"/>
+  
+  <!-- Axle at apex -->
+  <rect x="235" y="145" width="30" height="12" fill="#555" stroke="#333" stroke-width="2"/>
+  
+  <!-- Counterweight box -->
+  <rect x="260" y="250" width="50" height="60" fill="#8B4513" stroke="#654321" stroke-width="2"/>
+  <rect x="262" y="252" width="46" height="56" fill="#A0522D"/>
+  
+  <!-- Ropes holding counterweight -->
+  <line x1="250" y1="151" x2="270" y2="250" stroke="#8B7355" stroke-width="3"/>
+  <line x1="250" y1="151" x2="300" y2="250" stroke="#8B7355" stroke-width="3"/>
+  
+  <!-- Throwing arm - longer side for projectile -->
+  <line x1="250" y1="151" x2="120" y2="180" stroke="#654321" stroke-width="8"/>
+  
+  <!-- Sling ropes -->
+  <line x1="120" y1="180" x2="80" y2="220" stroke="#8B7355" stroke-width="2"/>
+  <line x1="120" y1="180" x2="100" y2="240" stroke="#8B7355" stroke-width="2"/>
+  
+  <!-- Sling pouch -->
+  <ellipse cx="90" cy="230" rx="15" ry="10" fill="#D2B48C" stroke="#8B7355" stroke-width="1"/>
+  
+  <!-- Stone projectile -->
+  <circle cx="90" cy="230" r="8" fill="#708090" stroke="#556B2F" stroke-width="1"/>
+  
+  <!-- Release pin mechanism -->
+  <line x1="115" y1="175" x2="105" y2="190" stroke="#555" stroke-width="3"/>
+  <circle cx="115" cy="175" r="4" fill="#333"/>
+  
+  <!-- Support struts -->
+  <line x1="180" y1="400" x2="200" y2="300" stroke="#654321" stroke-width="4"/>
+  <line x1="320" y1="400" x2="300" y2="300" stroke="#654321" stroke-width="4"/>
+  
+  <!-- Wheel supports at base -->
+  <circle cx="180" cy="405" r="12" fill="#654321" stroke="#4A2511" stroke-width="2"/>
+  <circle cx="320" cy="405" r="12" fill="#654321" stroke="#4A2511" stroke-width="2"/>
+  
+  <!-- Trajectory guide line (faint) -->
+  <line x1="90" y1="230" x2="30" y2="100" stroke="#FF000020" stroke-width="1" stroke-dasharray="5,5"/>
+</svg>

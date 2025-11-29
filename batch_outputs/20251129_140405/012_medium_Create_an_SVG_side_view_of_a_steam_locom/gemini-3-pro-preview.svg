@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- Background -->
+  <rect width="500" height="500" fill="#e0f0ff" />
+
+  <!-- Defs for gradients -->
+  <defs>
+    <linearGradient id="boilerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2c3e50;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#4a6b8a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2c3e50;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="rodGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#bdc3c7;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ecf0f1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#bdc3c7;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="wheelGrad" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="80%" style="stop-color:#c0392b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7f8c8d;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+
+  <!-- Rails and Sleepers -->
+  <g transform="translate(0, 430)">
+    <!-- Sleepers -->
+    <g fill="#5d4037">
+      <rect x="10" y="5" width="30" height="10" />
+      <rect x="60" y="5" width="30" height="10" />
+      <rect x="110" y="5" width="30" height="10" />
+      <rect x="160" y="5" width="30" height="10" />
+      <rect x="210" y="5" width="30" height="10" />
+      <rect x="260" y="5" width="30" height="10" />
+      <rect x="310" y="5" width="30" height="10" />
+      <rect x="360" y="5" width="30" height="10" />
+      <rect x="410" y="5" width="30" height="10" />
+      <rect x="460" y="5" width="30" height="10" />
+    </g>
+    <!-- Rail -->
+    <rect x="0" y="0" width="500" height="6" fill="#7f8c8d" stroke="#2c3e50" stroke-width="1" />
+  </g>
+
+  <!-- Locomotive Group -->
+  <g transform="translate(20, 50)">
+  
+    <!-- Cab -->
+    <path d="M340,240 L440,240 L440,370 L340,370 Z" fill="#2c3e50" stroke="#000" stroke-width="2"/>
+    <path d="M340,240 Q390,230 440,240" fill="#1a252f" /> <!-- Cab Roof -->
+    <rect x="360" y="260" width="60" height="50" rx="5" fill="#85c1e9" stroke="#000" stroke-width="2"/> <!-- Window -->
+    
+    <!-- Boiler -->
+    <rect x="100" y="250" width="250" height="90" fill="url(#boilerGrad)" stroke="#000" stroke-width="2"/>
+    <!-- Boiler Bands -->
+    <rect x="160" y="250" width="5" height="90" fill="#f1c40f" opacity="0.5"/>
+    <rect x="230" y="250" width="5" height="90" fill="#f1c40f" opacity="0.5"/>
+    <rect x="300" y="250" width="5" height="90" fill="#f1c40f" opacity="0.5"/>
+
+    <!-- Smokebox (Front) -->
+    <rect x="70" y="250" width="40" height="90" fill="#1a252f" stroke="#000" stroke-width="2"/>
+    <!-- Smokebox Door Hinge Detail -->
+    <line x1="75" y1="250" x2="75" y2="340" stroke="#555" stroke-width="1"/>
+
+    <!-- Funnel -->
+    <path d="M80,250 L75,190 L105,190 L100,250 Z" fill="#1a252f" stroke="#000" stroke-width="2"/>
+    <rect x="72" y="185" width="36" height="5" fill="#000"/> <!-- Funnel Cap -->
+
+    <!-- Domes -->
+    <path d="M180,250 L180,230 Q195,215 210,230 L210,250 Z" fill="#1a252f" stroke="#000" stroke-width="2"/> <!-- Steam Dome -->
+    <path d="M250,250 L255,235 Q265,225 275,235 L280,250 Z" fill="#1a252f" stroke="#000" stroke-width="2"/> <!-- Sand Dome -->
+
+    <!-- Cowcatcher/Pilot -->
+    <path d="M20,370 L70,370 L70,340 Z" fill="#2c3e50" stroke="#000" stroke-width="2"/>
+    <line x1="30" y1="370" x2="70" y2="340" stroke="#7f8c8d" stroke-width="2"/>
+    <line x1="40" y1="370" x2="70" y2="348" stroke="#7f8c8d" stroke-width="2"/>
+    <line x1="50" y1="370" x2="70" y2="356" stroke="#7f8c8d" stroke-width="2"/>
+
+    <!-- Headlamp -->
+    <g transform="translate(65, 270)">
+      <rect x="0" y="0" width="10" height="15" fill="#333"/>
+      <path d="M0,0 L-10,0 L-10,15 L0,15" fill="#f1c40f"/> <!-- Light beam/glass -->
+      <circle cx="-5" cy="7.5" r="3" fill="#fff"/>
+    </g>
+
+    <!-- Underframe -->
+    <rect x="60" y="340" width="380" height="30" fill="#111"/>
+    
+    <!-- Piston Cylinder -->
+    <rect x="120" y="350" width="50" height="35" fill="#2c3e50" stroke="#000" stroke-width="2"/>
+    <rect x="115" y="345" width="10" height="45" fill="#111"/> <!-- Cylinder cap -->
+
+    <!-- WHEELS (4-6-2 Configuration) -->
+    <!-- 4 Leading Wheels (2 visible) -->
+    <g fill="#333" stroke="#7f8c8d" stroke-width="3">
+      <circle cx="55" cy="412" r="16" fill="#111"/>
+      <circle cx="55" cy="412" r="5" fill="#555" stroke="none"/>
+      <circle cx="95" cy="412" r="16" fill="#111"/>
+      <circle cx="95" cy="412" r="5" fill="#555" stroke="none"/>
+    </g>
+
+    <!-- 2 Trailing Wheels (1 visible) -->
+    <g>
+      <circle cx="420" cy="405" r="24" fill="#333" stroke="#7f8c8d" stroke-width="4"/>
+      <circle cx="420" cy="405" r="6" fill="#555"/>
+      <!-- Spokes -->
+      <line x1="420" y1="405" x2="420" y2="381" stroke="#555" stroke-width="2"/>
+      <line x1="420" y1="405" x2="441" y2="415" stroke="#555" stroke-width="2"/>
+      <line x1="420" y1="405" x2="399" y2="415" stroke="#555" stroke-width="2"/>
+    </g>
+
+    <!-- 6 Driving Wheels (3 visible) -->
+    <g id="drivers">
+      <!-- Driver 1 -->
+      <circle cx="180" cy="385" r="42" fill="url(#wheelGrad)" stroke="#bdc3c7" stroke-width="5"/>
+      <!-- Counterweight (Top) -->
+      <path d="M160,360 A35,35 0 0,1 200,360 L180,385 Z" fill="#111" opacity="0.8"/>
+      <circle cx="180" cy="385" r="8" fill="#111"/>
+
+      <!-- Driver 2 -->
+      <circle cx="265" cy="385" r="42" fill="url(#wheelGrad)" stroke="#bdc3c7" stroke-width="5"/>
+      <path d="M245,360 A35,35 0 0,1 285,360 L265,385 Z" fill="#111" opacity="0.8"/>
+      <circle cx="265" cy="385" r="8" fill="#111"/>
+
+      <!-- Driver 3 -->
+      <circle cx="350" cy="385" r="42" fill="url(#wheelGrad)" stroke="#bdc3c7" stroke-width="5"/>
+      <path d="M330,360 A35,35 0 0,1 370,360 L350,385 Z" fill="#111" opacity="0.8"/>
+      <circle cx="350" cy="385" r="8" fill="#111"/>
+    </g>
+
+    <!-- Rods & Valve Gear -->
+    <!-- Pin locations: Bottom (6 o'clock relative to wheel center for visual clarity) -->
+    <!-- Pins are at y=415 (Center 385 + 30) -->
+    
+    <!-- Coupling Rod (Connecting the 3 drivers) -->
+    <rect x="170" y="410" width="190" height="10" rx="3" fill="url(#rodGrad)" stroke="#555" stroke-width="1"/>
+    <!-- Pins -->
+    <circle cx="180" cy="415" r="5" fill="#7f8c8d" stroke="#000"/>
+    <circle cx="265" cy="415" r="5" fill="#7f8c8d" stroke="#000"/>
+    <circle cx="350" cy="415" r="5" fill="#7f8c8d" stroke="#000"/>
+
+    <!-- Main Rod (Connecting Crosshead to Middle Driver) -->
+    <!-- Crosshead at x=150 (extended out of cylinder), y=368 (center of piston) -->
+    <!-- Connects to middle driver pin at (265, 415) -->
+    <path d="M160,368 L265,415 L265,410 L160,363 Z" fill="url(#rodGrad)" stroke="#555" stroke-width="1"/>
+    
+    <!-- Crosshead / Piston Rod -->
+    <rect x="140" y="363" width="30" height="10" fill="#bdc3c7" stroke="#000"/> <!-- Crosshead -->
+    <line x1="160" y1="368" x2="140" y2="368" stroke="#7f8c8d" stroke-width="4"/> <!-- Piston Rod -->
+    
+    <!-- Simplified Walschaerts Valve Gear -->
+    <line x1="190" y1="340" x2="190" y2="380" stroke="#333" stroke-width="3"/> <!-- Expansion Link Bracket -->
+    <line x1="265" y1="385" x2="250" y2="360" stroke="#bdc3c7" stroke-width="3"/> <!-- Eccentric Crank -->
+    <line x1="250" y1="360" x2="190" y2="370" stroke="#bdc3c7" stroke-width="2"/> <!-- Eccentric Rod -->
+    <line x1="190" y1="355" x2="150" y2="350" stroke="#bdc3c7" stroke-width="2"/> <!-- Radius Rod -->
+
+  </g>
+
+  <!-- Steam Effects -->
+  <g fill="#fff" opacity="0.7">
+    <!-- Funnel Steam -->
+    <circle cx="95" cy="180" r="10" />
+    <circle cx="110" cy="160" r="15" />
+    <circle cx="135" cy="150" r="20" />
+    <circle cx="170" cy="145" r="25" />
+    <circle cx="210" cy="140" r="30" opacity="0.5" />
+    
+    <!-- Cylinder Steam (near ground) -->
+    <circle cx="160" cy="420" r="8" opacity="0.6"/>
+    <circle cx="175" cy="415" r="12" opacity="0.5"/>
+  </g>
+
+</svg>

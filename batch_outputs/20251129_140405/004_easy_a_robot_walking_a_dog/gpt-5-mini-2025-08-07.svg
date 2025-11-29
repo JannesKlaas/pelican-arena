@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#f7fbff"/>
+  <!-- Ground -->
+  <rect x="0" y="380" width="500" height="120" fill="#eef6ee"/>
+  <rect x="0" y="392" width="500" height="6" fill="#d7e8d7"/>
+  <!-- Sun -->
+  <circle cx="430" cy="70" r="36" fill="#ffd36b" opacity="0.95"/>
+  <!-- Robot group -->
+  <g id="robot" transform="translate(90,120)">
+    <!-- Shadow under robot -->
+    <ellipse cx="100" cy="330" rx="70" ry="12" fill="#000" opacity="0.06"/>
+    <!-- Legs -->
+    <rect x="60" y="260" width="22" height="60" rx="4" fill="#4a4f55"/>
+    <rect x="118" y="260" width="22" height="60" rx="4" fill="#4a4f55" transform="skewX(-6)"/>
+    <!-- Feet -->
+    <rect x="52" y="318" width="36" height="12" rx="3" fill="#333"/>
+    <rect x="110" y="318" width="46" height="12" rx="3" fill="#333" transform="skewX(-6)"/>
+    <!-- Body -->
+    <rect x="40" y="120" width="140" height="140" rx="14" fill="#8fb3d9" stroke="#6b92b1" stroke-width="3"/>
+    <!-- Chest panel -->
+    <rect x="62" y="150" width="96" height="70" rx="8" fill="#dff0fb"/>
+    <rect x="80" y="170" width="56" height="6" rx="3" fill="#b7d9ee"/>
+    <rect x="80" y="184" width="56" height="6" rx="3" fill="#b7d9ee"/>
+    <circle cx="118" cy="215" r="6" fill="#6b92b1"/>
+    <!-- Head -->
+    <rect x="68" y="56" width="104" height="84" rx="16" fill="#cfe6f5" stroke="#6b92b1" stroke-width="3"/>
+    <!-- Eyes -->
+    <circle cx="96" cy="96" r="8" fill="#222"/>
+    <circle cx="140" cy="96" r="8" fill="#222"/>
+    <!-- Mouth -->
+    <rect x="108" y="110" width="24" height="6" rx="3" fill="#6b92b1"/>
+    <!-- Antenna -->
+    <line x1="114" y1="56" x2="114" y2="36" stroke="#6b92b1" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="114" cy="32" r="6" fill="#ffd36b" stroke="#d4a84b" stroke-width="2"/>
+    <!-- Left arm (relaxed) -->
+    <path d="M40 150 Q10 170 34 198" fill="none" stroke="#6b92b1" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Right arm holding leash -->
+    <path id="arm" d="M180 162 Q220 160 230 200" fill="none" stroke="#6b92b1" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Hand -->
+    <circle cx="230" cy="200" r="9" fill="#cfe6f5" stroke="#6b92b1" stroke-width="3"/>
+  </g>
+
+  <!-- Leash -->
+  <path d="M320 270 C330 250 350 220 340 200" fill="none" stroke="#e35b5b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M230 200 C275 230 300 250 320 270" fill="none" stroke="#e35b5b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Dog group -->
+  <g id="dog" transform="translate(260,210) scale(1)">
+    <!-- Shadow -->
+    <ellipse cx="110" cy="180" rx="48" ry="10" fill="#000" opacity="0.06"/>
+    <!-- Body -->
+    <ellipse cx="110" cy="160" rx="56" ry="34" fill="#b5651d" stroke="#8b4a1a" stroke-width="2"/>
+    <!-- Back leg -->
+    <rect x="84" y="186" width="10" height="26" rx="3" fill="#8b4a1a"/>
+    <!-- Front leg -->
+    <rect x="128" y="186" width="10" height="26" rx="3" fill="#8b4a1a"/>
+    <!-- Belly highlight -->
+    <ellipse cx="110" cy="160" rx="40" ry="20" fill="#d8925d" opacity="0.25"/>
+    <!-- Tail -->
+    <path d="M64 150 Q48 132 36 120" fill="none" stroke="#8b4a1a" stroke-width="8" stroke-linecap="round"/>
+    <!-- Head -->
+    <circle cx="158" cy="134" r="28" fill="#b5651d" stroke="#8b4a1a" stroke-width="2"/>
+    <!-- Ear -->
+    <path d="M146 120 Q136 110 132 124 Q140 128 146 120" fill="#8b4a1a"/>
+    <!-- Eye -->
+    <circle cx="150" cy="130" r="4" fill="#111"/>
+    <!-- Nose -->
+    <circle cx="176" cy="146" r="4" fill="#222"/>
+    <!-- Collar -->
+    <rect x="144" y="156" width="28" height="8" rx="3" fill="#e35b5b"/>
+    <!-- Leash attach point (ring) -->
+    <circle cx="158" cy="160" r="3" fill="#f6e6c8" stroke="#d4a84b" stroke-width="1"/>
+  </g>
+
+  <!-- Simple stylized grass blades for cleanliness -->
+  <g fill="#b6e3a0" opacity="0.7">
+    <path d="M30 392 Q32 380 36 392 Q32 384 30 392"/>
+    <path d="M76 392 Q78 378 84 392 Q78 388 76 392"/>
+    <path d="M190 392 Q193 376 200 392 Q193 388 190 392"/>
+    <path d="M420 392 Q423 378 430 392 Q423 388 420 392"/>
+  </g>
+</svg>

@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- background -->
+  <rect x="0" y="0" width="500" height="500" fill="#f0f7ff"/>
+
+  <!-- fox tail -->
+  <path d="M360 320
+           C420 300 440 260 430 220
+           C420 180 380 170 350 190
+           C330 205 320 230 322 255
+           C325 285 340 305 360 320Z"
+        fill="#f57c2a" stroke="#e06617" stroke-width="3"/>
+  <path d="M415 235
+           C400 220 375 215 355 225
+           C365 245 385 260 405 262Z"
+        fill="#ffe7cf"/>
+
+  <!-- fox body -->
+  <ellipse cx="260" cy="290" rx="80" ry="90" fill="#f57c2a" stroke="#e06617" stroke-width="3"/>
+
+  <!-- fox chest -->
+  <ellipse cx="245" cy="305" rx="45" ry="60" fill="#ffe7cf"/>
+
+  <!-- fox legs -->
+  <rect x="215" y="340" width="25" height="70" rx="10" fill="#c45416"/>
+  <rect x="270" y="340" width="25" height="70" rx="10" fill="#c45416"/>
+  <ellipse cx="228" cy="413" rx="22" ry="10" fill="#803010"/>
+  <ellipse cx="283" cy="413" rx="22" ry="10" fill="#803010"/>
+
+  <!-- guitar body -->
+  <ellipse cx="310" cy="285" rx="55" ry="70" fill="#d28c3c" stroke="#8b5a2b" stroke-width="3"/>
+  <ellipse cx="295" cy="285" rx="35" ry="45" fill="#c17a2f"/>
+  <circle cx="288" cy="285" r="10" fill="#2b190b"/>
+
+  <!-- guitar neck -->
+  <rect x="320" y="250" width="110" height="20" rx="6" fill="#b07b3a" stroke="#8b5a2b" stroke-width="2"/>
+  <!-- frets -->
+  <line x1="340" y1="250" x2="340" y2="270" stroke="#e6c9a4" stroke-width="2"/>
+  <line x1="360" y1="250" x2="360" y2="270" stroke="#e6c9a4" stroke-width="2"/>
+  <line x1="380" y1="250" x2="380" y2="270" stroke="#e6c9a4" stroke-width="2"/>
+  <line x1="400" y1="250" x2="400" y2="270" stroke="#e6c9a4" stroke-width="2"/>
+
+  <!-- guitar head -->
+  <rect x="430" y="245" width="25" height="30" rx="5" fill="#8b5a2b"/>
+  <!-- tuning pegs -->
+  <circle cx="455" cy="248" r="3" fill="#dcdcdc"/>
+  <circle cx="455" cy="256" r="3" fill="#dcdcdc"/>
+  <circle cx="455" cy="264" r="3" fill="#dcdcdc"/>
+
+  <!-- strings -->
+  <line x1="320" y1="254" x2="430" y2="254" stroke="#f5f5f5" stroke-width="1"/>
+  <line x1="320" y1="258" x2="430" y2="258" stroke="#f5f5f5" stroke-width="1"/>
+  <line x1="320" y1="262" x2="430" y2="262" stroke="#f5f5f5" stroke-width="1"/>
+
+  <!-- fox arms -->
+  <path d="M245 270
+           C230 260 215 250 210 245
+           C205 240 205 230 212 225
+           C220 220 230 222 238 230
+           C248 240 260 252 270 260Z"
+        fill="#f57c2a" stroke="#e06617" stroke-width="3"/>
+
+  <path d="M270 295
+           C285 300 300 305 315 308
+           C325 310 333 305 337 297
+           C341 289 338 280 329 276
+           C318 272 302 268 287 265Z"
+        fill="#f57c2a" stroke="#e06617" stroke-width="3"/>
+
+  <!-- fox head -->
+  <circle cx="240" cy="190" r="65" fill="#f57c2a" stroke="#e06617" stroke-width="3"/>
+
+  <!-- fox ears -->
+  <path d="M200 145
+           L175 90
+           L210 115Z"
+        fill="#f57c2a" stroke="#e06617" stroke-width="3"/>
+  <path d="M280 145
+           L305 90
+           L270 115Z"
+        fill="#f57c2a" stroke="#e06617" stroke-width="3"/>
+
+  <!-- inner ears -->
+  <path d="M198 145
+           L180 105
+           L205 123Z"
+        fill="#ffc7b0"/>
+  <path d="M282 145
+           L300 105
+           L275 123Z"
+        fill="#ffc7b0"/>
+
+  <!-- fox face white -->
+  <path d="M200 185
+           C200 225 220 245 240 245
+           C260 245 280 225 280 185
+           C260 195 245 198 240 198
+           C235 198 220 195 200 185Z"
+        fill="#ffe7cf"/>
+
+  <!-- eyes -->
+  <circle cx="220" cy="185" r="6" fill="#222"/>
+  <circle cx="260" cy="185" r="6" fill="#222"/>
+  <circle cx="218" cy="183" r="2" fill="#ffffff"/>
+  <circle cx="258" cy="183" r="2" fill="#ffffff"/>
+
+  <!-- eyebrows -->
+  <line x1="210" y1="175" x2="228" y2="172" stroke="#703015" stroke-width="3" stroke-linecap="round"/>
+  <line x1="252" y1="172" x2="270" y2="175" stroke="#703015" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- nose -->
+  <circle cx="240" cy="200" r="6" fill="#222"/>
+
+  <!-- mouth -->
+  <path d="M230 210
+           C233 218 237 221 240 221
+           C243 221 247 218 250 210"
+        fill="none" stroke="#703015" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- simple ground -->
+  <ellipse cx="250" cy="440" rx="190" ry="30" fill="#d7ecff"/>
+</svg>

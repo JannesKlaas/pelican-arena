@@ -1,0 +1,51 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Turtle shell -->
+  <ellipse cx="250" cy="200" rx="120" ry="90" fill="#4a7c4e"/>
+  <ellipse cx="250" cy="200" rx="100" ry="70" fill="#5fa65f"/>
+  
+  <!-- Shell pattern -->
+  <path d="M 250 150 L 280 180 L 270 220 L 230 220 L 220 180 Z" fill="#4a7c4e" stroke="#2d5030" stroke-width="2"/>
+  <path d="M 220 180 L 250 150 L 250 190 L 230 220 Z" fill="#3d6640" stroke="#2d5030" stroke-width="2"/>
+  <path d="M 250 150 L 280 180 L 250 190 Z" fill="#3d6640" stroke="#2d5030" stroke-width="2"/>
+  <path d="M 280 180 L 270 220 L 250 190 Z" fill="#4a7c4e" stroke="#2d5030" stroke-width="2"/>
+  
+  <!-- Head -->
+  <ellipse cx="250" cy="120" rx="35" ry="30" fill="#6fb56f"/>
+  <circle cx="235" cy="115" r="5" fill="#000"/>
+  <circle cx="265" cy="115" r="5" fill="#000"/>
+  <path d="M 240 125 Q 250 130 260 125" stroke="#2d5030" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- Legs with roller skates -->
+  <!-- Front left leg -->
+  <rect x="180" y="240" width="25" height="40" rx="5" fill="#6fb56f"/>
+  <!-- Front left skate -->
+  <rect x="170" y="275" width="45" height="20" rx="3" fill="#ff6b6b"/>
+  <circle cx="180" cy="300" r="8" fill="#333"/>
+  <circle cx="205" cy="300" r="8" fill="#333"/>
+  
+  <!-- Front right leg -->
+  <rect x="295" y="240" width="25" height="40" rx="5" fill="#6fb56f"/>
+  <!-- Front right skate -->
+  <rect x="285" y="275" width="45" height="20" rx="3" fill="#ff6b6b"/>
+  <circle cx="295" cy="300" r="8" fill="#333"/>
+  <circle cx="320" cy="300" r="8" fill="#333"/>
+  
+  <!-- Back left leg -->
+  <rect x="200" y="240" width="25" height="40" rx="5" fill="#6fb56f"/>
+  <!-- Back left skate -->
+  <rect x="190" y="275" width="45" height="20" rx="3" fill="#4a90e2"/>
+  <circle cx="200" cy="300" r="8" fill="#333"/>
+  <circle cx="225" cy="300" r="8" fill="#333"/>
+  
+  <!-- Back right leg -->
+  <rect x="275" y="240" width="25" height="40" rx="5" fill="#6fb56f"/>
+  <!-- Back right skate -->
+  <rect x="265" y="275" width="45" height="20" rx="3" fill="#4a90e2"/>
+  <circle cx="275" cy="300" r="8" fill="#333"/>
+  <circle cx="300" cy="300" r="8" fill="#333"/>
+  
+  <!-- Motion lines -->
+  <line x1="150" y1="290" x2="120" y2="290" stroke="#ffd93d" stroke-width="3" stroke-linecap="round"/>
+  <line x1="150" y1="280" x2="130" y2="280" stroke="#ffd93d" stroke-width="3" stroke-linecap="round"/>
+  <line x1="150" y1="300" x2="130" y2="300" stroke="#ffd93d" stroke-width="3" stroke-linecap="round"/>
+</svg>

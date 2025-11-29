@@ -1,0 +1,35 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="500" height="500" fill="#eef9ff" />
+
+  <!-- Cloud Body -->
+  <path d="M 160 260 
+           A 50 50 0 0 1 210 180 
+           A 60 60 0 0 1 310 180 
+           A 50 50 0 0 1 340 260 
+           Q 250 310 160 260 Z" 
+        fill="#ffffff" stroke="#b0e0e6" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <!-- Cheeks -->
+  <circle cx="205" cy="245" r="12" fill="#ffb6c1" opacity="0.6"/>
+  <circle cx="295" cy="245" r="12" fill="#ffb6c1" opacity="0.6"/>
+
+  <!-- Eyes (Happy Arcs) -->
+  <path d="M 215 225 Q 225 210 235 225" fill="none" stroke="#555" stroke-width="5" stroke-linecap="round"/>
+  <path d="M 265 225 Q 275 210 285 225" fill="none" stroke="#555" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Mouth -->
+  <path d="M 240 250 Q 250 265 260 250" fill="none" stroke="#555" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Falling Hearts -->
+  <g fill="#ff6b6b">
+    <!-- Left Heart -->
+    <path d="M 190 340 C 175 325, 160 335, 160 350 C 160 370, 190 390, 190 400 C 190 390, 220 370, 220 350 C 220 335, 205 325, 190 340 Z" />
+    
+    <!-- Middle Heart (Lower) -->
+    <path d="M 250 380 C 235 365, 220 375, 220 390 C 220 410, 250 430, 250 440 C 250 430, 280 410, 280 390 C 280 375, 265 365, 250 380 Z" />
+    
+    <!-- Right Heart -->
+    <path d="M 310 330 C 295 315, 280 325, 280 340 C 280 360, 310 380, 310 390 C 310 380, 340 360, 340 340 C 340 325, 325 315, 310 330 Z" />
+  </g>
+</svg>

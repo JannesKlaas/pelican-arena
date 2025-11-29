@@ -1,0 +1,160 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bokeh1" cx="20%" cy="20%">
+      <stop offset="0%" style="stop-color:#a8d5ba;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#2d5a3d;stop-opacity:0.1"/>
+    </radialGradient>
+    <radialGradient id="bokeh2" cx="80%" cy="80%">
+      <stop offset="0%" style="stop-color:#7ec8a3;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#1a3a2a;stop-opacity:0.1"/>
+    </radialGradient>
+    <linearGradient id="wingGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#b8e6d5;stop-opacity:0.4"/>
+      <stop offset="100%" style="stop-color:#6ba88f;stop-opacity:0.3"/>
+    </linearGradient>
+    <filter id="blur">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2"/>
+    </filter>
+    <pattern id="veins" patternUnits="userSpaceOnUse" width="30" height="30">
+      <path d="M0,15 Q15,10 30,15" stroke="#5a9a7c" stroke-width="0.5" fill="none" opacity="0.6"/>
+      <path d="M10,0 Q15,15 10,30" stroke="#5a9a7c" stroke-width="0.5" fill="none" opacity="0.6"/>
+    </pattern>
+    <pattern id="leafVeins" patternUnits="userSpaceOnUse" width="25" height="25">
+      <path d="M0,12 L25,12" stroke="#4a7a5c" stroke-width="0.8" opacity="0.5"/>
+      <path d="M12,0 L12,25" stroke="#4a7a5c" stroke-width="0.4" opacity="0.4"/>
+      <path d="M3,3 L22,22" stroke="#4a7a5c" stroke-width="0.3" opacity="0.3"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background bokeh -->
+  <ellipse cx="100" cy="80" rx="120" ry="100" fill="url(#bokeh1)"/>
+  <ellipse cx="420" cy="420" rx="140" ry="110" fill="url(#bokeh2)"/>
+  <circle cx="350" cy="100" r="80" fill="#c5e3d4" opacity="0.2"/>
+  <circle cx="80" cy="380" r="90" fill="#a8d5ba" opacity="0.15"/>
+  
+  <!-- Leaf -->
+  <ellipse cx="250" cy="320" rx="140" ry="90" fill="#4a8f5e" transform="rotate(-25 250 320)"/>
+  <ellipse cx="250" cy="320" rx="138" ry="88" fill="#5fa86f" transform="rotate(-25 250 320)" opacity="0.8"/>
+  <rect x="50" y="300" width="400" height="180" fill="url(#leafVeins)" opacity="0.6" transform="rotate(-25 250 320)"/>
+  
+  <!-- Dew drops -->
+  <circle cx="150" cy="280" r="5" fill="#e8f4f0" opacity="0.7"/>
+  <circle cx="150" cy="280" r="4" fill="#ffffff" opacity="0.4"/>
+  <circle cx="320" cy="350" r="6" fill="#e8f4f0" opacity="0.7"/>
+  <circle cx="320" cy="350" r="5" fill="#ffffff" opacity="0.4"/>
+  <circle cx="280" cy="270" r="4" fill="#e8f4f0" opacity="0.7"/>
+  <circle cx="280" cy="270" r="3" fill="#ffffff" opacity="0.4"/>
+  
+  <!-- Mantis Body -->
+  <!-- Flexible Neck -->
+  <path d="M 250 180 Q 248 200 250 220" stroke="#5fa86f" stroke-width="8" fill="none" stroke-linecap="round"/>
+  
+  <!-- Head (triangular) -->
+  <polygon points="250,160 235,185 265,185" fill="#6ba87a" stroke="#4a7a5c" stroke-width="1.5"/>
+  <polygon points="250,162 237,183 263,183" fill="#7bc589" stroke="#5a8a6c" stroke-width="1"/>
+  
+  <!-- Large Compound Eyes -->
+  <circle cx="240" cy="175" r="7" fill="#2d4a3a" stroke="#1a2a1f" stroke-width="1"/>
+  <circle cx="240" cy="175" r="5" fill="#4a8f6f"/>
+  <circle cx="238" cy="173" r="2" fill="#a0d5a0" opacity="0.8"/>
+  
+  <circle cx="260" cy="175" r="7" fill="#2d4a3a" stroke="#1a2a1f" stroke-width="1"/>
+  <circle cx="260" cy="175" r="5" fill="#4a8f6f"/>
+  <circle cx="262" cy="173" r="2" fill="#a0d5a0" opacity="0.8"/>
+  
+  <!-- Antennae -->
+  <path d="M 250 165 Q 245 145 240 130" stroke="#4a7a5c" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M 250 165 Q 255 145 260 130" stroke="#4a7a5c" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <circle cx="240" cy="128" r="1.5" fill="#4a7a5c"/>
+  <circle cx="260" cy="128" r="1.5" fill="#4a7a5c"/>
+  
+  <!-- Thorax -->
+  <ellipse cx="250" cy="240" rx="16" ry="28" fill="#5fa86f" stroke="#4a7a5c" stroke-width="1.5"/>
+  <ellipse cx="250" cy="242" rx="14" ry="26" fill="#6ba87a"/>
+  
+  <!-- Left Raptorial Foreleg (folded) -->
+  <g>
+    <!-- Coxa -->
+    <ellipse cx="228" cy="235" rx="8" ry="12" fill="#5fa86f" stroke="#4a7a5c" stroke-width="1"/>
+    <!-- Femur (with spines) -->
+    <path d="M 225 245 L 210 280" stroke="#5fa86f" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <line x1="210" y1="280" x2="205" y2="275" stroke="#3a5a4a" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="210" y1="280" x2="208" y2="285" stroke="#3a5a4a" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="216" y1="265" x2="211" y2="260" stroke="#3a5a4a" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="216" y1="265" x2="218" y2="272" stroke="#3a5a4a" stroke-width="1.5" stroke-linecap="round"/>
+    <!-- Tibia (curved, folded) -->
+    <path d="M 210 280 Q 200 290 205 310" stroke="#5fa86f" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <line x1="205" y1="310" x2="200" y2="312" stroke="#3a5a4a" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="205" y1="310" x2="208" y2="315" stroke="#3a5a4a" stroke-width="1.5" stroke-linecap="round"/>
+    <!-- Tarsus (claw) -->
+    <path d="M 205 310 L 195 320" stroke="#5fa86f" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <circle cx="195" cy="320" r="2" fill="#3a5a4a"/>
+  </g>
+  
+  <!-- Right Raptorial Foreleg (folded) -->
+  <g>
+    <!-- Coxa -->
+    <ellipse cx="272" cy="235" rx="8" ry="12" fill="#5fa86f" stroke="#4a7a5c" stroke-width="1"/>
+    <!-- Femur (with spines) -->
+    <path d="M 275 245 L 290 280" stroke="#5fa86f" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <line x1="290" y1="280" x2="295" y2="275" stroke="#3a5a4a" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="290" y1="280" x2="292" y2="285" stroke="#3a5a4a" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="284" y1="265" x2="289" y2="260" stroke="#3a5a4a" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="284" y1="265" x2="282" y2="272" stroke="#3a5a4a" stroke-width="1.5" stroke-linecap="round"/>
+    <!-- Tibia (curved, folded) -->
+    <path d="M 290 280 Q 300 290 295 310" stroke="#5fa86f" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <line x1="295" y1="310" x2="300" y2="312" stroke="#3a5a4a" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="295" y1="310" x2="292" y2="315" stroke="#3a5a4a" stroke-width="1.5" stroke-linecap="round"/>
+    <!-- Tarsus (claw) -->
+    <path d="M 295 310 L 305 320" stroke="#5fa86f" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <circle cx="305" cy="320" r="2" fill="#3a5a4a"/>
+  </g>
+  
+  <!-- Middle Legs (left side) -->
+  <!-- Left Middle Leg -->
+  <g>
+    <ellipse cx="220" cy="260" rx="6" ry="10" fill="#5fa86f" stroke="#4a7a5c" stroke-width="0.8"/>
+    <path d="M 218 268 L 190 300" stroke="#5fa86f" stroke-width="5" stroke-linecap="round" fill="none"/>
+    <path d="M 190 300 L 170 330" stroke="#5fa86f" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M 170 330 L 160 345" stroke="#5fa86f" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <circle cx="160" cy="345" r="2" fill="#4a7a5c"/>
+  </g>
+  
+  <!-- Right Middle Leg -->
+  <g>
+    <ellipse cx="280" cy="260" rx="6" ry="10" fill="#5fa86f" stroke="#4a7a5c" stroke-width="0.8"/>
+    <path d="M 282 268 L 310 300" stroke="#5fa86f" stroke-width="5" stroke-linecap="round" fill="none"/>
+    <path d="M 310 300 L 330 330" stroke="#5fa86f" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M 330 330 L 340 345" stroke="#5fa86f" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <circle cx="340" cy="345" r="2" fill="#4a7a5c"/>
+  </g>
+  
+  <!-- Hind Legs (left side) -->
+  <!-- Left Hind Leg -->
+  <g>
+    <ellipse cx="225" cy="295" rx="6" ry="10" fill="#5fa86f" stroke="#4a7a5c" stroke-width="0.8"/>
+    <path d="M 223 305 L 195 335" stroke="#5fa86f" stroke-width="5" stroke-linecap="round" fill="none"/>
+    <path d="M 195 335 L 170 360" stroke="#5fa86f" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M 170 360 L 160 375" stroke="#5fa86f" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <circle cx="160" cy="375" r="2" fill="#4a7a5c"/>
+  </g>
+  
+  <!-- Right Hind Leg -->
+  <g>
+    <ellipse cx="275" cy="295" rx="6" ry="10" fill="#5fa86f" stroke="#4a7a5c" stroke-width="0.8"/>
+    <path d="M 277 305 L 305 335" stroke="#5fa86f" stroke-width="5" stroke-linecap="round" fill="none"/>
+    <path d="M 305 335 L 330 360" stroke="#5fa86f" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M 330 360 L 340 375" stroke="#5fa86f" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <circle cx="340" cy="375" r="2" fill="#4a7a5c"/>
+  </g>
+  
+  <!-- Wings (semi-transparent with veins) -->
+  <!-- Left Wing -->
+  <path d="M 235 250 Q 200 260 190 320 Q 195 310 235 295 Z" fill="url(#wingGradient)" stroke="#6ba88f" stroke-width="1" opacity="0.5"/>
+  <path d="M 235 250 Q 200 260 190 320" stroke="#5a9a7c" stroke-width="0.8" fill="none" opacity="0.6"/>
+  <path d="M 230 260 Q 205 270 200 310" stroke="#5a9a7c" stroke-width="0.6" fill="none" opacity="0.5"/>
+  <path d="M 225 270 Q 210 280 205 315" stroke="#5a9a7c" stroke-width="0.5" fill="none" opacity="0.4"/>
+  
+  <!-- Right Wing -->
+  <path d="M 265 250 Q 300 260 310 320 Q 305 310 265 295 Z" fill="url(#wingGradient)" stroke="#6ba88f" stroke-width="1" opacity="0.5"/>
+  <path d="M 265 250 Q 300 260 310 320" stroke="#5a9a7c" stroke-width="0.8" fill="none" opacity="0.6"/></svg>

@@ -1,0 +1,53 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Bubble -->
+  <circle cx="380" cy="120" r="60" fill="rgba(200, 230, 255, 0.4)" stroke="rgba(150, 200, 255, 0.6)" stroke-width="2"/>
+  <circle cx="365" cy="105" r="15" fill="rgba(255, 255, 255, 0.6)"/>
+  
+  <!-- Giraffe body -->
+  <ellipse cx="150" cy="350" rx="80" ry="100" fill="#F4A460"/>
+  
+  <!-- Giraffe legs -->
+  <rect x="110" y="400" width="20" height="90" fill="#D2691E"/>
+  <rect x="160" y="400" width="20" height="90" fill="#D2691E"/>
+  
+  <!-- Giraffe neck -->
+  <rect x="180" y="250" width="40" height="150" fill="#F4A460" transform="rotate(-20 200 250)"/>
+  
+  <!-- Giraffe head -->
+  <ellipse cx="280" cy="180" rx="40" ry="50" fill="#F4A460"/>
+  
+  <!-- Giraffe snout -->
+  <ellipse cx="310" cy="190" rx="25" ry="20" fill="#D2691E"/>
+  
+  <!-- Giraffe ear -->
+  <ellipse cx="265" cy="155" rx="10" ry="20" fill="#D2691E"/>
+  
+  <!-- Giraffe eye -->
+  <circle cx="275" cy="170" r="5" fill="#000"/>
+  
+  <!-- Giraffe horns (ossicones) -->
+  <line x1="270" y1="150" x2="270" y2="135" stroke="#8B4513" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="270" cy="135" r="4" fill="#8B4513"/>
+  <line x1="290" y1="150" x2="290" y2="135" stroke="#8B4513" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="290" cy="135" r="4" fill="#8B4513"/>
+  
+  <!-- Giraffe spots on body -->
+  <ellipse cx="140" cy="330" rx="15" ry="20" fill="#8B4513"/>
+  <ellipse cx="170" cy="350" rx="18" ry="22" fill="#8B4513"/>
+  <ellipse cx="130" cy="380" rx="12" ry="15" fill="#8B4513"/>
+  <ellipse cx="165" cy="385" rx="14" ry="18" fill="#8B4513"/>
+  
+  <!-- Giraffe spots on neck -->
+  <ellipse cx="200" cy="280" rx="12" ry="15" fill="#8B4513" transform="rotate(-20 200 280)"/>
+  <ellipse cx="220" cy="250" rx="10" ry="12" fill="#8B4513" transform="rotate(-20 220 250)"/>
+  <ellipse cx="240" cy="220" rx="11" ry="14" fill="#8B4513" transform="rotate(-20 240 220)"/>
+  
+  <!-- Giraffe spots on head -->
+  <ellipse cx="270" cy="190" rx="8" ry="10" fill="#8B4513"/>
+  <ellipse cx="290" cy="175" rx="7" ry="9" fill="#8B4513"/>
+  
+  <!-- Bubble stream -->
+  <circle cx="330" cy="180" r="8" fill="rgba(200, 230, 255, 0.5)" stroke="rgba(150, 200, 255, 0.6)" stroke-width="1"/>
+  <circle cx="350" cy="160" r="12" fill="rgba(200, 230, 255, 0.5)" stroke="rgba(150, 200, 255, 0.6)" stroke-width="1"/>
+  <circle cx="365" cy="140" r="15" fill="rgba(200, 230, 255, 0.5)" stroke="rgba(150, 200, 255, 0.6)" stroke-width="1"/>
+</svg>

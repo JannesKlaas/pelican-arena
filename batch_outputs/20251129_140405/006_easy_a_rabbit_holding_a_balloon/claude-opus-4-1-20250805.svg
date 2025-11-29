@@ -1,0 +1,46 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Balloon string -->
+  <line x1="250" y1="280" x2="320" y2="120" stroke="#666" stroke-width="2"/>
+  
+  <!-- Balloon -->
+  <ellipse cx="320" cy="100" rx="35" ry="45" fill="#ff6b6b"/>
+  <polygon points="320,145 315,155 325,155" fill="#ff6b6b"/>
+  
+  <!-- Rabbit body -->
+  <ellipse cx="250" cy="350" rx="60" ry="80" fill="#f0f0f0"/>
+  
+  <!-- Rabbit head -->
+  <circle cx="250" cy="250" r="50" fill="#f0f0f0"/>
+  
+  <!-- Rabbit ears -->
+  <ellipse cx="230" cy="200" rx="18" ry="40" fill="#f0f0f0" transform="rotate(-10 230 200)"/>
+  <ellipse cx="270" cy="200" rx="18" ry="40" fill="#f0f0f0" transform="rotate(10 270 200)"/>
+  
+  <!-- Inner ears -->
+  <ellipse cx="230" cy="205" rx="10" ry="25" fill="#ffb3d9" transform="rotate(-10 230 205)"/>
+  <ellipse cx="270" cy="205" rx="10" ry="25" fill="#ffb3d9" transform="rotate(10 270 205)"/>
+  
+  <!-- Rabbit feet -->
+  <ellipse cx="220" cy="410" rx="25" ry="35" fill="#f0f0f0"/>
+  <ellipse cx="280" cy="410" rx="25" ry="35" fill="#f0f0f0"/>
+  
+  <!-- Rabbit arms -->
+  <ellipse cx="200" cy="320" rx="20" ry="40" fill="#f0f0f0" transform="rotate(-30 200 320)"/>
+  <ellipse cx="250" cy="280" rx="18" ry="35" fill="#f0f0f0" transform="rotate(-20 250 280)"/>
+  
+  <!-- Eyes -->
+  <circle cx="235" cy="245" r="8" fill="#333"/>
+  <circle cx="265" cy="245" r="8" fill="#333"/>
+  <circle cx="237" cy="243" r="3" fill="#fff"/>
+  <circle cx="267" cy="243" r="3" fill="#fff"/>
+  
+  <!-- Nose -->
+  <ellipse cx="250" cy="265" rx="6" ry="4" fill="#ff69b4"/>
+  
+  <!-- Mouth -->
+  <path d="M250 268 Q240 275 235 270" stroke="#333" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M250 268 Q260 275 265 270" stroke="#333" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- Tail -->
+  <circle cx="310" cy="360" r="20" fill="#fff"/>
+</svg>

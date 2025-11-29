@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- Space / Sky -->
+  <rect width="500" height="500" fill="#000000"/>
+  
+  <!-- Earth -->
+  <g transform="translate(380, 80)">
+    <circle r="25" fill="#1E90FF"/>
+    <path d="M-15,-10 Q0,0 15,-10 Q10,10 -10,15" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.8"/>
+    <path d="M-25,0 A25,25 0 0,0 25,0" fill="#000000" opacity="0.5"/>
+  </g>
+
+  <!-- Stars -->
+  <circle cx="50" cy="50" r="1" fill="white" opacity="0.8"/>
+  <circle cx="200" cy="100" r="1" fill="white" opacity="0.6"/>
+  <circle cx="450" cy="200" r="1.5" fill="white" opacity="0.7"/>
+
+  <!-- Moon Horizon & Regolith -->
+  <path d="M0,320 Q250,280 500,320 V500 H0 Z" fill="#AAAAAA"/>
+  
+  <!-- Craters -->
+  <ellipse cx="400" cy="380" rx="40" ry="10" fill="#888888"/>
+  <ellipse cx="100" cy="450" rx="60" ry="15" fill="#888888"/>
+  
+  <!-- Shadows (Low Sun Angle) -->
+  <!-- Shadow for Flag -->
+  <path d="M120,300 L-50,310 L-50,305 Z" fill="#000000" opacity="0.7"/>
+  <!-- Shadow for Astronaut -->
+  <path d="M280,380 L100,400 L90,360 Z" fill="#000000" opacity="0.7"/>
+
+  <!-- American Flag -->
+  <g transform="translate(120, 180)">
+    <line x1="0" y1="0" x2="0" y2="120" stroke="#CCCCCC" stroke-width="3"/>
+    <line x1="0" y1="0" x2="60" y2="0" stroke="#CCCCCC" stroke-width="2"/>
+    <!-- Flag Cloth -->
+    <path d="M0,0 H60 L60,40 H0 Z" fill="#FFFFFF"/>
+    <!-- Stripes -->
+    <path d="M0,4 H60 M0,12 H60 M0,20 H60 M0,28 H60 M0,36 H60" stroke="#B22234" stroke-width="3"/>
+    <!-- Canton -->
+    <rect width="25" height="22" fill="#3C3B6E"/>
+    <!-- Stars (Dots) -->
+    <circle cx="5" cy="5" r="1" fill="white"/>
+    <circle cx="12" cy="10" r="1" fill="white"/>
+    <circle cx="19" cy="5" r="1" fill="white"/>
+  </g>
+
+  <!-- Footprints -->
+  <g fill="#555555">
+    <ellipse cx="260" cy="420" rx="8" ry="3"/>
+    <ellipse cx="290" cy="425" rx="8" ry="3"/>
+    <ellipse cx="230" cy="415" rx="8" ry="3"/>
+  </g>
+
+  <!-- Astronaut -->
+  <g transform="translate(250, 230)">
+    <!-- PLSS Backpack -->
+    <rect x="-25" y="-40" width="50" height="70" rx="5" fill="#E0E0E0"/>
+
+    <!-- Legs -->
+    <path d="M-20,60 L-25,140 L-5,140 L0,60 Z" fill="#F0F0F0" stroke="#CCCCCC" stroke-width="1"/>
+    <path d="M20,60 L25,140 L5,140 L0,60 Z" fill="#F0F0F0" stroke="#CCCCCC" stroke-width="1"/>
+
+    <!-- Boots -->
+    <path d="M-30,140 H-5 L-5,150 L-30,150 Z" fill="#DDDDDD"/>
+    <rect x="-30" y="150" width="25" height="4" fill="#333333"/> <!-- Tread -->
+    <path d="M5,140 H30 L30,150 L5,150 Z" fill="#DDDDDD"/>
+    <rect x="5" y="150" width="25" height="4" fill="#333333"/> <!-- Tread -->
+
+    <!-- Torso -->
+    <rect x="-25" y="0" width="50" height="70" rx="10" fill="#F0F0F0"/>
+    <!-- RCU Chest Pack -->
+    <rect x="-15" y="15" width="30" height="25" fill="#D0D0D0" stroke="#999999" stroke-width="1"/>
+    <circle cx="-5" cy="25" r="2" fill="#333"/> <!-- Gauge -->
+    
+    <!-- Arms -->
+    <!-- Left Arm -->
+    <path d="M-25,10 L-45,40" stroke="#F0F0F0" stroke-width="14" stroke-linecap="round"/>
+    <!-- Ridged Joints (Left) -->
+    <circle cx="-25" cy="10" r="7" fill="none" stroke="#999999" stroke-width="2"/> <!-- Shoulder -->
+    <circle cx="-35" cy="25" r="6" fill="none" stroke="#999999" stroke-width="2"/> <!-- Elbow -->
+    <circle cx="-45" cy="40" r="6" fill="#888888"/> <!-- Glove -->
+
+    <!-- Right Arm -->
+    <path d="M25,10 L45,40" stroke="#F0F0F0" stroke-width="14" stroke-linecap="round"/>
+    <!-- Ridged Joints (Right) -->
+    <circle cx="25" cy="10" r="7" fill="none" stroke="#999999" stroke-width="2"/> <!-- Shoulder -->
+    <circle cx="35" cy="25" r="6" fill="none" stroke="#999999" stroke-width="2"/> <!-- Elbow -->
+    <circle cx="45" cy="40" r="6" fill="#888888"/> <!-- Glove -->
+
+    <!-- Helmet -->
+    <circle cx="0" cy="-10" r="20" fill="#F0F0F0"/>
+    <!-- Gold Visor -->
+    <path d="M-15,-12 Q0,-18 15,-12 Q15,5 0,5 Q-15,5 -15,-12 Z" fill="#FFD700"/>
+    <!-- Visor Reflection -->
+    <ellipse cx="5" cy="-15" rx="4" ry="2" fill="white" opacity="0.7"/>
+  </g>
+</svg>

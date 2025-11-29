@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <rect width="500" height="500" fill="#f2f8ff"/>
+  <g id="sunflower">
+    <path d="M250 110c85 0 155 95 155 155s-70 95-155 95-155-35-155-95 70-155 155-155z" fill="#f9cb38"/>
+    <g fill="#e7a92e">
+      <ellipse cx="250" cy="120" rx="24" ry="10" transform="rotate(10 250 120)"/>
+      <ellipse cx="320" cy="140" rx="24" ry="10" transform="rotate(30 320 140)"/>
+      <ellipse cx="360" cy="200" rx="24" ry="10" transform="rotate(55 360 200)"/>
+      <ellipse cx="360" cy="270" rx="24" ry="10" transform="rotate(75 360 270)"/>
+      <ellipse cx="320" cy="330" rx="24" ry="10" transform="rotate(100 320 330)"/>
+      <ellipse cx="250" cy="350" rx="24" ry="10" transform="rotate(130 250 350)"/>
+      <ellipse cx="180" cy="330" rx="24" ry="10" transform="rotate(155 180 330)"/>
+      <ellipse cx="140" cy="270" rx="24" ry="10" transform="rotate(185 140 270)"/>
+      <ellipse cx="140" cy="200" rx="24" ry="10" transform="rotate(210 140 200)"/>
+      <ellipse cx="180" cy="140" rx="24" ry="10" transform="rotate(240 180 140)"/>
+    </g>
+    <g id="disc">
+      <circle cx="250" cy="240" r="75" fill="#5a3d1c"/>
+      <g fill="#c48d3b">
+        <circle cx="250" cy="240" r="6"/>
+        <circle cx="266" cy="234" r="6"/>
+        <circle cx="234" cy="234" r="6"/>
+        <circle cx="282" cy="248" r="6"/>
+        <circle cx="218" cy="248" r="6"/>
+        <circle cx="295" cy="265" r="6"/>
+        <circle cx="205" cy="265" r="6"/>
+        <circle cx="300" cy="240" r="6"/>
+        <circle cx="200" cy="240" r="6"/>
+        <circle cx="250" cy="210" r="6"/>
+        <circle cx="235" cy="220" r="6"/>
+        <circle cx="265" cy="220" r="6"/>
+        <circle cx="280" cy="230" r="6"/>
+        <circle cx="220" cy="230" r="6"/>
+        <circle cx="290" cy="250" r="6"/>
+        <circle cx="210" cy="250" r="6"/>
+        <circle cx="275" cy="265" r="6"/>
+        <circle cx="225" cy="265" r="6"/>
+        <circle cx="260" cy="280" r="6"/>
+        <circle cx="240" cy="280" r="6"/>
+      </g>
+    </g>
+    <path d="M250 400c-30 5-50 25-60 45-15 30-40 30-40 30s35-60 15-90c-20-30-70-25-70-25s45-15 80 0c20 8 30 30 30 30s5-35 45-45z" fill="#4f8c3b"/>
+    <path d="M250 400c45-15 90 10 90 10s-65-5-75 30c-10 35 40 65 40 65s-60-25-65-70c-3-26 10-30 10-30z" fill="#417332"/>
+    <path d="M240 360c20 60 10 120 10 120s-5-60-30-90c-15-18-50-30-50-30s40 15 70 0z" fill="#3b6a2c"/>
+  </g>
+  <g id="bee" transform="matrix(1 0 0 1 60 40)">
+    <g id="wings" fill="#dff3ff" stroke="#9ec4d4" stroke-width="1.5" stroke-linecap="round">
+      <path d="M215 210c40-45 95-60 130-45 10 5 8 20-2 24-40 15-75 30-118 33z" opacity="0.55"/>
+      <path d="M210 210c35-60 75-105 110-110 12-2 18 12 11 20-30 38-60 60-115 90z" opacity="0.5"/>
+      <path d="M195 230c-45-35-105-40-140-20-12 7-6 25 6 26 45 3 80 10 130-6z" opacity="0.55"/>
+      <path d="M195 230c-50-55-85-105-115-110-12-2-22 10-16 20 22 40 50 65 110 95z" opacity="0.5"/>
+    </g>
+    <g id="body">
+      <ellipse cx="205" cy="250" rx="25" ry="22" fill="#201612"/>
+      <ellipse cx="192" cy="285" rx="30" ry="25" fill="#352318" stroke="#f4c550" stroke-width="4"/>
+      <ellipse cx="180" cy="325" rx="38" ry="30" fill="#1f1710"/>
+      <path d="M165 298c-5 12-5 25 0 35 10 18 30 22 45 18 12-3 20-12 22-27 2-12-2-26-10-34-15-15-52-10-57 8z" fill="none" stroke="#f4c550" stroke-width="8"/>
+    </g>
+    <g id="thorax-hairs">
+      <path d="M180 275l-12 25" stroke="#d8a84d" stroke-width="3" stroke-linecap="round"/>
+      <path d="M195 275l-6 32" stroke="#d8a84d" stroke-width="3" stroke-linecap="round"/>
+      <path d="M210 275l6 30" stroke="#d8a84d" stroke-width="3" stroke-linecap="round"/>
+      <path d="M225 275l8 20" stroke="#d8a84d" stroke-width="3" stroke-linecap="round"/>
+      <path d="M170 275l-16 18" stroke="#d8a84d" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <g id="head">
+      <ellipse cx="238" cy="248" rx="18" ry="20" fill="#2c1b12"/>
+      <circle cx="244" cy="241" r="7" fill="#111"/>
+      <path d="M247 260c10 12 32 20 52 15 18-4 25-12 25-12s-28 8-52-2c-21-8-25-9-25-9z" fill="#8c4a1f"/>
+      <path d="M248 265c18 8 40 13 52 9 6-2 10-9 9-15-1 6-6 10-12 10-17 1-30-4-49-14z" fill="#643014"/>
+      <path d="M233 228l-10-20" stroke="#2c1b12" stroke-width="3" stroke-linecap="round"/>
+      <path d="M242 225l-2-22" stroke="#2c1b12" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <g id="legs" stroke="#302015" stroke-width="4" stroke-linecap="round">
+      <path d="M160 275c-20-10-40-15-60-12" fill="none"/>
+      <path d="M155 292c-22 2-42 9-55 20" fill="none"/>
+      <path d="M165 310c-18 20-40 35-60 40" fill="none"/>
+      <path d="M215 270c18-15 35-25 55-30" fill="none"/>
+      <path d="M220 290c20-5 40-5 60 5" fill="none"/>
+      <path d="M230 310c25-2 45 4 60 18" fill="none"/>
+      <g fill="#302015" stroke="none">
+        <circle cx="100" cy="263" r="5"/>
+        <circle cx="92" cy="312" r="5"/>
+        <circle cx="98" cy="350" r="5"/>
+        <circle cx="275" cy="255" r="5"/>
+        <circle cx="290" cy="300" r="5"/>
+        <circle cx="305" cy="335" r="5"/>
+      </g>
+    </g>
+    <g id="pollen-baskets">
+      <ellipse cx="120" cy="332" rx="12" ry="15" fill="#f5c13a" stroke="#d5961c" stroke-width="2"/>
+      <ellipse cx="270" cy="340" rx="12" ry="15" fill="#f5c13a" stroke="#d5961c" stroke-width="2"/>
+    </g>
+  </g>
+</svg>

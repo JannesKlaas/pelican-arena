@@ -1,0 +1,85 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Rails and Sleepers -->
+  <rect x="0" y="420" width="500" height="4" fill="#888"/>
+  <rect x="0" y="426" width="500" height="4" fill="#888"/>
+  <rect x="20" y="424" width="8" height="20" fill="#8B4513"/>
+  <rect x="60" y="424" width="8" height="20" fill="#8B4513"/>
+  <rect x="100" y="424" width="8" height="20" fill="#8B4513"/>
+  <rect x="140" y="424" width="8" height="20" fill="#8B4513"/>
+  <rect x="180" y="424" width="8" height="20" fill="#8B4513"/>
+  <rect x="220" y="424" width="8" height="20" fill="#8B4513"/>
+  <rect x="260" y="424" width="8" height="20" fill="#8B4513"/>
+  <rect x="300" y="424" width="8" height="20" fill="#8B4513"/>
+  <rect x="340" y="424" width="8" height="20" fill="#8B4513"/>
+  <rect x="380" y="424" width="8" height="20" fill="#8B4513"/>
+  <rect x="420" y="424" width="8" height="20" fill="#8B4513"/>
+  <rect x="460" y="424" width="8" height="20" fill="#8B4513"/>
+  
+  <!-- Main Boiler -->
+  <rect x="120" y="260" width="240" height="100" rx="50" fill="#2C2C2C"/>
+  <rect x="120" y="290" width="240" height="40" fill="#2C2C2C"/>
+  
+  <!-- Smokebox -->
+  <rect x="60" y="270" width="70" height="80" rx="5" fill="#1A1A1A"/>
+  <circle cx="95" cy="310" r="28" fill="#333" stroke="#666" stroke-width="2"/>
+  
+  <!-- Funnel -->
+  <rect x="85" y="210" width="20" height="60" fill="#1A1A1A"/>
+  <rect x="82" y="200" width="26" height="15" rx="2" fill="#1A1A1A"/>
+  
+  <!-- Cab -->
+  <rect x="350" y="230" width="60" height="100" fill="#8B0000"/>
+  <rect x="355" y="240" width="20" height="30" fill="#87CEEB" opacity="0.7"/>
+  <rect x="380" y="240" width="20" height="30" fill="#87CEEB" opacity="0.7"/>
+  
+  <!-- Firebox -->
+  <rect x="340" y="280" width="40" height="50" fill="#333"/>
+  
+  <!-- Headlamp -->
+  <circle cx="70" cy="280" r="8" fill="#FFD700"/>
+  <circle cx="70" cy="280" r="10" fill="none" stroke="#444" stroke-width="2"/>
+  
+  <!-- Leading Wheels (4) on bogie -->
+  <rect x="90" y="395" width="50" height="8" fill="#444"/>
+  <circle cx="100" cy="400" r="18" fill="#333" stroke="#111" stroke-width="2"/>
+  <circle cx="130" cy="400" r="18" fill="#333" stroke="#111" stroke-width="2"/>
+  <circle cx="100" cy="400" r="6" fill="#666"/>
+  <circle cx="130" cy="400" r="6" fill="#666"/>
+  
+  <!-- Driving Wheels (6) -->
+  <circle cx="180" cy="385" r="35" fill="#333" stroke="#111" stroke-width="3"/>
+  <circle cx="180" cy="385" r="8" fill="#666"/>
+  <circle cx="250" cy="385" r="35" fill="#333" stroke="#111" stroke-width="3"/>
+  <circle cx="250" cy="385" r="8" fill="#666"/>
+  <circle cx="320" cy="385" r="35" fill="#333" stroke="#111" stroke-width="3"/>
+  <circle cx="320" cy="385" r="8" fill="#666"/>
+  
+  <!-- Trailing Wheels (2) -->
+  <circle cx="380" cy="400" r="18" fill="#333" stroke="#111" stroke-width="2"/>
+  <circle cx="380" cy="400" r="6" fill="#666"/>
+  
+  <!-- Connecting Rods -->
+  <line x1="180" y1="365" x2="250" y2="365" stroke="#888" stroke-width="4"/>
+  <line x1="250" y1="365" x2="320" y2="365" stroke="#888" stroke-width="4"/>
+  <circle cx="180" cy="365" r="4" fill="#999"/>
+  <circle cx="250" cy="365" r="4" fill="#999"/>
+  <circle cx="320" cy="365" r="4" fill="#999"/>
+  
+  <!-- Pistons and Cylinders -->
+  <rect x="70" y="340" width="50" height="25" fill="#555"/>
+  <rect x="45" y="345" width="30" height="15" fill="#666"/>
+  <line x1="120" y1="352" x2="180" y2="365" stroke="#888" stroke-width="3"/>
+  
+  <!-- Valve Gear -->
+  <line x1="140" y1="340" x2="180" y2="350" stroke="#666" stroke-width="2"/>
+  <line x1="180" y1="350" x2="250" y2="350" stroke="#666" stroke-width="2"/>
+  <line x1="250" y1="350" x2="320" y2="350" stroke="#666" stroke-width="2"/>
+  <circle cx="140" cy="340" r="3" fill="#888"/>
+  
+  <!-- Steam Clouds -->
+  <ellipse cx="95" cy="180" rx="25" ry="20" fill="#E0E0E0" opacity="0.7"/>
+  <ellipse cx="90" cy="160" rx="30" ry="25" fill="#E0E0E0" opacity="0.6"/>
+  <ellipse cx="100" cy="140" rx="35" ry="30" fill="#E0E0E0" opacity="0.5"/>
+  <ellipse cx="95" cy="115" rx="40" ry="35" fill="#E0E0E0" opacity="0.4"/>
+  <ellipse cx="105" cy="90" rx="45" ry="40" fill="#E0E0E0" opacity="0.3"/>
+</svg>

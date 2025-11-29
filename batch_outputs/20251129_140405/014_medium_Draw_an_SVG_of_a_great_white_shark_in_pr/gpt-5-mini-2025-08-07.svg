@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- Background water gradient -->
+  <defs>
+    <linearGradient id="water" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#a6ddff"/>
+      <stop offset="60%" stop-color="#5fb0d6"/>
+      <stop offset="100%" stop-color="#1f6b8a"/>
+    </linearGradient>
+    <linearGradient id="ray" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="500" height="500" fill="url(#water)"/>
+
+  <!-- Light rays from above -->
+  <g opacity="0.5" blend-mode="screen">
+    <path d="M120 0 L170 500 L210 500 L160 0 Z" fill="url(#ray)" opacity="0.18"/>
+    <path d="M220 0 L260 500 L300 500 L260 0 Z" fill="url(#ray)" opacity="0.14"/>
+    <path d="M320 0 L360 500 L400 500 L360 0 Z" fill="url(#ray)" opacity="0.12"/>
+  </g>
+
+  <!-- Shipwreck silhouette in background (simple) -->
+  <g transform="translate(320,80) scale(0.9)" opacity="0.5">
+    <path d="M0 260 L220 220 L240 240 L200 280 L40 300 Z" fill="#0f2130"/>
+    <rect x="120" y="80" width="12" height="140" fill="#0f2130" transform="rotate(-12 126 150)"/>
+    <rect x="150" y="60" width="8" height="120" fill="#0f2130" transform="rotate(-22 154 120)"/>
+    <rect x="100" y="30" width="6" height="90" fill="#0f2130" transform="rotate(-35 103 70)"/>
+  </g>
+
+  <!-- Shark group -->
+  <g id="shark" transform="translate(60,150) scale(1.2)">
+    <!-- Shadow below shark -->
+    <ellipse cx="150" cy="220" rx="160" ry="28" fill="#000" opacity="0.05"/>
+
+    <!-- Full body silhouette (dorsal dark gray) -->
+    <path d="
+      M280 120
+      C250 100 210 100 180 110
+      C150 120 130 140 110 160
+      C80 190 60 220 50 250
+      C40 280 50 300 85 305
+      C110 308 170 300 210 290
+      C240 285 270 280 300 268
+      C330 255 360 230 355 200
+      C350 170 315 140 280 120 Z"
+      fill="#3f464b" stroke="#2f3438" stroke-width="1"/>
+
+    <!-- Underside (white) to create countershading -->
+    <path d="
+      M95 235
+      C110 210 132 200 160 198
+      C190 196 230 200 270 210
+      C285 215 305 216 315 208
+      C322 202 325 192 320 185
+      C315 178 300 170 280 165
+      C250 158 220 155 190 160
+      C160 165 130 180 110 200
+      C100 212 92 225 95 235 Z"
+      fill="#ffffff" stroke="#e6e6e6" stroke-width="0.5"/>
+
+    <!-- Pectoral fins (angled slightly downward) -->
+    <path d="M150 200 L100 240 L120 250 L170 210 Z" fill="#3f464b" stroke="#2f3438" stroke-width="0.8"/>
+    <path d="M210 220 L260 255 L250 265 L205 230 Z" fill="#3f464b" stroke="#2f3438" stroke-width="0.8" opacity="0.95"/>
+
+    <!-- Dorsal fin -->
+    <path d="M195 130 L220 92 L240 130 Z" fill="#3f464b" stroke="#2f3438" stroke-width="0.8"/>
+
+    <!-- Caudal fin (crescent-shaped, larger upper lobe) -->
+    <path d="M310 260
+             C340 240 372 230 402 210
+             C398 188 380 170 352 180
+             C362 170 378 154 370 137
+             C340 150 320 160 300 175
+             C288 182 278 188 272 197
+             C286 220 300 245 310 260 Z"
+          fill="#3f464b" stroke="#2f3438" stroke-width="0.8"/>
+
+    <!-- Eye -->
+    <circle cx="110" cy="165" r="6" fill="#0b0b0b"/>
+
+    <!-- Mouth and teeth -->
+    <path d="M86 195 C100 197 130 200 150 202 L148 212 C128 210 98 205 82 200 Z" fill="#2b2f31"/>
+    <!-- upper teeth -->
+    <g fill="#ffffff" stroke="#d8d8d8" stroke-width="0.7">
+      <polygon points="98,195 102,185 106,195"/>
+      <polygon points="108,196 112,186 116,196"/>
+      <polygon points="118,197 122,187 126,197"/>
+      <polygon points="128,198 132,188 136,198"/>
+      <polygon points="138,199 142,189 146,199"/>
+    </g>
+    <!-- lower teeth (tiny) -->
+    <g fill="#ffffff" opacity="0.9">
+      <polygon points="104,206 108,200 112,206" fill="#ffffff" stroke="#d8d8d8" stroke-width="0.5"/>
+      <polygon points="114,207 118,201 122,207" fill="#ffffff" stroke="#d8d8d8" stroke-width="0.5"/>
+      <polygon points="124,208 128,202 132,208" fill="#ffffff" stroke="#d8d8d8" stroke-width="0.5"/>
+    </g>
+
+    <!-- Gill slits (five distinct) -->
+    <g stroke="#1f2325" stroke-width="2" stroke-linecap="round" fill="none">
+      <path d="M120 171 C130 172 138 174 144 174"/>
+      <path d="M124 178 C134 179 142 180 148 181"/>
+      <path d="M128 185 C138 186 146 187 152 187"/>
+      <path d="M132 192 C142 193 150 194 156 194"/>
+      <path d="M136 199 C146 200 154 201 160 201"/>
+    </g>
+
+    <!-- Lateral line -->
+    <path d="M80 190 C110 185 150 180 190 185 C230 190 270 205 310 220"
+          fill="none" stroke="#2a3134" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+
+    <!-- Remora fish beneath (two small) -->
+    <g transform="translate(0,20)" fill="#2e3a3f" stroke="#22282b" stroke-width="0.8">
+      <path d="M160 285 C150 280 140 280 130 284 C118 289 116 298 126 305 C140 314 158 312 170 304 C180 298 178 288 160 285 Z"/>
+      <rect x="124" y="291" width="18" height="4" rx="2" fill="#1f2628" opacity="0.7"/>
+      <path d="M200 300 C190 295 176 295 166 300 C156 305 154 312 164 317 C178 324 196 322 206 314 C216 308 214 298 200 300 Z"/>
+      <rect x="164" y="305" width="14" height="3" rx="1.5" fill="#1f2628" opacity="0.7"/>
+    </g>
+
+  </g>
+
+</svg>

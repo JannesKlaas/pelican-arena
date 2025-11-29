@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- Background -->
+  <rect width="500" height="500" fill="#f0f5ff"/>
+
+  <!-- Panda head -->
+  <circle cx="250" cy="250" r="150" fill="#ffffff" stroke="#000000" stroke-width="6"/>
+
+  <!-- Ears -->
+  <circle cx="165" cy="135" r="45" fill="#000000"/>
+  <circle cx="335" cy="135" r="45" fill="#000000"/>
+
+  <!-- Eye patches -->
+  <ellipse cx="195" cy="230" rx="45" ry="60" fill="#000000"/>
+  <ellipse cx="305" cy="230" rx="45" ry="60" fill="#000000"/>
+
+  <!-- Snout -->
+  <ellipse cx="250" cy="295" rx="65" ry="55" fill="#f5f5f5" stroke="#000000" stroke-width="4"/>
+
+  <!-- Nose -->
+  <path d="M235 280 Q250 270 265 280 Q260 295 250 298 Q240 295 235 280 Z" fill="#000000"/>
+
+  <!-- Mouth -->
+  <path d="M250 298 Q250 315 238 325" stroke="#000000" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M250 298 Q250 315 262 325" stroke="#000000" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- Sunglasses frame -->
+  <rect x="160" y="195" width="80" height="60" rx="10" ry="10" fill="#222222" stroke="#000000" stroke-width="4"/>
+  <rect x="260" y="195" width="80" height="60" rx="10" ry="10" fill="#222222" stroke="#000000" stroke-width="4"/>
+  <rect x="240" y="215" width="20" height="10" fill="#000000"/>
+  <path d="M160 220 C130 205 120 200 110 205" stroke="#000000" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M340 220 C370 205 380 200 390 205" stroke="#000000" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- Sunglasses highlights -->
+  <path d="M170 205 Q190 200 210 210" stroke="#55d4ff" stroke-width="4" fill="none" opacity="0.7"/>
+  <path d="M270 205 Q290 200 310 210" stroke="#55d4ff" stroke-width="4" fill="none" opacity="0.7"/>
+
+  <!-- Cheek blush -->
+  <ellipse cx="190" cy="305" rx="20" ry="12" fill="#ffb3c6" opacity="0.6"/>
+  <ellipse cx="310" cy="305" rx="20" ry="12" fill="#ffb3c6" opacity="0.6"/>
+</svg>
