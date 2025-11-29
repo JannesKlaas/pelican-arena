@@ -1,0 +1,16 @@
+[project]
+name = "pelican-gym"
+version = "0.1.0"
+description = "LLM-based SVG to PNG image generator"
+requires-python = ">=3.10"
+dependencies = [
+    "litellm",
+    "cairosvg",
+    "openai",
+    "anthropic",
+    "google-genai",
+    "python-dotenv",
+]
+
+[dependency-groups]
+dev = []

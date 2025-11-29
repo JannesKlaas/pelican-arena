@@ -4,27 +4,62 @@ A simple Python script that uses LiteLLM to generate SVG code from a text prompt
 
 ## Installation
 
+Install uv if you haven't already:
+
 ```bash
-pip install -r requirements.txt
+# On macOS and Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Or with Homebrew
+brew install uv
+```
+
+Then sync the project dependencies:
+
+```bash
+uv sync
+```
+
+Create an outputs directory (optional):
+
+```bash
+mkdir -p outputs
 ```
 
 ## Usage
 
 ```bash
-python genimg.py <model> <output_path> <prompt>
+uv run python genimg.py <model> <output_path> <prompt>
 ```
 
 ### Examples
 
 ```bash
 # Using OpenAI GPT-4
-python genimg.py openai/gpt-4 outputs/pelican.png "generate an image of a pelican"
+uv run python genimg.py openai/gpt-4 outputs/pelican.png "generate an image of a pelican"
 
 # Using Claude
-python genimg.py anthropic/claude-3-haiku-20240307 outputs/bird.png "draw a colorful bird"
+uv run python genimg.py anthropic/claude-3-haiku-20240307 outputs/bird.png "draw a colorful bird"
 
 # Using local models via Ollama
-python genimg.py ollama/llama2 outputs/cat.png "create a simple cat illustration"
+uv run python genimg.py ollama/llama2 outputs/cat.png "create a simple cat illustration"
+```
+
+## Quick Start
+
+```bash
+# Install uv
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Clone and setup the project
+uv sync
+mkdir -p outputs
+
+# Set your API key (for OpenAI in this example)
+export OPENAI_API_KEY="your-key-here"
+
+# Generate your first image
+uv run python genimg.py openai/gpt-4 outputs/pelican.png "a colorful pelican by the beach"
 ```
 
 ## Environment Variables

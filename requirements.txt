@@ -3,3 +3,4 @@ cairosvg
 openai 
 anthropic
 google-genai
+python-dotenv

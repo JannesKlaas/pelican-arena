@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import sys
-import litellm
 import cairosvg
 import re
+from models import get_response
 
 def extract_svg(text):
     """Extract SVG code from the response"""
@@ -40,28 +40,23 @@ def main():
     
     Return ONLY the SVG code, nothing else."""
     
-    try:
-        # Call the LLM
-        response = litellm.completion(
-            model=model,
-            messages=[{"role": "user", "content": full_prompt}]
-        )
+
+    # Call the LLM
+    response = get_response(model, full_prompt)
+    
+    # Extract SVG from response
+    svg_code = extract_svg(response)
+    
+    # Ensure it has proper SVG tags
+    if not svg_code.startswith('<svg'):
+        svg_code = f'<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">\n{svg_code}\n</svg>'
+    
+    # Convert SVG to PNG
+    cairosvg.svg2png(bytestring=svg_code.encode('utf-8'), write_to=output_path)
+    
+    print(f"✅ Image saved to {output_path}")
         
-        # Extract SVG from response
-        svg_code = extract_svg(response.choices[0].message.content)
-        
-        # Ensure it has proper SVG tags
-        if not svg_code.startswith('<svg'):
-            svg_code = f'<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">\n{svg_code}\n</svg>'
-        
-        # Convert SVG to PNG
-        cairosvg.svg2png(bytestring=svg_code.encode('utf-8'), write_to=output_path)
-        
-        print(f"✅ Image saved to {output_path}")
-        
-    except Exception as e:
-        print(f"❌ Error: {e}")
-        sys.exit(1)
+
 
 if __name__ == "__main__":
     main()
