@@ -1,0 +1,5 @@
+litellm
+cairosvg
+openai 
+anthropic
+google-genai
