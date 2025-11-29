@@ -4,3 +4,4 @@ openai
 anthropic
 google-genai
 python-dotenv
+pyyaml

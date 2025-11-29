@@ -28,22 +28,35 @@ mkdir -p outputs
 
 ## Usage
 
+### Single-model preview
+
 ```bash
 uv run python genimg.py <model> <output_path> <prompt>
 ```
 
-### Examples
+Examples:
 
 ```bash
-# Using OpenAI GPT-4
 uv run python genimg.py openai/gpt-4 outputs/pelican.png "generate an image of a pelican"
-
-# Using Claude
 uv run python genimg.py anthropic/claude-3-haiku-20240307 outputs/bird.png "draw a colorful bird"
-
-# Using local models via Ollama
 uv run python genimg.py ollama/llama2 outputs/cat.png "create a simple cat illustration"
 ```
+
+### Multi-model comparison
+
+1. Edit `models_config.yaml` and list every model you want to test.
+2. Tweak optional settings such as `max_workers` (parallelism) and `save_html`.
+3. Run a single prompt against every configured model:
+
+```bash
+uv run comp.py "a pelican riding a bicycle"
+```
+
+Each run gets its own folder under `outputs/<uuid>/` containing:
+- `prompt.txt`
+- `summary.json`
+- `<model>.svg` and `<model>.png` pairs
+- `index.html` gallery (when enabled)
 
 ## Quick Start
 
@@ -53,13 +66,15 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # Clone and setup the project
 uv sync
-mkdir -p outputs
 
-# Set your API key (for OpenAI in this example)
+# Configure the models you want to compare
+$EDITOR models_config.yaml
+
+# Set your API key(s)
 export OPENAI_API_KEY="your-key-here"
 
-# Generate your first image
-uv run python genimg.py openai/gpt-4 outputs/pelican.png "a colorful pelican by the beach"
+# Generate your first comparison run
+uv run comp.py "a colorful pelican by the beach"
 ```
 
 ## Environment Variables
@@ -86,7 +101,8 @@ export ANTHROPIC_API_KEY="your-key-here"
    - Partial SVG elements without wrapper tags
    - Text before/after the actual SVG code
 4. The SVG is converted to PNG using cairosvg
-5. The PNG is saved to the specified output path
+5. The PNG is saved to the specified output path for single runs, or automatically
+   organized under `outputs/<run_uuid>/` for comparison runs
 
 ## Advanced Features
 

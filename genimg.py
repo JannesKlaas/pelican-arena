@@ -74,14 +74,18 @@ def clean_svg(svg_text):
     return svg_text
 
 def main():
-    if len(sys.argv) != 4:
-        print("Usage: python genimg.py <model> <output_path> <prompt>")
-        print('Example: python genimg.py openai/gpt-4 output.png "draw a pelican"')
+    args = sys.argv[1:]
+    save_svg = False
+    if "--save-svg" in args:
+        save_svg = True
+        args = [arg for arg in args if arg != "--save-svg"]
+
+    if len(args) != 3:
+        print("Usage: python genimg.py <model> <output_path> <prompt> [--save-svg]")
+        print('Example: python genimg.py openai/gpt-4 output.png "draw a pelican" --save-svg')
         sys.exit(1)
     
-    model = sys.argv[1]
-    output_path = sys.argv[2]
-    prompt = sys.argv[3]
+    model, output_path, prompt = args
     
     # Create a prompt that asks for SVG code
     full_prompt = f"""Generate SVG code for: {prompt}
@@ -121,9 +125,9 @@ def main():
         print(f"✅ Image saved to {output_path}")
         
         # Optionally save the SVG for debugging
-        if '--save-svg' in sys.argv:
+        if save_svg:
             svg_path = output_path.rsplit('.', 1)[0] + '.svg'
-            with open(svg_path, 'w') as f:
+            with open(svg_path, 'w', encoding='utf-8') as f:
                 f.write(svg_code)
             print(f"📝 SVG saved to {svg_path}")
             

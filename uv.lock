@@ -1303,6 +1303,7 @@ dependencies = [
     { name = "litellm" },
     { name = "openai" },
     { name = "python-dotenv" },
+    { name = "pyyaml" },
 ]
 
 [package.metadata]
@@ -1313,6 +1314,7 @@ requires-dist = [
     { name = "litellm" },
     { name = "openai" },
     { name = "python-dotenv" },
+    { name = "pyyaml" },
 ]
 
 [package.metadata.requires-dev]

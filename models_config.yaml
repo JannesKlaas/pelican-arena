@@ -1,0 +1,17 @@
+#
+# Models to compare when generating images.
+# Update this list to include whichever providers/models you want to test.
+#
+models:
+  - openai/gpt-5-mini-2025-08-07
+  - openai/gpt-5-nano-2025-08-07
+  - anthropic/claude-haiku-4-5-20251001
+  - anthropic/claude-sonnet-4-5-20250929
+  - google/gemini-2.5-flash
+  - google/gemini-2.5-flash-lite
+
+# Optional settings that control how comp.py behaves.
+settings:
+  max_workers: 4        # Maximum number of models processed in parallel
+  save_html: true       # Generate an HTML comparison viewer
+

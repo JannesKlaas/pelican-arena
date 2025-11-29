@@ -10,6 +10,7 @@ dependencies = [
     "anthropic",
     "google-genai",
     "python-dotenv",
+    "pyyaml",
 ]
 
 [dependency-groups]
