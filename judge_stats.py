@@ -184,6 +184,40 @@ def compute_agreement_stats(
     return stats
 
 
+def compute_inter_judge_agreement(
+    results: List[Dict[str, str]], judge_columns: List[str]
+) -> Dict[Tuple[str, str], Tuple[int, int, float]]:
+    """
+    Compute pairwise agreement between all judge models.
+    
+    Returns:
+        Dictionary mapping (judge_a, judge_b) to (agreements, total, percentage)
+    """
+    stats: Dict[Tuple[str, str], Tuple[int, int, float]] = {}
+
+    for i, judge_a in enumerate(judge_columns):
+        for judge_b in judge_columns[i:]:  # Include self-comparison for diagonal
+            agreements = 0
+            total = 0
+
+            for row in results:
+                vote_a = row.get(judge_a, "")
+                vote_b = row.get(judge_b, "")
+
+                # Only count valid comparisons
+                if vote_a in ("a", "b") and vote_b in ("a", "b"):
+                    total += 1
+                    if vote_a == vote_b:
+                        agreements += 1
+
+            percentage = (agreements / total * 100) if total > 0 else 0.0
+            stats[(judge_a, judge_b)] = (agreements, total, percentage)
+            if judge_a != judge_b:
+                stats[(judge_b, judge_a)] = (agreements, total, percentage)
+
+    return stats
+
+
 def print_elo_ranking(title: str, elo_scores: Dict[str, float]) -> None:
     """Print ELO ranking table."""
     print(f"\n{'=' * 60}")
@@ -226,6 +260,60 @@ def print_agreement_stats(
         print(f"  {judge:<35} {agreements:>8} {total:>8} {percentage:>7.1f}%")
 
 
+def print_inter_judge_agreement(
+    stats: Dict[Tuple[str, str], Tuple[int, int, float]],
+    judge_columns: List[str],
+) -> None:
+    """Print inter-judge agreement matrix."""
+    print(f"\n{'=' * 80}")
+    print("  Inter-Judge Agreement Matrix (%)")
+    print("=" * 80)
+
+    if not stats or not judge_columns:
+        print("  No data available")
+        return
+
+    # Shorten judge names for display
+    short_names = []
+    for j in judge_columns:
+        # Take first 12 chars
+        short = j[:12]
+        short_names.append(short)
+
+    # Print header row
+    col_width = 13
+    header = "  " + " " * 14
+    for short in short_names:
+        header += f"{short:>{col_width}}"
+    print(header)
+
+    print("  " + "-" * (14 + col_width * len(judge_columns)))
+
+    # Print each row
+    for i, judge_a in enumerate(judge_columns):
+        row = f"  {short_names[i]:<14}"
+        for judge_b in judge_columns:
+            _, _, percentage = stats.get((judge_a, judge_b), (0, 0, 0.0))
+            row += f"{percentage:>{col_width}.1f}"
+        print(row)
+
+    print()
+
+    # Also print as a simple list for clarity
+    print("  Pairwise Agreement Details:")
+    print(f"  {'-' * 50}")
+    
+    printed = set()
+    for i, judge_a in enumerate(judge_columns):
+        for j, judge_b in enumerate(judge_columns):
+            if i < j:  # Only print each pair once
+                key = (judge_a, judge_b)
+                if key not in printed:
+                    agreements, total, percentage = stats.get(key, (0, 0, 0.0))
+                    print(f"  {judge_a[:20]} <-> {judge_b[:20]}: {percentage:.1f}% ({agreements}/{total})")
+                    printed.add(key)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Judge Statistics")
     parser.add_argument(
@@ -255,9 +343,13 @@ def main() -> None:
     consensus_elo = compute_consensus_elo(results, judge_columns)
     print_elo_ranking("SVG Model Rankings by Judge Consensus ELO", consensus_elo)
 
-    # 3. Agreement statistics
+    # 3. Agreement statistics with human
     agreement_stats = compute_agreement_stats(results, judge_columns)
     print_agreement_stats(agreement_stats)
+
+    # 4. Inter-judge agreement
+    inter_judge_stats = compute_inter_judge_agreement(results, judge_columns)
+    print_inter_judge_agreement(inter_judge_stats, judge_columns)
 
     print()
 
