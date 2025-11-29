@@ -1,0 +1,267 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- Background water gradient -->
+  <defs>
+    <linearGradient id="waterGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a2a5e"/>
+      <stop offset="40%" stop-color="#164b7d"/>
+      <stop offset="70%" stop-color="#1d6f8f"/>
+      <stop offset="100%" stop-color="#0b3a50"/>
+    </linearGradient>
+
+    <!-- Pearlescent gradient for shell interior -->
+    <radialGradient id="pearlGrad" cx="0.4" cy="0.4" r="0.8">
+      <stop offset="0%" stop-color="#fdfdfd" stop-opacity="0.95"/>
+      <stop offset="40%" stop-color="#e7f0f8" stop-opacity="0.9"/>
+      <stop offset="70%" stop-color="#d5dde7" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#b1bdcc" stop-opacity="0.95"/>
+    </radialGradient>
+
+    <!-- Outer shell color -->
+    <linearGradient id="shellOuterGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f6eee5"/>
+      <stop offset="50%" stop-color="#e6d3c2"/>
+      <stop offset="100%" stop-color="#c49b7a"/>
+    </linearGradient>
+
+    <!-- Living animal body gradient -->
+    <radialGradient id="animalGrad" cx="0.3" cy="0.5" r="0.8">
+      <stop offset="0%" stop-color="#f9e1d9"/>
+      <stop offset="50%" stop-color="#e6a993"/>
+      <stop offset="100%" stop-color="#b66c56"/>
+    </radialGradient>
+
+    <!-- Tentacle gradient -->
+    <linearGradient id="tentacleGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffe7dd"/>
+      <stop offset="60%" stop-color="#f1b9a1"/>
+      <stop offset="100%" stop-color="#d18066"/>
+    </linearGradient>
+
+    <!-- Septa stroke gradient -->
+    <linearGradient id="septaGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8a8f9a"/>
+      <stop offset="100%" stop-color="#5b5f67"/>
+    </linearGradient>
+
+    <!-- Siphuncle gradient -->
+    <linearGradient id="siphuncleGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f7f4ec"/>
+      <stop offset="100%" stop-color="#c9c1a4"/>
+    </linearGradient>
+
+    <!-- Subtle ribbing pattern -->
+    <pattern id="ribPattern" patternUnits="userSpaceOnUse" width="8" height="8">
+      <path d="M0 8 L8 0" stroke="#d8bba4" stroke-width="0.8" stroke-opacity="0.5"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="500" height="500" fill="url(#waterGrad)"/>
+
+  <!-- Group for nautilus, centered roughly on right side -->
+  <g transform="translate(250,250)">
+    <!-- Logarithmic spiral shell (approximation using paths) -->
+    <!-- Outer shell silhouette -->
+    <path d="
+      M 160 0
+      C 150 -70 95 -125 15 -140
+        -75 -158 -155 -105 -175 -25
+        -192 45 -160 115 -100 150
+        -40 185 40 175 95 135
+        135 105 155 60 160 0
+      Z"
+      fill="url(#shellOuterGrad)"
+      stroke="#6a4b35"
+      stroke-width="2.5"
+      />
+
+    <!-- Inner pearlescent lining approximated by smaller spiral shape -->
+    <path d="
+      M 130 0
+      C 123 -55 78 -100 10 -112
+        -60 -126 -125 -85 -142 -23
+        -157 30 -132 85 -80 115
+        -33 142 33 135 76 105
+        108 83 125 50 130 0
+      Z"
+      fill="url(#pearlGrad)"
+      stroke="#a3aabb"
+      stroke-width="1.5"
+      />
+
+    <!-- Logarithmic spiral curve (central curve of shell) -->
+    <path d="
+      M 130 0
+      C 105 -40 60 -70 10 -78
+        -50 -88 -105 -55 -120 -10
+        -132 30 -115 70 -80 90
+        -45 110 0 105 30 85
+        50 71 65 50 70 25
+        72 10 70 -5 62 -18
+        50 -35 30 -45 10 -45
+        -15 -45 -35 -30 -40 -10
+        -45 10 -38 30 -25 40
+        -12 50 5 50 15 43
+        22 38 27 30 28 25"
+      fill="none"
+      stroke="#827c86"
+      stroke-width="1.4"
+      stroke-linecap="round"
+      />
+
+    <!-- Septa: curved radial partitions along the spiral -->
+    <g stroke="url(#septaGrad)" stroke-width="1.4" fill="none" stroke-linecap="round">
+      <path d="M 116 -22 C 72 -40 36 -46 8 -45" />
+      <path d="M 105 -45 C 55 -68 20 -74 -12 -72" />
+      <path d="M 88 -72 C 30 -95 -22 -94 -55 -85" />
+      <path d="M 64 -98 C 10 -117 -38 -115 -72 -103" />
+      <path d="M 37 -118 C -10 -133 -57 -130 -90 -118" />
+      <path d="M 8 -130 C -35 -142 -80 -140 -112 -128" />
+      <path d="M -22 -135 C -62 -145 -105 -143 -137 -132" />
+      <!-- Inner septa -->
+      <path d="M 90 -5 C 58 -17 30 -20 10 -18" />
+      <path d="M 70 15 C 38 5 18 2 0 3" />
+      <path d="M 48 32 C 25 25 8 23 -5 25" />
+      <path d="M 30 45 C 12 40 -3 38 -13 40" />
+      <path d="M 18 55 C 5 52 -5 51 -12 52" />
+    </g>
+
+    <!-- Siphuncle: central tube through chambers -->
+    <path d="
+      M -10 -140
+      C -5 -100 0 -60 3 -20
+        5 20 7 60 10 100
+        12 130 15 150 18 165"
+      stroke="url(#siphuncleGrad)"
+      stroke-width="6"
+      stroke-linecap="round"
+      fill="none"
+      opacity="0.95"
+      />
+
+    <!-- Fine shell ribbing on outer shell -->
+    <g stroke="url(#septaGrad)" stroke-width="0.5" stroke-linecap="round" opacity="0.7">
+      <path d="M 150 -10 C 115 -20 80 -35 45 -60" />
+      <path d="M 148 -30 C 112 -42 72 -62 35 -90" />
+      <path d="M 142 -50 C 105 -65 60 -88 20 -115" />
+      <path d="M 132 -68 C 95 -85 48 -112 8 -135" />
+      <path d="M 152 10 C 120 5 83 -5 50 -23" />
+      <path d="M 148 30 C 115 25 78 13 45 -5" />
+      <path d="M 140 50 C 105 43 70 30 40 15" />
+      <path d="M 128 70 C 96 62 66 48 40 34" />
+      <path d="M 112 90 C 84 82 60 68 36 54" />
+      <path d="M 95 108 C 70 100 50 88 30 74" />
+    </g>
+
+    <!-- Apply subtle ribbing pattern to interior margin -->
+    <path d="
+      M 130 0
+      C 123 -55 78 -100 10 -112
+        -60 -126 -125 -85 -142 -23
+        -157 30 -132 85 -80 115
+        -33 142 33 135 76 105
+        108 83 125 50 130 0
+      Z"
+      fill="url(#ribPattern)"
+      opacity="0.18"
+      />
+
+    <!-- Living chamber outline (near opening) -->
+    <path d="
+      M 150 0
+      C 140 -20 120 -35 100 -42
+        72 -52 48 -50 28 -38
+        10 -28 -4 -10 -10 10
+        -15 28 -13 48 -3 65
+        8 83 27 97 50 103
+        75 110 100 108 120 96
+        135 87 146 73 150 55
+        152 40 152 20 150 0
+      Z"
+      fill="url(#pearlGrad)"
+      stroke="#808896"
+      stroke-width="1.5"
+      />
+
+    <!-- Animal body within living chamber -->
+    <path d="
+      M 115 10
+      C 98 -10 75 -20 52 -18
+        32 -16 15 -3 8 15
+        0 35 3 58 17 75
+        30 90 52 100 75 100
+        95 99 112 90 123 78
+        135 65 140 47 137 32
+        134 20 126 15 115 10
+      Z"
+      fill="url(#animalGrad)"
+      stroke="#8b4b3a"
+      stroke-width="1.2"
+      />
+
+    <!-- Hood -->
+    <path d="
+      M 118 5
+      C 122 -6 130 -12 140 -12
+        148 -12 155 -8 160 0
+        155 8 148 14 140 16
+        132 18 124 14 118 5
+      Z"
+      fill="#b16149"
+      stroke="#7a3b2a"
+      stroke-width="1"/>
+
+    <!-- Eye -->
+    <g transform="translate(96,10)">
+      <circle r="6.5" fill="#f6e9e1" stroke="#5b3a2b" stroke-width="1"/>
+      <circle r="3.7" cx="1" cy="0.5" fill="#2b1b16"/>
+      <circle r="1.2" cx="2" cy="-0.5" fill="#ffffff" opacity="0.9"/>
+    </g>
+
+    <!-- Tentacles -->
+    <g stroke="url(#tentacleGrad)" stroke-width="2.2" stroke-linecap="round" fill="none">
+      <path d="M 125 20 C 150 5 185 0 215 5 245 10 270 25 290 45" />
+      <path d="M 118 24 C 145 12 178 12 205 18 238 26 260 42 280 60" />
+      <path d="M 110 26 C 138 20 170 25 198 35 226 45 248 62 268 80" />
+      <path d="M 104 27 C 132 26 160 35 185 50 210 65 232 82 250 100" />
+      <path d="M 98 27 C 124 30 150 40 172 56 196 74 214 92 230 112" />
+      <path d="M 120 30 C 150 30 185 40 215 58 240 73 262 94 280 118" />
+      <path d="M 112 18 C 142 0 180 -5 212 0 240 5 265 18 288 36" />
+      <path d="M 106 16 C 135 0 170 -10 205 -8 233 -6 258 2 280 18" />
+      <path d="M 100 14 C 126 -2 155 -15 188 -18 215 -20 242 -14 265 -2" />
+      <path d="M 95 12 C 118 -6 145 -20 176 -25 204 -30 230 -26 252 -15" />
+    </g>
+
+    <!-- Lighter inner cores of tentacles for dimension -->
+    <g stroke="#ffece3" stroke-width="0.8" stroke-linecap="round" fill="none" opacity="0.7">
+      <path d="M 125 20 C 148 8 180 6 208 12 236 18 258 32 278 50" />
+      <path d="M 110 26 C 135 20 165 25 190 36 215 48 235 64 253 82" />
+      <path d="M 104 27 C 128 26 155 33 178 47 200 60 220 78 235 95" />
+      <path d="M 98 27 C 120 30 145 38 165 52 186 68 205 86 220 105" />
+    </g>
+
+    <!-- Subtle highlights on shell -->
+    <path d="
+      M 140 -5
+      C 130 -35 100 -70 60 -88
+        17 -108 -30 -110 -70 -95
+        -105 -80 -130 -52 -145 -20"
+      fill="none"
+      stroke="#ffffff"
+      stroke-opacity="0.35"
+      stroke-width="3"
+      stroke-linecap="round"
+      />
+
+    <path d="
+      M 120 60
+      C 90 80 50 80 20 65
+        -10 50 -30 25 -38 0"
+      fill="none"
+      stroke="#ffffff"
+      stroke-opacity="0.28"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      />
+  </g>
+</svg>

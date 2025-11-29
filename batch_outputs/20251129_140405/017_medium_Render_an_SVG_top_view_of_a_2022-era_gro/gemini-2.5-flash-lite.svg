@@ -1,0 +1,106 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background (optional, but good for contrast) -->
+  <rect width="100%" height="100%" fill="#f0f0f0"/>
+
+  <!-- Tires -->
+  <circle cx="100" cy="400" r="30" fill="#333"/> <!-- Front Left -->
+  <circle cx="200" cy="400" r="30" fill="#333"/> <!-- Front Right -->
+  <circle cx="300" cy="400" r="30" fill="#333"/> <!-- Rear Left -->
+  <circle cx="400" cy="400" r="30" fill="#333"/> <!-- Rear Right -->
+
+  <!-- Wheel Covers -->
+  <circle cx="100" cy="400" r="15" fill="#ccc"/>
+  <circle cx="200" cy="400" r="15" fill="#ccc"/>
+  <circle cx="300" cy="400" r="15" fill="#ccc"/>
+  <circle cx="400" cy="400" r="15" fill="#ccc"/>
+
+  <!-- Car Body -->
+  <path d="M 80 370
+           L 50 300
+           L 60 250
+           Q 70 220 90 220
+           L 150 220
+           Q 170 220 180 250
+           L 190 300
+           L 200 370
+           L 180 380
+           L 150 370
+           L 120 380
+           L 90 370
+           Z" fill="#0077cc"/> <!-- Main body color -->
+
+  <!-- Sidepods -->
+  <path d="M 150 250
+           Q 180 230 220 230
+           L 240 250
+           L 220 300
+           L 190 300
+           Q 170 280 160 280
+           L 150 250 Z" fill="#005299"/> <!-- Undercut sidepods -->
+  <path d="M 220 250
+           Q 250 230 280 230
+           L 300 250
+           L 280 300
+           L 250 300
+           Q 230 280 220 280
+           L 220 250 Z" fill="#005299"/>
+
+  <!-- Venturi Inlets (simplified) -->
+  <path d="M 180 300 L 200 320 L 220 300 Z" fill="#444"/>
+  <path d="M 250 300 L 270 320 L 290 300 Z" fill="#444"/>
+
+  <!-- Nose -->
+  <path d="M 50 300
+           L 30 280
+           L 40 260
+           L 60 270
+           L 50 300 Z" fill="#0077cc"/> <!-- Nose tip -->
+  <path d="M 60 270
+           L 70 250
+           L 80 240
+           L 90 230
+           L 80 220
+           L 60 230
+           L 50 240
+           L 50 280 Z" fill="#0077cc"/> <!-- Nose cone -->
+
+  <!-- Front Wing -->
+  <rect x="40" y="240" width="60" height="10" fill="#aaa"/> <!-- Main Plane -->
+  <rect x="45" y="230" width="50" height="5" fill="#bbb"/> <!-- Element 2 -->
+  <rect x="50" y="220" width="40" height="5" fill="#ccc"/> <!-- Element 3 -->
+  <rect x="55" y="210" width="30" height="5" fill="#ddd"/> <!-- Element 4 -->
+
+  <!-- Halo -->
+  <path d="M 110 200
+           Q 120 180 140 180
+           L 160 180
+           Q 180 180 190 200
+           L 190 210
+           Q 180 220 160 220
+           L 140 220
+           Q 120 220 110 210
+           Z" fill="#333"/> <!-- Halo structure -->
+  <path d="M 140 200 Q 150 190 160 200 L 160 210 Q 150 220 140 210 Z" fill="#444"/> <!-- Halo support -->
+
+  <!-- Driver Helmet (simplified) -->
+  <circle cx="150" cy="190" r="15" fill="#ff0000"/> <!-- Helmet top -->
+  <path d="M 140 200 Q 150 210 160 200 Z" fill="#ff0000"/> <!-- Helmet face area -->
+
+  <!-- Rear Wing -->
+  <rect x="250" y="180" width="150" height="15" fill="#aaa"/> <!-- Main Plane -->
+  <rect x="260" y="160" width="130" height="10" fill="#bbb"/> <!-- Element 2 -->
+  <rect x="270" y="140" width="110" height="8" fill="#ccc"/> <!-- Element 3 -->
+
+  <!-- DRS Flap (open) -->
+  <rect x="270" y="130" width="110" height="10" fill="#ddd"/> <!-- Open DRS flap -->
+
+  <!-- Beam Wing -->
+  <rect x="250" y="195" width="150" height="5" fill="#aaa"/>
+
+  <!-- Wheel Detail (simplified inner rim) -->
+  <circle cx="100" cy="400" r="10" fill="#888"/>
+  <circle cx="200" cy="400" r="10" fill="#888"/>
+  <circle cx="300" cy="400" r="10" fill="#888"/>
+  <circle cx="400" cy="400" r="10" fill="#888"/>
+
+</svg>

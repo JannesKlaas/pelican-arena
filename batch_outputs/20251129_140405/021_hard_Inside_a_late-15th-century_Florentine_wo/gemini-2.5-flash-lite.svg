@@ -1,0 +1,104 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="sunlightEffect">
+      <feSpecularLighting specularConstant="0.5" specularExponent="10" surfaceScale="2">
+        <fePointLight x="400" y="100" z="200" />
+      </feSpecularLighting>
+      <feComposite in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="0" k4="0" />
+    </filter>
+
+    <pattern id="woodGrain" patternUnits="userSpaceOnUse" width="10" height="20">
+      <path d="M 0 0 L 10 5 M 0 10 L 10 15 M 0 20 L 10 25" stroke="#8B4513" stroke-width="0.5" />
+    </pattern>
+
+    <mask id="wearMask">
+      <rect width="100%" height="100%" fill="white" />
+      <circle cx="50" cy="50" r="20" fill="black" opacity="0.7" />
+      <rect x="10" y="10" width="30" height="15" fill="black" opacity="0.5" rx="2" />
+    </mask>
+
+    <path id="spiralPath" d="M 100 100 C 120 100 120 120 100 120 S 80 120 80 100 S 80 80 100 80 S 120 80 120 100 Z" />
+
+    <marker id="quillNib" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#4682B4" />
+    </marker>
+  </defs>
+
+  <!-- Background: workshop interior -->
+  <rect width="500" height="500" fill="#2F4F4F" />
+
+  <!-- Sunlit Street Projection -->
+  <g transform="translate(200, 150)">
+    <rect width="100" height="140" fill="none" stroke="#A0522D" stroke-width="2" />
+    <defs>
+      <radialGradient id="sunGradient">
+        <stop offset="0%" stop-color="#FFFFE0" />
+        <stop offset="100%" stop-color="#F0E68C" />
+      </radialGradient>
+    </defs>
+    <rect width="100" height="140" fill="url(#sunGradient)" opacity="0.8" />
+    <path d="M 0 0 L 100 0 L 50 140 Z" fill="#8B4513" />
+    <rect x="20" y="20" width="60" height="80" fill="#CD853F" />
+    <rect x="40" y="40" width="20" height="40" fill="#D2B48C" />
+  </g>
+
+  <!-- Poplar Panel -->
+  <rect x="150" y="150" width="200" height="280" fill="url(#woodGrain)" mask="url(#wearMask)" stroke="#5A3B0E" stroke-width="3" />
+
+  <!-- Apprentice -->
+  <g transform="translate(100, 350)">
+    <!-- Body (7.5 heads tall, head=1/7.5, elbow at waist) -->
+    <rect x="10" y="20" width="20" height="75" fill="#DEB887" />
+    <!-- Head -->
+    <circle cx="20" cy="10" r="10" fill="#D2B48C" />
+    <!-- Arm -->
+    <line x1="20" y1="40" x2="35" y2="40" stroke="#DEB887" stroke-width="4" />
+    <!-- Hand -->
+    <circle cx="35" cy="40" r="3" fill="#D2B48C" />
+  </g>
+
+  <!-- Oak Workbench -->
+  <rect x="50" y="400" width="400" height="50" fill="url(#woodGrain)" stroke="#5A3B0E" stroke-width="3" />
+
+  <!-- Paper Notes -->
+  <text x="120" y="200" font-family="Arial" font-size="10" fill="#F5DEB3">
+    <textPath href="#spiralPath" startOffset="0%">
+      .tsevn uoy fi egareva eb lliw uoy ,rehtona gnikaerB .doog si gnidraw a gnidne .thgin si draeh ti syadni htiw yaw ehT .selggur tfehgniht eht sa rehtona si rehtona ,sevil gnol gnol erehw eromerehT
+    </textPath>
+  </text>
+
+  <!-- Metal Compasses -->
+  <g transform="translate(180, 380)">
+    <circle cx="0" cy="0" r="8" fill="#696969" filter="url(#sunlightEffect)" />
+    <circle cx="0" cy="0" r="4" fill="#B0C4DE" />
+    <line x1="-6" y1="0" x2="6" y2="0" stroke="#696969" stroke-width="1" />
+    <line x1="0" y1="-6" x2="0" y2="6" stroke="#696969" stroke-width="1" />
+  </g>
+
+  <!-- Quill Nibs -->
+  <g transform="translate(220, 370)">
+    <line x1="0" y1="0" x2="15" y2="0" stroke="#4682B4" stroke-width="2" marker-end="url(#quillNib)" />
+  </g>
+
+  <!-- Chiaroscuro and Cast Shadows -->
+  <defs>
+    <radialGradient id="shadowGradient1" cx="50%" cy="50%" r="70%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="rgba(0,0,0,0.3)" />
+      <stop offset="100%" stop-color="rgba(0,0,0,0)" />
+    </radialGradient>
+    <radialGradient id="shadowGradient2" cx="100%" cy="100%" r="100%" fx="100%" fy="100%">
+      <stop offset="0%" stop-color="rgba(0,0,0,0.4)" />
+      <stop offset="100%" stop-color="rgba(0,0,0,0)" />
+    </radialGradient>
+  </defs>
+
+  <!-- Shadow from window projection -->
+  <rect x="145" y="145" width="105" height="145" fill="url(#shadowGradient1)" />
+
+  <!-- Shadow from workbench -->
+  <rect x="40" y="400" width="410" height="50" fill="url(#shadowGradient2)" />
+
+  <!-- Shadow from apprentice -->
+  <ellipse cx="110" cy="430" rx="15" ry="5" fill="rgba(0,0,0,0.3)" />
+
+</svg>

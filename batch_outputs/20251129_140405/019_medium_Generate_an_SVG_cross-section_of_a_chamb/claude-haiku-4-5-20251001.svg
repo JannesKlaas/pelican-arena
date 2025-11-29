@@ -1,0 +1,153 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="waterGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a4d6d;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#2d5f7a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a2a3d;stop-opacity:1" />
+    </linearGradient>
+    
+    <radialGradient id="shellPearl" cx="35%" cy="35%">
+      <stop offset="0%" style="stop-color:#f5f5dc;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#deb887;stop-opacity:0.5" />
+      <stop offset="100%" style="stop-color:#8b7355;stop-opacity:0.3" />
+    </radialGradient>
+    
+    <linearGradient id="chamberGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8d7c3;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#d4a574;stop-opacity:0.4" />
+    </linearGradient>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Water background -->
+  <rect width="500" height="500" fill="url(#waterGradient)"/>
+  
+  <!-- Water gradient bands -->
+  <ellipse cx="250" cy="150" rx="300" ry="80" fill="#1a5f7a" opacity="0.3"/>
+  <ellipse cx="250" cy="350" rx="300" ry="100" fill="#0a3a4d" opacity="0.2"/>
+  
+  <!-- Spiral path definition -->
+  <g id="nautilus">
+    <!-- Outermost chamber (largest) -->
+    <path d="M 250 150 Q 280 120 320 130 Q 340 135 350 160 Q 355 180 340 200 Q 320 215 290 210 Q 270 208 250 200 Z" 
+          fill="url(#shellPearl)" stroke="#8b7355" stroke-width="1.5" opacity="0.9"/>
+    
+    <!-- Fine ribbing on outer chamber -->
+    <line x1="260" y1="150" x2="265" y2="200" stroke="#9b8367" stroke-width="0.5" opacity="0.4"/>
+    <line x1="280" y1="125" x2="285" y2="210" stroke="#9b8367" stroke-width="0.5" opacity="0.4"/>
+    <line x1="300" y1="130" x2="305" y2="205" stroke="#9b8367" stroke-width="0.5" opacity="0.4"/>
+    <line x1="320" y1="140" x2="320" y2="205" stroke="#9b8367" stroke-width="0.5" opacity="0.4"/>
+    
+    <!-- Septum (wall between chambers) -->
+    <path d="M 270 210 Q 280 220 290 210" stroke="#a0826d" stroke-width="2" fill="none" opacity="0.8"/>
+    
+    <!-- Second chamber -->
+    <path d="M 250 200 Q 280 180 310 190 Q 320 195 320 215 Q 310 235 280 230 Q 260 228 250 220 Z" 
+          fill="url(#chamberGradient)" stroke="#8b7355" stroke-width="1" opacity="0.7"/>
+    
+    <!-- Ribbing on second chamber -->
+    <line x1="265" y1="200" x2="270" y2="230" stroke="#9b8367" stroke-width="0.4" opacity="0.3"/>
+    <line x1="285" y1="185" x2="290" y2="230" stroke="#9b8367" stroke-width="0.4" opacity="0.3"/>
+    <line x1="305" y1="192" x2="310" y2="230" stroke="#9b8367" stroke-width="0.4" opacity="0.3"/>
+    
+    <!-- Septum -->
+    <path d="M 250 220 Q 270 235 280 230" stroke="#a0826d" stroke-width="1.8" fill="none" opacity="0.7"/>
+    
+    <!-- Third chamber -->
+    <path d="M 250 220 Q 275 205 305 215 Q 310 220 308 238 Q 295 250 265 245 Q 250 243 250 230 Z" 
+          fill="url(#shellPearl)" stroke="#8b7355" stroke-width="0.8" opacity="0.6"/>
+    
+    <!-- Ribbing -->
+    <line x1="265" y1="220" x2="268" y2="245" stroke="#9b8367" stroke-width="0.4" opacity="0.25"/>
+    <line x1="285" y1="215" x2="290" y2="248" stroke="#9b8367" stroke-width="0.4" opacity="0.25"/>
+    
+    <!-- Septum -->
+    <path d="M 250 230 Q 268 248 265 245" stroke="#a0826d" stroke-width="1.5" fill="none" opacity="0.6"/>
+    
+    <!-- Fourth chamber -->
+    <path d="M 250 230 Q 272 220 300 228 Q 302 235 298 248 Q 280 260 258 255 Q 250 253 250 243 Z" 
+          fill="url(#chamberGradient)" stroke="#8b7355" stroke-width="0.7" opacity="0.5"/>
+    
+    <!-- Fifth chamber (smaller) -->
+    <path d="M 250 243 Q 268 238 290 243 Q 290 252 275 260 Q 260 262 250 257 Z" 
+          fill="url(#shellPearl)" stroke="#8b7355" stroke-width="0.6" opacity="0.45"/>
+    
+    <!-- Sixth chamber -->
+    <path d="M 250 257 Q 265 255 280 258 Q 280 265 268 270 Q 255 270 250 265 Z" 
+          fill="url(#chamberGradient)" stroke="#8b7355" stroke-width="0.5" opacity="0.4"/>
+  </g>
+  
+  <!-- Central siphuncle -->
+  <g id="siphuncle">
+    <line x1="250" y1="150" x2="250" y2="270" stroke="#c4a583" stroke-width="3" opacity="0.6"/>
+    <circle cx="250" cy="160" r="2" fill="#a68a6d" opacity="0.5"/>
+    <circle cx="250" cy="185" r="1.8" fill="#a68a6d" opacity="0.5"/>
+    <circle cx="250" cy="210" r="1.6" fill="#a68a6d" opacity="0.4"/>
+    <circle cx="250" cy="235" r="1.4" fill="#a68a6d" opacity="0.4"/>
+    <circle cx="250" cy="255" r="1.2" fill="#a68a6d" opacity="0.3"/>
+  </g>
+  
+  <!-- Living chamber (largest, at opening) -->
+  <ellipse cx="250" cy="120" rx="55" ry="45" fill="#d4a574" stroke="#8b7355" stroke-width="2" opacity="0.8"/>
+  
+  <!-- Shell opening edge -->
+  <path d="M 195 120 Q 190 100 200 90 Q 225 80 250 75 Q 275 80 300 90 Q 310 100 305 120" 
+        fill="none" stroke="#a0826d" stroke-width="2.5" opacity="0.9"/>
+  
+  <!-- Interior shading of living chamber -->
+  <ellipse cx="250" cy="120" rx="45" ry="35" fill="#c89968" opacity="0.3"/>
+  
+  <!-- Nautilus body - hood -->
+  <ellipse cx="250" cy="110" rx="30" ry="25" fill="#8b6f47" opacity="0.85" filter="url(#glow)"/>
+  
+  <!-- Hood detail -->
+  <path d="M 225 100 Q 220 95 225 85" stroke="#6b5233" stroke-width="1.5" fill="none"/>
+  <path d="M 275 100 Q 280 95 275 85" stroke="#6b5233" stroke-width="1.5" fill="none"/>
+  
+  <!-- Eye -->
+  <circle cx="240" cy="105" r="4" fill="#3d2817" opacity="0.9"/>
+  <circle cx="240" cy="105" r="2.5" fill="#1a0f08" opacity="0.8"/>
+  <circle cx="241" cy="104" r="1" fill="#ffffff" opacity="0.6"/>
+  
+  <!-- Tentacles -->
+  <g id="tentacles" stroke="#a89968" stroke-width="1.2" fill="none" opacity="0.8">
+    <!-- Left tentacles -->
+    <path d="M 225 125 Q 200 130 180 145 Q 170 155 160 170" filter="url(#glow)"/>
+    <path d="M 220 130 Q 195 145 175 165 Q 160 180 145 200"/>
+    <path d="M 215 135 Q 185 155 165 180 Q 150 200 135 225"/>
+    <path d="M 210 138 Q 175 165 155 195 Q 140 220 125 250"/>
+    
+    <!-- Right tentacles -->
+    <path d="M 275 125 Q 300 130 320 145 Q 330 155 340 170" filter="url(#glow)"/>
+    <path d="M 280 130 Q 305 145 325 165 Q 340 180 355 200"/>
+    <path d="M 285 135 Q 315 155 335 180 Q 350 200 365 225"/>
+    <path d="M 290 138 Q 325 165 345 195 Q 360 220 375 250"/>
+    
+    <!-- Central tentacles -->
+    <path d="M 240 145 Q 235 170 230 200 Q 225 230 220 260" opacity="0.7"/>
+    <path d="M 250 145 Q 255 175 260 210 Q 265 240 270 270" opacity="0.7"/>
+    <path d="M 260 145 Q 270 170 280 200 Q 290 230 300 260" opacity="0.7"/>
+  </g>
+  
+  <!-- Tentacle suction cups details -->
+  <circle cx="160" cy="170" r="1.5" fill="#9b8367" opacity="0.6"/>
+  <circle cx="340" cy="170" r="1.5" fill="#9b8367" opacity="0.6"/>
+  <circle cx="145" cy="200" r="1.2" fill="#9b8367" opacity="0.5"/>
+  <circle cx="355" cy="200" r="1.2" fill="#9b8367" opacity="0.5"/>
+  
+  <!-- Water particles/effects -->
+  <circle cx="100" cy="80" r="2" fill="#ffffff" opacity="0.15"/>
+  <circle cx="420" cy="120" r="1.5" fill="#ffffff" opacity="0.1"/>
+  <circle cx="80" cy="300" r="1" fill="#ffffff" opacity="0.08"/>
+  <circle cx="450" cy="380" r="1.8" fill="#ffffff" opacity="0.12"/>
+  
+  <!-- Subtle shell luster line -->
+  <ellipse cx="250" cy="140" rx="35" ry="30" fill="none" stroke="#f5f5dc" stroke-width="0.8" opacity="0.3"/>
+</svg>

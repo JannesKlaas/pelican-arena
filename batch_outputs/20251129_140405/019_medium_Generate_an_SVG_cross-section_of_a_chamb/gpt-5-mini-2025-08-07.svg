@@ -1,0 +1,198 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <!-- Water background with gentle gradient bands -->
+    <linearGradient id="waterGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0b3b57"/>
+      <stop offset="20%" stop-color="#0e5676"/>
+      <stop offset="40%" stop-color="#1b7aa5"/>
+      <stop offset="60%" stop-color="#2aa2d1"/>
+      <stop offset="80%" stop-color="#1f8fbf"/>
+      <stop offset="100%" stop-color="#0f5f86"/>
+    </linearGradient>
+
+    <!-- Pearlescent shell gradient -->
+    <radialGradient id="pearlGrad" cx="40%" cy="45%" r="60%">
+      <stop offset="0%"  stop-color="#fffdfc"/>
+      <stop offset="30%" stop-color="#f6f7fb"/>
+      <stop offset="55%" stop-color="#eef6f9"/>
+      <stop offset="78%" stop-color="#f3eef6"/>
+      <stop offset="100%" stop-color="#e7f2fb"/>
+    </radialGradient>
+
+    <!-- Slight darker rim for shell edges -->
+    <linearGradient id="rimGrad" x1="0" x2="1">
+      <stop offset="0%" stop-color="#d7dbe6"/>
+      <stop offset="100%" stop-color="#b9c7d6"/>
+    </linearGradient>
+
+    <!-- Subtle iridescent stripe for ribbing -->
+    <linearGradient id="ribGrad" x1="0" x2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#f0e7ff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#d6f3ff" stop-opacity="0.3"/>
+    </linearGradient>
+
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#waterGrad)"/>
+
+  <!-- Faint horizontal banding to suggest water layers -->
+  <g opacity="0.07">
+    <rect y="40" width="100%" height="40" fill="#ffffff"/>
+    <rect y="140" width="100%" height="20" fill="#ffffff"/>
+    <rect y="260" width="100%" height="28" fill="#ffffff"/>
+  </g>
+
+  <!-- Nautilus shell built from repeated scaled+rotated ellipses to form a logarithmic spiral impression -->
+  <!-- Center of spiral at (250,250). Base ellipse (aperture) at cx=360 -->
+  <!-- We create 9 chambers (layers). Each group is transformed around the spiral center to approximate a true logarithmic spiral. -->
+
+  <!-- Chamber layers (outermost first) -->
+  <!-- i = 0 -->
+  <g transform="translate(250 250) rotate(0) scale(1) translate(-250 -250)">
+    <ellipse cx="360" cy="250" rx="110" ry="75" fill="url(#pearlGrad)" stroke="url(#rimGrad)" stroke-width="2" filter="url(#softShadow)"/>
+    <!-- Ribbing -->
+    <g stroke="url(#ribGrad)" stroke-width="1" stroke-linecap="round" opacity="0.65">
+      <path d="M300 215 Q335 205 360 212" fill="none"/>
+      <path d="M310 235 Q340 240 365 238" fill="none"/>
+      <path d="M320 255 Q345 270 370 268" fill="none"/>
+      <path d="M330 275 Q350 295 375 292" fill="none"/>
+    </g>
+    <!-- Septum (partition that closes previous chamber) at the inner boundary of this outermost chamber -->
+    <path d="M285 195 C300 220 305 285 300 320" fill="none" stroke="#ffffff" stroke-opacity="0.14" stroke-width="6" stroke-linecap="round"/>
+    <!-- Living chamber animal: hood, eye, tentacles -->
+    <!-- Hood -->
+    <path d="M424 240 C430 230 435 245 430 255 C424 270 412 280 400 280 C402 265 412 245 424 240 Z" fill="#3c2f2a" opacity="0.95"/>
+    <!-- Soft inner hood highlight -->
+    <path d="M420 245 C426 238 428 249 425 253 C418 265 408 269 403 268 C408 258 415 251 420 245 Z" fill="#6b5951" opacity="0.45"/>
+    <!-- Eye -->
+    <circle cx="414" cy="255" r="4" fill="#000"/>
+    <circle cx="413.2" cy="253.8" r="1.6" fill="#6fd8ff" opacity="0.6"/>
+    <!-- Numerous slender tentacles extending outward -->
+    <g stroke="#2b2b2b" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M396 278 C420 300 440 320 460 325" stroke-opacity="0.95"/>
+      <path d="M402 283 C430 295 450 312 470 310" stroke-opacity="0.85"/>
+      <path d="M388 285 C410 302 432 320 455 322" stroke-opacity="0.7"/>
+      <path d="M405 270 C428 290 448 303 468 300" stroke-opacity="0.75"/>
+      <path d="M400 266 C420 285 442 297 462 293" stroke-opacity="0.6"/>
+      <path d="M392 272 C415 288 440 305 458 307" stroke-opacity="0.55"/>
+    </g>
+  </g>
+
+  <!-- i = 1 -->
+  <g transform="translate(250 250) rotate(28) scale(0.78) translate(-250 -250)">
+    <ellipse cx="360" cy="250" rx="110" ry="75" fill="url(#pearlGrad)" stroke="url(#rimGrad)" stroke-width="1.8"/>
+    <g stroke="url(#ribGrad)" stroke-width="0.9" stroke-linecap="round" opacity="0.6">
+      <path d="M300 215 Q335 205 360 212" fill="none"/>
+      <path d="M310 235 Q340 240 365 238" fill="none"/>
+      <path d="M320 255 Q345 270 370 268" fill="none"/>
+    </g>
+    <!-- subtle septum mark -->
+    <path d="M285 195 C300 220 305 285 300 320" fill="none" stroke="#ffffff" stroke-opacity="0.11" stroke-width="5" stroke-linecap="round"/>
+    <!-- small siphuncle node in this chamber -->
+    <circle cx="270" cy="250" r="4" fill="#dac8b3" stroke="#b9987b" stroke-width="0.8" opacity="0.95"/>
+  </g>
+
+  <!-- i = 2 -->
+  <g transform="translate(250 250) rotate(56) scale(0.6084) translate(-250 -250)">
+    <ellipse cx="360" cy="250" rx="110" ry="75" fill="url(#pearlGrad)" stroke="url(#rimGrad)" stroke-width="1.6"/>
+    <g stroke="url(#ribGrad)" stroke-width="0.8" stroke-linecap="round" opacity="0.55">
+      <path d="M300 215 Q335 205 360 212" fill="none"/>
+      <path d="M310 235 Q340 240 365 238" fill="none"/>
+    </g>
+    <path d="M285 195 C300 220 305 285 300 320" fill="none" stroke="#ffffff" stroke-opacity="0.10" stroke-width="4.2" stroke-linecap="round"/>
+    <circle cx="260" cy="250" r="3.6" fill="#e6d7c6" stroke="#b99679" stroke-width="0.7" opacity="0.95"/>
+  </g>
+
+  <!-- i = 3 -->
+  <g transform="translate(250 250) rotate(84) scale(0.47455) translate(-250 -250)">
+    <ellipse cx="360" cy="250" rx="110" ry="75" fill="url(#pearlGrad)" stroke="url(#rimGrad)" stroke-width="1.4"/>
+    <g stroke="url(#ribGrad)" stroke-width="0.7" stroke-linecap="round" opacity="0.5">
+      <path d="M300 215 Q335 205 360 212" fill="none"/>
+    </g>
+    <path d="M285 195 C300 220 305 285 300 320" fill="none" stroke="#ffffff" stroke-opacity="0.09" stroke-width="3.6" stroke-linecap="round"/>
+    <circle cx="250" cy="250" r="3.2" fill="#efe1d2" stroke="#c6a68b" stroke-width="0.6"/>
+  </g>
+
+  <!-- i = 4 -->
+  <g transform="translate(250 250) rotate(112) scale(0.37025) translate(-250 -250)">
+    <ellipse cx="360" cy="250" rx="110" ry="75" fill="url(#pearlGrad)" stroke="url(#rimGrad)" stroke-width="1.2"/>
+    <g stroke="url(#ribGrad)" stroke-width="0.6" stroke-linecap="round" opacity="0.45">
+      <path d="M300 215 Q335 205 360 212" fill="none"/>
+    </g>
+    <path d="M285 195 C300 220 305 285 300 320" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="242" cy="250" r="2.8" fill="#f3e6d7" stroke="#d0b09a" stroke-width="0.5"/>
+  </g>
+
+  <!-- i = 5 -->
+  <g transform="translate(250 250) rotate(140) scale(0.28879) translate(-250 -250)">
+    <ellipse cx="360" cy="250" rx="110" ry="75" fill="url(#pearlGrad)" stroke="url(#rimGrad)" stroke-width="1.1"/>
+    <g stroke="url(#ribGrad)" stroke-width="0.55" stroke-linecap="round" opacity="0.4">
+      <path d="M300 215 Q335 205 360 212" fill="none"/>
+    </g>
+    <path d="M285 195 C300 220 305 285 300 320" fill="none" stroke="#ffffff" stroke-opacity="0.07" stroke-width="2.6" stroke-linecap="round"/>
+    <circle cx="236" cy="250" r="2.4" fill="#f6eae0" stroke="#d9bda6" stroke-width="0.45"/>
+  </g>
+
+  <!-- i = 6 -->
+  <g transform="translate(250 250) rotate(168) scale(0.22504) translate(-250 -250)">
+    <ellipse cx="360" cy="250" rx="110" ry="75" fill="url(#pearlGrad)" stroke="url(#rimGrad)" stroke-width="1"/>
+    <g stroke="url(#ribGrad)" stroke-width="0.45" stroke-linecap="round" opacity="0.35">
+      <path d="M300 215 Q335 205 360 212" fill="none"/>
+    </g>
+    <path d="M285 195 C300 220 305 285 300 320" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="2.2" stroke-linecap="round"/>
+    <circle cx="232" cy="250" r="2.0" fill="#f8ece4" stroke="#e0c5ad" stroke-width="0.4"/>
+  </g>
+
+  <!-- i = 7 -->
+  <g transform="translate(250 250) rotate(196) scale(0.17553) translate(-250 -250)">
+    <ellipse cx="360" cy="250" rx="110" ry="75" fill="url(#pearlGrad)" stroke="url(#rimGrad)" stroke-width="0.9"/>
+    <g stroke="url(#ribGrad)" stroke-width="0.4" stroke-linecap="round" opacity="0.32">
+      <path d="M300 215 Q335 205 360 212" fill="none"/>
+    </g>
+    <path d="M285 195 C300 220 305 285 300 320" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1.9" stroke-linecap="round"/>
+    <circle cx="230" cy="250" r="1.8" fill="#fbefe9" stroke="#e6cdb6" stroke-width="0.35"/>
+  </g>
+
+  <!-- i = 8 -->
+  <g transform="translate(250 250) rotate(224) scale(0.1369) translate(-250 -250)">
+    <ellipse cx="360" cy="250" rx="110" ry="75" fill="url(#pearlGrad)" stroke="url(#rimGrad)" stroke-width="0.8"/>
+    <g stroke="url(#ribGrad)" stroke-width="0.35" stroke-linecap="round" opacity="0.28">
+      <path d="M300 215 Q335 205 360 212" fill="none"/>
+    </g>
+    <path d="M285 195 C300 220 305 285 300 320" fill="none" stroke="#ffffff" stroke-opacity="0.045" stroke-width="1.6" stroke-linecap="round"/>
+    <circle cx="229" cy="250" r="1.4" fill="#fdf6f2" stroke="#edcfb8" stroke-width="0.3"/>
+  </g>
+
+  <!-- Siphuncle through chambers: chain of little nodes (placed untransformed along approximate spiral midline) -->
+  <!-- We place them following the same transform pattern by nesting them inside each corresponding chamber group above would have matched perfectly;
+       to ensure visibility and ordering, overlay a faint axis of nodes approximating a central siphuncle path -->
+  <g fill="#d6b89b" stroke="#b48a6d" stroke-width="0.8" opacity="0.95">
+    <circle cx="229" cy="250" r="2.2"/>
+    <circle cx="232" cy="250" r="2.8"/>
+    <circle cx="236" cy="250" r="3.2"/>
+    <circle cx="242" cy="250" r="2.8"/>
+    <circle cx="250" cy="250" r="3.2"/>
+    <circle cx="260" cy="250" r="3.6"/>
+    <circle cx="270" cy="250" r="4"/>
+    <circle cx="286" cy="250" r="4.6"/>
+    <circle cx="305" cy="250" r="5.2"/>
+  </g>
+
+  <!-- Fine inner ridges near shell lip to suggest pearlescent sheen -->
+  <g opacity="0.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M360 175 C340 185 320 200 300 215" fill="none" stroke="#ffffff" stroke-width="0.9" stroke-opacity="0.18"/>
+    <path d="M360 295 C340 290 320 280 300 270" fill="none" stroke="#ffffff" stroke-width="0.9" stroke-opacity="0.16"/>
+  </g>
+
+  <!-- Soft highlight on outer lip -->
+  <ellipse cx="360" cy="250" rx="110" ry="75" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.07"/>
+
+  <!-- Subtle outer contour to emphasize shell shape -->
+  <path d="M470 250 C470 250 445 200 395 185 C350 172 310 190 290 220 C270 255 260 290 250 310" fill="none" stroke="#0b2b3a" stroke-opacity="0.06" stroke-width="1.8"/>
+
+</svg>

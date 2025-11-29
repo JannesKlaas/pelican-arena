@@ -1,0 +1,83 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="water" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#1a4d6d;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#0a2540;stop-opacity:1"/>
+    </radialGradient>
+    <linearGradient id="pearl" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f4e6;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#e8d4b0;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#d4a574;stop-opacity:1"/>
+    </linearGradient>
+    <radialGradient id="chamber" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#fff8f0;stop-opacity:0.9"/>
+      <stop offset="100%" style="stop-color:#f0e0d0;stop-opacity:0.7"/>
+    </radialGradient>
+  </defs>
+  
+  <rect width="500" height="500" fill="url(#water)"/>
+  
+  <g opacity="0.3">
+    <rect x="0" y="50" width="500" height="30" fill="#2a5f7f" opacity="0.4"/>
+    <rect x="0" y="120" width="500" height="40" fill="#2a5f7f" opacity="0.3"/>
+    <rect x="0" y="200" width="500" height="35" fill="#2a5f7f" opacity="0.35"/>
+    <rect x="0" y="280" width="500" height="45" fill="#2a5f7f" opacity="0.3"/>
+    <rect x="0" y="380" width="500" height="50" fill="#2a5f7f" opacity="0.4"/>
+  </g>
+  
+  <g transform="translate(250,250)">
+    <path d="M 0,0 Q -30,-5 -60,-20 T -120,-80 Q -140,-110 -150,-150 Q -155,-180 -145,-210 Q -130,-235 -100,-250 Q -60,-260 -20,-255 Q 20,-245 50,-220 Q 75,-190 80,-150 Q 82,-100 65,-60 Q 45,-20 10,0 Q 0,5 0,0" 
+          fill="url(#pearl)" stroke="#8b7355" stroke-width="1.5" opacity="0.95"/>
+    
+    <path d="M -60,-20 Q -65,-40 -75,-65" fill="none" stroke="#a0896d" stroke-width="8" opacity="0.6"/>
+    <path d="M -75,-65 Q -85,-90 -100,-120" fill="none" stroke="#a0896d" stroke-width="7" opacity="0.6"/>
+    <path d="M -100,-120 Q -115,-145 -130,-175" fill="none" stroke="#a0896d" stroke-width="6" opacity="0.6"/>
+    <path d="M -130,-175 Q -140,-195 -145,-210" fill="none" stroke="#a0896d" stroke-width="5" opacity="0.6"/>
+    <path d="M -145,-210 Q -140,-225 -125,-238" fill="none" stroke="#a0896d" stroke-width="4" opacity="0.6"/>
+    <path d="M -125,-238 Q -105,-248 -80,-252" fill="none" stroke="#a0896d" stroke-width="4" opacity="0.6"/>
+    <path d="M -80,-252 Q -50,-254 -20,-250" fill="none" stroke="#a0896d" stroke-width="3" opacity="0.6"/>
+    <path d="M -20,-250 Q 10,-242 35,-225" fill="none" stroke="#a0896d" stroke-width="3" opacity="0.6"/>
+    <path d="M 35,-225 Q 55,-205 65,-180" fill="none" stroke="#a0896d" stroke-width="3" opacity="0.6"/>
+    <path d="M 65,-180 Q 75,-150 75,-120" fill="none" stroke="#a0896d" stroke-width="3" opacity="0.6"/>
+    <path d="M 75,-120 Q 72,-85 60,-55" fill="none" stroke="#a0896d" stroke-width="3" opacity="0.6"/>
+    
+    <circle cx="-20" cy="-50" r="3" fill="#4a3d2f" opacity="0.8"/>
+    <circle cx="-40" cy="-85" r="3" fill="#4a3d2f" opacity="0.8"/>
+    <circle cx="-65" cy="-125" r="3" fill="#4a3d2f" opacity="0.8"/>
+    <circle cx="-95" cy="-165" r="3" fill="#4a3d2f" opacity="0.8"/>
+    <circle cx="-115" cy="-195" r="3" fill="#4a3d2f" opacity="0.8"/>
+    <circle cx="-110" cy="-225" r="3" fill="#4a3d2f" opacity="0.8"/>
+    <circle cx="-75" cy="-242" r="3" fill="#4a3d2f" opacity="0.8"/>
+    <circle cx="-35" cy="-245" r="3" fill="#4a3d2f" opacity="0.8"/>
+    <circle cx="5" cy="-235" r="3" fill="#4a3d2f" opacity="0.8"/>
+    <circle cx="35" cy="-210" r="3" fill="#4a3d2f" opacity="0.8"/>
+    <circle cx="55" cy="-175" r="3" fill="#4a3d2f" opacity="0.8"/>
+    <circle cx="65" cy="-135" r="3" fill="#4a3d2f" opacity="0.8"/>
+    <circle cx="60" cy="-90" r="3" fill="#4a3d2f" opacity="0.8"/>
+    
+    <ellipse cx="15" cy="-15" rx="25" ry="20" fill="#8b6f47" opacity="0.9"/>
+    <ellipse cx="20" cy="-10" rx="18" ry="15" fill="#a08060" opacity="0.9"/>
+    <circle cx="25" cy="-8" r="5" fill="#2c2416"/>
+    <circle cx="26" cy="-7" r="2" fill="#ffffff" opacity="0.8"/>
+    
+    <path d="M 35,-5 Q 45,0 55,5" fill="none" stroke="#6b5843" stroke-width="2" opacity="0.8"/>
+    <path d="M 35,-10 Q 48,-8 60,-5" fill="none" stroke="#6b5843" stroke-width="1.5" opacity="0.8"/>
+    <path d="M 30,-15 Q 45,-18 62,-15" fill="none" stroke="#6b5843" stroke-width="1.5" opacity="0.8"/>
+    <path d="M 30,-20 Q 50,-25 70,-22" fill="none" stroke="#6b5843" stroke-width="1.5" opacity="0.8"/>
+    <path d="M 25,-25 Q 45,-32 68,-35" fill="none" stroke="#6b5843" stroke-width="1.5" opacity="0.8"/>
+    <path d="M 20,-28 Q 40,-38 65,-45" fill="none" stroke="#6b5843" stroke-width="1.5" opacity="0.8"/>
+    <path d="M 15,-30 Q 35,-42 60,-52" fill="none" stroke="#6b5843" stroke-width="1.5" opacity="0.8"/>
+    <path d="M 10,-28 Q 25,-40 45,-55" fill="none" stroke="#6b5843" stroke-width="1.5" opacity="0.8"/>
+    
+    <g opacity="0.3">
+      <line x1="-60" y1="-20" x2="-120" y2="-80" stroke="#8b7355" stroke-width="0.5"/>
+      <line x1="-120" y1="-80" x2="-150" y2="-150" stroke="#8b7355" stroke-width="0.5"/>
+      <line x1="-150" y1="-150" x2="-145" y2="-210" stroke="#8b7355" stroke-width="0.5"/>
+      <line x1="-145" y1="-210" x2="-100" y2="-250" stroke="#8b7355" stroke-width="0.5"/>
+      <line x1="-100" y1="-250" x2="-20" y2="-255" stroke="#8b7355" stroke-width="0.5"/>
+      <line x1="-20" y1="-255" x2="50" y2="-220" stroke="#8b7355" stroke-width="0.5"/>
+      <line x1="50" y1="-220" x2="80" y2="-150" stroke="#8b7355" stroke-width="0.5"/>
+      <line x1="80" y1="-150" x2="65" y2="-60" stroke="#8b7355" stroke-width="0.5"/>
+    </g>
+  </g>
+</svg>

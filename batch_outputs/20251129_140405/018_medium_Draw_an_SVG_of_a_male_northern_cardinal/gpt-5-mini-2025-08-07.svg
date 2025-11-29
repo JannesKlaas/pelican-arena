@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- Muted background -->
+  <rect width="500" height="500" fill="#e9efe8"/>
+
+  <!-- Soft shadow under branch -->
+  <ellipse cx="250" cy="390" rx="160" ry="22" fill="#000" opacity="0.06"/>
+
+  <!-- Branch with bark texture -->
+  <g id="branch">
+    <path d="M60 360 C140 330 360 340 440 320" fill="none" stroke="#6b4b2e" stroke-width="12" stroke-linecap="round"/>
+    <!-- lighter highlights -->
+    <path d="M70 358 C140 335 360 345 430 328" fill="none" stroke="#8b5e3a" stroke-width="4" opacity="0.6" stroke-linecap="round"/>
+    <!-- bark texture -->
+    <g stroke="#4a2f20" stroke-width="2" stroke-linecap="round" opacity="0.9">
+      <path d="M95 350 l6 -4"/>
+      <path d="M130 342 l-4 -6"/>
+      <path d="M170 338 l5 -3"/>
+      <path d="M210 334 l-6 -4"/>
+      <path d="M255 335 l6 -3"/>
+      <path d="M300 336 l-5 -4"/>
+      <path d="M345 330 l6 -2"/>
+      <path d="M385 326 l-5 -3"/>
+      <path d="M420 322 l4 -4"/>
+    </g>
+  </g>
+
+  <!-- Cardinal group -->
+  <g id="cardinal" transform="translate(160,120) scale(1.0)">
+    <!-- Tail (slightly fanned) - behind body -->
+    <g id="tail" transform="translate(60,220)">
+      <defs>
+        <linearGradient id="tailGrad" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stop-color="#c41f1f"/>
+          <stop offset="1" stop-color="#9a0f0f"/>
+        </linearGradient>
+      </defs>
+      <path d="M0 10 C-10 -10 -5 -60 30 -50 C45 -46 55 -28 65 -10 C70 0 60 18 48 26 C30 36 10 30 0 10"
+            fill="url(#tailGrad)" stroke="#7a0b0b" stroke-width="1"/>
+      <path d="M10 6 C0 -6 3 -45 30 -38 C42 -34 50 -20 60 -8 C64 0 56 14 44 20 C30 27 16 22 10 6"
+            fill="#d22828" opacity="0.95" stroke="#7a0b0b" stroke-width="0.8"/>
+      <path d="M20 2 C12 -2 20 -36 40 -32 C50 -29 56 -18 62 -10 C64 -6 60 8 50 14 C36 21 24 18 20 2"
+            fill="#b71818" opacity="0.7" stroke="#6b0a0a" stroke-width="0.6"/>
+      <!-- tail barbs -->
+      <g stroke="#7a0b0b" stroke-width="0.7" opacity="0.6">
+        <path d="M6 8 L28 -10"/>
+        <path d="M18 6 L36 -14"/>
+        <path d="M30 4 L46 -12"/>
+      </g>
+    </g>
+
+    <!-- Body -->
+    <defs>
+      <linearGradient id="bodyGrad" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0" stop-color="#ff2b2b"/>
+        <stop offset="1" stop-color="#b41414"/>
+      </linearGradient>
+    </defs>
+    <path d="M200 200
+             C160 190 140 150 120 120
+             C100 80 80 70 60 86
+             C40 100 55 150 80 190
+             C100 220 140 235 180 245
+             C190 248 205 248 220 244
+             C235 240 230 210 200 200 Z"
+          transform="translate(-40,-40)"
+          fill="url(#bodyGrad)" stroke="#7a0b0b" stroke-width="1.5" />
+
+    <!-- Wing layers: primaries (outermost), secondaries (middle), coverts (top) -->
+    <g id="wing" transform="translate(60,30) rotate(6)">
+      <!-- Primaries -->
+      <g id="primaries">
+        <path d="M120 145 C160 160 200 170 230 160 C220 180 200 200 160 200 C135 200 115 190 120 145"
+              fill="#a21212" stroke="#6b0a0a" stroke-width="1"/>
+        <!-- subtle barbs -->
+        <g stroke="#7a0b0b" stroke-width="0.6" opacity="0.7">
+          <path d="M140 160 L190 172"/>
+          <path d="M150 168 L202 176"/>
+          <path d="M130 154 L178 158"/>
+        </g>
+      </g>
+
+      <!-- Secondaries -->
+      <g id="secondaries">
+        <path d="M80 120 C120 130 150 142 170 140 C150 158 130 168 105 170 C90 170 78 158 80 120"
+              fill="#c11b1b" stroke="#6b0a0a" stroke-width="1"/>
+        <g stroke="#7a0b0b" stroke-width="0.5" opacity="0.6">
+          <path d="M95 130 L140 138"/>
+          <path d="M110 138 L150 146"/>
+        </g>
+      </g>
+
+      <!-- Coverts (topmost) -->
+      <g id="coverts">
+        <path d="M60 100 C100 108 130 120 150 118 C130 132 108 140 90 144 C70 148 56 136 60 100"
+              fill="#ff2b2b" stroke="#7a0b0b" stroke-width="1"/>
+        <!-- small feather edges -->
+        <g stroke="#7a0b0b" stroke-width="0.5" opacity="0.6">
+          <path d="M75 112 L98 118"/>
+          <path d="M90 120 L112 126"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- Breast shading and subtle feather barbs -->
+    <path d="M155 170 C140 188 120 210 90 198 C115 200 140 192 160 184 C175 178 180 168 155 170"
+          transform="translate(-40,-40)"
+          fill="#cc1f1f" opacity="0.9" />
+    <g transform="translate(80,110)" stroke="#7a0b0b" stroke-width="0.6" opacity="0.6">
+      <path d="M10 40 L30 50"/>
+      <path d="M20 44 L40 54"/>
+      <path d="M30 48 L48 56"/>
+    </g>
+
+    <!-- Head with raised crest -->
+    <g id="head" transform="translate(10,0)">
+      <!-- crest -->
+      <path d="M170 88 C180 40 210 36 220 86 C230 36 258 38 267 86 C270 104 245 110 230 100 C212 92 180 108 170 88"
+            transform="translate(-80,-40)"
+            fill="#ff2b2b" stroke="#7a0b0b" stroke-width="1"/>
+      <!-- head base -->
+      <path d="M150 110 C135 90 110 82 85 98 C70 110 72 140 95 152 C118 164 150 158 160 140 C170 128 165 116 150 110"
+            transform="translate(-40,-40)"
+            fill="#ff2b2b" stroke="#7a0b0b" stroke-width="1"/>
+      <!-- black facial mask around bill and throat -->
+      <path d="M120 112 C110 125 110 140 126 150 C132 152 142 150 150 144 C156 138 160 126 158 116 C152 112 140 110 120 112"
+            transform="translate(-40,-40)"
+            fill="#0b0b0b" />
+      <!-- eye -->
+      <circle cx="118" cy="120" r="6" fill="#080808" transform="translate(-40,-40)"/>
+      <circle cx="116" cy="118" r="2" fill="#fff" transform="translate(-40,-40)"/>
+      <!-- beak thick conical orange -->
+      <path d="M150 124 L178 118 L150 138 L150 124"
+            transform="translate(-40,-40)"
+            fill="#ff9a2e" stroke="#b66b14" stroke-width="1.2" stroke-linejoin="round"/>
+      <path d="M150 138 L158 134" transform="translate(-40,-40)" stroke="#b66b14" stroke-width="1.2" stroke-linecap="round"/>
+      <!-- thin highlight on beak -->
+      <path d="M154 121 L170 118" transform="translate(-40,-40)" stroke="#ffd19a" stroke-width="1" stroke-linecap="round" opacity="0.9"/>
+    </g>
+
+    <!-- Throat dark area blending into body -->
+    <path d="M130 140 C120 150 120 160 132 166 C142 170 154 168 162 160 C152 157 140 150 130 140"
+          transform="translate(-40,-40)" fill="#0b0b0b" opacity="0.95"/>
+
+    <!-- Feet anisodactyl gripping the branch -->
+    <g id="feet" transform="translate(-25,90)">
+      <!-- left foot -->
+      <g transform="translate(150,260) rotate(-12)">
+        <path d="M0 0 C10 -8 24 -6 30 2" fill="none" stroke="#5a3a20" stroke-width="4" stroke-linecap="round"/>
+        <path d="M8 -2 L14 -12" fill="none" stroke="#5a3a20" stroke-width="3" stroke-linecap="round"/>
+        <path d="M18 0 L22 -10" fill="none" stroke="#5a3a20" stroke-width="3" stroke-linecap="round"/>
+        <path d="M20 6 L26 -2" fill="none" stroke="#5a3a20" stroke-width="3" stroke-linecap="round"/>
+        <!-- back toe -->
+        <path d="M-6 2 C-2 -4 4 -6 8 -3" fill="none" stroke="#5a3a20" stroke-width="3" stroke-linecap="round"/>
+      </g>
+
+      <!-- right foot -->
+      <g transform="translate(220,270) rotate(6)">
+        <path d="M0 0 C10 -6 26 -4 30 4" fill="none" stroke="#5a3a20" stroke-width="4" stroke-linecap="round"/>
+        <path d="M8 -4 L14 -14" fill="none" stroke="#5a3a20" stroke-width="3" stroke-linecap="round"/>
+        <path d="M18 0 L22 -10" fill="none" stroke="#5a3a20" stroke-width="3" stroke-linecap="round"/>
+        <path d="M20 8 L26 0" fill="none" stroke="#5a3a20" stroke-width="3" stroke-linecap="round"/>
+        <!-- back toe -->
+        <path d="M-6 2 C-2 -4 4 -6 8 -3" fill="none" stroke="#5a3a20" stroke-width="3" stroke-linecap="round"/>
+      </g>
+    </g>
+
+    <!-- Small accents: top-of-wing covert feather barbs -->
+    <g transform="translate(70,80)" stroke="#7a0b0b" stroke-width="0.5" opacity="0.6">
+      <path d="M15 30 L35 36"/>
+      <path d="M30 36 L52 40"/>
+      <path d="M45 44 L68 50"/>
+    </g>
+  </g>
+</svg>

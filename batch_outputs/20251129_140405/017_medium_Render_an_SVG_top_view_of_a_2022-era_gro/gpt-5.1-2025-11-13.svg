@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+
+  <!-- Background -->
+  <rect x="0" y="0" width="500" height="500" fill="#1a1a1a"/>
+
+  <!-- Car shadow -->
+  <ellipse cx="250" cy="250" rx="110" ry="220" fill="black" opacity="0.35"/>
+
+  <!-- Front wing main plane -->
+  <rect x="165" y="80" width="170" height="12" fill="#111"/>
+  <!-- Front wing flaps (4 elements) -->
+  <rect x="170" y="68" width="160" height="6" fill="#e0e0e0"/>
+  <rect x="172" y="60" width="156" height="5" fill="#c0c0c0"/>
+  <rect x="174" y="53" width="152" height="4" fill="#a0a0a0"/>
+  <rect x="176" y="47" width="148" height="3" fill="#808080"/>
+
+  <!-- Nose -->
+  <rect x="230" y="92" width="40" height="90" fill="#d00000"/>
+  <polygon points="250,40 230,92 270,92" fill="#d00000"/>
+
+  <!-- Chassis / monocoque -->
+  <rect x="215" y="182" width="70" height="170" fill="#b00000"/>
+
+  <!-- Sidepods and floor (venturi inlets and undercut) -->
+  <!-- Floor -->
+  <rect x="170" y="200" width="160" height="160" fill="#101010"/>
+  <!-- Left sidepod shape -->
+  <path d="M215 190
+           C185 200 180 220 178 245
+           L178 310
+           C180 335 190 350 210 360
+           L215 360 Z"
+        fill="#303030"/>
+  <!-- Right sidepod shape -->
+  <path d="M285 190
+           C315 200 320 220 322 245
+           L322 310
+           C320 335 310 350 290 360
+           L285 360 Z"
+        fill="#303030"/>
+  <!-- Venturi inlets (dark cutouts) -->
+  <ellipse cx="205" cy="230" rx="18" ry="10" fill="#050505" opacity="0.85"/>
+  <ellipse cx="295" cy="230" rx="18" ry="10" fill="#050505" opacity="0.85"/>
+
+  <!-- Cockpit opening -->
+  <ellipse cx="250" cy="215" rx="26" ry="18" fill="#101010"/>
+
+  <!-- Driver helmet -->
+  <ellipse cx="250" cy="210" rx="13" ry="11" fill="#ffdd00"/>
+  <path d="M237 209 Q250 204 263 209 Q250 215 237 209 Z" fill="#202020"/>
+
+  <!-- Halo -->
+  <!-- Central pillar -->
+  <rect x="246" y="182" width="8" height="35" fill="#202020"/>
+  <!-- Forward halo arc -->
+  <path d="M222 188
+           Q250 175 278 188"
+        fill="none" stroke="#303030" stroke-width="6" stroke-linecap="round"/>
+  <!-- Rear halo supports -->
+  <path d="M232 214 Q230 225 230 238" fill="none" stroke="#303030" stroke-width="5" stroke-linecap="round"/>
+  <path d="M268 214 Q270 225 270 238" fill="none" stroke="#303030" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Engine cover and spine -->
+  <path d="M235 252
+           Q250 240 265 252
+           L270 330
+           Q250 345 230 330
+           Z"
+        fill="#c00000"/>
+
+  <!-- Rear wing main plane -->
+  <rect x="185" y="375" width="130" height="10" fill="#d00000"/>
+  <!-- Rear wing endplates -->
+  <rect x="185" y="360" width="10" height="40" fill="#700000"/>
+  <rect x="305" y="360" width="10" height="40" fill="#700000"/>
+
+  <!-- DRS flap (open, slightly separated) -->
+  <rect x="190" y="362" width="120" height="7" fill="#ff4444"/>
+
+  <!-- Beam wing -->
+  <rect x="190" y="400" width="120" height="6" fill="#a00000"/>
+
+  <!-- Rear crash structure -->
+  <rect x="238" y="410" width="24" height="20" fill="#202020"/>
+
+  <!-- Wheels and tires -->
+  <!-- Front left tire -->
+  <ellipse cx="180" cy="145" rx="25" ry="38" fill="#050505"/>
+  <!-- Front right tire -->
+  <ellipse cx="320" cy="145" rx="25" ry="38" fill="#050505"/>
+  <!-- Rear left tire -->
+  <ellipse cx="180" cy="355" rx="25" ry="38" fill="#050505"/>
+  <!-- Rear right tire -->
+  <ellipse cx="320" cy="355" rx="25" ry="38" fill="#050505"/>
+
+  <!-- Wheel covers -->
+  <!-- Front left cover -->
+  <ellipse cx="180" cy="145" rx="16" ry="26" fill="#d0d0d0"/>
+  <circle cx="180" cy="145" r="4" fill="#777"/>
+  <!-- Front right cover -->
+  <ellipse cx="320" cy="145" rx="16" ry="26" fill="#d0d0d0"/>
+  <circle cx="320" cy="145" r="4" fill="#777"/>
+  <!-- Rear left cover -->
+  <ellipse cx="180" cy="355" rx="16" ry="26" fill="#d0d0d0"/>
+  <circle cx="180" cy="355" r="4" fill="#777"/>
+  <!-- Rear right cover -->
+  <ellipse cx="320" cy="355" rx="16" ry="26" fill="#d0d0d0"/>
+  <circle cx="320" cy="355" r="4" fill="#777"/>
+
+  <!-- Simple floor edges for ground-effect feel -->
+  <path d="M170 210 L150 260 L150 300 L170 345"
+        fill="none" stroke="#606060" stroke-width="3"/>
+  <path d="M330 210 L350 260 L350 300 L330 345"
+        fill="none" stroke="#606060" stroke-width="3"/>
+
+</svg>

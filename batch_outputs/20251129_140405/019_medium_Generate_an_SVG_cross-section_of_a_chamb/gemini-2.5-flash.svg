@@ -1,0 +1,111 @@
+<svg viewBox="0 0 500 500">
+  <defs>
+    <!-- Water background gradients -->
+    <linearGradient id="waterGradient1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a0d0e0"/>
+      <stop offset="100%" stop-color="#80c0d0"/>
+    </linearGradient>
+    <linearGradient id="waterGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#80c0d0"/>
+      <stop offset="100%" stop-color="#60b0c0"/>
+    </linearGradient>
+    <linearGradient id="waterGradient3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#60b0c0"/>
+      <stop offset="100%" stop-color="#40a0b0"/>
+    </linearGradient>
+
+    <!-- Shell pearlescent gradient -->
+    <linearGradient id="shellGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0f0e0"/> <!-- Creamy white -->
+      <stop offset="30%" stop-color="#e8e8d0"/>
+      <stop offset="60%" stop-color="#d0d0b0"/>
+      <stop offset="100%" stop-color="#b0b090"/>
+    </linearGradient>
+    <!-- Septum gradient -->
+    <linearGradient id="septumGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d0d0c0"/>
+      <stop offset="100%" stop-color="#b0b0a0"/>
+    </linearGradient>
+    <!-- Siphuncle gradient -->
+    <linearGradient id="siphuncleGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8b4513"/> <!-- Saddle brown -->
+      <stop offset="100%" stop-color="#a0522d"/> <!-- Sienna -->
+    </linearGradient>
+    <!-- Animal body gradient -->
+    <linearGradient id="animalGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffefd5"/> <!-- Papaya Whip -->
+      <stop offset="100%" stop-color="#f5deb3"/> <!-- Wheat -->
+    </linearGradient>
+    <!-- Eye gradient -->
+    <radialGradient id="eyeGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#333"/>
+      <stop offset="100%" stop-color="#000"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Water background -->
+  <rect x="0" y="0" width="500" height="166.67" fill="url(#waterGradient1)"/>
+  <rect x="0" y="166.67" width="500" height="166.67" fill="url(#waterGradient2)"/>
+  <rect x="0" y="333.34" width="500" height="166.66" fill="url(#waterGradient3)"/>
+
+  <!-- Nautilus Shell Material (the actual shell walls, as a single filled path) -->
+  <path d="M 400 270                          <!-- Outer opening start -->
+           C 420 200, 360 80, 270 100        <!-- Outer top curve -->
+           C 180 120, 100 200, 150 300       <!-- Outer left curve -->
+           C 200 370, 250 350, 300 300       <!-- Outer bottom curve to inner coil -->
+           L 290 290                         <!-- Transition point for inner boundary -->
+           C 260 340, 210 360, 160 290       <!-- Inner bottom curve -->
+           C 110 210, 170 130, 260 110       <!-- Inner left curve -->
+           C 350 90, 400 205, 390 280        <!-- Inner top curve to inner opening -->
+           Q 395 275, 400 270 Z"             <!-- Close the path, forming the shell wall thickness -->
+        fill="url(#shellGradient)" stroke="#a0a090" stroke-width="1"/>
+
+  <!-- Fine shell ribbing (on top of shell material) -->
+  <path d="M 395 265 Q 398 230, 370 160" stroke="#f0f0e0" stroke-width="0.7" opacity="0.5"/>
+  <path d="M 390 255 Q 393 220, 360 150" stroke="#f0f0e0" stroke-width="0.7" opacity="0.4"/>
+  <path d="M 385 245 Q 388 210, 350 140" stroke="#f0f0e0" stroke-width="0.7" opacity="0.3"/>
+  <path d="M 370 200 Q 360 170, 320 125" stroke="#f0f0e0" stroke-width="0.7" opacity="0.2"/>
+  <path d="M 350 160 Q 300 120, 250 110" stroke="#f0f0e0" stroke-width="0.7" opacity="0.1"/>
+
+  <!-- Chambers and Septa (septum paths are slightly thick and filled) -->
+  <!-- Septum 1 (closest to living chamber) -->
+  <path d="M 310 295 Q 290 240, 310 200 L 315 205 Q 300 245, 315 300 Z" fill="url(#septumGradient)" stroke="#808070" stroke-width="0.5"/>
+  <!-- Septum 2 -->
+  <path d="M 280 290 Q 260 250, 270 210 L 275 215 Q 265 255, 285 295 Z" fill="url(#septumGradient)" stroke="#808070" stroke-width="0.5"/>
+  <!-- Septum 3 -->
+  <path d="M 240 290 Q 220 250, 230 210 L 235 215 Q 225 255, 245 295 Z" fill="url(#septumGradient)" stroke="#808070" stroke-width="0.5"/>
+  <!-- Septum 4 -->
+  <path d="M 200 280 Q 180 240, 190 200 L 195 205 Q 185 245, 205 285 Z" fill="url(#septumGradient)" stroke="#808070" stroke-width="0.5"/>
+  <!-- Septum 5 (innermost visible) -->
+  <path d="M 170 260 Q 160 230, 180 210 L 185 215 Q 175 235, 175 265 Z" fill="url(#septumGradient)" stroke="#808070" stroke-width="0.5"/>
+
+  <!-- Siphuncle (runs through the septa, represented by a path and circles at connections) -->
+  <path d="M 307 250 Q 287 235, 275 220 Q 255 200, 230 180 Q 205 160, 190 145"
+        fill="none" stroke="url(#siphuncleGradient)" stroke-width="5" stroke-linecap="round"/>
+  <!-- Siphuncle connection points (circles on septa) -->
+  <circle cx="307" cy="250" r="3" fill="url(#siphuncleGradient)" stroke="#505050" stroke-width="0.5"/>
+  <circle cx="275" cy="220" r="3" fill="url(#siphuncleGradient)" stroke="#505050" stroke-width="0.5"/>
+  <circle cx="255" cy="200" r="3" fill="url(#siphuncleGradient)" stroke="#505050" stroke-width="0.5"/>
+  <circle cx="230" cy="180" r="3" fill="url(#siphuncleGradient)" stroke="#505050" stroke-width="0.5"/>
+  <circle cx="190" cy="145" r="3" fill="url(#siphuncleGradient)" stroke="#505050" stroke-width="0.5"/>
+
+  <!-- Animal: Hood, Eye, and Tentacles (in the living chamber) -->
+  <g id="nautilusAnimal">
+    <!-- Hood/Body (fills the living chamber from the opening to the first septum) -->
+    <path d="M 390 280 C 370 200, 330 150, 320 180 C 310 210, 340 250, 390 280 Z" 
+          fill="url(#animalGradient)" stroke="#a08060" stroke-width="1.5"/>
+
+    <!-- Eye -->
+    <circle cx="340" cy="180" r="8" fill="url(#eyeGradient)" stroke="#000" stroke-width="1"/>
+    <circle cx="340" cy="180" r="3" fill="white"/> <!-- Highlight -->
+
+    <!-- Tentacles extending outward -->
+    <g stroke="#a08060" stroke-width="1.5" fill="none">
+      <path d="M 345 190 Q 360 205, 375 220"/>
+      <path d="M 340 195 Q 355 215, 380 235"/>
+      <path d="M 335 200 Q 350 225, 385 250"/>
+      <path d="M 330 205 Q 345 235, 390 265"/>
+      <path d="M 325 210 Q 340 245, 395 280"/>
+    </g>
+  </g>
+</svg>

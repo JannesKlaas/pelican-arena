@@ -1,0 +1,77 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Male Northern Cardinal perched on a branch">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#cbd5e1"/>
+      <stop offset="100%" stop-color="#96a0a9"/>
+    </linearGradient>
+    <linearGradient id="cardinal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FF2D2D"/>
+      <stop offset="100%" stop-color="#C0121A"/>
+    </linearGradient>
+    <linearGradient id="beak" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFC14D"/>
+      <stop offset="100%" stop-color="#FF8C00"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="500" height="500" fill="url(#bg)"/>
+
+  <!-- Branch -->
+  <path d="M40,320 C120,300 240,310 420,320" fill="none" stroke="#8B5A2B" stroke-width="12" stroke-linecap="round"/>
+  <path d="M60,322 C120,310 180,315 240,316" fill="none" stroke="#6B4A2E" stroke-width="2" stroke-linecap="round"/>
+  <path d="M260,338 C290,332 320,332 380,338" fill="none" stroke="#6B4A2E" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Cardinal -->
+  <g id="cardinal">
+    <!-- Tail (slightly fanned) behind the body -->
+    <path d="M360,270 L400,250 L420,270 L410,300 L370,310 Z" fill="#B0121F"/>
+    <path d="M350,275 L392,260 L408,286 L400,300 L360,308 Z" fill="#C0121A" opacity="0.95"/>
+    <path d="M340,280 L385,267 L402,289 L395,302 L360,312 Z" fill="#E51A2D" opacity="0.9"/>
+
+    <!-- Body -->
+    <ellipse cx="320" cy="270" rx="90" ry="58" fill="url(#cardinal)"/>
+    <ellipse cx="320" cy="270" rx="72" ry="45" fill="black" opacity="0.04"/>
+
+    <!-- Wing layering: primaries, secondaries, and coverts -->
+    <!-- Primaries (outer) -->
+    <path d="M270,270 C300,260 344,250 380,262 L392,272 L370,288 L350,284 L328,275 Z" fill="#B40F1F"/>
+    <!-- Secondaries -->
+    <path d="M290,258 C310,256 330,258 345,262 C356,265 336,270 320,270 Z" fill="#C0192B"/>
+    <!-- Coverts -->
+    <path d="M302,270 C312,266 320,264 328,262 C310,264 300,266 303,270 Z" fill="#E11A2D"/>
+
+    <!-- Crest (raised) -->
+    <path d="M300,214 L298,196 L312,203 L318,217 Z" fill="#C0121A"/>
+
+    <!-- Head -->
+    <ellipse cx="299" cy="235" rx="28" ry="24" fill="url(#cardinal)"/>
+
+    <!-- Black facial mask around bill and throat -->
+    <ellipse cx="300" cy="236" rx="32" ry="22" fill="#000"/>
+
+    <!-- Eye -->
+    <circle cx="306" cy="232" r="4" fill="#fff"/>
+    <circle cx="304" cy="232" r="2" fill="#000"/>
+
+    <!-- Beak (orange, thick conical) -->
+    <polygon points="296,235 264,236 296,242" fill="url(#beak)"/>
+
+    <!-- Throat/mask shading under beak -->
+    <path d="M289,244 C296,246 304,246 312,246 L300,258 C290,251 290,246 289,244 Z" fill="#000" opacity="0.55"/>
+
+    <!-- Subtle feather barbs on the wing -->
+    <path d="M275,275 C285,270 300,268 315,270" fill="none" stroke="#ffffff" stroke-opacity="0.25" stroke-width="1"/>
+    <path d="M290,265 C305,262 320,262 335,266" fill="none" stroke="#ffffff" stroke-opacity="0.25" stroke-width="1"/>
+
+    <!-- Feet (anisodactyl: three toes forward, one back) gripping the branch -->
+    <g fill="none" stroke="#7A4A2A" stroke-linecap="round" stroke-width="6">
+      <!-- three forward toes -->
+      <line x1="312" y1="330" x2="322" y2="316" />
+      <line x1="315" y1="330" x2="329" y2="316" />
+      <line x1="318" y1="338" x2="336" y2="314" />
+      <!-- one backward toe -->
+      <line x1="308" y1="334" x2="302" y2="352" />
+    </g>
+  </g>
+</svg>

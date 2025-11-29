@@ -1,0 +1,115 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Definitions -->
+  <defs>
+    <linearGradient id="oceanGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#005f73;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a9396;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="sandGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e9d8a6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dbac5e;stop-opacity:1" />
+    </linearGradient>
+    <filter id="blur">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+    </filter>
+  </defs>
+
+  <!-- Background: Water -->
+  <rect width="500" height="500" fill="url(#oceanGrad)" />
+
+  <!-- Background: Sand Floor with Ripples -->
+  <path d="M0,400 Q125,390 250,410 T500,400 V500 H0 Z" fill="url(#sandGrad)" />
+  <path d="M0,440 Q125,430 250,450 T500,440 V500 H0 Z" fill="#d4a373" opacity="0.5" />
+
+  <!-- Scattered Shells -->
+  <path d="M50,450 Q60,430 70,450 Q60,455 50,450" fill="#fefae0" stroke="#bb9457" stroke-width="1"/>
+  <path d="M420,420 Q435,405 450,420 Q435,430 420,420" fill="#ffddd2" stroke="#e5989b" stroke-width="1"/>
+  <path d="M120,470 Q130,455 140,470 Z" fill="#ffffff" stroke="#ccc" />
+
+  <!-- Background Arms (Behind Body/Jar) -->
+  <g fill="#9d4edd" stroke="#5a189a" stroke-width="1">
+    <!-- Arm 7 -->
+    <path d="M250,250 Q200,200 150,250 T100,300" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <!-- Arm 8 -->
+    <path d="M250,250 Q300,200 350,250 T400,300" stroke-width="12" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- The Glass Jar (Back Layer) -->
+  <g transform="translate(320, 360) rotate(-10)">
+    <path d="M-40,0 L-40,80 Q0,90 40,80 L40,0 Q0,-10 -40,0 Z" fill="#e0f7fa" fill-opacity="0.2" stroke="#a8dadc" stroke-width="2"/>
+    <ellipse cx="0" cy="0" rx="40" ry="10" fill="none" stroke="#a8dadc" stroke-width="2"/>
+  </g>
+
+  <!-- Octopus Main Body -->
+  <g>
+    <!-- Arm 6 (Left, curled) -->
+    <path d="M220,250 Q150,280 120,350 Q100,380 130,390" fill="none" stroke="#c77dff" stroke-width="22" stroke-linecap="round"/>
+    <!-- Suckers Arm 6 -->
+    <circle cx="125" cy="350" r="4" fill="#fcd5ce"/> <circle cx="135" cy="350" r="4" fill="#fcd5ce"/>
+    <circle cx="115" cy="370" r="3" fill="#fcd5ce"/> <circle cx="125" cy="370" r="3" fill="#fcd5ce"/>
+    
+    <!-- Arm 5 (Left, floor) -->
+    <path d="M230,260 Q180,350 80,420" fill="none" stroke="#c77dff" stroke-width="20" stroke-linecap="round"/>
+    
+    <!-- Arm 4 (Right, investigating sand) -->
+    <path d="M270,260 Q320,350 350,430" fill="none" stroke="#c77dff" stroke-width="20" stroke-linecap="round"/>
+    
+    <!-- Arm 3 (Top Left) -->
+    <path d="M230,240 Q180,200 100,220" fill="none" stroke="#c77dff" stroke-width="18" stroke-linecap="round"/>
+
+    <!-- Arm 2 (Top Right) -->
+    <path d="M270,240 Q320,200 400,220" fill="none" stroke="#c77dff" stroke-width="18" stroke-linecap="round"/>
+
+    <!-- INTERACTING ARM (Arm 1) - Going into Jar -->
+    <!-- The part connecting to body -->
+    <path d="M280,270 Q320,300 320,340" fill="none" stroke="#c77dff" stroke-width="22" stroke-linecap="round"/>
+    <!-- Underside color -->
+    <path d="M280,270 Q320,300 320,340" fill="none" stroke="#fcd5ce" stroke-width="12" stroke-linecap="round" stroke-dasharray="1, 30"/>
+    
+    <!-- The tip inside the jar -->
+    <path d="M320,340 Q320,380 340,400" fill="none" stroke="#c77dff" stroke-width="18" stroke-linecap="round"/>
+    <!-- Suckers inside jar -->
+    <circle cx="325" cy="360" r="4" fill="#fcd5ce"/> <circle cx="315" cy="360" r="4" fill="#fcd5ce"/>
+    <circle cx="330" cy="380" r="3" fill="#fcd5ce"/> <circle cx="320" cy="380" r="3" fill="#fcd5ce"/>
+
+    <!-- Mantle (Head) -->
+    <ellipse cx="250" cy="200" rx="60" ry="70" fill="#9d4edd" />
+    <!-- Texture on Mantle -->
+    <circle cx="230" cy="180" r="5" fill="#7b2cbf" opacity="0.5"/>
+    <circle cx="260" cy="190" r="8" fill="#7b2cbf" opacity="0.5"/>
+    <circle cx="240" cy="220" r="6" fill="#7b2cbf" opacity="0.5"/>
+
+    <!-- Eyes -->
+    <g>
+        <!-- Left Eye -->
+        <circle cx="225" cy="240" r="12" fill="#fffbe6"/>
+        <rect x="218" y="238" width="14" height="4" rx="2" fill="black"/> <!-- Horizontal Pupil -->
+        <path d="M213,235 A15,15 0 0,1 237,235" fill="none" stroke="#7b2cbf" stroke-width="2"/> <!-- Brow ridge -->
+
+        <!-- Right Eye -->
+        <circle cx="275" cy="240" r="12" fill="#fffbe6"/>
+        <rect x="268" y="238" width="14" height="4" rx="2" fill="black"/> <!-- Horizontal Pupil -->
+        <path d="M263,235 A15,15 0 0,1 287,235" fill="none" stroke="#7b2cbf" stroke-width="2"/> <!-- Brow ridge -->
+    </g>
+  </g>
+
+  <!-- Glass Jar (Front Layer - Reflection & Highlights) -->
+  <g transform="translate(320, 360) rotate(-10)">
+    <!-- Jar Front Body Glass Glint -->
+    <path d="M-40,0 L-40,80 Q0,90 40,80 L40,0" fill="#e0f7fa" fill-opacity="0.15" stroke="none"/>
+    
+    <!-- Strong Highlights -->
+    <path d="M-30,10 L-30,70" stroke="white" stroke-width="3" stroke-opacity="0.6" stroke-linecap="round"/>
+    <path d="M-20,15 L-20,30" stroke="white" stroke-width="2" stroke-opacity="0.4" stroke-linecap="round"/>
+    <path d="M25,60 L25,75" stroke="white" stroke-width="2" stroke-opacity="0.4" stroke-linecap="round"/>
+    
+    <!-- Rim Front -->
+    <path d="M-40,0 Q0,10 40,0" fill="none" stroke="#a8dadc" stroke-width="2" stroke-opacity="0.8"/>
+  </g>
+
+  <!-- Caustics (Light beams) -->
+  <g opacity="0.2" fill="white">
+    <path d="M0,0 Q100,50 200,20 T400,40 L420,150 Q300,120 200,140 T0,100 Z" filter="url(#blur)"/>
+    <path d="M100,0 Q200,60 300,10 T500,50 L500,200 Q350,150 250,180 T100,120 Z" filter="url(#blur)"/>
+  </g>
+</svg>

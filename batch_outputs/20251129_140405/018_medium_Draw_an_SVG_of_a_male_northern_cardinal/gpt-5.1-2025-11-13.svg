@@ -1,0 +1,316 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- Background -->
+  <rect x="0" y="0" width="500" height="500" fill="#f2f4f5"/>
+
+  <!-- Muted gradient background circle -->
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#f7fafb"/>
+      <stop offset="60%" stop-color="#e0e6ea"/>
+      <stop offset="100%" stop-color="#d1d8dd"/>
+    </radialGradient>
+
+    <!-- Feather barb pattern -->
+    <pattern id="featherBarbs" patternUnits="userSpaceOnUse" width="8" height="8">
+      <path d="M0,8 L8,0" stroke="#b3202e" stroke-width="0.4" stroke-opacity="0.3"/>
+    </pattern>
+
+    <!-- Bark texture pattern -->
+    <pattern id="barkTexture" patternUnits="userSpaceOnUse" width="16" height="16">
+      <rect x="0" y="0" width="16" height="16" fill="#7a6046"/>
+      <path d="M1,2 C5,1 8,3 13,2" stroke="#5c4632" stroke-width="0.7" stroke-linecap="round" stroke-opacity="0.7"/>
+      <path d="M2,9 C6,8 10,10 15,9" stroke="#5c4632" stroke-width="0.7" stroke-linecap="round" stroke-opacity="0.7"/>
+      <path d="M3,14 C7,13 11,15 14,14" stroke="#5c4632" stroke-width="0.7" stroke-linecap="round" stroke-opacity="0.7"/>
+      <path d="M4,4 Q6,7 5,10" stroke="#4a3727" stroke-width="0.6" stroke-linecap="round" stroke-opacity="0.6"/>
+      <path d="M11,5 Q13,8 12,11" stroke="#4a3727" stroke-width="0.6" stroke-linecap="round" stroke-opacity="0.6"/>
+    </pattern>
+
+    <!-- Simple shadow blur -->
+    <filter id="shadowSoft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="2" dy="3" result="offsetBlur"/>
+      <feMerge>
+        <feMergeNode in="offsetBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background disk -->
+  <circle cx="250" cy="230" r="200" fill="url(#bgGrad)"/>
+
+  <!-- Branch -->
+  <g filter="url(#shadowSoft)">
+    <path d="M40,360 C140,340 230,350 330,340 C390,335 440,345 480,338"
+          fill="none" stroke="#5e4937" stroke-width="16" stroke-linecap="round"/>
+    <path d="M40,360 C140,340 230,350 330,340 C390,335 440,345 480,338"
+          fill="none" stroke="url(#barkTexture)" stroke-width="14" stroke-linecap="round"/>
+
+    <!-- Small offshoot twig -->
+    <path d="M270,340 C280,320 300,305 315,300"
+          fill="none" stroke="#5e4937" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Cardinal group -->
+  <g transform="translate(150,110)">
+    <!-- Tail (slightly fanned) -->
+    <g opacity="0.98">
+      <path d="M110,220 C140,250 175,280 200,310
+               C205,318 206,327 202,334
+               C198,342 189,346 180,344
+               C145,335 120,312 95,280 Z"
+            fill="#b31224"/>
+      <!-- Tail center feather -->
+      <path d="M110,220 C135,248 162,274 185,300
+               C190,306 191,314 188,320
+               C185,325 178,328 172,327
+               C148,321 128,304 108,281 Z"
+            fill="#c2142a"/>
+      <!-- Tail subtle barbs -->
+      <path d="M118,232 L176,298 M112,240 L169,303 M106,248 L161,308"
+            stroke="#871320" stroke-width="1" stroke-opacity="0.4" stroke-linecap="round"/>
+    </g>
+
+    <!-- Wing: primaries -->
+    <path d="M80,160
+             C115,175 145,198 170,225
+             C182,238 190,252 194,265
+             C197,275 196,286 191,294
+             C186,302 176,306 167,304
+             C132,295 104,275 75,248 Z"
+          fill="#a71021"/>
+
+    <!-- Wing: secondaries -->
+    <path d="M72,150
+             C108,162 134,182 155,203
+             C166,213 173,224 177,236
+             C180,244 179,253 174,260
+             C169,267 160,270 152,268
+             C124,260 100,244 73,222 Z"
+          fill="#bb1227"/>
+
+    <!-- Wing: coverts with barb texture -->
+    <path d="M60,146
+             C90,148 119,156 140,170
+             C152,178 161,188 167,198
+             C171,205 172,213 169,220
+             C165,228 157,233 148,233
+             C118,232 92,222 64,204
+             C56,199 51,193 49,186
+             C48,180 50,173 55,168 Z"
+          fill="url(#featherBarbs)"/>
+
+    <!-- Body -->
+    <path d="M40,140
+             C30,165 28,190 34,210
+             C40,230 51,247 68,260
+             C87,275 111,286 132,288
+             C150,290 165,287 177,279
+             C189,271 196,260 199,248
+             C203,233 202,216 197,200
+             C190,178 176,160 160,148
+             C141,134 116,126 94,124
+             C70,122 51,126 40,140 Z"
+          fill="#d0162c"/>
+
+    <!-- Subtle body shading -->
+    <path d="M48,144
+             C42,165 42,186 48,204
+             C55,225 68,242 86,255
+             C104,268 126,276 146,276
+             C159,276 170,273 178,268
+             C184,264 189,259 192,254
+             C182,234 168,216 150,202
+             C130,186 106,175 83,170
+             C70,167 58,160 48,144 Z"
+          fill="#b31427" opacity="0.65"/>
+
+    <!-- Neck / upper chest transition -->
+    <path d="M70,130
+             C70,150 76,163 88,174
+             C100,185 115,192 132,194
+             C139,195 146,194 152,193
+             C145,176 134,162 122,152
+             C109,142 93,135 79,132 Z"
+          fill="#c8152a"/>
+
+    <!-- Crest -->
+    <path d="M60,60
+             C70,55 80,54 90,57
+             C103,61 114,69 124,79
+             C133,88 139,98 144,108
+             C146,112 146,118 143,122
+             C140,126 133,129 127,129
+             C115,129 104,126 93,120
+             C77,111 65,98 58,84
+             C55,78 55,71 57,66 Z"
+          fill="#d0172d"/>
+
+    <!-- Head base -->
+    <path d="M65,80
+             C57,92 54,107 56,120
+             C58,135 66,148 79,158
+             C91,168 106,173 122,173
+             C135,173 147,170 157,165
+             C165,161 171,155 175,149
+             C179,142 180,134 179,126
+             C177,114 170,103 160,94
+             C146,82 128,75 110,73
+             C94,71 78,73 65,80 Z"
+          fill="#d0162c"/>
+
+    <!-- Black facial mask -->
+    <path d="M82,96
+             C79,101 77,107 77,113
+             C77,122 80,130 86,138
+             C93,148 104,155 117,158
+             C129,161 141,160 151,156
+             C160,153 167,148 172,142
+             C175,138 177,133 177,128
+             C177,122 175,116 171,111
+             C166,104 158,97 149,93
+             C138,88 126,86 114,86
+             C100,86 90,89 82,96 Z"
+          fill="#131217"/>
+
+    <!-- Throat extension of mask -->
+    <path d="M100,138
+             C95,146 94,154 96,162
+             C98,171 104,178 112,184
+             C121,191 133,195 144,196
+             C153,196 160,194 166,191
+             C159,183 153,175 147,168
+             C139,158 130,151 120,146
+             C114,143 107,141 100,138 Z"
+          fill="#15141a"/>
+
+    <!-- Beak upper mandible -->
+    <path d="M113,103
+             C130,99 145,97 160,98
+             C169,99 177,102 185,106
+             C191,110 195,115 197,120
+             C198,124 197,128 195,131
+             C192,135 186,138 180,138
+             C165,137 150,135 132,130
+             C124,128 118,125 113,121 Z"
+          fill="#f68f30"/>
+
+    <!-- Beak lower mandible -->
+    <path d="M116,114
+             C131,113 145,115 160,119
+             C169,122 176,125 183,130
+             C187,133 189,136 190,139
+             C191,143 189,147 186,149
+             C182,152 175,153 168,152
+             C154,150 140,146 128,141
+             C121,138 118,135 115,130 Z"
+          fill="#e6761d"/>
+
+    <!-- Beak line -->
+    <path d="M122,112 C138,111 153,114 168,120"
+          stroke="#b45416" stroke-width="1.4" stroke-linecap="round" stroke-opacity="0.8"/>
+
+    <!-- Nostril -->
+    <circle cx="132" cy="106" r="1.8" fill="#8c4a13" opacity="0.9"/>
+
+    <!-- Eye -->
+    <circle cx="115" cy="104" r="6" fill="#050607"/>
+    <circle cx="117" cy="102" r="2" fill="#f5f8ff"/>
+
+    <!-- Eye subtle highlight ring -->
+    <circle cx="115" cy="104" r="7.5" fill="none" stroke="#2b1e1e" stroke-width="1" stroke-opacity="0.4"/>
+
+    <!-- Back contour feather suggestions -->
+    <path d="M60,150 C77,160 96,167 116,172"
+          stroke="#a51424" stroke-width="2" stroke-linecap="round" stroke-opacity="0.7"/>
+    <path d="M64,160 C82,171 102,178 122,183"
+          stroke="#a51424" stroke-width="1.7" stroke-linecap="round" stroke-opacity="0.6"/>
+    <path d="M70,170 C90,182 111,189 132,194"
+          stroke="#a51424" stroke-width="1.5" stroke-linecap="round" stroke-opacity="0.5"/>
+
+    <!-- Wing feather barbs -->
+    <path d="M88,164 C110,176 132,189 154,204"
+          stroke="#871320" stroke-width="1.4" stroke-linecap="round" stroke-opacity="0.4"/>
+    <path d="M84,172 C108,186 132,199 154,214"
+          stroke="#871320" stroke-width="1.3" stroke-linecap="round" stroke-opacity="0.4"/>
+    <path d="M80,180 C104,195 129,208 153,224"
+          stroke="#871320" stroke-width="1.3" stroke-linecap="round" stroke-opacity="0.4"/>
+
+    <!-- Feet gripping branch (anisodactyl) -->
+    <!-- Right foot -->
+    <g transform="translate(82,248)">
+      <!-- Back toe -->
+      <path d="M0,0
+               C-6,5 -10,11 -11,18
+               C-11,22 -9,24 -7,25"
+            fill="none" stroke="#c79a6f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Forward toe 1 -->
+      <path d="M0,0
+               C8,4 15,8 22,12
+               C26,15 28,18 28,20"
+            fill="none" stroke="#c79a6f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Forward toe 2 -->
+      <path d="M0,0
+               C9,2 18,3 26,4
+               C30,4 33,6 35,9"
+            fill="none" stroke="#c79a6f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Forward toe 3 -->
+      <path d="M0,0
+               C7,-2 14,-4 22,-5
+               C27,-5 30,-4 33,-2"
+            fill="none" stroke="#c79a6f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Claws -->
+      <path d="M21,12 C24,14 26,17 27,20"
+            stroke="#683f24" stroke-width="2" stroke-linecap="round"/>
+      <path d="M26,4 C30,5 32,7 33,9"
+            stroke="#683f24" stroke-width="2" stroke-linecap="round"/>
+      <path d="M22,-5 C25,-5 28,-4 30,-2"
+            stroke="#683f24" stroke-width="2" stroke-linecap="round"/>
+      <path d="M-7,25 C-5,27 -3,29 -2,31"
+            stroke="#683f24" stroke-width="2" stroke-linecap="round"/>
+    </g>
+
+    <!-- Left foot (slightly behind) -->
+    <g transform="translate(102,244)" opacity="0.9">
+      <!-- Back toe -->
+      <path d="M0,0
+               C-5,4 -8,9 -9,15
+               C-9,18 -8,20 -6,21"
+            fill="none" stroke="#c79a6f" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Forward toe 1 -->
+      <path d="M0,0
+               C7,3 14,6 20,10
+               C23,12 25,15 26,17"
+            fill="none" stroke="#c79a6f" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Forward toe 2 -->
+      <path d="M0,0
+               C8,1 15,2 22,3
+               C26,3 28,4 30,7"
+            fill="none" stroke="#c79a6f" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Forward toe 3 -->
+      <path d="M0,0
+               C6,-2 12,-3 18,-4
+               C22,-4 25,-3 28,-1"
+            fill="none" stroke="#c79a6f" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Claws -->
+      <path d="M19,10 C21,12 23,14 24,16"
+            stroke="#683f24" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M22,3 C25,4 27,5 28,7"
+            stroke="#683f24" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M18,-4 C21,-3 23,-2 25,0"
+            stroke="#683f24" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M-6,21 C-4,23 -2,24 -1,26"
+            stroke="#683f24" stroke-width="1.8" stroke-linecap="round"/>
+    </g>
+
+    <!-- Belly overlap on feet -->
+    <path d="M70,210
+             C78,227 91,240 108,250
+             C120,257 134,261 147,262
+             C158,263 167,262 175,258
+             C169,246 159,236 147,228
+             C132,218 114,212 96,210 Z"
+          fill="#d0162c" opacity="0.96"/>
+
+  </g>
+</svg>

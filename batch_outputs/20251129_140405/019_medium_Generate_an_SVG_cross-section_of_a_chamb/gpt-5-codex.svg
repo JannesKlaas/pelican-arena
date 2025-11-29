@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <linearGradient id="waterGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#062035"/>
+      <stop offset="30%" stop-color="#0b3753"/>
+      <stop offset="60%" stop-color="#135c77"/>
+      <stop offset="100%" stop-color="#1a7a92"/>
+    </linearGradient>
+    <radialGradient id="shellGradient" cx="0.45" cy="0.45" r="0.75">
+      <stop offset="0%" stop-color="#fef7f2"/>
+      <stop offset="40%" stop-color="#f2e2d6"/>
+      <stop offset="70%" stop-color="#d9c2b0"/>
+      <stop offset="100%" stop-color="#b99f89"/>
+    </radialGradient>
+    <linearGradient id="livingGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f6cda8"/>
+      <stop offset="100%" stop-color="#c77b4e"/>
+    </linearGradient>
+    <linearGradient id="hoodGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d89a6c"/>
+      <stop offset="100%" stop-color="#b5693f"/>
+    </linearGradient>
+  </defs>
+  <rect width="500" height="500" fill="url(#waterGradient)"/>
+  <g>
+    <path d="M375 255 A220 220 0 0 0 320 110 A170 170 0 0 0 200 130 A130 130 0 0 0 192 240 A105 105 0 0 0 270 285 A85 85 0 0 0 312 220 A65 65 0 0 0 258 204 A48 48 0 0 0 250 238 A34 34 0 0 0 282 246 A24 24 0 0 0 284 224 A16 16 0 0 0 268 218 A11 11 0 0 0 267 232 A7 7 0 0 0 274 234 A4.5 4.5 0 0 0 275 227 L348 305 Q392 288 418 248 Q438 220 375 255 Z" fill="url(#shellGradient)" stroke="#8a715f" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M360 248 A195 195 0 0 0 310 120" fill="none" stroke="#d8c6b4" stroke-width="3" stroke-linecap="round"/>
+    <path d="M342 262 A165 165 0 0 0 228 150" fill="none" stroke="#d2bfae" stroke-width="3" stroke-linecap="round"/>
+    <path d="M322 276 A135 135 0 0 0 212 214" fill="none" stroke="#ccb3a0" stroke-width="3" stroke-linecap="round"/>
+    <path d="M305 284 A110 110 0 0 0 258 206" fill="none" stroke="#c6a994" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M292 286 A86 86 0 0 0 252 240" fill="none" stroke="#c0a28d" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M282 284 A62 62 0 0 0 276 243" fill="none" stroke="#b99a86" stroke-width="2" stroke-linecap="round"/>
+    <path d="M258 210 Q250 250 280 310" fill="none" stroke="#a06845" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="260" cy="214" r="6" fill="#f4d5b8" stroke="#8f5a3e" stroke-width="2"/>
+    <path d="M348 296 Q370 262 350 228 Q322 200 292 222 Q270 242 288 275 Q304 310 348 296 Z" fill="url(#livingGradient)" stroke="#8f5230" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M318 236 Q338 220 322 205 Q300 196 292 214 Q298 234 318 236 Z" fill="url(#hoodGradient)"/>
+    <circle cx="332" cy="254" r="7" fill="#1b1f28"/>
+    <circle cx="330" cy="252" r="2.3" fill="#ffffff"/>
+    <g stroke="#f9d9b4" stroke-width="4" stroke-linecap="round" fill="none">
+      <path d="M360 270 Q402 260 444 236"/>
+      <path d="M360 276 Q408 282 452 272"/>
+      <path d="M357 282 Q405 302 454 314"/>
+      <path d="M352 288 Q392 322 430 348"/>
+      <path d="M348 292 Q376 332 400 360"/>
+      <path d="M344 296 Q364 338 380 366"/>
+    </g>
+    <g stroke="#e8ded6" stroke-width="1.6" stroke-linecap="round" fill="none" opacity="0.7">
+      <path d="M372 236 A220 220 0 0 0 215 118"/>
+      <path d="M360 222 A205 205 0 0 0 210 140"/>
+      <path d="M348 210 A190 190 0 0 0 198 168"/>
+      <path d="M336 198 A175 175 0 0 0 188 198"/>
+    </g>
+    <path d="M372 240 Q415 220 410 256 Q404 292 360 308 Q328 318 302 310" fill="rgba(255,255,255,0.08)"/>
+  </g>
+</svg>

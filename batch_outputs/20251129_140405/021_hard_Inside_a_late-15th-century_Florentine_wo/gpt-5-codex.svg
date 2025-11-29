@@ -1,0 +1,112 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bgLight" cx="65%" cy="35%" r="75%">
+      <stop offset="0%" stop-color="#f6f0df"/>
+      <stop offset="45%" stop-color="#bca98b"/>
+      <stop offset="100%" stop-color="#2d1f16"/>
+    </radialGradient>
+    <radialGradient id="ambientShadow" cx="30%" cy="70%" r="85%">
+      <stop offset="0%" stop-color="rgba(0,0,0,0.0)"/>
+      <stop offset="60%" stop-color="rgba(0,0,0,0.35)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0.65)"/>
+    </radialGradient>
+    <radialGradient id="projectionGlow" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#fdebc0" stop-opacity="0.9"/>
+      <stop offset="70%" stop-color="#e5c57a" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#a4743e" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="oakGrain" width="20" height="60" patternUnits="userSpaceOnUse">
+      <rect width="20" height="60" fill="#7a5230"/>
+      <path d="M2 5 C6 8 9 4 14 12 M3 30 C9 27 13 35 18 33 M1 48 C5 50 11 44 16 52" fill="none" stroke="#9c6c3c" stroke-width="1.2" stroke-linecap="round" opacity="0.8"/>
+      <path d="M4 18 C8 22 12 18 15 24" fill="none" stroke="#58361f" stroke-width="0.8" stroke-linecap="round" opacity="0.6"/>
+    </pattern>
+    <mask id="oakWear">
+      <rect width="500" height="500" fill="white"/>
+      <ellipse cx="210" cy="295" rx="40" ry="15" fill="black" opacity="0.35"/>
+      <ellipse cx="300" cy="275" rx="30" ry="10" fill="black" opacity="0.45"/>
+      <path d="M250 290 Q260 310 240 320" fill="none" stroke="black" stroke-width="6" stroke-linecap="round" opacity="0.4"/>
+    </mask>
+    <filter id="specLight" x="-20%" y="-20%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1.8" result="blur"/>
+      <feSpecularLighting in="blur" surfaceScale="4" specularConstant="0.45" specularExponent="14" lighting-color="#fff6ce" result="spec">
+        <fePointLight x="420" y="180" z="90"/>
+      </feSpecularLighting>
+      <feComposite in="spec" in2="SourceGraphic" operator="in" result="lit"/>
+      <feBlend in="SourceGraphic" in2="lit" mode="screen"/>
+    </filter>
+    <filter id="metalSheen" x="-20%" y="-20%" width="160%" height="160%">
+      <feColorMatrix type="matrix" values="0.6 0 0 0 0.15 0 0.7 0 0 0.05 0 0 0.85 0 0.08 0 0 0 1 0"/>
+    </filter>
+    <marker id="quillNib" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0 0 L6 3 L0 6 Z" fill="#c9a26a" stroke="#513820" stroke-width="0.5"/>
+    </marker>
+    <path id="spiralPath" d="M290 190
+                             C280 185 260 190 252 205
+                             C244 220 260 235 276 232
+                             C292 228 304 210 300 195
+                             C295 172 265 167 248 184
+                             C232 200 242 226 265 232
+                             C288 238 310 220 308 198"
+          fill="none"/>
+  </defs>
+  <rect width="500" height="500" fill="url(#bgLight)"/>
+  <circle cx="320" cy="340" r="260" fill="url(#ambientShadow)" opacity="0.85"/>
+  <g id="window">
+    <rect x="370" y="120" width="70" height="110" fill="#fdf5da" stroke="#aa8f6f" stroke-width="2"/>
+    <polygon points="370,230 0,380 0,360 370,120" fill="rgba(255,236,196,0.18)"/>
+  </g>
+  <g id="cameraObscura">
+    <polygon points="210,150 300,120 320,210 230,240" fill="#2c2a26" opacity="0.8"/>
+    <polygon points="210,150 160,200 180,330 230,240" fill="#3b3834" opacity="0.85"/>
+    <polygon points="300,120 350,170 360,300 320,210" fill="#1f1d1a"/>
+    <circle cx="318" cy="198" r="6" fill="#0a0a0a"/>
+    <path d="M320 210 L420 180" stroke="rgba(255,240,210,0.5)" stroke-width="3" stroke-dasharray="4 3"/>
+  </g>
+  <g id="panel" filter="url(#specLight)">
+    <polygon points="205,255 315,225 340,340 220,368" fill="#d7b37e" stroke="#8f7049" stroke-width="1.5"/>
+    <polygon points="205,255 190,270 210,392 220,368" fill="#b99362" opacity="0.9"/>
+    <ellipse cx="265" cy="305" rx="58" ry="35" fill="url(#projectionGlow)" opacity="0.85"/>
+    <path d="M215 315 L360 280" stroke="#6a4c2e" stroke-width="1.2" opacity="0.4"/>
+  </g>
+  <g id="bench" mask="url(#oakWear)">
+    <polygon points="120,280 360,230 380,260 140,315" fill="url(#oakGrain)" stroke="#4f3420" stroke-width="1.5"/>
+    <polygon points="140,315 380,260 380,310 140,360" fill="#5f3a1f" opacity="0.85"/>
+    <polygon points="120,280 140,315 140,360 120,325" fill="#4a301b"/>
+  </g>
+  <path d="M140 360 L360 310 L450 350 L240 400 Z" fill="rgba(0,0,0,0.38)"/>
+  <g id="apprentice" transform="translate(90,200)">
+    <g id="figure" transform="scale(0.9)">
+      <ellipse cx="50" cy="15" rx="9" ry="11" fill="#d2aa82"/>
+      <path d="M41 15 C42 35 58 35 59 15" fill="#3b2a1c"/>
+      <path d="M50 26 C40 45 40 90 50 118 C60 90 60 45 50 26" fill="#3e3a36"/>
+      <path d="M33 48 L43 50 L42 95 L30 120" fill="#56463a"/>
+      <path d="M67 48 L57 50 L58 95 L70 120" fill="#56463a"/>
+      <path d="M42 95 L37 150" stroke="#35302c" stroke-width="5" stroke-linecap="round"/>
+      <path d="M58 95 L63 150" stroke="#35302c" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="33" cy="73" r="5" fill="#d2aa82"/>
+      <circle cx="67" cy="73" r="5" fill="#d2aa82"/>
+      <path d="M44 120 L36 150" stroke="#2b2825" stroke-width="4" stroke-linecap="round"/>
+      <path d="M56 120 L64 150" stroke="#2b2825" stroke-width="4" stroke-linecap="round"/>
+    </g>
+  </g>
+  <g id="compasses" filter="url(#metalSheen)">
+    <path d="M310 272 L330 345" stroke="#c4d0dd" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M310 272 L295 350" stroke="#c4d0dd" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="310" cy="272" r="6" fill="#e7eef5" stroke="#8a9db2" stroke-width="1"/>
+  </g>
+  <g id="quill">
+    <path d="M180 330 Q150 360 120 370" stroke="#e0c296" stroke-width="2.5" fill="none" marker-end="url(#quillNib)"/>
+    <path d="M185 320 C195 305 225 300 240 305" stroke="#cfb27d" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <g id="notes">
+    <path d="M270 180 L310 210 L280 230 L240 200 Z" fill="#f2e5c7" stroke="#9a835b" stroke-width="1"/>
+    <text font-size="7" fill="#4d3b21">
+      <textPath href="#spiralPath" startOffset="5%">
+        acirtem-roirriM :icnuzuR .sreisnart alleuq al a olos on
+      </textPath>
+    </text>
+  </g>
+  <path d="M220 368 L340 340 L370 360 L260 395 Z" fill="rgba(0,0,0,0.45)"/>
+  <path d="M110 210 L235 250" stroke="rgba(0,0,0,0.25)" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <path d="M390 210 L265 250" stroke="rgba(0,0,0,0.25)" stroke-width="1.5" stroke-dasharray="6 4"/>
+</svg>

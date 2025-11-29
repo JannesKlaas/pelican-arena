@@ -145,8 +145,7 @@
             100% { transform: scale(1); }
         }
 
-        .image-card img,
-        .image-card object {
+        .image-card img {
             max-width: 100%;
             max-height: 60vh;
             border-radius: 8px;
@@ -359,11 +358,11 @@
             comparisonArea.innerHTML = `
                 <div class="image-card" data-choice="a" onclick="selectWinner('a')">
                     <div class="key-hint"><kbd>1</kbd><kbd>←</kbd></div>
-                    <object type="image/svg+xml" data="${pair.image_a}"></object>
+                    <img src="${pair.image_a}" alt="Image A">
                 </div>
                 <div class="image-card" data-choice="b" onclick="selectWinner('b')">
                     <div class="key-hint"><kbd>2</kbd><kbd>→</kbd></div>
-                    <object type="image/svg+xml" data="${pair.image_b}"></object>
+                    <img src="${pair.image_b}" alt="Image B">
                 </div>
             `;
             promptText.textContent = pair.prompt || '—';

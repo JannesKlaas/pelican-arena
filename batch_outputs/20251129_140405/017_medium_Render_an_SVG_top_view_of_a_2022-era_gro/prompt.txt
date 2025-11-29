@@ -1,0 +1,1 @@
+Render an SVG top view of a 2022-era ground-effect Formula 1 car. Show the halo over the cockpit, narrow nose, front wing with four elements, undercut sidepods feeding venturi inlets, and a sculpted rear wing with an open DRS flap plus a beam wing. Depict four exposed 18-inch tires, correct wheelbase proportions, wheel covers, and a visible driver helmet.

@@ -1,0 +1,89 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background: Muted natural tone -->
+  <rect width="500" height="500" fill="#D8E3E2" />
+  
+  <!-- Definitions for gradients -->
+  <defs>
+    <linearGradient id="branchGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6D4C41;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3E2723;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bodyRed" x1="30%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF2424;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#B71C1C;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Tail Feathers (Behind Branch) -->
+  <g transform="rotate(-25, 180, 380)">
+    <path d="M 180 380 L 130 500 L 170 510 L 210 390 Z" fill="#8B0000" />
+    <!-- Tail detail lines -->
+    <line x1="160" y1="400" x2="150" y2="500" stroke="#5e0000" stroke-width="1" />
+    <line x1="180" y1="400" x2="170" y2="500" stroke="#5e0000" stroke-width="1" />
+  </g>
+
+  <!-- Branch -->
+  <path d="M -10 420 C 150 430, 350 390, 510 400" stroke="url(#branchGradient)" stroke-width="18" fill="none" stroke-linecap="round"/>
+  <!-- Bark Texture -->
+  <path d="M 50 425 L 80 422 M 150 418 L 190 420 M 300 405 L 330 408 M 400 402 L 430 400" stroke="#3E2723" stroke-width="2" fill="none" opacity="0.5"/>
+
+  <!-- Back Toe (Hallux) - gripping back of branch -->
+  <path d="M 240 390 Q 230 410 235 425" stroke="#546E7A" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- Main Body -->
+  <!-- Shape includes underbelly and chest -->
+  <path d="M 250 390 
+           C 180 390, 160 300, 200 230 
+           L 230 150 
+           L 270 200 
+           C 320 230, 330 350, 250 390 Z" 
+           fill="url(#bodyRed)"/>
+
+  <!-- Wing Layers -->
+  <g transform="translate(20, 10)">
+    <!-- Primaries (Darkest, tips) -->
+    <path d="M 280 300 L 340 360 L 260 340 Z" fill="#8B0000"/>
+    <!-- Secondaries (Middle layer) -->
+    <path d="M 240 260 Q 300 280 280 340 Q 220 320 240 260" fill="#B71C1C"/>
+    <!-- Coverts (Top layer) -->
+    <path d="M 220 240 Q 260 240 250 290 Q 210 280 220 240" fill="#D32F2F"/>
+    
+    <!-- Wing Feather Texture -->
+    <path d="M 240 260 L 260 320 M 260 290 L 300 330" stroke="#5e0000" stroke-width="1" opacity="0.4"/>
+  </g>
+
+  <!-- Head Details -->
+  <!-- Crest highlight -->
+  <path d="M 230 150 L 240 200 L 215 210 Z" fill="#FF4D4D" opacity="0.6"/>
+  
+  <!-- Black Facial Mask -->
+  <path d="M 245 210 
+           L 275 215 
+           L 280 235 
+           L 260 245 
+           L 240 235 
+           L 235 215 Z" fill="#111"/>
+
+  <!-- Beak -->
+  <path d="M 275 215 Q 300 220 310 225 Q 300 235 278 235 Z" fill="#FF7043"/> <!-- Main Beak -->
+  <line x1="275" y1="225" x2="305" y2="225" stroke="#BF360C" stroke-width="1"/> <!-- Beak separation -->
+
+  <!-- Eye -->
+  <circle cx="255" cy="222" r="4" fill="black"/>
+  <circle cx="256" cy="221" r="1.5" fill="white"/>
+
+  <!-- Front Toes - gripping front of branch -->
+  <g stroke="#546E7A" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M 250 390 Q 255 410 250 425"/> <!-- Middle toe -->
+    <path d="M 250 390 Q 265 405 270 420"/> <!-- Outer toe -->
+    <path d="M 250 390 Q 240 405 235 415"/> <!-- Inner toe visible part -->
+  </g>
+  
+  <!-- Feather Barbs Texture (Subtle lines on chest) -->
+  <g stroke="#8B0000" stroke-width="1" opacity="0.3" fill="none">
+    <path d="M 210 260 Q 220 270 210 280"/>
+    <path d="M 220 290 Q 230 300 220 310"/>
+    <path d="M 230 320 Q 240 330 230 340"/>
+  </g>
+
+</svg>

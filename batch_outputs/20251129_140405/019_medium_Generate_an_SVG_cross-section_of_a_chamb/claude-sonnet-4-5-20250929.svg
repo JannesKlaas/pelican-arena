@@ -1,0 +1,83 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Water background with gradient bands -->
+  <defs>
+    <linearGradient id="waterGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a90a4;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#5da3b8;stop-opacity:1" />
+      <stop offset="60%" style="stop-color:#6bb5cc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7ac5db;stop-opacity:1" />
+    </linearGradient>
+    
+    <radialGradient id="pearlescent" cx="40%" cy="40%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" />
+      <stop offset="40%" style="stop-color:#f5e6d3;stop-opacity:0.6" />
+      <stop offset="70%" style="stop-color:#e8d4b8;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#d4b896;stop-opacity:0.3" />
+    </radialGradient>
+    
+    <radialGradient id="shellShading" cx="35%" cy="35%">
+      <stop offset="0%" style="stop-color:#faf5ee;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#e8d9c5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c4a57b;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Water background -->
+  <rect width="500" height="500" fill="url(#waterGradient)"/>
+  
+  <!-- Logarithmic spiral shell chambers -->
+  <g transform="translate(250,250)">
+    <!-- Shell base -->
+    <path d="M 0,0 Q 10,-8 20,-12 Q 35,-18 50,-20 Q 70,-22 90,-18 Q 110,-12 125,0 Q 135,15 138,32 Q 138,50 130,68 Q 118,88 98,102 Q 75,115 48,120 Q 20,122 -5,115 Q -28,106 -45,88 Q -58,68 -62,45 Q -63,20 -52,0 Q -38,-18 -15,-28 Q 8,-35 35,-35 Q 60,-32 82,-20 Q 100,-5 108,18 Q 112,40 106,62 Q 96,82 78,95 Q 58,105 35,108 Q 12,108 -8,98 Q -25,86 -35,68 Q -42,48 -42,28 Q -40,8 -28,-8 Q -12,-22 8,-28 Q 28,-32 48,-28 Q 66,-20 78,-5 Q 86,12 88,30 Q 88,48 80,64 Q 68,78 52,86 Q 35,92 18,92 Q 2,88 -10,78 Q -20,66 -25,50 Q -28,35 -25,20 Q -20,5 -8,-6 Q 5,-15 22,-18 Q 38,-19 52,-14 Q 65,-6 72,8 Q 76,22 75,36 Q 72,50 62,60 Q 50,68 36,70 Q 22,70 10,62 Q 0,52 -5,38 Q -8,25 -5,12 Q 0,0 10,-8" 
+          fill="url(#shellShading)" stroke="#b8956f" stroke-width="1.5"/>
+    
+    <!-- Septa (chamber walls) -->
+    <path d="M -5,115 Q -15,80 -18,50 Q -18,20 -8,-6" fill="none" stroke="#d4b896" stroke-width="1" opacity="0.6"/>
+    <path d="M -28,106 Q -35,75 -38,45 Q -38,15 -28,-8" fill="none" stroke="#d4b896" stroke-width="1" opacity="0.6"/>
+    <path d="M -45,88 Q -52,60 -55,32 Q -55,8 -45,-18" fill="none" stroke="#d4b896" stroke-width="1" opacity="0.6"/>
+    <path d="M 20,122 Q 18,95 18,68 Q 18,40 22,-18" fill="none" stroke="#d4b896" stroke-width="1" opacity="0.6"/>
+    <path d="M 48,120 Q 45,88 45,58 Q 45,28 48,-28" fill="none" stroke="#d4b896" stroke-width="1" opacity="0.6"/>
+    <path d="M 75,115 Q 72,82 72,50 Q 72,18 78,-20" fill="none" stroke="#d4b896" stroke-width="1" opacity="0.6"/>
+    
+    <!-- Siphuncle -->
+    <ellipse cx="12" cy="45" rx="3" ry="75" fill="#e8c4a8" opacity="0.5"/>
+    
+    <!-- Shell ribbing -->
+    <path d="M 30,-30 Q 55,-28 75,-15" fill="none" stroke="#c4a57b" stroke-width="0.5" opacity="0.7"/>
+    <path d="M 25,-25 Q 50,-23 70,-10" fill="none" stroke="#c4a57b" stroke-width="0.5" opacity="0.7"/>
+    <path d="M 80,-5 Q 95,10 102,28" fill="none" stroke="#c4a57b" stroke-width="0.5" opacity="0.7"/>
+    <path d="M 85,5 Q 98,18 105,35" fill="none" stroke="#c4a57b" stroke-width="0.5" opacity="0.7"/>
+    <path d="M 105,45 Q 100,65 88,80" fill="none" stroke="#c4a57b" stroke-width="0.5" opacity="0.7"/>
+    <path d="M 98,55 Q 92,72 80,88" fill="none" stroke="#c4a57b" stroke-width="0.5" opacity="0.7"/>
+    
+    <!-- Pearlescent overlay -->
+    <ellipse cx="50" cy="30" rx="80" ry="70" fill="url(#pearlescent)" opacity="0.4"/>
+    
+    <!-- Living chamber opening -->
+    <path d="M 130,68 Q 118,88 98,102 Q 75,115 48,120 Q 20,122 -5,115" 
+          fill="none" stroke="#8b7355" stroke-width="2"/>
+    
+    <!-- Animal body -->
+    <ellipse cx="60" cy="95" rx="30" ry="22" fill="#d4a574" opacity="0.9"/>
+    
+    <!-- Hood -->
+    <path d="M 45,82 Q 60,75 75,82 Q 80,88 75,95 Q 60,100 45,95 Q 40,88 45,82" 
+          fill="#c9956a" stroke="#a87d56" stroke-width="1"/>
+    
+    <!-- Eye -->
+    <circle cx="52" cy="88" r="4" fill="#2c2416"/>
+    <circle cx="53" cy="87" r="1.5" fill="#ffffff"/>
+    
+    <!-- Tentacles -->
+    <path d="M 75,95 Q 85,100 95,108" fill="none" stroke="#b8956f" stroke-width="2" opacity="0.8"/>
+    <path d="M 72,98 Q 80,105 88,115" fill="none" stroke="#b8956f" stroke-width="1.8" opacity="0.8"/>
+    <path d="M 68,100 Q 75,110 80,122" fill="none" stroke="#b8956f" stroke-width="1.8" opacity="0.8"/>
+    <path d="M 63,102 Q 68,115 70,128" fill="none" stroke="#b8956f" stroke-width="1.6" opacity="0.8"/>
+    <path d="M 58,103 Q 60,118 58,132" fill="none" stroke="#b8956f" stroke-width="1.6" opacity="0.8"/>
+    <path d="M 53,104 Q 52,120 48,135" fill="none" stroke="#b8956f" stroke-width="1.6" opacity="0.8"/>
+    <path d="M 48,103 Q 45,118 38,132" fill="none" stroke="#b8956f" stroke-width="1.6" opacity="0.8"/>
+    <path d="M 43,100 Q 38,112 30,125" fill="none" stroke="#b8956f" stroke-width="1.8" opacity="0.8"/>
+    <path d="M 40,97 Q 32,105 22,115" fill="none" stroke="#b8956f" stroke-width="1.8" opacity="0.8"/>
+    <path d="M 37,93 Q 28,98 18,105" fill="none" stroke="#b8956f" stroke-width="2" opacity="0.8"/>
+  </g>
+</svg>

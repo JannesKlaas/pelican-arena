@@ -32,9 +32,9 @@ def get_prompt_folders(batch_name: str):
     return [d for d in batch_path.iterdir() if d.is_dir()]
 
 
-def get_svg_files(folder: Path):
-    """Get list of SVG files in a folder."""
-    return [f for f in folder.iterdir() if f.suffix == ".svg"]
+def get_png_files(folder: Path):
+    """Get list of PNG files in a folder."""
+    return [f for f in folder.iterdir() if f.suffix == ".png"]
 
 
 def get_prompt_text(folder: Path):
@@ -76,13 +76,13 @@ def api_pair():
 
     # Pick a random prompt folder
     folder = random.choice(prompt_folders)
-    svg_files = get_svg_files(folder)
+    png_files = get_png_files(folder)
 
-    if len(svg_files) < 2:
-        return jsonify({"error": "Not enough SVG files in folder"}), 404
+    if len(png_files) < 2:
+        return jsonify({"error": "Not enough PNG files in folder"}), 404
 
-    # Pick two random SVG files
-    pair = random.sample(svg_files, 2)
+    # Pick two random PNG files
+    pair = random.sample(png_files, 2)
     prompt_text = get_prompt_text(folder)
 
     # Build relative paths for serving

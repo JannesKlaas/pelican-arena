@@ -1,0 +1,149 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="500" height="500" fill="#f0f0f0"/>
+  
+  <!-- Rear Wing Assembly -->
+  <g id="rear-wing">
+    <!-- Rear Wing Main Element -->
+    <rect x="180" y="80" width="140" height="25" fill="#c41e3a" opacity="0.9"/>
+    <rect x="175" y="85" width="150" height="8" fill="#ff4444"/>
+    
+    <!-- DRS Flap (Open) -->
+    <rect x="185" y="65" width="130" height="18" fill="#c41e3a" opacity="0.7" transform="rotate(-15 250 72)"/>
+    <path d="M 250 65 L 320 75" stroke="#333" stroke-width="1" stroke-dasharray="2,2"/>
+    
+    <!-- Beam Wing -->
+    <rect x="190" y="45" width="120" height="12" fill="#1a1a1a" opacity="0.8"/>
+    <circle cx="210" cy="51" r="2" fill="#888"/>
+    <circle cx="290" cy="51" r="2" fill="#888"/>
+  </g>
+  
+  <!-- Rear Bodywork -->
+  <polygon points="180,110 200,200 300,200 320,110" fill="#c41e3a" opacity="0.85"/>
+  
+  <!-- Rear Tires -->
+  <g id="rear-tires">
+    <!-- Left Rear Tire -->
+    <circle cx="190" cy="210" r="22" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+    <circle cx="190" cy="210" r="18" fill="#2a2a2a"/>
+    <circle cx="190" cy="210" r="14" fill="#1a1a1a"/>
+    <circle cx="185" cy="205" r="3" fill="#555"/>
+    
+    <!-- Right Rear Tire -->
+    <circle cx="310" cy="210" r="22" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+    <circle cx="310" cy="210" r="18" fill="#2a2a2a"/>
+    <circle cx="310" cy="210" r="14" fill="#1a1a1a"/>
+    <circle cx="315" cy="205" r="3" fill="#555"/>
+  </g>
+  
+  <!-- Rear Wing Support -->
+  <rect x="245" y="110" width="10" height="60" fill="#333"/>
+  <rect x="245" y="110" width="10" height="5" fill="#666"/>
+  
+  <!-- Main Body/Tub -->
+  <path d="M 160 110 L 140 250 L 150 350 L 350 350 L 360 250 L 340 110 Z" fill="#c41e3a" opacity="0.9" stroke="#8b0000" stroke-width="1"/>
+  
+  <!-- Undercut Sidepods -->
+  <path d="M 150 180 Q 140 220 145 280 L 150 280 Q 148 230 155 185 Z" fill="#333" opacity="0.7"/>
+  <path d="M 350 180 Q 360 220 355 280 L 350 280 Q 352 230 345 185 Z" fill="#333" opacity="0.7"/>
+  
+  <!-- Venturi Inlet Tunnels -->
+  <rect x="145" y="200" width="8" height="60" fill="#1a1a1a" opacity="0.8"/>
+  <rect x="347" y="200" width="8" height="60" fill="#1a1a1a" opacity="0.8"/>
+  <line x1="145" y1="200" x2="150" y2="195" stroke="#666" stroke-width="1"/>
+  <line x1="347" y1="200" x2="352" y2="195" stroke="#666" stroke-width="1"/>
+  
+  <!-- Halo (Cockpit Protection) -->
+  <g id="halo">
+    <!-- Halo Ring -->
+    <path d="M 220 130 Q 250 115 280 130" stroke="#333" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <!-- Halo Supports -->
+    <line x1="220" y1="130" x2="210" y2="160" stroke="#333" stroke-width="4"/>
+    <line x1="280" y1="130" x2="290" y2="160" stroke="#333" stroke-width="4"/>
+    <!-- Halo Connections -->
+    <circle cx="210" cy="160" r="3" fill="#666"/>
+    <circle cx="290" cy="160" r="3" fill="#666"/>
+  </g>
+  
+  <!-- Cockpit -->
+  <ellipse cx="250" cy="170" rx="35" ry="45" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+  
+  <!-- Driver Helmet -->
+  <g id="helmet">
+    <!-- Helmet Shell -->
+    <ellipse cx="250" cy="155" rx="20" ry="25" fill="#ff6b35" stroke="#333" stroke-width="1.5"/>
+    <!-- Helmet Visor -->
+    <path d="M 235 150 Q 250 140 265 150" fill="#4da6ff" opacity="0.7" stroke="#333" stroke-width="1"/>
+    <!-- Racing Suit Detail -->
+    <ellipse cx="250" cy="185" rx="18" ry="15" fill="#ff6b35" opacity="0.8"/>
+  </g>
+  
+  <!-- Cockpit Cutout Area -->
+  <ellipse cx="250" cy="175" rx="28" ry="35" fill="#2a2a2a" opacity="0.6"/>
+  
+  <!-- Front Suspension Area -->
+  <polygon points="160,110 155,90 170,85 180,110" fill="#c41e3a" opacity="0.8"/>
+  <polygon points="340,110 345,90 330,85 320,110" fill="#c41e3a" opacity="0.8"/>
+  
+  <!-- Narrow Nose -->
+  <path d="M 180,110 L 175,95 L 250,75 L 325,95 L 320,110 Z" fill="#8b0000" stroke="#333" stroke-width="1"/>
+  <path d="M 250,75 L 240,65 L 260,65 Z" fill="#333"/>
+  
+  <!-- Front Wing Assembly -->
+  <g id="front-wing">
+    <!-- Element 1 (Outermost) -->
+    <rect x="140" y="50" width="220" height="10" fill="#c41e3a" opacity="0.8"/>
+    
+    <!-- Element 2 -->
+    <rect x="145" y="38" width="210" height="8" fill="#c41e3a" opacity="0.85"/>
+    
+    <!-- Element 3 -->
+    <rect x="150" y="27" width="200" height="8" fill="#c41e3a" opacity="0.9"/>
+    
+    <!-- Element 4 (Innermost) -->
+    <rect x="155" y="16" width="190" height="7" fill="#c41e3a" opacity="0.95"/>
+    
+    <!-- Front Wing Endplate Left -->
+    <rect x="135" y="16" width="8" height="45" fill="#333" opacity="0.8"/>
+    
+    <!-- Front Wing Endplate Right -->
+    <rect x="357" y="16" width="8" height="45" fill="#333" opacity="0.8"/>
+  </g>
+  
+  <!-- Front Tires -->
+  <g id="front-tires">
+    <!-- Left Front Tire -->
+    <circle cx="170" cy="95" r="22" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+    <circle cx="170" cy="95" r="18" fill="#2a2a2a"/>
+    <circle cx="170" cy="95" r="14" fill="#1a1a1a"/>
+    <circle cx="165" cy="90" r="3" fill="#555"/>
+    <!-- Wheel Cover Left -->
+    <circle cx="170" cy="95" r="12" fill="#666" opacity="0.4"/>
+    
+    <!-- Right Front Tire -->
+    <circle cx="330" cy="95" r="22" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+    <circle cx="330" cy="95" r="18" fill="#2a2a2a"/>
+    <circle cx="330" cy="95" r="14" fill="#1a1a1a"/>
+    <circle cx="335" cy="90" r="3" fill="#555"/>
+    <!-- Wheel Cover Right -->
+    <circle cx="330" cy="95" r="12" fill="#666" opacity="0.4"/>
+  </g>
+  
+  <!-- Rear Wheel Covers -->
+  <circle cx="190" cy="210" r="12" fill="#666" opacity="0.4"/>
+  <circle cx="310" cy="210" r="12" fill="#666" opacity="0.4"/>
+  
+  <!-- Engine Cover/Bodywork Detail -->
+  <ellipse cx="250" cy="280" rx="85" ry="55" fill="none" stroke="#8b0000" stroke-width="1" stroke-dasharray="3,2" opacity="0.5"/>
+  
+  <!-- Air Intake Scoop -->
+  <path d="M 245 165 L 240 175 L 260 175 L 255 165 Z" fill="#333" stroke="#666" stroke-width="0.5"/>
+  
+  <!-- Suspension Components (Top View) -->
+  <line x1="170" y1="95" x2="190" y2="210" stroke="#999" stroke-width="1.5" opacity="0.6"/>
+  <line x1="330" y1="95" x2="310" y2="210" stroke="#999" stroke-width="1.5" opacity="0.6"/>
+  
+  <!-- Grid Reference Lines (faint) -->
+  <line x1="0" y1="250" x2="500" y2="250" stroke="#ddd" stroke-width="0.5" opacity="0.3"/>
+  <line x1="250" y1="0" x2="250" y2="500" stroke="#ddd" stroke-width="0.5" opacity="0.3"/>
+</svg>

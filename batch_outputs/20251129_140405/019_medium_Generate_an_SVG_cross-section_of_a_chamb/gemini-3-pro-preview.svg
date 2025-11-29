@@ -1,0 +1,166 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background Water Gradient -->
+    <linearGradient id="waterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#001e2b"/>
+      <stop offset="50%" stop-color="#00334d"/>
+      <stop offset="100%" stop-color="#005c7a"/>
+    </linearGradient>
+    
+    <!-- Pearlescent Shell Interior Gradient -->
+    <radialGradient id="pearlGrad" cx="40%" cy="40%" r="80%">
+      <stop offset="0%" stop-color="#fffbf0"/>
+      <stop offset="70%" stop-color="#f2e6d9"/>
+      <stop offset="100%" stop-color="#e6ccb3"/>
+    </radialGradient>
+    
+    <!-- Shell Exterior Stripe Pattern -->
+    <linearGradient id="shellStripe" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fceabb"/>
+      <stop offset="40%" stop-color="#cc7a00"/>
+      <stop offset="60%" stop-color="#fceabb"/>
+      <stop offset="100%" stop-color="#cc7a00"/>
+    </linearGradient>
+
+    <!-- Animal Flesh Gradient -->
+    <radialGradient id="fleshGrad" cx="30%" cy="30%" r="90%">
+      <stop offset="0%" stop-color="#ffdab3"/>
+      <stop offset="60%" stop-color="#d66d4d"/>
+      <stop offset="100%" stop-color="#8a3e26"/>
+    </radialGradient>
+
+    <!-- Siphuncle Gradient -->
+    <linearGradient id="siphuncleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#665544" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#8c735a" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#665544" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="500" height="500" fill="url(#waterGrad)"/>
+
+  <!-- Gentle water bands -->
+  <path d="M0 100 Q 250 150 500 100" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="40"/>
+  <path d="M0 400 Q 250 350 500 400" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="60"/>
+
+  <!-- Main Group Centered -->
+  <g transform="translate(20, 20)">
+    
+    <!-- Back Tentacles (Deepest layer) -->
+    <g fill="none" stroke="#d66d4d" stroke-width="4" stroke-linecap="round" opacity="0.8">
+      <path d="M320 180 Q 380 100 440 110" />
+      <path d="M330 190 Q 400 120 460 130" />
+      <path d="M340 200 Q 410 140 470 160" />
+    </g>
+
+    <!-- THE SHELL -->
+    <!-- 1. Outer Shell Silhouette (Exterior) -->
+    <path d="M 240 270 
+             M 240 270 L 240 270 
+             M 272 270 A 32 32 0 0 1 240 302
+             A 52 52 0 0 1 188 250
+             A 84 84 0 0 1 272 166
+             A 136 136 0 0 1 408 302
+             A 220 220 0 0 1 188 522" 
+          transform="translate(0,-60)"
+          fill="url(#shellStripe)" stroke="#5c4033" stroke-width="1"/>
+
+    <!-- 2. Inner Chamber Cavity (The Cutaway) -->
+    <!-- This simulates the hollow part filled with gas/pearl texture -->
+    <path id="spiralPath" 
+          d="M 240 270 
+             M 245 270 A 5 5 0 0 1 240 275
+             A 8 8 0 0 1 232 267
+             A 13 13 0 0 1 245 254
+             A 21 21 0 0 1 266 275
+             A 34 34 0 0 1 232 309
+             A 55 55 0 0 1 177 254
+             A 89 89 0 0 1 266 165
+             A 144 144 0 0 1 410 309
+             L 408 302 
+             A 136 136 0 0 0 272 166
+             A 84 84 0 0 0 188 250
+             A 52 52 0 0 0 240 302
+             A 32 32 0 0 0 272 270
+             Z" 
+          transform="translate(0,-60)"
+          fill="url(#pearlGrad)" stroke="#8c735a" stroke-width="2"/>
+
+    <!-- 3. Septa (Chamber Dividers) -->
+    <g transform="translate(0,-60)" fill="none" stroke="#a68b72" stroke-width="2">
+      <!-- Manually placed arcs based on the spiral geometry -->
+      <path d="M 266 165 Q 266 210 272 166" /> <!-- Living chamber wall -->
+      <path d="M 177 254 Q 200 254 188 250" /> 
+      <path d="M 232 309 Q 240 290 240 302" />
+      <path d="M 266 275 Q 260 270 272 270" />
+      <!-- Inner septa -->
+      <path d="M 360 280 Q 340 220 272 166" stroke-width="3"/>
+      <path d="M 266 165 Q 220 180 188 250" stroke-width="2.5"/>
+      <path d="M 177 254 Q 190 300 240 302" stroke-width="2"/>
+      <path d="M 232 309 Q 260 300 272 270" stroke-width="1.5"/>
+      <path d="M 266 275 Q 255 260 240 258" stroke-width="1"/>
+    </g>
+
+    <!-- 4. Siphuncle (Central Tube) -->
+    <path d="M 240 270
+             L 242 272
+             L 238 275
+             L 245 285
+             L 260 270
+             L 230 240
+             L 210 280
+             L 290 280
+             L 340 200"
+          transform="translate(0,-60)"
+          fill="none" stroke="url(#siphuncleGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- 5. The Animal (Living Chamber) -->
+    <g transform="translate(0,-60)">
+        <!-- Body Mass -->
+        <path d="M 272 166 
+                 Q 320 160 370 180 
+                 Q 400 220 408 302
+                 Q 340 290 266 165" 
+              fill="url(#fleshGrad)" />
+        
+        <!-- The Hood (Leathery top part) -->
+        <path d="M 272 166 
+                 Q 300 120 360 140
+                 Q 390 150 370 180
+                 Q 320 160 272 166"
+              fill="#8a3e26" stroke="#5e2a1a" stroke-width="1"/>
+
+        <!-- The Eye -->
+        <g transform="translate(330, 200)">
+             <circle r="12" fill="#f0f0f0" stroke="#d66d4d" stroke-width="2"/>
+             <circle r="4" fill="#1a1a1a" cy="2"/>
+             <!-- Pinhole highlight -->
+             <circle r="1" fill="white" cy="1" cx="1"/>
+        </g>
+
+        <!-- Front Tentacles (Cirri) -->
+        <g fill="none" stroke="#d66d4d" stroke-width="5" stroke-linecap="round">
+             <!-- Upper Cluster -->
+             <path d="M 360 150 Q 420 100 480 110" stroke="#e08e72" />
+             <path d="M 370 160 Q 430 110 490 130" />
+             <path d="M 380 170 Q 440 130 495 160" stroke="#e08e72"/>
+             <!-- Lower Cluster -->
+             <path d="M 390 220 Q 450 220 480 200" />
+             <path d="M 395 230 Q 440 250 470 240" stroke-width="4"/>
+        </g>
+    </g>
+
+    <!-- Ribbing / Texture Overlay on Shell -->
+    <g transform="translate(0,-60)" opacity="0.3" stroke="#5c4033" stroke-width="0.5" fill="none">
+      <path d="M 266 165 Q 300 150 320 140" />
+      <path d="M 250 140 Q 290 130 310 120" />
+      <path d="M 230 120 Q 270 110 290 100" />
+    </g>
+
+  </g> <!-- End Main Group -->
+  
+  <!-- Subtle pearlescent sheen overlay -->
+  <circle cx="240" cy="210" r="100" fill="url(#pearlGrad)" opacity="0.1" pointer-events="none"/>
+
+</svg>

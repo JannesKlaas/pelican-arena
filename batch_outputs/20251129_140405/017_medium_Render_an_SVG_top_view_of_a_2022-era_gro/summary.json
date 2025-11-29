@@ -1,0 +1,88 @@
+{
+  "prompt_idx": 17,
+  "difficulty": "medium",
+  "prompt": "Render an SVG top view of a 2022-era ground-effect Formula 1 car. Show the halo over the cockpit, narrow nose, front wing with four elements, undercut sidepods feeding venturi inlets, and a sculpted rear wing with an open DRS flap plus a beam wing. Depict four exposed 18-inch tires, correct wheelbase proportions, wheel covers, and a visible driver helmet.",
+  "timestamp": "2025-11-29T14:36:24.397857",
+  "models": [
+    {
+      "model": "openai/gpt-5-codex",
+      "status": "success",
+      "files": {
+        "svg": "gpt-5-codex.svg",
+        "png": "gpt-5-codex.png"
+      }
+    },
+    {
+      "model": "openai/gpt-5.1-2025-11-13",
+      "status": "success",
+      "files": {
+        "svg": "gpt-5.1-2025-11-13.svg",
+        "png": "gpt-5.1-2025-11-13.png"
+      }
+    },
+    {
+      "model": "anthropic/claude-haiku-4-5-20251001",
+      "status": "success",
+      "files": {
+        "svg": "claude-haiku-4-5-20251001.svg",
+        "png": "claude-haiku-4-5-20251001.png"
+      }
+    },
+    {
+      "model": "anthropic/claude-opus-4-1-20250805",
+      "status": "success",
+      "files": {
+        "svg": "claude-opus-4-1-20250805.svg",
+        "png": "claude-opus-4-1-20250805.png"
+      }
+    },
+    {
+      "model": "anthropic/claude-sonnet-4-5-20250929",
+      "status": "success",
+      "files": {
+        "svg": "claude-sonnet-4-5-20250929.svg",
+        "png": "claude-sonnet-4-5-20250929.png"
+      }
+    },
+    {
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "success",
+      "files": {
+        "svg": "gemini-2.5-flash-lite.svg",
+        "png": "gemini-2.5-flash-lite.png"
+      }
+    },
+    {
+      "model": "openai/gpt-5-mini-2025-08-07",
+      "status": "success",
+      "files": {
+        "svg": "gpt-5-mini-2025-08-07.svg",
+        "png": "gpt-5-mini-2025-08-07.png"
+      }
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "status": "success",
+      "files": {
+        "svg": "gemini-2.5-flash.svg",
+        "png": "gemini-2.5-flash.png"
+      }
+    },
+    {
+      "model": "google/gemini-3-pro-preview",
+      "status": "success",
+      "files": {
+        "svg": "gemini-3-pro-preview.svg",
+        "png": "gemini-3-pro-preview.png"
+      }
+    },
+    {
+      "model": "openai/gpt-5-nano-2025-08-07",
+      "status": "success",
+      "files": {
+        "svg": "gpt-5-nano-2025-08-07.svg",
+        "png": "gpt-5-nano-2025-08-07.png"
+      }
+    }
+  ]
+}

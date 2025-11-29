@@ -1,0 +1,72 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Muted background -->
+  <rect width="500" height="500" fill="#e8e2d5"/>
+  
+  <!-- Branch -->
+  <path d="M 50 350 Q 250 345 450 340" stroke="#6b5d54" stroke-width="8" fill="none"/>
+  <path d="M 50 350 Q 250 345 450 340" stroke="#8a7565" stroke-width="6" fill="none"/>
+  <path d="M 60 348 L 65 349 M 120 347 L 125 348 M 200 345 L 205 346 M 300 343 L 305 344 M 380 341 L 385 342" stroke="#4a3f37" stroke-width="1"/>
+  
+  <!-- Tail feathers -->
+  <ellipse cx="320" cy="280" rx="45" ry="70" fill="#c41e3a" transform="rotate(25 320 280)"/>
+  <path d="M 305 275 L 308 340 M 315 275 L 318 340 M 325 275 L 328 340 M 335 275 L 338 340" stroke="#a01729" stroke-width="1" opacity="0.5"/>
+  
+  <!-- Body -->
+  <ellipse cx="250" cy="250" rx="55" ry="75" fill="#dc143c"/>
+  
+  <!-- Wing coverts -->
+  <ellipse cx="270" cy="255" rx="35" ry="50" fill="#c41e3a" transform="rotate(-15 270 255)"/>
+  <path d="M 255 235 Q 275 245 280 270" fill="none" stroke="#a01729" stroke-width="1"/>
+  <path d="M 260 240 Q 280 250 285 275" fill="none" stroke="#a01729" stroke-width="1"/>
+  
+  <!-- Wing secondaries -->
+  <path d="M 265 255 Q 290 260 305 285" fill="#b71c1c" stroke="#8b0000" stroke-width="0.5"/>
+  <path d="M 270 260 Q 295 265 310 290" fill="#b71c1c" stroke="#8b0000" stroke-width="0.5"/>
+  
+  <!-- Wing primaries -->
+  <path d="M 275 265 Q 300 270 320 300" fill="#8b0000" stroke="#5c0000" stroke-width="0.5"/>
+  <path d="M 280 270 Q 305 275 325 305" fill="#8b0000" stroke="#5c0000" stroke-width="0.5"/>
+  
+  <!-- Head -->
+  <circle cx="210" cy="200" r="35" fill="#dc143c"/>
+  
+  <!-- Crest -->
+  <path d="M 195 180 Q 190 165 188 155" fill="none" stroke="#dc143c" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 200 175 Q 198 160 196 150" fill="none" stroke="#dc143c" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 206 172 Q 205 157 204 147" fill="none" stroke="#dc143c" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 212 172 Q 213 157 214 147" fill="none" stroke="#dc143c" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Black facial mask -->
+  <path d="M 175 195 Q 185 200 195 198 L 190 210 Q 185 215 175 210 Z" fill="#1a1a1a"/>
+  <ellipse cx="182" cy="202" rx="8" ry="12" fill="#1a1a1a"/>
+  
+  <!-- Black throat -->
+  <ellipse cx="195" cy="220" rx="12" ry="15" fill="#1a1a1a"/>
+  
+  <!-- Eye -->
+  <circle cx="195" cy="195" r="4" fill="#2c2c2c"/>
+  <circle cx="196" cy="194" r="1.5" fill="#ffffff"/>
+  
+  <!-- Beak -->
+  <path d="M 175 200 L 160 198 L 175 196 Z" fill="#ff6b35"/>
+  <path d="M 175 200 L 160 198" stroke="#e55100" stroke-width="0.5" fill="none"/>
+  
+  <!-- Feather texture on body -->
+  <path d="M 230 230 Q 235 232 240 230 M 235 240 Q 240 242 245 240 M 240 250 Q 245 252 250 250" stroke="#a01729" stroke-width="0.5" opacity="0.4"/>
+  <path d="M 245 260 Q 250 262 255 260 M 250 270 Q 255 272 260 270" stroke="#a01729" stroke-width="0.5" opacity="0.4"/>
+  
+  <!-- Feet -->
+  <!-- Left foot -->
+  <path d="M 230 315 L 230 343" stroke="#4a4a4a" stroke-width="3" fill="none"/>
+  <path d="M 230 343 L 220 355" stroke="#4a4a4a" stroke-width="2" fill="none"/>
+  <path d="M 230 343 L 230 358" stroke="#4a4a4a" stroke-width="2" fill="none"/>
+  <path d="M 230 343 L 240 355" stroke="#4a4a4a" stroke-width="2" fill="none"/>
+  <path d="M 230 343 L 235 335" stroke="#4a4a4a" stroke-width="2" fill="none"/>
+  
+  <!-- Right foot -->
+  <path d="M 260 315 L 260 343" stroke="#4a4a4a" stroke-width="3" fill="none"/>
+  <path d="M 260 343 L 250 355" stroke="#4a4a4a" stroke-width="2" fill="none"/>
+  <path d="M 260 343 L 260 358" stroke="#4a4a4a" stroke-width="2" fill="none"/>
+  <path d="M 260 343 L 270 355" stroke="#4a4a4a" stroke-width="2" fill="none"/>
+  <path d="M 260 343 L 265 335" stroke="#4a4a4a" stroke-width="2" fill="none"/>
+</svg>

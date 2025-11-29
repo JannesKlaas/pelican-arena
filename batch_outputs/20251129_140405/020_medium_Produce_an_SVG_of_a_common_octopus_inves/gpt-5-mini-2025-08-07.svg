@@ -1,0 +1,218 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <!-- Background sea gradient -->
+    <linearGradient id="seaGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9ad0e8"/>
+      <stop offset="60%" stop-color="#4aa6cf"/>
+      <stop offset="100%" stop-color="#1f6b8a"/>
+    </linearGradient>
+
+    <!-- Sand gradient -->
+    <linearGradient id="sandGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e9d9b7"/>
+      <stop offset="100%" stop-color="#d5bd88"/>
+    </linearGradient>
+
+    <!-- Octopus body gradient -->
+    <radialGradient id="octoGrad" cx="40%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#f08a6a"/>
+      <stop offset="60%" stop-color="#c85a3b"/>
+      <stop offset="100%" stop-color="#9b3a2a"/>
+    </radialGradient>
+
+    <!-- Glass gradient for jar -->
+    <linearGradient id="glassGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e8f6ff" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#cfefff" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#a8dff7" stop-opacity="0.12"/>
+    </linearGradient>
+
+    <!-- Soft highlight gradient for jar -->
+    <linearGradient id="glassHighlight" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Blur filter for caustics and soft elements -->
+    <filter id="softBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" />
+    </filter>
+
+    <!-- Slight inner shadow for jar rim -->
+    <filter id="rimShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feOffset dx="0" dy="2" result="off"/>
+      <feGaussianBlur in="off" stdDeviation="3" result="blur"/>
+      <feComposite in="blur" in2="SourceAlpha" operator="out" result="comp"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.25 0"/>
+      <feBlend in="SourceGraphic" mode="normal"/>
+    </filter>
+  </defs>
+
+  <!-- Background sea -->
+  <rect width="500" height="500" fill="url(#seaGrad)"/>
+
+  <!-- Soft caustic light shapes -->
+  <g filter="url(#softBlur)" opacity="0.35">
+    <ellipse cx="250" cy="120" rx="180" ry="60" fill="#ffffff" transform="rotate(-6 250 120)" opacity="0.18"/>
+    <ellipse cx="180" cy="80" rx="120" ry="40" fill="#ffffff" transform="rotate(-12 180 80)" opacity="0.12"/>
+    <ellipse cx="320" cy="150" rx="140" ry="45" fill="#ffffff" transform="rotate(8 320 150)" opacity="0.08"/>
+  </g>
+
+  <!-- Seafloor -->
+  <rect x="0" y="340" width="500" height="160" fill="url(#sandGrad)"/>
+
+  <!-- Sand ripples -->
+  <g fill="none" stroke="#d0b77f" stroke-width="2" opacity="0.6">
+    <path d="M0 360 C80 345 140 375 240 360 C340 345 420 375 500 360" />
+    <path d="M0 385 C60 370 140 400 240 385 C340 370 420 400 500 385" />
+    <path d="M0 410 C70 395 150 425 250 410 C350 395 430 425 500 410" opacity="0.5"/>
+  </g>
+
+  <!-- Scattered shells -->
+  <g fill="#f2e0c6" stroke="#d1b68a" stroke-width="1">
+    <path d="M80 415 q10 -12 20 0 q-12 -6 -20 0" />
+    <path d="M120 440 q8 -10 16 0 q-10 -4 -16 0" transform="rotate(-20 120 440)"/>
+    <path d="M420 420 q12 -14 24 0 q-14 -6 -24 0" transform="scale(0.9) translate(30 20)"/>
+    <path d="M310 460 q9 -8 18 0 q-9 -3 -18 0" />
+  </g>
+
+  <!-- Octopus arms (drawn before mantle so appear to emerge from beneath) -->
+  <g stroke-linecap="round" stroke-linejoin="round" stroke="#b14933" stroke-width="44" fill="none" opacity="0.98">
+    <!-- Arm 1 (upper-left) -->
+    <path d="M210 270 C160 210 110 190 90 230" stroke="#b14933" />
+    <!-- Arm 2 (left) -->
+    <path d="M205 295 C150 290 120 320 110 360" stroke="#ad4832" />
+    <!-- Arm 3 (lower-left) -->
+    <path d="M220 320 C190 360 170 400 150 430" stroke="#a33f2a" />
+    <!-- Arm 4 (lower center) -->
+    <path d="M245 335 C260 380 270 420 290 455" stroke="#a13b28" />
+    <!-- Arm 5 (lower right) -->
+    <path d="M270 315 C320 360 340 400 360 430" stroke="#b04933" />
+    <!-- Arm 6 (right, reaching into jar) -->
+    <path d="M260 285 C320 270 340 265 360 250 380 235 380 235 360 240" stroke="#b24b34" />
+    <!-- Arm 7 (upper-right) -->
+    <path d="M235 255 C280 210 320 200 360 210" stroke="#b24b34" />
+    <!-- Arm 8 (top-left curling) -->
+    <path d="M225 240 C195 200 180 185 200 180" stroke="#c25a42" />
+  </g>
+
+  <!-- Suckers: double rows along each arm. positions approximate and varying sizes -->
+  <g fill="#f6d6cc" stroke="#d6a89b" stroke-width="0.8" opacity="0.95">
+    <!-- Arm1 suckers -->
+    <g>
+      <circle cx="180" cy="240" r="6"/>
+      <circle cx="165" cy="255" r="4"/>
+      <circle cx="150" cy="270" r="5"/>
+      <circle cx="135" cy="285" r="3.5"/>
+      <circle cx="120" cy="300" r="4.5"/>
+      <circle cx="105" cy="318" r="3.2"/>
+      <circle cx="95" cy="336" r="2.6"/>
+    </g>
+
+    <!-- Arm2 suckers -->
+    <g>
+      <circle cx="180" cy="300" r="7"/>
+      <circle cx="165" cy="315" r="5"/>
+      <circle cx="150" cy="333" r="6.5"/>
+      <circle cx="140" cy="350" r="4"/>
+      <circle cx="130" cy="370" r="3"/>
+    </g>
+
+    <!-- Arm3 suckers -->
+    <g>
+      <circle cx="200" cy="345" r="8"/>
+      <circle cx="185" cy="370" r="6"/>
+      <circle cx="170" cy="390" r="5"/>
+      <circle cx="155" cy="410" r="4"/>
+    </g>
+
+    <!-- Arm4 suckers -->
+    <g>
+      <circle cx="255" cy="360" r="6.5"/>
+      <circle cx="265" cy="390" r="5"/>
+      <circle cx="275" cy="415" r="4"/>
+      <circle cx="285" cy="435" r="3"/>
+    </g>
+
+    <!-- Arm5 suckers -->
+    <g>
+      <circle cx="300" cy="365" r="5.5"/>
+      <circle cx="320" cy="390" r="4.5"/>
+      <circle cx="340" cy="415" r="3.5"/>
+    </g>
+
+    <!-- Arm6 (reaching into jar) suckers along the extension -->
+    <g>
+      <circle cx="300" cy="280" r="6"/>
+      <circle cx="320" cy="270" r="5"/>
+      <circle cx="340" cy="260" r="4"/>
+      <!-- inside jar (will be visible under glass) -->
+      <circle cx="358" cy="246" r="3.5" fill="#f2d0c6" stroke="#cfa199"/>
+      <circle cx="366" cy="236" r="2.8" fill="#f6d6cc" stroke="#d6a89b" />
+    </g>
+
+    <!-- Arm7 suckers -->
+    <g>
+      <circle cx="260" cy="240" r="5.5"/>
+      <circle cx="280" cy="220" r="4"/>
+      <circle cx="305" cy="210" r="3"/>
+    </g>
+
+    <!-- Arm8 suckers -->
+    <g>
+      <circle cx="215" cy="220" r="6"/>
+      <circle cx="200" cy="210" r="4.5"/>
+      <circle cx="190" cy="200" r="3.2"/>
+    </g>
+  </g>
+
+  <!-- Jar (drawn on top of arms so arm appears to go into it). Semi-transparent glass -->
+  <g filter="url(#rimShadow)">
+    <!-- jar body -->
+    <path d="M320 240
+             C320 230 360 230 360 240
+             L360 360
+             C360 380 330 390 300 390
+             C270 390 240 380 240 360
+             L240 245
+             C240 230 280 240 320 240 Z"
+          fill="url(#glassGrad)" stroke="#d6eef9" stroke-width="2" opacity="0.95"/>
+    <!-- jar mouth ellipses -->
+    <ellipse cx="300" cy="240" rx="60" ry="16" fill="rgba(255,255,255,0.04)" stroke="#cfeefc" stroke-width="1.5" />
+    <ellipse cx="300" cy="240" rx="40" ry="10" fill="none" stroke="#f6fbff" stroke-width="1" opacity="0.25"/>
+    <!-- inner base ellipse to suggest thickness -->
+    <ellipse cx="300" cy="384" rx="30" ry="8" fill="rgba(255,255,255,0.02)" stroke="#cfeefc" stroke-width="0.8" opacity="0.6"/>
+    <!-- highlight along glass -->
+    <path d="M268 252 C288 240 300 238 325 234" fill="none" stroke="url(#glassHighlight)" stroke-width="12" stroke-linecap="round" opacity="0.7"/>
+    <!-- small reflective spark -->
+    <circle cx="340" cy="270" r="6" fill="#ffffff" opacity="0.25"/>
+  </g>
+
+  <!-- Mantle (drawn last so it overlaps arm bases) -->
+  <g>
+    <ellipse cx="230" cy="240" rx="70" ry="60" fill="url(#octoGrad)" stroke="#7e2f20" stroke-width="1.5"/>
+    <!-- subtle inner shading -->
+    <ellipse cx="215" cy="230" rx="35" ry="25" fill="#000" opacity="0.06" />
+    <!-- Eyes: forward-facing with horizontal pupils -->
+    <!-- Left eye -->
+    <g>
+      <ellipse cx="210" cy="235" rx="12" ry="8" fill="#ffffff" />
+      <rect x="199" y="232" width="22" height="6" rx="3" fill="#111"/>
+    </g>
+    <!-- Right eye -->
+    <g>
+      <ellipse cx="250" cy="235" rx="12" ry="8" fill="#ffffff" />
+      <rect x="239" y="232" width="22" height="6" rx="3" fill="#111"/>
+    </g>
+    <!-- subtle shine on mantle -->
+    <path d="M180 220 C200 210 240 205 265 215" fill="none" stroke="#ffd7c9" stroke-width="3" opacity="0.12" stroke-linecap="round"/>
+  </g>
+
+  <!-- Small details: tiny sand grains near jar -->
+  <g fill="#d4b687" opacity="0.9">
+    <circle cx="340" cy="380" r="2"/>
+    <circle cx="360" cy="392" r="1.5"/>
+    <circle cx="330" cy="398" r="1.8"/>
+    <circle cx="310" cy="400" r="1.4"/>
+  </g>
+</svg>

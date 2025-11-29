@@ -1,0 +1,215 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <linearGradient id="waterGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d3b66"/>
+      <stop offset="60%" stop-color="#0f4c75"/>
+      <stop offset="100%" stop-color="#1b3b4d"/>
+    </linearGradient>
+    <linearGradient id="sandGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d7c49e"/>
+      <stop offset="100%" stop-color="#c2a879"/>
+    </linearGradient>
+    <radialGradient id="causticLight" cx="0.5" cy="0.15" r="0.6">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.35)"/>
+      <stop offset="50%" stop-color="rgba(255,255,255,0.12)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+    <linearGradient id="octoBodyGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f18c79"/>
+      <stop offset="50%" stop-color="#e6735e"/>
+      <stop offset="100%" stop-color="#c85c57"/>
+    </linearGradient>
+    <linearGradient id="armGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f5a08b"/>
+      <stop offset="100%" stop-color="#d86b5c"/>
+    </linearGradient>
+    <linearGradient id="jarGlass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="rgba(210,238,250,0.6)"/>
+      <stop offset="60%" stop-color="rgba(170,210,230,0.3)"/>
+      <stop offset="100%" stop-color="rgba(140,190,215,0.1)"/>
+    </linearGradient>
+    <linearGradient id="shell1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f6e0c6"/>
+      <stop offset="100%" stop-color="#e0bfa0"/>
+    </linearGradient>
+    <linearGradient id="shell2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f9f2e8"/>
+      <stop offset="100%" stop-color="#d4c1b0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background water -->
+  <rect x="0" y="0" width="500" height="500" fill="url(#waterGrad)"/>
+
+  <!-- Caustic light overlay -->
+  <circle cx="250" cy="70" r="260" fill="url(#causticLight)" />
+
+  <!-- Seafloor -->
+  <rect x="0" y="340" width="500" height="160" fill="url(#sandGrad)"/>
+
+  <!-- Sand ripples -->
+  <g stroke="#c3aa82" stroke-width="1.2" fill="none" opacity="0.6">
+    <path d="M10 360 Q 80 350 150 360 T 290 360 T 430 360 T 520 360"/>
+    <path d="M-20 380 Q 60 370 140 382 T 280 382 T 420 380 T 540 382"/>
+    <path d="M0 402 Q 70 392 140 404 T 280 404 T 420 402 T 540 404"/>
+    <path d="M-30 424 Q 50 414 130 426 T 270 426 T 410 424 T 550 426"/>
+  </g>
+
+  <!-- Scattered shells -->
+  <g opacity="0.95">
+    <path d="M70 390 Q 80 370 100 372 Q 120 374 130 390 Q 100 405 70 390 Z" fill="url(#shell1)" stroke="#c7a37f" stroke-width="1"/>
+    <path d="M180 410 Q 190 395 210 396 Q 228 398 238 412 Q 210 425 180 410 Z" fill="url(#shell2)" stroke="#b89e87" stroke-width="1"/>
+    <path d="M360 395 Q 372 380 392 383 Q 408 386 420 400 Q 392 412 360 395 Z" fill="url(#shell1)" stroke="#c7a37f" stroke-width="1"/>
+    <path d="M290 430 Q 302 416 324 417 Q 342 419 354 432 Q 324 445 290 430 Z" fill="url(#shell2)" stroke="#b89e87" stroke-width="1"/>
+  </g>
+
+  <!-- Octopus group -->
+  <g transform="translate(0,10)">
+    <!-- Arms: eight arms, some layered behind -->
+    <g id="arms-back" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Back left arm 1 -->
+      <path d="M240 310 C 190 310 150 320 120 340 C 95 357 80 382 78 402" stroke="url(#armGrad)" stroke-width="24"/>
+      <!-- Back left arm 2 -->
+      <path d="M250 315 C 205 325 170 340 145 360 C 120 380 110 400 108 418" stroke="url(#armGrad)" stroke-width="22"/>
+      <!-- Back right arm 1 -->
+      <path d="M270 312 C 320 320 365 332 395 352 C 420 370 435 395 440 418" stroke="url(#armGrad)" stroke-width="24"/>
+      <!-- Back right arm 2 -->
+      <path d="M260 318 C 305 332 340 348 360 370 C 380 392 385 410 388 428" stroke="url(#armGrad)" stroke-width="22"/>
+    </g>
+
+    <!-- Front arms including jar interaction -->
+    <g id="arms-front" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Front left arm curled -->
+      <path d="M238 300 C 190 295 155 292 130 300 C 105 308 95 323 98 340 C 102 360 120 372 138 377" stroke="url(#armGrad)" stroke-width="24"/>
+      <!-- Front right curling under -->
+      <path d="M272 302 C 320 298 360 295 390 300 C 420 305 438 318 442 335 C 447 355 435 372 417 380" stroke="url(#armGrad)" stroke-width="24"/>
+      <!-- Arm reaching toward front sand -->
+      <path d="M245 308 C 210 320 185 335 170 350 C 155 365 150 380 152 395 C 155 415 170 430 188 436" stroke="url(#armGrad)" stroke-width="22"/>
+      <!-- Main arm entering jar -->
+      <path id="arm-into-jar" d="M265 305 C 295 305 315 305 335 308 C 355 311 370 316 380 325 C 390 334 395 346 395 360 C 395 376 393 395 394 410 C 394 430 400 445 408 452" stroke="url(#armGrad)" stroke-width="24"/>
+    </g>
+
+    <!-- Suckers: double rows, varying in size -->
+    <g id="suckers" fill="#fbe4d9" stroke="#e2b4a1" stroke-width="0.7" opacity="0.9">
+      <!-- Along arm into jar (outer row) -->
+      <circle cx="295" cy="308" r="3.8"/>
+      <circle cx="315" cy="311" r="3.4"/>
+      <circle cx="335" cy="314" r="3"/>
+      <circle cx="355" cy="320" r="2.6"/>
+      <circle cx="372" cy="332" r="2.2"/>
+      <circle cx="382" cy="346" r="1.9"/>
+      <circle cx="388" cy="360" r="1.7"/>
+      <!-- Along arm into jar (inner row) -->
+      <circle cx="292" cy="302" r="3.2"/>
+      <circle cx="312" cy="305" r="2.9"/>
+      <circle cx="332" cy="308" r="2.5"/>
+      <circle cx="350" cy="312" r="2.2"/>
+      <circle cx="366" cy="322" r="1.9"/>
+      <circle cx="375" cy="335" r="1.7"/>
+      <circle cx="381" cy="348" r="1.5"/>
+
+      <!-- Suckers on front left arm -->
+      <circle cx="190" cy="298" r="3.5"/>
+      <circle cx="165" cy="299" r="3.2"/>
+      <circle cx="145" cy="303" r="2.8"/>
+      <circle cx="130" cy="309" r="2.5"/>
+      <circle cx="118" cy="320" r="2.1"/>
+      <circle cx="110" cy="333" r="1.8"/>
+      <circle cx="108" cy="347" r="1.6"/>
+
+      <circle cx="192" cy="292" r="3"/>
+      <circle cx="168" cy="293" r="2.7"/>
+      <circle cx="148" cy="297" r="2.4"/>
+      <circle cx="134" cy="303" r="2"/>
+      <circle cx="122" cy="312" r="1.8"/>
+      <circle cx="114" cy="324" r="1.6"/>
+      <circle cx="111" cy="337" r="1.4"/>
+
+      <!-- Suckers on front right arm under -->
+      <circle cx="320" cy="299" r="3.4"/>
+      <circle cx="345" cy="297" r="3"/>
+      <circle cx="370" cy="298" r="2.7"/>
+      <circle cx="392" cy="302" r="2.3"/>
+      <circle cx="412" cy="309" r="2"/>
+      <circle cx="428" cy="320" r="1.8"/>
+      <circle cx="437" cy="334" r="1.6"/>
+
+      <circle cx="318" cy="293" r="3"/>
+      <circle cx="343" cy="291" r="2.7"/>
+      <circle cx="368" cy="292" r="2.4"/>
+      <circle cx="390" cy="296" r="2.1"/>
+      <circle cx="408" cy="303" r="1.9"/>
+      <circle cx="423" cy="313" r="1.6"/>
+      <circle cx="432" cy="326" r="1.4"/>
+
+      <!-- Suckers on down arm to front sand -->
+      <circle cx="215" cy="320" r="3.2"/>
+      <circle cx="195" cy="333" r="2.9"/>
+      <circle cx="180" cy="348" r="2.6"/>
+      <circle cx="170" cy="364" r="2.2"/>
+      <circle cx="166" cy="380" r="2"/>
+      <circle cx="168" cy="395" r="1.8"/>
+
+      <circle cx="218" cy="314" r="2.9"/>
+      <circle cx="198" cy="327" r="2.6"/>
+      <circle cx="183" cy="341" r="2.3"/>
+      <circle cx="173" cy="356" r="2"/>
+      <circle cx="169" cy="371" r="1.8"/>
+      <circle cx="170" cy="386" r="1.6"/>
+    </g>
+
+    <!-- Mantle (body) -->
+    <ellipse cx="255" cy="245" rx="70" ry="80" fill="url(#octoBodyGrad)"/>
+
+    <!-- Head-top shading -->
+    <ellipse cx="255" cy="220" rx="58" ry="50" fill="rgba(255,255,255,0.25)" opacity="0.5"/>
+
+    <!-- Eyes -->
+    <g id="eyes">
+      <!-- Left eye socket -->
+      <ellipse cx="230" cy="245" rx="18" ry="16" fill="#f0e3dc"/>
+      <!-- Right eye socket -->
+      <ellipse cx="280" cy="245" rx="18" ry="16" fill="#f0e3dc"/>
+
+      <!-- Pupils: horizontal -->
+      <ellipse cx="230" cy="245" rx="9" ry="4" fill="#1b1b1b"/>
+      <ellipse cx="280" cy="245" rx="9" ry="4" fill="#1b1b1b"/>
+
+      <!-- Eye highlights -->
+      <circle cx="226" cy="241" r="2" fill="#ffffff" opacity="0.9"/>
+      <circle cx="276" cy="241" r="2" fill="#ffffff" opacity="0.9"/>
+    </g>
+
+    <!-- Area where arms meet (beak hidden) -->
+    <ellipse cx="255" cy="290" rx="38" ry="22" fill="#d86b5c" opacity="0.95"/>
+
+  </g>
+
+  <!-- Glass jar on seafloor -->
+  <g id="glass-jar" transform="translate(0,10)">
+    <!-- Jar body -->
+    <ellipse cx="395" cy="355" rx="44" ry="20" fill="rgba(150,180,200,0.25)"/>
+    <path d="M351 355 C 350 385 360 410 395 415 C 430 410 440 385 439 355 Z"
+          fill="url(#jarGlass)" stroke="rgba(210,238,250,0.8)" stroke-width="2"/>
+
+    <!-- Jar mouth -->
+    <ellipse cx="395" cy="353" rx="32" ry="11" fill="rgba(210,238,250,0.8)" stroke="rgba(230,245,255,0.9)" stroke-width="1.6"/>
+    <ellipse cx="395" cy="353" rx="27" ry="8" fill="rgba(50,90,120,0.12)" />
+
+    <!-- Glass highlights -->
+    <path d="M372 340 C 365 350 362 365 366 380" stroke="rgba(255,255,255,0.7)" stroke-width="2" fill="none" />
+    <path d="M410 342 C 418 352 421 365 418 380" stroke="rgba(255,255,255,0.45)" stroke-width="1.7" fill="none"/>
+    <path d="M380 362 C 385 360 390 360 398 362" stroke="rgba(255,255,255,0.8)" stroke-width="1.3" fill="none"/>
+
+    <!-- Caustic reflection on jar -->
+    <path d="M365 370 Q 382 362 405 370" stroke="rgba(255,255,255,0.25)" stroke-width="1.2" fill="none" />
+    <path d="M368 384 Q 390 376 412 384" stroke="rgba(255,255,255,0.2)" stroke-width="1" fill="none" />
+  </g>
+
+  <!-- Soft caustic light on seafloor near octopus and jar -->
+  <g opacity="0.22" stroke="rgba(255,255,255,0.7)" stroke-width="1" fill="none">
+    <path d="M180 350 Q 210 340 240 345 T 300 350 T 360 348"/>
+    <path d="M190 365 Q 220 355 250 360 T 305 366 T 360 364"/>
+    <path d="M320 360 Q 350 350 380 353 T 430 356"/>
+  </g>
+</svg>

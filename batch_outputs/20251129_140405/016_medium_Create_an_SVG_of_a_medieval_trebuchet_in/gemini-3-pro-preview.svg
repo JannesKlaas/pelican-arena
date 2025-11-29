@@ -1,0 +1,106 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Definitions for gradients and filters -->
+  <defs>
+    <linearGradient id="woodGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#5D4037;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#8D6E63;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5D4037;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="stoneGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#BDBDBD;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#757575;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadowBlur">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" />
+      <feOffset dx="2" dy="2" result="offsetblur" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.5" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Ground Shadows -->
+  <ellipse cx="250" cy="455" rx="160" ry="15" fill="#000" opacity="0.2" />
+  
+  <!-- Ground Planks -->
+  <g stroke="#3E2723" stroke-width="1">
+    <rect x="50" y="450" width="400" height="10" fill="#795548" />
+    <line x1="150" y1="450" x2="150" y2="460" />
+    <line x1="250" y1="450" x2="250" y2="460" />
+    <line x1="350" y1="450" x2="350" y2="460" />
+  </g>
+  <!-- Ground Pegs -->
+  <path d="M100,460 L100,470 M400,460 L400,470" stroke="#3E2723" stroke-width="3" />
+
+  <!-- Far Side Frame Support -->
+  <path d="M250 150 L180 450 L200 450 Z" fill="#4E342E" />
+  <path d="M250 150 L320 450 L300 450 Z" fill="#4E342E" />
+
+  <!-- Winch Mechanism (Base) -->
+  <circle cx="350" cy="430" r="15" fill="#5D4037" stroke="#3E2723" stroke-width="2" />
+  <path d="M350 430 L370 410" stroke="#3E2723" stroke-width="4" stroke-linecap="round" />
+
+  <!-- Taut Winch Rope -->
+  <line x1="350" y1="430" x2="160" y2="410" stroke="#D7CCC8" stroke-width="2" stroke-dasharray="4,2" />
+
+  <!-- Counterweight Box (Hanging vertically) -->
+  <!-- Connecting hinge from short arm tip -->
+  <g transform="translate(315, 85)">
+    <rect x="-25" y="0" width="50" height="60" fill="#424242" stroke="#212121" stroke-width="2" />
+    <rect x="-25" y="0" width="50" height="10" fill="#5D4037" /> <!-- Wooden lid -->
+    <rect x="-25" y="50" width="50" height="10" fill="#5D4037" /> <!-- Wooden base -->
+    <line x1="-20" y1="0" x2="-20" y2="60" stroke="#212121" />
+    <line x1="20" y1="0" x2="20" y2="60" stroke="#212121" />
+    <!-- Hinge pin -->
+    <circle cx="0" cy="-5" r="4" fill="#757575" />
+    <line x1="0" y1="-5" x2="0" y2="0" stroke="#424242" stroke-width="4" />
+  </g>
+
+  <!-- The Throwing Arm (Beam) -->
+  <!-- Pivot at 250,150. Angled. Short arm up-right, Long arm down-left. -->
+  <g transform="rotate(-35, 250, 150)">
+    <!-- Main Beam -->
+    <path d="M250 140 L450 145 L450 155 L250 160 L50 155 L50 145 Z" fill="url(#woodGradient)" stroke="#3E2723" stroke-width="1" />
+    
+    <!-- Iron Reinforcement Plates -->
+    <rect x="230" y="140" width="40" height="20" fill="#546E7A" />
+    <rect x="430" y="145" width="20" height="10" fill="#546E7A" /> <!-- Counterweight tip -->
+    <rect x="50" y="145" width="20" height="10" fill="#546E7A" /> <!-- Projectile tip -->
+    
+    <!-- Axle Pin -->
+    <circle cx="250" cy="150" r="8" fill="#78909C" stroke="#37474F" stroke-width="2" />
+    
+    <!-- Release Pin (Angled Hook) -->
+    <path d="M50 150 L40 150 L35 140" fill="none" stroke="#CFD8DC" stroke-width="3" stroke-linecap="round" />
+  </g>
+
+  <!-- Near Side Frame Support (A-Frame) -->
+  <path d="M250 150 L150 450 L170 450 Z" fill="url(#woodGradient)" />
+  <path d="M250 150 L350 450 L330 450 Z" fill="url(#woodGradient)" />
+  <!-- Cross Bracing -->
+  <rect x="180" y="350" width="140" height="15" fill="#6D4C41" />
+  
+  <!-- Sling and Stone -->
+  <!-- Calculating tip position roughly based on rotation: Tip is approx at 160, 410 -->
+  <g>
+    <!-- Sling Ropes -->
+    <path d="M87 264 Q 100 350 120 440" stroke="#D7CCC8" stroke-width="2" fill="none" /> <!-- Upper rope -->
+    <path d="M87 264 Q 90 350 100 440" stroke="#D7CCC8" stroke-width="2" fill="none" /> <!-- Lower rope attached to pouch -->
+    
+    <!-- The Stone -->
+    <circle cx="110" cy="440" r="12" fill="url(#stoneGradient)" stroke="#424242" />
+    
+    <!-- Sling Pouch (Leather) -->
+    <path d="M100 440 Q 110 455 120 440" fill="none" stroke="#8D6E63" stroke-width="4" stroke-linecap="round" />
+  </g>
+
+  <!-- Bolts/Details on Frame -->
+  <circle cx="250" cy="150" r="4" fill="#37474F" />
+  <circle cx="195" cy="358" r="3" fill="#3E2723" />
+  <circle cx="305" cy="358" r="3" fill="#3E2723" />
+
+</svg>

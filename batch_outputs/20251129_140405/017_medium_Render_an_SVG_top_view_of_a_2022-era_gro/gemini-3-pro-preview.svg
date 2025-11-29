@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- Background -->
+  <rect width="500" height="500" fill="#f0f0f0"/>
+
+  <!-- Group: Car Body Centered -->
+  <g transform="translate(250, 250)">
+    
+    <!-- Floor / Diffuser (The wide ground effect floor) -->
+    <path d="M-90 -60 L-90 160 L-50 220 L50 220 L90 160 L90 -60 Z" fill="#1a1a1a" />
+    <rect x="-100" y="-60" width="200" height="200" rx="10" fill="#1a1a1a" opacity="0.8"/>
+
+    <!-- Rear Suspension Arms -->
+    <line x1="-30" y1="150" x2="-130" y2="150" stroke="#333" stroke-width="6" />
+    <line x1="30" y1="150" x2="130" y2="150" stroke="#333" stroke-width="6" />
+    <line x1="-30" y1="150" x2="-130" y2="170" stroke="#333" stroke-width="6" />
+    <line x1="30" y1="150" x2="130" y2="170" stroke="#333" stroke-width="6" />
+
+    <!-- Front Suspension Arms -->
+    <line x1="-25" y1="-130" x2="-130" y2="-130" stroke="#333" stroke-width="6" />
+    <line x1="25" y1="-130" x2="130" y2="-130" stroke="#333" stroke-width="6" />
+    <line x1="-25" y1="-110" x2="-130" y2="-130" stroke="#333" stroke-width="6" />
+    <line x1="25" y1="-110" x2="130" y2="-130" stroke="#333" stroke-width="6" />
+
+    <!-- Tires (18 inch, exposed) -->
+    <!-- Front Left -->
+    <g transform="translate(-160, -160)">
+      <rect x="-35" y="-35" width="70" height="110" rx="10" fill="#222" />
+      <circle cx="0" cy="20" r="18" fill="#444" /> <!-- Wheel Cover -->
+      <circle cx="0" cy="20" r="5" fill="#666" /> <!-- Nut -->
+    </g>
+    <!-- Front Right -->
+    <g transform="translate(160, -160)">
+      <rect x="-35" y="-35" width="70" height="110" rx="10" fill="#222" />
+      <circle cx="0" cy="20" r="18" fill="#444" />
+      <circle cx="0" cy="20" r="5" fill="#666" />
+    </g>
+    <!-- Rear Left -->
+    <g transform="translate(-160, 160)">
+      <rect x="-40" y="-45" width="80" height="110" rx="10" fill="#222" />
+      <circle cx="0" cy="10" r="18" fill="#444" />
+      <circle cx="0" cy="10" r="5" fill="#666" />
+    </g>
+    <!-- Rear Right -->
+    <g transform="translate(160, 160)">
+      <rect x="-40" y="-45" width="80" height="110" rx="10" fill="#222" />
+      <circle cx="0" cy="10" r="18" fill="#444" />
+      <circle cx="0" cy="10" r="5" fill="#666" />
+    </g>
+
+    <!-- Front Wheel Wake Deflectors (Eyebrows) -->
+    <path d="M-135 -180 Q-160 -180 -180 -160" fill="none" stroke="#1a1a1a" stroke-width="8" stroke-linecap="round"/>
+    <path d="M135 -180 Q160 -180 180 -160" fill="none" stroke="#1a1a1a" stroke-width="8" stroke-linecap="round"/>
+
+    <!-- Main Body / Sidepods (Coke Bottle Shape) -->
+    <path d="M-25 -210 
+             L25 -210 
+             L35 -80 
+             Q85 -80 85 -30 
+             Q85 80 40 150 
+             L20 190 
+             L-20 190 
+             L-40 150 
+             Q-85 80 -85 -30 
+             Q-85 -80 -35 -80 
+             Z" fill="#D40000" stroke="#990000" stroke-width="2"/>
+
+    <!-- Venturi Inlets -->
+    <path d="M-85 -30 L-80 -60 L-35 -60 L-40 -30 Z" fill="#111" />
+    <path d="M85 -30 L80 -60 L35 -60 L40 -30 Z" fill="#111" />
+
+    <!-- Nose Cone -->
+    <path d="M-12 -100 L-12 -220 Q0 -235 12 -220 L12 -100 Z" fill="#D40000" />
+
+    <!-- Front Wing (4 elements) -->
+    <g transform="translate(0, -225)">
+      <!-- Main Plane -->
+      <path d="M0 0 L-90 15 L-100 10 L0 -5 L100 10 L90 15 Z" fill="#D40000" />
+      <!-- Flaps -->
+      <path d="M-12 5 Q-50 15 -95 25" fill="none" stroke="#333" stroke-width="3"/>
+      <path d="M12 5 Q50 15 95 25" fill="none" stroke="#333" stroke-width="3"/>
+      <path d="M-15 10 Q-50 20 -92 30" fill="none" stroke="#333" stroke-width="3"/>
+      <path d="M15 10 Q50 20 92 30" fill="none" stroke="#333" stroke-width="3"/>
+      <!-- Endplates -->
+      <path d="M-100 5 L-100 35" stroke="#1a1a1a" stroke-width="4"/>
+      <path d="M100 5 L100 35" stroke="#1a1a1a" stroke-width="4"/>
+    </g>
+
+    <!-- Cockpit -->
+    <rect x="-20" y="-90" width="40" height="70" rx="15" fill="#222" />
+    
+    <!-- Driver Helmet -->
+    <circle cx="0" cy="-65" r="12" fill="#FFD700" stroke="#111" stroke-width="1"/>
+    <path d="M-8 -68 Q0 -60 8 -68" fill="none" stroke="#333" stroke-width="3" /> <!-- Visor -->
+
+    <!-- Halo -->
+    <path d="M0 -90 L0 -110" stroke="#1a1a1a" stroke-width="6" /> <!-- Center pillar -->
+    <path d="M-25 -70 Q-30 -90 0 -90 Q30 -90 25 -70" fill="none" stroke="#1a1a1a" stroke-width="6" stroke-linecap="round"/> <!-- Hoop -->
+
+    <!-- Engine Cover / Shark Fin area -->
+    <path d="M-5 -50 L5 -50 L2 150 L-2 150 Z" fill="#A00000" />
+
+    <!-- Rear Wing Assembly -->
+    <g transform="translate(0, 210)">
+      <!-- Beam Wing (Lower) -->
+      <path d="M-60 0 L60 0 L50 15 L-50 15 Z" fill="#333" />
+      
+      <!-- Endplates -->
+      <path d="M-80 -10 L-80 40" stroke="#D40000" stroke-width="6" />
+      <path d="M80 -10 L80 40" stroke="#D40000" stroke-width="6" />
+
+      <!-- Main Plane -->
+      <rect x="-80" y="15" width="160" height="20" fill="#1a1a1a" />
+      
+      <!-- DRS Flap (Open state) -->
+      <rect x="-80" y="10" width="160" height="12" fill="#D40000" transform="rotate(-10, 0, 0) translate(0, -15)" />
+      <!-- DRS Actuator Pod -->
+      <rect x="-5" y="5" width="10" height="20" fill="#333" />
+    </g>
+
+  </g>
+</svg>

@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#f6f7f9"/>
+
+  <!-- Wheels (under) -->
+  <!-- Front Left -->
+  <g id="wheel-front-left">
+    <circle cx="160" cy="150" r="46" fill="#111" stroke="#222" stroke-width="3"/>
+    <circle cx="160" cy="150" r="30" fill="#666" />
+    <circle cx="160" cy="150" r="12" fill="#222"/>
+  </g>
+  <!-- Front Right -->
+  <g id="wheel-front-right">
+    <circle cx="340" cy="150" r="46" fill="#111" stroke="#222" stroke-width="3"/>
+    <circle cx="340" cy="150" r="30" fill="#666" />
+    <circle cx="340" cy="150" r="12" fill="#222"/>
+  </g>
+  <!-- Rear Left -->
+  <g id="wheel-rear-left">
+    <circle cx="160" cy="295" r="46" fill="#111" stroke="#222" stroke-width="3"/>
+    <circle cx="160" cy="295" r="30" fill="#666" />
+    <circle cx="160" cy="295" r="12" fill="#222"/>
+  </g>
+  <!-- Rear Right -->
+  <g id="wheel-rear-right">
+    <circle cx="340" cy="295" r="46" fill="#111" stroke="#222" stroke-width="3"/>
+    <circle cx="340" cy="295" r="30" fill="#666" />
+    <circle cx="340" cy="295" r="12" fill="#222"/>
+  </g>
+
+  <!-- Front wing assembly (four elements) -->
+  <g id="front-wing">
+    <!-- element 1 (closest to ground) -->
+    <path d="M110 132 C150 120, 350 120, 390 132 L390 150 C350 138,150 138,110 150 Z" fill="#1b3b8f" stroke="#0f234f" stroke-width="2"/>
+    <!-- element 2 -->
+    <path d="M120 140 C160 132, 340 132, 380 140 L380 152 C340 144,160 144,120 152 Z" fill="#2a56c6" stroke="#0f234f" stroke-width="2"/>
+    <!-- element 3 -->
+    <path d="M130 148 C170 144,330 144,370 148 L370 156 C330 150,170 150,130 156 Z" fill="#1b3b8f" stroke="#0f234f" stroke-width="2"/>
+    <!-- element 4 -->
+    <path d="M140 156 C180 152,320 152,360 156 L360 160 C320 156,180 156,140 160 Z" fill="#0b2a7a" stroke="#07183e" stroke-width="2"/>
+    <!-- endplates -->
+    <rect x="100" y="128" width="12" height="40" fill="#0b2a7a" stroke="#07183e" stroke-width="2" rx="4"/>
+    <rect x="388" y="128" width="12" height="40" fill="#0b2a7a" stroke="#07183e" stroke-width="2" rx="4"/>
+  </g>
+
+  <!-- Nose cone -->
+  <path d="M250 70 L235 130 C230 138,270 138,265 130 L250 70 Z" fill="#1b3b8f" stroke="#07183e" stroke-width="2"/>
+
+  <!-- Central chassis / monocoque -->
+  <g id="chassis">
+    <!-- main tub -->
+    <path d="M200 130 C190 160,185 175,180 190 C170 220,170 240,170 255 C172 270,210 285,250 285 C290 285,328 270,330 255 C330 240,330 220,320 190 C315 175,310 160,300 130 L200 130 Z"
+          fill="#0b2a7a" stroke="#07183e" stroke-width="2"/>
+    <!-- cockpit opening -->
+    <ellipse cx="250" cy="205" rx="40" ry="24" fill="#0b2a7a"/>
+    <ellipse cx="250" cy="205" rx="34" ry="18" fill="#0b77ff" opacity="0.07"/>
+  </g>
+
+  <!-- Halo (top view horseshoe) -->
+  <g id="halo">
+    <!-- left arm -->
+    <path d="M215 185 C205 180,200 170,200 160 C200 150,210 140,225 142 C235 143,245 150,250 150" fill="none" stroke="#d9d9d9" stroke-width="10" stroke-linecap="round"/>
+    <!-- right arm -->
+    <path d="M285 185 C295 180,300 170,300 160 C300 150,290 140,275 142 C265 143,255 150,250 150" fill="none" stroke="#d9d9d9" stroke-width="10" stroke-linecap="round"/>
+    <!-- front central hoop -->
+    <path d="M230 150 C238 145,262 145,270 150" fill="none" stroke="#d9d9d9" stroke-width="12" stroke-linecap="round"/>
+  </g>
+
+  <!-- Driver helmet visible in cockpit -->
+  <g id="helmet">
+    <ellipse cx="250" cy="205" rx="18" ry="14" fill="#e83c3c" stroke="#5a1a1a" stroke-width="2"/>
+    <rect x="238" y="198" width="24" height="6" rx="3" fill="#111" opacity="0.7"/>
+    <circle cx="254" cy="201" r="2" fill="#fff" opacity="0.9"/>
+  </g>
+
+  <!-- Sidepods with undercut feeding venturi inlets -->
+  <g id="sidepods">
+    <!-- left sidepod -->
+    <path d="M180 190 C150 196,135 210,135 230 C140 252,160 262,178 268 C190 271,200 268,208 260 C200 245,198 230,200 210 C198 200,188 192,180 190 Z"
+          fill="#2a56c6" stroke="#07183e" stroke-width="2"/>
+    <!-- right sidepod -->
+    <path d="M320 190 C350 196,365 210,365 230 C360 252,340 262,322 268 C310 271,300 268,292 260 C300 245,302 230,300 210 C302 200,312 192,320 190 Z"
+          fill="#2a56c6" stroke="#07183e" stroke-width="2"/>
+    <!-- undercut shading -->
+    <path d="M200 220 C190 232,170 242,160 250 L180 256 C190 248,202 238,210 230 Z" fill="#0b2a7a" opacity="0.25"/>
+    <path d="M300 220 C310 232,330 242,340 250 L320 256 C310 248,298 238,290 230 Z" fill="#0b2a7a" opacity="0.25"/>
+  </g>
+
+  <!-- Venturi / diffuser inlets (rear) -->
+  <g id="diffuser-inlets">
+    <path d="M200 285 C190 300,188 314,190 330 L210 330 C208 318,212 308,218 300 C210 292,204 288,200 285 Z" fill="#0b2a7a" stroke="#07183e" stroke-width="1"/>
+    <path d="M300 285 C310 300,312 314,310 330 L290 330 C292 318,288 308,282 300 C290 292,296 288,300 285 Z" fill="#0b2a7a" stroke="#07183e" stroke-width="1"/>
+    <!-- small vents -->
+    <ellipse cx="240" cy="305" rx="8" ry="4" fill="#07183e" opacity="0.25"/>
+    <ellipse cx="260" cy="305" rx="8" ry="4" fill="#07183e" opacity="0.25"/>
+  </g>
+
+  <!-- Beam wing (little element forward of main rear wing) -->
+  <path d="M160 372 C200 360,300 360,340 372 L340 378 C300 368,200 368,160 378 Z" fill="#1b3b8f" stroke="#07183e" stroke-width="2"/>
+
+  <!-- Rear wing (sculpted) with open DRS flap -->
+  <g id="rear-wing">
+    <!-- endplates -->
+    <rect x="130" y="388" width="20" height="50" fill="#0b2a7a" stroke="#07183e" stroke-width="2" rx="3"/>
+    <rect x="350" y="388" width="20" height="50" fill="#0b2a7a" stroke="#07183e" stroke-width="2" rx="3"/>
+    <!-- main wing left half -->
+    <path d="M150 385 C210 375,290 375,250 385 L250 395 C295 385,205 385,150 395 Z" fill="#2a56c6" stroke="#07183e" stroke-width="2"/>
+    <!-- main wing right half -->
+    <path d="M350 385 C290 375,210 375,250 385 L250 395 C205 385,295 385,350 395 Z" fill="#2a56c6" stroke="#07183e" stroke-width="2"/>
+    <!-- open DRS gap (center open) -->
+    <rect x="240" y="385" width="20" height="12" fill="#f6f7f9"/>
+    <rect x="240" y="397" width="20" height="6" fill="#2a56c6" opacity="0.25"/>
+  </g>
+
+  <!-- Rear body / engine cover sculpting -->
+  <path d="M220 285 C240 300,260 300,280 285 C290 275,300 265,300 255 C295 250,255 248,240 248 C220 248,210 256,200 270 C205 279,213 286,220 285 Z"
+        fill="#1b3b8f" stroke="#07183e" stroke-width="2" opacity="0.95"/>
+
+  <!-- small details / sponsor stripe -->
+  <path d="M150 220 C200 200,300 200,350 220 L350 224 C300 208,200 208,150 224 Z" fill="#ffffff" opacity="0.12"/>
+  <rect x="240" y="272" width="20" height="6" rx="3" fill="#ffffff" opacity="0.25"/>
+
+  <!-- Top overlays to ensure wheels appear exposed in front and rear correctly -->
+  <!-- Slight shadow under wheels -->
+  <ellipse cx="160" cy="150" rx="44" ry="11" fill="#000" opacity="0.08"/>
+  <ellipse cx="340" cy="150" rx="44" ry="11" fill="#000" opacity="0.08"/>
+  <ellipse cx="160" cy="295" rx="44" ry="11" fill="#000" opacity="0.08"/>
+  <ellipse cx="340" cy="295" rx="44" ry="11" fill="#000" opacity="0.08"/>
+
+  <!-- Final outline highlights -->
+  <path d="M200 130 C190 160,185 175,180 190 C170 220,170 240,170 255 C172 270,210 285,250 285 C290 285,328 270,330 255 C330 240,330 220,320 190 C315 175,310 160,300 130 L200 130 Z"
+        fill="none" stroke="#04224a" stroke-width="1" opacity="0.6"/>
+</svg>

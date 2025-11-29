@@ -1,0 +1,195 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" aria-hidden="true">
+  <defs>
+    <!-- Radial gradients for chiaroscuro -->
+    <radialGradient id="roomLight" cx="0.15" cy="0.08" r="0.9">
+      <stop offset="0" stop-color="#fff8d8" stop-opacity="0.95"/>
+      <stop offset="0.25" stop-color="#fff1b0" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#1b1b1b" stop-opacity="0.85"/>
+    </radialGradient>
+
+    <radialGradient id="panelGlow" cx="0.35" cy="0.4" r="0.9">
+      <stop offset="0" stop-color="#fff7e6" stop-opacity="0.95"/>
+      <stop offset="0.6" stop-color="#ffe9b8" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#bb8f5a" stop-opacity="0.0"/>
+    </radialGradient>
+
+    <!-- Wood grain pattern for oak workbench -->
+    <pattern id="woodGrain" patternUnits="userSpaceOnUse" width="40" height="20">
+      <rect width="40" height="20" fill="#8b5a2b"/>
+      <path d="M0 6 C6 2 12 10 18 6 S30 8 40 6" stroke="#7a4f24" stroke-width="1.5" fill="none" opacity="0.9"/>
+      <path d="M0 14 C6 10 12 18 18 14 S30 16 40 14" stroke="#6b4320" stroke-width="1" fill="none" opacity="0.6"/>
+    </pattern>
+
+    <!-- Mask to create wear on the workbench -->
+    <mask id="benchWear">
+      <rect x="0" y="0" width="500" height="500" fill="white"/>
+      <!-- worn center -->
+      <radialGradient id="wearGrad">
+        <stop offset="0" stop-color="black" stop-opacity="1"/>
+        <stop offset="1" stop-color="black" stop-opacity="0"/>
+      </radialGradient>
+      <!-- cutout where wear shows through (reveals darker underlying overlay) -->
+      <ellipse cx="260" cy="360" rx="120" ry="40" fill="url(#wearGrad)"/>
+    </mask>
+
+    <!-- Specular lighting to simulate sun on panel -->
+    <filter id="sunlight" x="-50%" y="-50%" width="200%" height="200%">
+      <!-- subtle bump and specular -->
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1" result="blur"/>
+      <feSpecularLighting in="blur" surfaceScale="2" specularConstant="0.9" specularExponent="20" lighting-color="#fff" result="spec">
+        <!-- window coords: sun at 35° elevation, 20° azimuth mapped to a point near top-left -->
+        <fePointLight x="80" y="40" z="200"/>
+      </feSpecularLighting>
+      <feComposite in="spec" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="0" k4="0"/>
+    </filter>
+
+    <!-- Cool highlight color matrix for metal compasses -->
+    <filter id="coolMetal">
+      <feColorMatrix type="matrix" values="
+        0.9 0   0   0 0
+        0   0.95 0   0 0
+        0   0   1.25 0 0
+        0   0   0   1 0"/>
+      <feGaussianBlur stdDeviation="0.3" result="soft"/>
+      <feSpecularLighting in="soft" surfaceScale="1.5" specularConstant="1" specularExponent="30" lighting-color="#dfeeff">
+        <fePointLight x="80" y="40" z="200"/>
+      </feSpecularLighting>
+      <feComposite in2="SourceGraphic" operator="arithmetic" k1="0" k2="0.8" k3="0.2" k4="0"/>
+    </filter>
+
+    <!-- Marker for quill nib -->
+    <marker id="nib" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 2 L8 5 L0 8 L2 5 Z" fill="#222" />
+    </marker>
+
+    <!-- Spiral spline for mirror-script notes -->
+    <path id="spiralPath" d="M390 120
+        c -20 6 -40 10 -60 14
+        c -18 4 -36 8 -48 18
+        c  -8 8 -12 18 -10 28
+        c 6 20 22 30 38 28
+        c 16 -2 28 -12 36 -18
+        c 10 -8 20 -16 30 -22
+        c 12 -8 26 -14 40 -18" fill="none" stroke="none"/>
+
+    <!-- Faint perspective construction lines (to vanishing points) -->
+    <g id="vpoints">
+      <!-- left and right vanishing points scaled from original: original vp x (-2500,700)-> scaled -625,175; (4500,700)->(1125,175) -->
+      <line id="vpL" x1="10" y1="430" x2="-625" y2="175" stroke="#000" stroke-opacity="0.05" />
+      <line id="vpR" x1="490" y1="430" x2="1125" y2="175" stroke="#000" stroke-opacity="0.05" />
+    </g>
+
+  </defs>
+
+  <!-- Room background with strong light from window -->
+  <rect width="500" height="500" fill="#0f0f0f"/>
+  <rect width="500" height="500" fill="url(#roomLight)" opacity="0.9"/>
+
+  <!-- Window (source of sun) -->
+  <g transform="translate(40,20)">
+    <rect x="0" y="0" width="100" height="60" fill="#dfe9ff" stroke="#c0d1ff" stroke-width="2" rx="4"/>
+    <line x1="0" y1="20" x2="100" y2="20" stroke="#cfdfff" stroke-width="1"/>
+    <line x1="50" y1="0" x2="50" y2="60" stroke="#cfdfff" stroke-width="1"/>
+  </g>
+
+  <!-- Camera obscura box, pinhole and projected rays -->
+  <g id="camera" transform="translate(320,60)">
+    <rect x="0" y="0" width="120" height="90" rx="6" fill="#1a120b" stroke="#2b1a12" stroke-width="2"/>
+    <!-- pinhole -->
+    <circle cx="14" cy="34" r="3" fill="#000"/>
+    <!-- rays to panel -->
+    <path d="M334 95 L 250 200 L 210 260" stroke="#fff1c8" stroke-opacity="0.55" stroke-width="1.5" fill="none"/>
+    <path d="M334 95 L 180 210 L 170 300" stroke="#fff1c8" stroke-opacity="0.35" stroke-width="1" fill="none"/>
+  </g>
+
+  <!-- Poplar panel: 500x700 mm at 1px=1mm -> width 500 height 700; placed so lower part visible (overflows top) -->
+  <g transform="translate(0, -120)">
+    <rect x="0" y="200" width="500" height="700" rx="6" fill="#e7d2b0" stroke="#c8a97e" stroke-width="3" filter="url(#sunlight)"/>
+    <!-- subtle painted area / projected sunlit street -->
+    <g clip-path="url(#panelClip)">
+      <rect x="20" y="240" width="460" height="420" fill="url(#panelGlow)" opacity="0.9"/>
+      <!-- simple projection: tiny sunlit street shapes using perspective lines -->
+      <g stroke="#5b4a36" stroke-width="1.2" fill="#d9c5a3" opacity="0.95">
+        <rect x="120" y="380" width="260" height="40" rx="6" />
+        <rect x="155" y="340" width="190" height="32" rx="6" />
+        <rect x="190" y="300" width="120" height="28" rx="6" />
+      </g>
+    </g>
+  </g>
+
+  <clipPath id="panelClip">
+    <rect x="20" y="240" width="460" height="420" rx="4"/>
+  </clipPath>
+
+  <!-- Oak workbench with pattern and wear mask -->
+  <g transform="translate(40,320)">
+    <rect x="0" y="0" width="420" height="80" fill="url(#woodGrain)" stroke="#6b3f1f" stroke-width="2" rx="4" mask="url(#benchWear)"/>
+    <!-- darker overlay under wear -->
+    <rect x="0" y="0" width="420" height="80" fill="#52341d" opacity="0.22" rx="4" />
+  </g>
+
+  <!-- Apprentice silhouette, 7.5 heads tall style (stylized). Height chosen ~150px -->
+  <g transform="translate(70,150)" id="apprentice">
+    <!-- measurements: height=150, head=20 -->
+    <!-- torso -->
+    <g>
+      <circle cx="0" cy="0" r="12" fill="#f7d6b3" stroke="#b67f52" stroke-width="1.2" transform="translate(0,14)"/> <!-- head -->
+      <rect x="-10" y="30" width="20" height="40" rx="6" fill="#5b3926" stroke="#3b2416" stroke-width="1"/>
+      <!-- arms: elbow at waist (waist roughly at y=50) -->
+      <path d="M-10 38 C -30 48 -40 60 -48 86" stroke="#5b3926" stroke-width="6" stroke-linecap="round" fill="none"/>
+      <circle cx="-48" cy="86" r="6" fill="#f7d6b3"/> <!-- hand -->
+      <path d="M10 38 C 30 48 40 60 58 74" stroke="#5b3926" stroke-width="6" stroke-linecap="round" fill="none"/>
+      <circle cx="58" cy="74" r="6" fill="#f7d6b3"/> <!-- hand -->
+      <!-- legs -->
+      <path d="M-6 70 L -6 110" stroke="#3c2a1f" stroke-width="8" stroke-linecap="round"/>
+      <path d="M6 70 L 6 110" stroke="#3c2a1f" stroke-width="8" stroke-linecap="round"/>
+    </g>
+    <!-- cast shadow consistent with vanishing geometry (faint polygon toward right VP) -->
+    <polygon points="-30,120 90,120 140,220 -40,220" fill="#000" opacity="0.15" transform="skewX(-10)"/>
+  </g>
+
+  <!-- Tools on bench: compasses with cool highlights -->
+  <g transform="translate(220,300)" filter="url(#coolMetal)">
+    <g id="compass">
+      <line x1="0" y1="10" x2="40" y2="46" stroke="#bdbdbd" stroke-width="3" stroke-linecap="round"/>
+      <line x1="8" y1="16" x2="44" y2="6" stroke="#e6eef9" stroke-width="2"/>
+      <circle cx="14" cy="12" r="4" fill="#cfcfcf" stroke="#9ea7b5" stroke-width="0.8"/>
+      <circle cx="40" cy="46" r="2.5" fill="#b9c8d9"/>
+    </g>
+    <!-- shadow -->
+    <ellipse cx="26" cy="72" rx="36" ry="12" fill="#000" opacity="0.12"/>
+  </g>
+
+  <!-- Quill nibs with marker-ends -->
+  <g transform="translate(120,340)">
+    <line x1="0" y1="0" x2="80" y2="-18" stroke="#6b3d1f" stroke-width="4" marker-end="url(#nib)" stroke-linecap="round"/>
+    <line x1="20" y1="10" x2="100" y2="-8" stroke="#5a2f12" stroke-width="3.5" marker-end="url(#nib)" stroke-linecap="round" opacity="0.95"/>
+    <ellipse cx="60" cy="-10" rx="36" ry="10" fill="#000" opacity="0.06"/>
+  </g>
+
+  <!-- Mirror-script paper notes: group flipped horizontally to produce mirror writing on spiral -->
+  <g transform="translate(360,120) scale(-1,1)">
+    <use href="#spiralPath" fill="none" stroke="none"/>
+    <text font-family="serif" font-size="10" fill="#2b1a12">
+      <textPath href="#spiralPath" startOffset="0">
+        .oɯɐ ɐ ɐʇoɥ oʇ ǝsɐɯ ɐ ɯoɹ ɐ ɯoɯ
+      </textPath>
+    </text>
+  </g>
+
+  <!-- faint perspective lines from panel edges to vanishing points to suggest two-point perspective -->
+  <!-- left converging -->
+  <line x1="20" y1="320" x2="-625" y2="175" stroke="#000" stroke-opacity="0.03"/>
+  <line x1="20" y1="200" x2="-625" y2="175" stroke="#000" stroke-opacity="0.03"/>
+  <line x1="480" y1="320" x2="1125" y2="175" stroke="#000" stroke-opacity="0.03"/>
+  <line x1="480" y1="200" x2="1125" y2="175" stroke="#000" stroke-opacity="0.03"/>
+
+  <!-- subtle floor chiaroscuro radial to emphasize light pool -->
+  <ellipse cx="200" cy="420" rx="160" ry="60" fill="url(#roomLight)" opacity="0.22"/>
+  <ellipse cx="200" cy="430" rx="120" ry="35" fill="#000" opacity="0.18"/>
+
+  <!-- simple labels or tiny notes (visual only) -->
+  <rect x="48" y="380" width="72" height="28" rx="3" fill="#fffef6" stroke="#e6dfcc" stroke-width="1"/>
+  <text x="52" y="398" font-family="serif" font-size="9" fill="#2d1b10">nota</text>
+
+</svg>

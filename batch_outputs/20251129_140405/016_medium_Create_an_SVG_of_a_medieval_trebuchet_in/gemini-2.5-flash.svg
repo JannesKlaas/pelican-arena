@@ -1,0 +1,104 @@
+<svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      /* Color Palette */
+      .wood-dark { fill: #8B4513; } /* SaddleBrown */
+      .wood-medium { fill: #A0522D; } /* Sienna */
+      .wood-light { fill: #CD853F; } /* Peru */
+      .rope-color { stroke: #D2B48C; stroke-width: 2; fill: none; } /* Tan */
+      .stone-color { fill: #808080; } /* Gray */
+      .counterweight-color { fill: #5A3A2C; } /* Darker wood/metal */
+      .metal-color { fill: #A9A9A9; } /* DarkGray */
+      /* Shadow Style - consistent offset by (3,3) */
+      .shadow-fill { fill: #000000; opacity: 0.2; }
+      .shadow-stroke { stroke: #000000; opacity: 0.2; stroke-width: 2; fill: none; }
+    </style>
+  </defs>
+
+  <!-- Ground Planks -->
+  <rect x="0" y="440" width="500" height="60" class="wood-medium" />
+  <line x1="0" y1="450" x2="500" y2="450" stroke="#CD5C5C" stroke-width="2" opacity="0.4" />
+  <line x1="0" y1="460" x2="500" y2="460" stroke="#CD5C5C" stroke-width="2" opacity="0.4" />
+  <line x1="0" y1="470" x2="500" y2="470" stroke="#CD5C5C" stroke-width="2" opacity="0.4" />
+  <line x1="0" y1="480" x2="500" y2="480" stroke="#CD5C5C" stroke-width="2" opacity="0.4" />
+  <line x1="0" y1="490" x2="500" y2="490" stroke="#CD5C5C" stroke-width="2" opacity="0.4" />
+
+  <!-- Pegs (on ground) -->
+  <rect x="123" y="443" width="10" height="20" class="shadow-fill" /> <!-- Left Peg Shadow -->
+  <rect x="373" y="443" width="10" height="20" class="shadow-fill" /> <!-- Right Peg Shadow -->
+  <rect x="120" y="440" width="10" height="20" class="wood-dark" /> <!-- Left Peg -->
+  <rect x="370" y="440" width="10" height="20" class="wood-dark" /> <!-- Right Peg -->
+
+  <!-- Main Frame - Triangular, sturdy -->
+  <!-- Shadows for frame parts -->
+  <rect x="113" y="433" width="280" height="15" class="shadow-fill" /> <!-- Base support beam shadow -->
+  <polygon points="123,443 133,443 243,163 233,163" class="shadow-fill" /> <!-- Left leg shadow -->
+  <polygon points="383,443 373,443 263,163 273,163" class="shadow-fill" /> <!-- Right leg shadow -->
+  <rect x="173" y="303" width="160" height="15" transform="rotate(-5 253 310.5)" class="shadow-fill" /> <!-- Crossbeam shadow -->
+
+  <!-- Frame parts -->
+  <rect x="110" y="430" width="280" height="15" class="wood-dark" /> <!-- Base support beam -->
+  <polygon points="120,440 130,440 240,160 230,160" class="wood-light" /> <!-- Left leg -->
+  <polygon points="380,440 370,440 260,160 270,160" class="wood-light" /> <!-- Right leg -->
+  <rect x="170" y="300" width="160" height="15" transform="rotate(-5 250 307.5)" class="wood-dark" /> <!-- Crossbeam -->
+
+  <!-- Axle at apex -->
+  <circle cx="253" cy="153" r="10" class="shadow-fill" />
+  <circle cx="250" cy="150" r="10" fill="#696969" /> <!-- DimGray -->
+
+  <!-- Trebuchet Arm Assembly (Arm, Counterweight, Sling, Stone, Release Pin) - SHADOWS -->
+  <!-- The entire arm assembly is rotated. Its shadow is also rotated and translated. -->
+  <g transform="translate(3,3)">
+    <g transform="rotate(-15 250 150)">
+      <!-- Arm Body Shadow -->
+      <rect x="245" y="145" width="200" height="10" class="shadow-fill" /> <!-- Long side -->
+      <rect x="200" y="145" width="50" height="10" class="shadow-fill" /> <!-- Short side -->
+      <!-- Counterweight box Shadow -->
+      <rect x="180" y="160" width="45" height="45" class="shadow-fill" />
+      <!-- Stone Shadow -->
+      <circle cx="450" cy="270" r="15" class="shadow-fill" />
+      <!-- Sling Pouch Shadow -->
+      <path d="M433 258 Q450 283 467 258 L463 248 Q450 268 437 248 Z" class="shadow-fill" />
+      <!-- Release pin Shadow -->
+      <rect x="440" y="147" width="10" height="5" class="shadow-fill" transform="rotate(60 445 149.5)" />
+      <!-- Sling Ropes Shadow -->
+      <line x1="445" y1="150" x2="435" y2="250" class="shadow-stroke" /> <!-- Fixed rope -->
+      <line x1="450" y1="158.66" x2="465" y2="250" class="shadow-stroke" /> <!-- Release pin rope -->
+    </g>
+  </g>
+
+  <!-- Trebuchet Arm Assembly (Arm, Counterweight, Sling, Stone, Release Pin) - OBJECTS -->
+  <!-- Rotated group for the arm and its attachments -->
+  <g transform="rotate(-15 250 150)">
+    <!-- Arm Body -->
+    <rect x="245" y="145" width="200" height="10" class="wood-light" /> <!-- Long side -->
+    <rect x="200" y="145" width="50" height="10" class="wood-light" /> <!-- Short side -->
+
+    <!-- Counterweight box - attached to short arm -->
+    <rect x="180" y="160" width="45" height="45" class="counterweight-color" />
+
+    <!-- Stone and Sling - attached to long arm end -->
+    <circle cx="450" cy="270" r="15" class="stone-color" /> <!-- Stone -->
+    <path d="M433 258 Q450 283 467 258 L463 248 Q450 268 437 248 Z" fill="#D2B48C" /> <!-- Sling Pouch -->
+
+    <!-- Release pin: angled for ~45° launch. Arm is at -15°, pin relative to arm 60° (total 45° from horizontal) -->
+    <!-- Pin pivot is at (445, 149.5) which is center of end of arm's edge -->
+    <rect x="440" y="147" width="10" height="5" class="metal-color" transform="rotate(60 445 149.5)" />
+
+    <!-- Sling Ropes connecting to arm and pin -->
+    <!-- Fixed rope: from arm end (445, 150) to sling point (435, 250) -->
+    <line x1="445" y1="150" x2="435" y2="250" class="rope-color" />
+    <!-- Release pin rope: from pin's release point (450, 158.66) to sling point (465, 250) -->
+    <line x1="450" y1="158.66" x2="465" y2="250" class="rope-color" />
+  </g>
+
+  <!-- Additional tension ropes for the counterweight (fixed to ground) -->
+  <!-- These ropes' start points on the counterweight are calculated after arm rotation. -->
+  <!-- Counterweight's top-left corner (180, 160) within rotated group. Rope attach point (205, 177) relative to global. -->
+  <line x1="208" y1="180" x2="123" y2="443" class="shadow-stroke" /> <!-- Left rope shadow -->
+  <line x1="205" y1="177" x2="120" y2="440" class="rope-color" /> <!-- Left rope -->
+
+  <line x1="228" y1="180" x2="373" y2="443" class="shadow-stroke" /> <!-- Right rope shadow -->
+  <line x1="225" y1="177" x2="370" y2="440" class="rope-color" /> <!-- Right rope -->
+
+</svg>

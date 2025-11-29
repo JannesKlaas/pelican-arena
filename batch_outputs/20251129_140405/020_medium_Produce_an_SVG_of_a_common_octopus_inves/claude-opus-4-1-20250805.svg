@@ -1,0 +1,112 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="lightCaustic">
+      <stop offset="0%" stop-color="#e6f4ff" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#c2e5ff" stop-opacity="0.1"/>
+    </radialGradient>
+    <linearGradient id="glass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#e8f4f8" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#d4e8f0" stop-opacity="0.4"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Seafloor -->
+  <rect x="0" y="350" width="500" height="150" fill="#c4a574"/>
+  
+  <!-- Sand ripples -->
+  <ellipse cx="100" cy="380" rx="60" ry="8" fill="#b39660" opacity="0.5"/>
+  <ellipse cx="250" cy="395" rx="80" ry="10" fill="#b39660" opacity="0.5"/>
+  <ellipse cx="380" cy="375" rx="70" ry="9" fill="#b39660" opacity="0.5"/>
+  <ellipse cx="150" cy="420" rx="90" ry="11" fill="#b39660" opacity="0.4"/>
+  
+  <!-- Scattered shells -->
+  <ellipse cx="80" cy="410" rx="12" ry="8" fill="#f4e4d0" transform="rotate(25 80 410)"/>
+  <ellipse cx="320" cy="430" rx="10" ry="6" fill="#ffd4b3" transform="rotate(-30 320 430)"/>
+  <circle cx="420" cy="405" r="5" fill="#ffe8d6"/>
+  
+  <!-- Caustic light patterns -->
+  <ellipse cx="150" cy="200" rx="120" ry="180" fill="url(#lightCaustic)"/>
+  <ellipse cx="350" cy="250" rx="100" ry="150" fill="url(#lightCaustic)"/>
+  
+  <!-- Glass jar -->
+  <ellipse cx="350" cy="350" rx="45" ry="55" fill="url(#glass)" stroke="#d0e4f0" stroke-width="2"/>
+  <ellipse cx="350" cy="300" rx="35" ry="12" fill="none" stroke="#d0e4f0" stroke-width="2"/>
+  <rect x="315" y="295" width="70" height="10" fill="url(#glass)"/>
+  <ellipse cx="330" cy="320" rx="8" ry="20" fill="#ffffff" opacity="0.4"/>
+  
+  <!-- Octopus mantle -->
+  <ellipse cx="200" cy="240" rx="55" ry="65" fill="#d4745f"/>
+  <ellipse cx="200" cy="235" rx="48" ry="55" fill="#e88670"/>
+  
+  <!-- Eyes -->
+  <ellipse cx="180" cy="230" rx="18" ry="14" fill="#ffffff"/>
+  <ellipse cx="220" cy="230" rx="18" ry="14" fill="#ffffff"/>
+  <rect x="172" y="228" width="16" height="4" rx="2" fill="#000000"/>
+  <rect x="212" y="228" width="16" height="4" rx="2" fill="#000000"/>
+  
+  <!-- Eight arms with suckers -->
+  <!-- Arm 1 - reaching into jar -->
+  <path d="M 230 280 Q 280 300 315 305 Q 340 308 350 320" stroke="#d4745f" stroke-width="16" fill="none"/>
+  <circle cx="250" cy="288" r="3" fill="#f4a090"/>
+  <circle cx="260" cy="292" r="4" fill="#f4a090"/>
+  <circle cx="270" cy="295" r="3" fill="#f4a090"/>
+  <circle cx="280" cy="298" r="4" fill="#f4a090"/>
+  <circle cx="290" cy="300" r="3" fill="#f4a090"/>
+  <circle cx="300" cy="302" r="4" fill="#f4a090"/>
+  <circle cx="310" cy="304" r="3" fill="#f4a090"/>
+  
+  <!-- Arm 2 -->
+  <path d="M 210 285 Q 230 320 235 360" stroke="#d4745f" stroke-width="18" fill="none"/>
+  <circle cx="215" cy="300" r="4" fill="#f4a090"/>
+  <circle cx="218" cy="310" r="3" fill="#f4a090"/>
+  <circle cx="222" cy="320" r="4" fill="#f4a090"/>
+  <circle cx="225" cy="330" r="3" fill="#f4a090"/>
+  <circle cx="228" cy="340" r="4" fill="#f4a090"/>
+  
+  <!-- Arm 3 -->
+  <path d="M 190 285 Q 180 330 170 375" stroke="#d4745f" stroke-width="17" fill="none"/>
+  <circle cx="188" cy="300" r="3" fill="#f4a090"/>
+  <circle cx="185" cy="310" r="4" fill="#f4a090"/>
+  <circle cx="182" cy="320" r="3" fill="#f4a090"/>
+  <circle cx="178" cy="330" r="4" fill="#f4a090"/>
+  <circle cx="175" cy="340" r="3" fill="#f4a090"/>
+  
+  <!-- Arm 4 -->
+  <path d="M 170 280 Q 140 320 120 370" stroke="#d4745f" stroke-width="16" fill="none"/>
+  <circle cx="160" cy="295" r="4" fill="#f4a090"/>
+  <circle cx="155" cy="305" r="3" fill="#f4a090"/>
+  <circle cx="150" cy="315" r="4" fill="#f4a090"/>
+  <circle cx="145" cy="325" r="3" fill="#f4a090"/>
+  <circle cx="140" cy="335" r="4" fill="#f4a090"/>
+  
+  <!-- Arm 5 -->
+  <path d="M 165 270 Q 130 280 90 300" stroke="#d4745f" stroke-width="15" fill="none"/>
+  <circle cx="150" cy="272" r="3" fill="#f4a090"/>
+  <circle cx="140" cy="275" r="4" fill="#f4a090"/>
+  <circle cx="130" cy="278" r="3" fill="#f4a090"/>
+  <circle cx="120" cy="282" r="4" fill="#f4a090"/>
+  <circle cx="110" cy="286" r="3" fill="#f4a090"/>
+  
+  <!-- Arm 6 -->
+  <path d="M 175 265 Q 150 240 110 220" stroke="#d4745f" stroke-width="14" fill="none"/>
+  <circle cx="165" cy="260" r="3" fill="#f4a090"/>
+  <circle cx="155" cy="255" r="4" fill="#f4a090"/>
+  <circle cx="145" cy="250" r="3" fill="#f4a090"/>
+  <circle cx="135" cy="245" r="4" fill="#f4a090"/>
+  
+  <!-- Arm 7 -->
+  <path d="M 225 270 Q 260 260 300 265" stroke="#d4745f" stroke-width="15" fill="none"/>
+  <circle cx="240" cy="267" r="4" fill="#f4a090"/>
+  <circle cx="250" cy="265" r="3" fill="#f4a090"/>
+  <circle cx="260" cy="264" r="4" fill="#f4a090"/>
+  <circle cx="270" cy="264" r="3" fill="#f4a090"/>
+  <circle cx="280" cy="264" r="4" fill="#f4a090"/>
+  
+  <!-- Arm 8 -->
+  <path d="M 235 275 Q 270 280 310 290" stroke="#d4745f" stroke-width="14" fill="none"/>
+  <circle cx="250" cy="277" r="3" fill="#f4a090"/>
+  <circle cx="260" cy="279" r="4" fill="#f4a090"/>
+  <circle cx="270" cy="281" r="3" fill="#f4a090"/>
+  <circle cx="280" cy="283" r="4" fill="#f4a090"/>
+</svg>
