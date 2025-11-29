@@ -1,0 +1,108 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="softShadow">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#1a0f00" flood-opacity="0.4"/>
+    </filter>
+    <filter id="glare">
+      <feGaussianBlur stdDeviation="2"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.7"/>
+      </feComponentTransfer>
+    </filter>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L6,3 z" fill="#4a4a4a"/>
+    </marker>
+    <radialGradient id="gasLight" cx="50%" cy="0%">
+      <stop offset="0%" stop-color="#ffb366" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ff8833" stop-opacity="0.1"/>
+    </radialGradient>
+    <clipPath id="glassClip">
+      <rect x="180" y="180" width="140" height="80"/>
+    </clipPath>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="500" height="500" fill="#2a2520"/>
+  
+  <!-- Gas lamp lighting -->
+  <ellipse cx="250" cy="50" rx="200" ry="150" fill="url(#gasLight)" opacity="0.6"/>
+  
+  <!-- Tiered seating arcs -->
+  <g filter="url(#softShadow)">
+    <path d="M 100 400 Q 250 350 400 400" fill="none" stroke="#5a4a3a" stroke-width="45" opacity="0.7"/>
+    <path d="M 80 350 Q 250 290 420 350" fill="none" stroke="#5a4a3a" stroke-width="45" opacity="0.6"/>
+    <path d="M 60 300 Q 250 230 440 300" fill="none" stroke="#5a4a3a" stroke-width="45" opacity="0.5"/>
+  </g>
+  
+  <!-- Operating table -->
+  <g filter="url(#softShadow)">
+    <ellipse cx="250" cy="290" rx="90" ry="35" fill="#3a3a3a"/>
+    <rect x="235" y="290" width="30" height="60" fill="#2a2a2a"/>
+  </g>
+  
+  <!-- Upper limb anatomy -->
+  <g id="arm">
+    <!-- Humerus -->
+    <path d="M 250 240 L 260 280" stroke="#c9a587" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <!-- Forearm (radius/ulna) -->
+    <path d="M 260 280 L 275 315" stroke="#c9a587" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <path d="M 260 280 L 270 315" stroke="#c9a587" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <!-- Hand -->
+    <ellipse cx="273" cy="322" rx="8" ry="12" fill="#c9a587"/>
+    
+    <!-- Tendons/muscles (schematic) -->
+    <path d="M 252 245 L 248 260" stroke="#9a7a6a" stroke-width="2" fill="none" opacity="0.7"/>
+    <path d="M 262 285 L 268 300" stroke="#9a7a6a" stroke-width="1.5" fill="none" opacity="0.7"/>
+    
+    <!-- Scapula region -->
+    <ellipse cx="245" cy="235" rx="12" ry="8" fill="#b59577" opacity="0.8" transform="rotate(-30 245 235)"/>
+  </g>
+  
+  <!-- Leader lines with labels -->
+  <line x1="252" y1="245" x2="220" y2="220" stroke="#6a6a6a" stroke-width="1" marker-end="url(#arrow)"/>
+  <text x="215" y="218" font-family="serif" font-size="8" fill="#d0d0d0">Deltoid</text>
+  
+  <line x1="262" y1="285" x2="290" y2="270" stroke="#6a6a6a" stroke-width="1" marker-end="url(#arrow)"/>
+  <text x="295" y="272" font-family="serif" font-size="8" fill="#d0d0d0">Brachialis</text>
+  
+  <line x1="270" y1="315" x2="300" y2="310" stroke="#6a6a6a" stroke-width="1" marker-end="url(#arrow)"/>
+  <text x="305" y="312" font-family="serif" font-size="8" fill="#d0d0d0">Radius</text>
+  
+  <!-- Surgical instruments -->
+  <g id="instruments">
+    <!-- Bone saw -->
+    <path d="M 320 285 L 360 280" stroke="#8a9aaa" stroke-width="3" vector-effect="non-scaling-stroke"/>
+    <path d="M 360 280 L 365 275 L 365 285 Z" fill="#7a8a9a"/>
+    <path d="M 320 285 L 315 282 L 315 288 Z" fill="#5a4a3a"/>
+    <!-- Saw teeth -->
+    <path d="M 322 285 l 2 -3 l 2 3 l 2 -3 l 2 3 l 2 -3 l 2 3" stroke="#6a7a8a" stroke-width="1" fill="none"/>
+    
+    <!-- Forceps -->
+    <path d="M 340 305 Q 345 300 350 305" stroke="#9aaaaa" stroke-width="2" fill="none" vector-effect="non-scaling-stroke"/>
+    <path d="M 340 305 L 335 315" stroke="#9aaaaa" stroke-width="2" vector-effect="non-scaling-stroke"/>
+    <path d="M 350 305 L 355 315" stroke="#9aaaaa" stroke-width="2" vector-effect="non-scaling-stroke"/>
+    
+    <!-- Cool highlights -->
+    <line x1="325" y1="284" x2="355" y2="280" stroke="#c0d5e5" stroke-width="0.5" opacity="0.8"/>
+    <line x1="342" y1="306" x2="348" y2="306" stroke="#c0d5e5" stroke-width="0.5" opacity="0.8"/>
+  </g>
+  
+  <!-- Glass glare on lamp -->
+  <g clip-path="url(#glassClip)">
+    <line x1="190" y1="185" x2="310" y2="255" stroke="#ffffff" stroke-width="2" opacity="0.6" filter="url(#glare)"/>
+    <line x1="200" y1="190" x2="315" y2="250" stroke="#ffffff" stroke-width="1.5" opacity="0.4" filter="url(#glare)"/>
+  </g>
+  
+  <!-- Slate with chalk diagrams -->
+  <rect x="380" y="150" width="90" height="70" fill="#1a1a1a" stroke="#4a4a4a" stroke-width="2"/>
+  <g id="chalkDiagram">
+    <path d="M 395 170 Q 425 165 455 170" stroke="#e8e8e8" stroke-width="1.5" fill="none"/>
+    <circle cx="425" cy="168" r="3" fill="none" stroke="#e8e8e8" stroke-width="1"/>
+    <text x="395" y="195" font-family="serif" font-size="9" fill="#e8e8e8">Elbow</text>
+    <text x="395" y="210" font-family="serif" font-size="8" fill="#e8e8e8">Flexion 30°</text>
+  </g>
+  
+  <!-- Perspective guides (subtle) -->
+  <line x1="150" y1="250" x2="250" y2="237.5" stroke="#3a3a3a" stroke-width="0.5" opacity="0.3"/>
+  <line x1="350" y1="250" x2="250" y2="237.5" stroke="#3a3a3a" stroke-width="0.5" opacity="0.3"/>
+</svg>

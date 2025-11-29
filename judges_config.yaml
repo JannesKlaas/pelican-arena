@@ -1,0 +1,12 @@
+#
+# Models to use as judges for pairwise image comparison.
+# Each judge will evaluate image pairs and choose a winner.
+#
+judges:
+  - openai/gpt-5.1-2025-11-13
+  - anthropic/claude-sonnet-4-5-20250929
+  - google/gemini-3-pro-preview
+
+settings:
+  max_workers: 4  # Maximum number of judges processed in parallel per comparison
+

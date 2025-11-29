@@ -1,0 +1,142 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <!-- Martian Sky Gradient (Butterscotch) -->
+    <linearGradient id="butterscotchSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F7CC99" />
+      <stop offset="100%" stop-color="#E3A857" />
+    </linearGradient>
+
+    <!-- Sun Gradient -->
+    <radialGradient id="sunGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="white" />
+      <stop offset="100%" stop-color="yellow" />
+    </radialGradient>
+
+    <!-- Dust Turbulence Filter for Dust Devils -->
+    <filter id="dustTurbulence" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.03 0.05" numOctaves="2" seed="0" result="turb">
+        <animate attributeName="seed" values="0;100" dur="8s" repeatCount="indefinite" />
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="turb" scale="15" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+
+    <!-- Heat Shimmer Filter (applied to background behind object) -->
+    <filter id="heatShimmer" x="-50%" y="-50%" width="200%" height="200%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.005 0.02" numOctaves="1" seed="0" result="turb">
+        <animate attributeName="seed" values="0;100" dur="5s" repeatCount="indefinite" />
+      </feTurbulence>
+      <feDisplacementMap in="BackgroundImage" in2="turb" scale="10" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+
+    <!-- Filter for simulating regolith ruts (bumpy effect) -->
+    <filter id="rutFilter" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="2" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+
+    <!-- Marker for Hazard Chevrons -->
+    <marker id="chevron" viewBox="0 0 20 10" refX="10" refY="5" markerWidth="20" markerHeight="10" orient="auto">
+      <rect x="0" y="0" width="20" height="10" fill="black" />
+      <path d="M0 0 L10 5 L0 10 Z M10 0 L20 5 L10 10 Z" fill="yellow" />
+    </marker>
+  </defs>
+
+  <!-- Sky (Butterscotch) - Horizon y=240 (scaled from 580) -->
+  <rect x="0" y="0" width="500" height="240" fill="url(#butterscotchSky)" />
+  <!-- Sun at 25° elevation (top-right, casting shadows down-left) -->
+  <circle cx="450" cy="80" r="20" fill="url(#sunGradient)" />
+
+  <!-- Martian Ground (Regolith) -->
+  <rect x="0" y="240" width="500" height="260" fill="#A64D31" /> <!-- Base regolith color -->
+
+  <!-- Landing Pad Area (Darker, pressed regolith) -->
+  <rect x="0" y="300" width="500" height="200" fill="#913A28" />
+
+  <!-- Wheel Ruts on Landing Pad (simulated with paths and rut filter) -->
+  <path d="M50 400 Q150 420 250 400" fill="none" stroke="#6F3222" stroke-width="5" filter="url(#rutFilter)" opacity="0.6"/>
+  <path d="M55 410 Q155 430 255 410" fill="none" stroke="#6F3222" stroke-width="5" filter="url(#rutFilter)" opacity="0.6"/>
+  <path d="M400 350 Q300 370 200 350" fill="none" stroke="#6F3222" stroke-width="5" filter="url(#rutFilter)" opacity="0.6"/>
+  <path d="M405 360 Q305 380 205 360" fill="none" stroke="#6F3222" stroke-width="5" filter="url(#rutFilter)" opacity="0.6"/>
+
+  <!-- Dust Devils (animated via filter) -->
+  <g filter="url(#dustTurbulence)">
+    <circle cx="100" cy="350" r="30" fill="#BF5B3A" opacity="0.4" />
+  </g>
+  <g filter="url(#dustTurbulence)">
+    <circle cx="400" cy="300" r="25" fill="#BF5B3A" opacity="0.3" />
+  </g>
+  <g filter="url(#dustTurbulence)">
+    <circle cx="200" cy="280" r="15" fill="#BF5B3A" opacity="0.2" />
+  </g>
+
+  <!-- Shadows (Hard Shadows, cast down-left from sun in top-right) -->
+  <!-- Mech Shadow (simplified parallelogram) -->
+  <path d="M195 390 L265 390 L115 440 L45 440 Z" fill="rgba(0,0,0,0.3)" />
+  <!-- Crate Shadows -->
+  <path d="M300 400 L380 400 L330 420 L250 420 Z" fill="rgba(0,0,0,0.3)" />
+  <path d="M350 340 L420 340 L380 355 L310 355 Z" fill="rgba(0,0,0,0.3)" />
+  <path d="M150 420 L210 420 L180 435 L120 435 Z" fill="rgba(0,0,0,0.3)" />
+
+  <!-- Bipedal Cargo Mech -->
+  <g id="mech">
+    <!-- Body: Matte Ceramic Armor -->
+    <rect x="200" y="140" width="60" height="80" fill="#B5B5B5" /> <!-- Torso -->
+    <rect x="190" y="220" width="80" height="30" fill="#B5B5B5" /> <!-- Hips (hip height 1.2x torso height from ground to hip base) -->
+
+    <!-- Left Leg -->
+    <rect x="200" y="250" width="20" height="70" fill="#B5B5B5" /> <!-- Upper Leg -->
+    <rect x="200" y="320" width="20" height="70" fill="#B5B5B5" /> <!-- Lower Leg (Knee 140° implied by leg segments) -->
+    <rect x="195" y="390" width="30" height="15" fill="#B5B5B5" /> <!-- Foot -->
+    <!-- Right Leg -->
+    <rect x="240" y="250" width="20" height="70" fill="#B5B5B5" /> <!-- Upper Leg -->
+    <rect x="240" y="320" width="20" height="70" fill="#B5B5B5" /> <!-- Lower Leg -->
+    <rect x="235" y="390" width="30" height="15" fill="#B5B5B5" /> <!-- Foot -->
+
+    <!-- Left Arm (Shoulder Yaw 45°, Elbow 110° implied by segments' rotation) -->
+    <rect x="180" y="160" width="20" height="50" transform="rotate(-15 190 160)" fill="#B5B5B5" /> <!-- Upper Arm -->
+    <rect x="175" y="200" width="18" height="45" transform="rotate(-30 185 200)" fill="#B5B5B5" /> <!-- Lower Arm -->
+    <rect x="170" y="240" width="25" height="10" transform="rotate(-30 170 240)" fill="#B5B5B5" /> <!-- Gripper -->
+    <!-- Right Arm -->
+    <rect x="260" y="160" width="20" height="50" transform="rotate(15 270 160)" fill="#B5B5B5" /> <!-- Upper Arm -->
+    <rect x="267" y="200" width="18" height="45" transform="rotate(30 275 200)" fill="#B5B5B5" /> <!-- Lower Arm -->
+    <rect x="265" y="240" width="25" height="10" transform="rotate(30 265 240)" fill="#B5B5B5" /> <!-- Gripper -->
+
+    <!-- Joints: Anodized Aluminum (darker grey circles) -->
+    <circle cx="210" cy="250" r="5" fill="#4A4A4A" /> <!-- Hip L -->
+    <circle cx="250" cy="250" r="5" fill="#4A4A4A" /> <!-- Hip R -->
+    <circle cx="210" cy="320" r="5" fill="#4A4A4A" /> <!-- Knee L -->
+    <circle cx="250" cy="320" r="5" fill="#4A4A4A" /> <!-- Knee R -->
+    <circle cx="210" cy="390" r="5" fill="#4A4A4A" /> <!-- Ankle L -->
+    <circle cx="250" cy="390" r="5" fill="#4A4A4A" /> <!-- Ankle R -->
+    <circle cx="190" cy="160" r="5" fill="#4A4A4A" /> <!-- Shoulder L -->
+    <circle cx="270" cy="160" r="5" fill="#4A4A4A" /> <!-- Shoulder R -->
+    <circle cx="185" cy="210" r="5" fill="#4A4A4A" /> <!-- Elbow L -->
+    <circle cx="275" cy="210" r="5" fill="#4A4A4A" /> <!-- Elbow R -->
+
+    <!-- Twin Hydraulic Pistons (simplified as lines) -->
+    <line x1="210" y1="255" x2="210" y2="315" stroke="#666666" stroke-width="2" /> <!-- Knee L piston 1 -->
+    <line x1="215" y1="255" x2="215" y2="315" stroke="#666666" stroke-width="2" /> <!-- Knee L piston 2 -->
+    <line x1="245" y1="255" x2="245" y2="315" stroke="#666666" stroke-width="2" /> <!-- Knee R piston 1 -->
+    <line x1="250" y1="255" x2="250" y2="315" stroke="#666666" stroke-width="2" /> <!-- Knee R piston 2 -->
+    <line x1="195" y1="225" x2="205" y2="245" stroke="#666666" stroke-width="2" /> <!-- Hip L piston -->
+    <line x1="260" y1="225" x2="250" y2="245" stroke="#666666" stroke-width="2" /> <!-- Hip R piston -->
+  </g>
+
+  <!-- Crates with ISO Container Codes -->
+  <g id="crates">
+    <rect x="300" y="350" width="80" height="50" fill="#B8860B" /> <!-- Dark Goldenrod -->
+    <text x="310" y="380" font-family="monospace" font-size="10" fill="black">ISO 20GP</text>
+    <rect x="350" y="300" width="70" height="40" fill="#5F9EA0" /> <!-- Cadet Blue -->
+    <text x="360" y="325" font-family="monospace" font-size="8" fill="black">ISO 40HC</text>
+    <rect x="150" y="380" width="60" height="40" fill="#B8860B" />
+    <text x="160" y="405" font-family="monospace" font-size="8" fill="black">ISO 20FT</text>
+  </g>
+
+  <!-- Hazard Chevrons (using markers) -->
+  <path d="M50 450 L100 450" stroke="black" stroke-width="10" marker-start="url(#chevron)" marker-end="url(#chevron)" />
+  <path d="M400 450 L450 450" stroke="black" stroke-width="10" marker-start="url(#chevron)" marker-end="url(#chevron)" />
+
+  <!-- Heat Shimmer above reactor exhaust (hypothetical exhaust area) -->
+  <!-- This transparent rectangle, drawn after background, uses filter to distort elements behind it. -->
+  <rect x="280" y="220" width="40" height="20" fill="transparent" style="enable-background:new;" filter="url(#heatShimmer)" />
+</svg>

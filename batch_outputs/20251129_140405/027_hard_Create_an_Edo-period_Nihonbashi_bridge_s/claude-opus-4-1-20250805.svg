@@ -1,0 +1,82 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="woodgrain">
+      <feTurbulence baseFrequency="0.02 0.1" numOctaves="4" seed="5"/>
+      <feColorMatrix values="0 0 0 0 0.95 0 0 0 0 0.92 0 0 0 0 0.87 0 0 0 0.15 0"/>
+      <feComposite operator="over" in2="SourceGraphic"/>
+    </filter>
+    <filter id="misalign">
+      <feOffset in="SourceGraphic" dx="0.5" dy="0" result="cyan"/>
+      <feOffset in="SourceGraphic" dx="-0.5" dy="0.5" result="magenta"/>
+      <feBlend mode="multiply" in="cyan" in2="magenta"/>
+    </filter>
+    <radialGradient id="rotor">
+      <stop offset="0%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="70%" stop-color="#000" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="seigaiha" x="0" y="0" width="20" height="10" patternUnits="userSpaceOnUse">
+      <circle cx="0" cy="0" r="10" fill="none" stroke="#2B4C8C" stroke-width="0.5"/>
+      <circle cx="10" cy="0" r="10" fill="none" stroke="#2B4C8C" stroke-width="0.5"/>
+      <circle cx="20" cy="0" r="10" fill="none" stroke="#2B4C8C" stroke-width="0.5"/>
+      <circle cx="5" cy="10" r="10" fill="none" stroke="#2B4C8C" stroke-width="0.5"/>
+      <circle cx="15" cy="10" r="10" fill="none" stroke="#2B4C8C" stroke-width="0.5"/>
+    </pattern>
+    <pattern id="asanoha" x="0" y="0" width="15" height="15" patternUnits="userSpaceOnUse">
+      <path d="M7.5,0 L15,7.5 L7.5,15 L0,7.5 Z" fill="none" stroke="#8B4545" stroke-width="0.3"/>
+      <path d="M7.5,0 L7.5,15 M0,7.5 L15,7.5" stroke="#8B4545" stroke-width="0.3"/>
+    </pattern>
+  </defs>
+  
+  <rect width="500" height="500" fill="#F5E6D3" filter="url(#woodgrain)"/>
+  
+  <rect x="0" y="320" width="500" height="180" fill="#6B8CAE" opacity="0.8"/>
+  
+  <path d="M 0,320 Q 50,315 100,318 T 200,320 T 300,318 T 400,320 T 500,318" 
+        fill="none" stroke="#4A6B8A" stroke-width="1.5" opacity="0.6"/>
+  <path d="M 0,340 Q 60,337 120,339 T 240,340 T 360,338 T 480,340" 
+        fill="none" stroke="#4A6B8A" stroke-width="1.5" opacity="0.5"/>
+  <path d="M 0,360 Q 40,358 80,361 T 160,360 T 240,362 T 320,360 T 400,361 T 500,360" 
+        fill="none" stroke="#4A6B8A" stroke-width="1.5" opacity="0.4"/>
+  
+  <g filter="url(#misalign)">
+    <path d="M 50,280 Q 250,180 450,280" fill="none" stroke="#8B6B47" stroke-width="8"/>
+    <rect x="45" y="280" width="15" height="60" fill="#6B5D4F"/>
+    <rect x="440" y="280" width="15" height="60" fill="#6B5D4F"/>
+    <rect x="245" y="225" width="10" height="40" fill="#6B5D4F"/>
+    
+    <g transform="translate(180,300)">
+      <rect x="0" y="0" width="25" height="45" fill="#CD5C5C"/>
+      <rect x="0" y="0" width="25" height="45" fill="url(#asanoha)" opacity="0.6"/>
+      <circle cx="12" cy="10" r="8" fill="#F5DEB3"/>
+      <circle cx="10" cy="9" r="1" fill="#2B2B2B"/>
+      <circle cx="14" cy="9" r="1" fill="#2B2B2B"/>
+      <path d="M 12,12 Q 11,13 10,13" fill="none" stroke="#2B2B2B" stroke-width="0.5"/>
+    </g>
+    
+    <g transform="translate(280,305)">
+      <rect x="0" y="0" width="22" height="40" fill="#4682B4"/>
+      <rect x="0" y="0" width="22" height="40" fill="url(#seigaiha)" opacity="0.7"/>
+      <circle cx="11" cy="9" r="7" fill="#F5DEB3"/>
+      <circle cx="9" cy="8" r="1" fill="#2B2B2B"/>
+      <circle cx="13" cy="8" r="1" fill="#2B2B2B"/>
+    </g>
+  </g>
+  
+  <g transform="translate(350,100)">
+    <path d="M 0,0 L 40,30 L 0,60 L -40,30 Z" fill="none" stroke="#8B7355" stroke-width="2"/>
+    <path d="M -40,30 L 40,30 M 0,0 L 0,60" stroke="#8B7355" stroke-width="1.5"/>
+    <line x1="0" y1="60" x2="0" y2="120" stroke="#8B7355" stroke-width="1"/>
+    <circle cx="-15" cy="15" r="8" fill="url(#rotor)"/>
+    <circle cx="15" cy="15" r="8" fill="url(#rotor)"/>
+    <circle cx="-15" cy="45" r="8" fill="url(#rotor)"/>
+    <circle cx="15" cy="45" r="8" fill="url(#rotor)"/>
+  </g>
+  
+  <g transform="translate(100,250)">
+    <rect x="0" y="0" width="60" height="15" fill="#F5DEB3" stroke="#8B7355" stroke-width="1"/>
+    <text x="30" y="11" font-family="serif" font-size="10" text-anchor="middle" fill="#2B2B2B">日本橋</text>
+  </g>
+  
+  <rect x="0" y="0" width="500" height="500" fill="none" stroke="#2B2B2B" stroke-width="2"/>
+</svg>

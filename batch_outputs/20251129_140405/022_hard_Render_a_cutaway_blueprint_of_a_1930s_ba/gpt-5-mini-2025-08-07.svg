@@ -1,0 +1,492 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" aria-hidden="true">
+  <defs>
+    <!-- Colors -->
+    <linearGradient id="hullGrad" x1="0" x2="1">
+      <stop offset="0" stop-color="#2b2f33"/>
+      <stop offset="1" stop-color="#0f1417"/>
+    </linearGradient>
+
+    <radialGradient id="glassGrad" cx="30%" cy="30%">
+      <stop offset="0" stop-color="#e6f7ff" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#a6d9ff" stop-opacity="0.2"/>
+    </radialGradient>
+
+    <radialGradient id="lampGrad" cx="50%" cy="50%">
+      <stop offset="0" stop-color="#ffd9b3" stop-opacity="1"/>
+      <stop offset="1" stop-color="#ff8f4d" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Rivet symbol -->
+    <symbol id="rivet" viewBox="-3 -3 6 6">
+      <circle cx="0" cy="0" r="2.2" fill="#c5c9cd" stroke="#6b6f73" stroke-width="0.6"/>
+      <circle cx="-0.6" cy="-0.6" r="0.6" fill="#ffffff" opacity="0.6"/>
+    </symbol>
+
+    <!-- Caustics / water displacement -->
+    <filter id="caustics" x="-50%" y="-50%" width="200%" height="200%">
+      <feTurbulence baseFrequency="0.9" numOctaves="2" seed="6" result="turb"/>
+      <feColorMatrix in="turb" type="saturate" values="0" result="mono"/>
+      <feGaussianBlur in="mono" stdDeviation="2" result="blur1"/>
+      <feDisplacementMap in="SourceGraphic" in2="blur1" scale="12" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <!-- Viewport refraction and condensation -->
+    <filter id="viewportRefraction" x="-50%" y="-50%" width="200%" height="200%">
+      <!-- normal map from turbulence, masked by window shape by using alpha from SourceGraphic later -->
+      <feTurbulence baseFrequency="0.02" numOctaves="3" seed="9" result="noise"/>
+      <feGaussianBlur in="noise" stdDeviation="2" result="noiseBlur"/>
+      <feDisplacementMap in="SourceGraphic" in2="noiseBlur" scale="10" xChannelSelector="R" yChannelSelector="G" />
+      <!-- slight edge highlight -->
+      <feSpecularLighting result="spec" in="noiseBlur" surfaceScale="2" specularConstant="0.7" specularExponent="20">
+        <feSpotLight x="430" y="300" z="300" pointsAtX="250" pointsAtY="250" pointsAtZ="0" limitingConeAngle="40" />
+      </feSpecularLighting>
+      <feBlend in="SourceGraphic" in2="spec" mode="screen" />
+    </filter>
+
+    <!-- Interior lighting via specular lighting from the lamp (spotLight through window) -->
+    <filter id="interiorLight" x="-50%" y="-50%" width="200%" height="200%">
+      <!-- create a simple normal map by blurring the alpha of SourceGraphic -->
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="nrm"/>
+      <feSpecularLighting in="nrm" surfaceScale="6" specularConstant="0.8" specularExponent="18" result="spec">
+        <!-- Lamp located at the window vector; coordinates will produce a warm spot -->
+        <feSpotLight x="443.2" y="301.8" z="150" pointsAtX="250" pointsAtY="250" pointsAtZ="0" limitingConeAngle="45" color="#ffd7a2"/>
+      </feSpecularLighting>
+      <feComposite in="spec" in2="SourceGraphic" operator="in" result="lit"/>
+      <feBlend in="SourceGraphic" in2="lit" mode="screen"/>
+    </filter>
+
+    <!-- Condensation droplets: morphology + blur -->
+    <filter id="condensation" x="-20%" y="-20%" width="140%" height="140%">
+      <feMorphology operator="dilate" radius="1" in="SourceAlpha" result="dilated"/>
+      <feGaussianBlur in="dilated" stdDeviation="1.2" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0   1 0 0 0 0   1 0 0 0 0  0 0 0 0.6 0" result="col"/>
+      <feComposite in="col" in2="SourceGraphic" operator="over"/>
+    </filter>
+
+    <!-- Soft vignette for the scene -->
+    <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
+      <stop offset="60%" stop-color="transparent"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.6"/>
+    </radialGradient>
+
+    <!-- Siphonophores glow stroke style -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.5" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Text path for stress annotation -->
+    <path id="stressArc" d="M 300 120 A 120 120 0 0 0 80 200" fill="none"/>
+
+  </defs>
+
+  <!-- Background water with caustics -->
+  <rect width="100%" height="100%" fill="#041225"/>
+  <g filter="url(#caustics)" opacity="0.18">
+    <rect x="0" y="0" width="500" height="500" fill="#06283d"/>
+  </g>
+
+  <!-- Subtle vignette -->
+  <rect width="100%" height="100%" fill="url(#vignette)" opacity="0.45"/>
+
+  <!-- Pressure hull (scaled model: original radius 1500mm -> scaled to 200px) -->
+  <!-- Center at 250,250; hull radius = 200px; wall thickness scaled = ~5px -->
+  <g id="hull">
+    <circle cx="250" cy="250" r="200" fill="url(#hullGrad)" stroke="#0b0d0f" stroke-width="5"/>
+    <!-- interior fill -->
+    <circle cx="250" cy="250" r="195" fill="#191c1f" opacity="0.95" />
+  </g>
+
+  <!-- Rivets: 240 uses around hull using polar rotation around center -->
+  <g id="rivets">
+    <!-- place rivets by rotating and translating; precise polar distribution: 240 pieces (1.5deg step) -->
+    <!-- radius for rivets (just inside hull) = 190 -->
+    <!-- Using transform rotate(angle cx cy) translate(190 0) to position -->
+    <!-- Generate 240 uses -->
+    <!-- We'll output each use with angle = i*1.5 degrees -->
+    <!-- 240 rivets -->
+    <g>
+      <use href="#rivet" transform="rotate(0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(1.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(3.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(4.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(6.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(7.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(9.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(10.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(12.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(13.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(15.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(16.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(18.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(19.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(21.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(22.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(24.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(25.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(27.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(28.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(30.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(31.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(33.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(34.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(36.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(37.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(39.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(40.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(42.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(43.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(45.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(46.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(48.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(49.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(51.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(52.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(54.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(55.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(57.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(58.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(60.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(61.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(63.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(64.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(66.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(67.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(69.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(70.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(72.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(73.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(75.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(76.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(78.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(79.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(81.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(82.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(84.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(85.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(87.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(88.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(90.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(91.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(93.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(94.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(96.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(97.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(99.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(100.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(102.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(103.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(105.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(106.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(108.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(109.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(111.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(112.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(114.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(115.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(117.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(118.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(120.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(121.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(123.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(124.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(126.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(127.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(129.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(130.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(132.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(133.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(135.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(136.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(138.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(139.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(141.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(142.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(144.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(145.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(147.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(148.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(150.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(151.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(153.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(154.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(156.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(157.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(159.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(160.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(162.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(163.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(165.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(166.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(168.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(169.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(171.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(172.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(174.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(175.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(177.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(178.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(180.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(181.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(183.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(184.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(186.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(187.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(189.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(190.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(192.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(193.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(195.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(196.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(198.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(199.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(201.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(202.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(204.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(205.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(207.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(208.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(210.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(211.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(213.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(214.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(216.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(217.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(219.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(220.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(222.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(223.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(225.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(226.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(228.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(229.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(231.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(232.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(234.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(235.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(237.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(238.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(240.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(241.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(243.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(244.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(246.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(247.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(249.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(250.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(252.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(253.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(255.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(256.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(258.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(259.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(261.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(262.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(264.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(265.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(267.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(268.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(270.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(271.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(273.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(274.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(276.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(277.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(279.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(280.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(282.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(283.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(285.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(286.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(288.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(289.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(291.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(292.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(294.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(295.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(297.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(298.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(300.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(301.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(303.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(304.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(306.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(307.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(309.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(310.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(312.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(313.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(315.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(316.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(318.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(319.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(321.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(322.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(324.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(325.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(327.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(328.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(330.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(331.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(333.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(334.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(336.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(337.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(339.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(340.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(342.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(343.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(345.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(346.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(348.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(349.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(351.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(352.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(354.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(355.5 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(357.0 250 250) translate(190 0)"/>
+      <use href="#rivet" transform="rotate(358.5 250 250) translate(190 0)"/>
+    </g>
+  </g>
+
+  <!-- Fused-silica viewport: 300mm diameter -> scaled to 40px diameter (radius 20) placed at angle 15deg on hull -->
+  <g id="viewport">
+    <!-- compute window center approx: angle 15 degrees -->
+    <defs>
+      <!-- mask for refraction limited to viewport -->
+      <mask id="windowMask">
+        <rect x="0" y="0" width="500" height="500" fill="black"/>
+        <circle cx="443.2" cy="301.8" r="20" fill="white"/>
+      </mask>
+    </defs>
+
+    <!-- window outer bezel -->
+    <circle cx="443.2" cy="301.8" r="22.5" fill="#121618" stroke="#7d7f82" stroke-width="2"/>
+    <!-- viewport glass with subtle gradient and refraction filter applied to contents behind it -->
+    <g mask="url(#windowMask)">
+      <!-- apply refraction to the underlying scene inside the window area -->
+      <g filter="url(#viewportRefraction)">
+        <circle cx="443.2" cy="301.8" r="20" fill="url(#glassGrad)" stroke="#cfeeff" stroke-opacity="0.45" stroke-width="1.2"/>
+      </g>
+    </g>
+
+    <!-- fused-silica thickness hint: thin darker edge -->
+    <ellipse cx="443.2" cy="301.8" rx="20" ry="20" fill="none" stroke="#000" stroke-opacity="0.18" stroke-width="2"/>
+
+    <!-- condensation droplets layered on inner face -->
+    <g transform="translate(443.2,301.8)">
+      <g filter="url(#condensation)" opacity="0.9" >
+        <circle cx="-6" cy="-4" r="2.2" fill="#ffffff" fill-opacity="0.8"/>
+        <circle cx="3" cy="-6" r="1.6" fill="#ffffff" fill-opacity="0.65"/>
+        <circle cx="-1" cy="5" r="1.8" fill="#ffffff" fill-opacity="0.6"/>
+        <circle cx="7" cy="2" r="1.1" fill="#ffffff" fill-opacity="0.5"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- Interior cross-section: winch drum and gearing -->
+  <g id="internals" filter="url(#interiorLight)" transform="translate(250,245)">
+    <!-- Winch drum: 800mm OD -> 400mm radius -> scaled to 53.33px radius; show as circle -->
+    <g id="winch">
+      <circle cx="0" cy="0" r="53.33" fill="#2c3134" stroke="#101213" stroke-width="2"/>
+      <circle cx="0" cy="0" r="45" fill="#1b1e20" stroke="#2b2f33" stroke-width="1"/>
+      <!-- drum spokes -->
+      <g stroke="#3f464a" stroke-width="1.2" stroke-linecap="round" opacity="0.9">
+        <line x1="-45" y1="0" x2="45" y2="0"/>
+        <line x1="0" y1="-45" x2="0" y2="45"/>
+        <line x1="-32" y1="-32" x2="32" y2="32"/>
+        <line x1="-32" y1="32" x2="32" y2="-32"/>
+      </g>
+      <!-- crank links: center-to-center 250mm -> scaled centers ~33.33px apart -->
+      <g transform="rotate(-30)">
+        <circle cx="33.33" cy="0" r="4.2" fill="#5c6164" stroke="#000" stroke-opacity="0.2" />
+        <circle cx="-33.33" cy="0" r="4.2" fill="#5c6164" stroke="#000" stroke-opacity="0.2" />
+        <line x1="33.33" y1="0" x2="-33.33" y2="0" stroke="#7b7f82" stroke-width="1.8"/>
+      </g>
+      <!-- small gearing hint (4:1) -->
+      <g transform="translate(-70,-40)">
+        <circle r="9" fill="#2b2f33" stroke="#6b7176" stroke-width="1"/>
+        <circle r="3" fill="#9ea3a6"/>
+        <text x="-5" y="3" font-size="6" fill="#9ea3a6">4:1</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Gauge at true center with needle pivot at center -->
+  <g id="gauge" transform="translate(250,250)">
+    <!-- outer gauge ring -->
+    <circle r="28" fill="#0f1112" stroke="#6b6f73" stroke-width="1.4"/>
+    <!-- ticks -->
+    <g stroke="#7f8689" stroke-width="1">
+      <line x1="0" y1="-24" x2="0" y2="-20"/>
+      <line x1="17" y1="-14" x2="14" y2="-11"/>
+      <line x1="-17" y1="-14" x2="-14" y2="-11"/>
+    </g>
+    <!-- needle (60mm -> 30px original -> scaled ~8px length) pivot at center -->
+    <g id="needle" transform="rotate(-20)">
+      <line x1="0" y1="0" x2="0" y2="-8" stroke="#ff6b4d" stroke-width="1.8" stroke-linecap="round"/>
+      <circle r="2.2" fill="#222" stroke="#ddd" stroke-width="0.6"/>
+    </g>
+    <!-- label -->
+    <text x="0" y="38" font-size="7" text-anchor="middle" fill="#9ea3a6">Pressure</text>
+  </g>
+
+  <!-- Siphonophores (bioluminescent) outside hull, animated stroke-dasharray illusion -->
+  <g id="siphonophores" filter="url(#glow)" opacity="0.95">
+    <path d="M 60 50 C 80 80, 110 70, 140 100" fill="none" stroke="#7ef3ff" stroke-width="1.8" stroke-linecap="round"
+          stroke-dasharray="6 4">
+      <animate attributeName="stroke-dashoffset" from="0" to="30" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="5s" repeatCount="indefinite"/>
+    </path>
+
+    <path d="M 30 180 C 60 150, 110 190, 150 170" fill="none" stroke="#9fffde" stroke-width="1.6" stroke-linecap="round"
+          stroke-dasharray="5 3">
+      <animate attributeName="stroke-dashoffset" from="0" to="-24" dur="5.6s" repeatCount="indefinite"/>
+    </path>
+
+    <path d="M 380 80 C 360 120, 330 100, 300 140" fill="none" stroke="#a3f0ff" stroke-width="1.5" stroke-linecap="round"
+          stroke-dasharray="7 3">
+      <animate attributeName="stroke-dashoffset" from="0" to="40" dur="8s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- Orthographic overlay: simple blueprint lines (orthographic style) -->
+  <g id="overlays" opacity="0.9">
+    <line x1="30" y1="470" x2="470" y2="470" stroke="#1f8bff" stroke-width="0.6" stroke-dasharray="4 3" />
+    <line x1="30" y1="460" x2="470" y2="460" stroke="#1f8bff" stroke-width="0.4" stroke-dasharray="2 2" />
+    <rect x="20" y="420" width="220" height="32" fill="none" stroke="#1f8bff" stroke-width="0.7"/>
+    <text x="30" y="440" fill="#9fcfff" font-size="9">Pressure hull radius: 1500 mm (scale 1px=2mm)</text>
+  </g>
+
+  <!-- Stress annotation text-on-path -->
+  <g id="stressAnnotations" fill="#ffb3b3">
+    <path id="stressArc2" d="M 320 130 A 120 120 0 0 0 120 210" fill="none" stroke="rgba(255,180,180,0.12)" stroke-width="10"/>
+    <text font-size="8" fill="#ffb3b3">
+      <textPath href="#stressArc" startOffset="15%">σ_max 125 MPa →</textPath>
+    </text>
+  </g>
+
+  <!-- Simple perspective overlay lines to imply mid-dive perspective -->
+  <g opacity="0.9" stroke="#6b9fbf" stroke-width="0.6">
+    <line x1="250" y1="50" x2="250" y2="250" stroke-dasharray="3 2" opacity="0.35"/>
+    <line x1="120" y1="80" x2="250" y2="250" stroke-dasharray="3 2" opacity="0.25"/>
+  </g>
+
+  <!-- Small label for window and lamp -->
+  <g font-size="8" fill="#cfe3ff" opacity="0.95">
+    <text x="365" y="270">Viewport: fused-silica 300mm Ø, 90mm thick</text>
+    <text x="365" y="283">Diver lamp: 2300K at 15° (spot)</text>
+  </g>
+
+  <!-- Diver lamp warm glow emanating from window direction, approximate -->
+  <g opacity="0.55">
+    <circle cx="443.2" cy="301.8" r="70" fill="url(#lampGrad)" opacity="0.35" />
+  </g>
+
+  <!-- Blueprint clean overlay border -->
+  <rect x="6" y="6" width="488" height="488" fill="none" stroke="#163b5a" stroke-width="2" opacity="0.6"/>
+
+</svg>

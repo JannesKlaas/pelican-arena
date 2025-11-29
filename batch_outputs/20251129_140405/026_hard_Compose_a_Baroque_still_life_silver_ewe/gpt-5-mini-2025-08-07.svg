@@ -1,0 +1,233 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <!-- Warm candlelight specular lighting (1800K approx warm orange) -->
+    <filter id="specLight" x="-50%" y="-50%" width="200%" height="200%">
+      <!-- base ambient -->
+      <feFlood flood-color="#000000" result="bg"/>
+      <feComposite in="bg" in2="SourceGraphic" operator="in" result="base"/>
+      <!-- subtle scene hue shift to simulate reflections on silver -->
+      <feColorMatrix type="matrix" values="
+         1   0   0   0   0
+         0   0.98 0   0   0
+         0   0   0.9  0   0
+         0   0   0   1   0" in="SourceGraphic" result="hueShift"/>
+      <!-- specular highlight using feSpecularLighting with a warm point light (approx 1800K) -->
+      <feGaussianBlur in="hueShift" stdDeviation="2" result="blur"/>
+      <feSpecularLighting in="blur" surfaceScale="6" specularExponent="40" specularConstant="1" lighting-color="#ffb86b" result="spec">
+        <!-- point light 25° left means left-up offset; place to left and above -->
+        <fePointLight x="-150" y="-80" z="250"/>
+      </feSpecularLighting>
+      <feComposite in="spec" in2="hueShift" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="lit"/>
+      <!-- subtle global contrast -->
+      <feColorMatrix type="saturate" values="1.05" in="lit" result="sat"/>
+      <feBlend in="SourceGraphic" in2="sat" mode="normal"/>
+    </filter>
+
+    <!-- Fresnel-like rim: layered radial gradients -->
+    <radialGradient id="fresnel1" cx="50%" cy="40%" r="60%">
+      <stop offset="85%" stop-color="#ffffff" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="fresnel2" cx="30%" cy="30%" r="80%">
+      <stop offset="88%" stop-color="#fff7e6" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#fff7e6" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- vertical grid behind goblet for refraction -->
+    <pattern id="vertGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <rect width="20" height="20" fill="#efece6"/>
+      <path d="M10 0 L10 20" stroke="#c8c6c2" stroke-width="1"/>
+      <path d="M0 10 L20 10" stroke="#f5f4f2" stroke-width="0.5"/>
+    </pattern>
+
+    <!-- displacement map generator (turbulence) to simulate glass thickness refraction -->
+    <filter id="glassRefract" x="-20%" y="-20%" width="140%" height="140%">
+      <!-- subtle turbulence to derive displacement -->
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="1" stitchTiles="stitch" result="noise"/>
+      <!-- scale matches glass thickness: glass thickness ~6 (arbitrary units); set scale accordingly -->
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="18" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <!-- dew drop symbol with hotspot -->
+    <radialGradient id="dewGrad" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="35%" stop-color="#bfe7ff" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#7fb6d6" stop-opacity="0.05"/>
+    </radialGradient>
+    <symbol id="dew" viewBox="0 0 12 12">
+      <circle cx="6" cy="6" r="5.2" fill="url(#dewGrad)" stroke="rgba(255,255,255,0.5)" stroke-width="0.4"/>
+      <!-- tiny specular hotspot -->
+      <circle cx="4.2" cy="3.8" r="1.1" fill="#fff" opacity="0.95"/>
+    </symbol>
+
+    <!-- micro-scratch stroke for silver -->
+    <pattern id="scratches" width="6" height="6" patternUnits="userSpaceOnUse">
+      <path d="M0 3 L6 3" stroke="rgba(255,255,255,0.6)" stroke-width="0.6" stroke-linecap="round" stroke-dasharray="1 3" />
+    </pattern>
+
+    <!-- velvet directional sheen -->
+    <linearGradient id="velvetSheen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2b0a11"/>
+      <stop offset="50%" stop-color="#5b0f1a"/>
+      <stop offset="100%" stop-color="#1a0510"/>
+    </linearGradient>
+    <linearGradient id="velvetFiber" x1="0" y1="0" x2="0.9" y2="0.1">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.05)"/>
+      <stop offset="50%" stop-color="rgba(255,255,255,0.02)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0.25)"/>
+    </linearGradient>
+
+    <!-- tablecloth damask pattern tiled -->
+    <pattern id="damask" patternUnits="userSpaceOnUse" width="80" height="80">
+      <rect width="80" height="80" fill="#2b1b2b"/>
+      <g fill="#39232f" opacity="0.7">
+        <path d="M40 10 C46 18 54 18 60 10 L60 30 C54 22 46 22 40 30 z"/>
+        <path d="M20 50 C26 42 34 42 40 50 L40 70 C34 62 26 62 20 70 z"/>
+      </g>
+    </pattern>
+
+    <!-- pith noise mask for lemon peel's inner face -->
+    <filter id="pithNoise" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix in="noise" type="saturate" values="0" result="mono"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.9"/>
+      </feComponentTransfer>
+      <feGaussianBlur stdDeviation="0.6"/>
+    </filter>
+
+    <!-- soft colored shadow with bleed -->
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="8" result="blur"/>
+      <!-- color bleed warmer near candle -->
+      <feFlood flood-color="#b45a2b" flood-opacity="0.22" result="warm"/>
+      <feComposite in="warm" in2="blur" operator="in" result="warmShadow"/>
+      <!-- occlusion contact using multiply to darken where objects contact surface -->
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="contactBlur"/>
+      <feColorMatrix in="contactBlur" type="matrix" values="0 0 0 0 0
+                                                           0 0 0 0 0
+                                                           0 0 0 0 0
+                                                           0 0 0 0.6 0" result="contact"/>
+      <feBlend in="warmShadow" in2="contact" mode="multiply"/>
+    </filter>
+
+    <!-- subtle vignette -->
+    <radialGradient id="vignette" cx="50%" cy="35%" r="80%">
+      <stop offset="60%" stop-color="rgba(0,0,0,0)" />
+      <stop offset="100%" stop-color="rgba(0,0,0,0.35)" />
+    </radialGradient>
+
+  </defs>
+
+  <!-- Background wall with vertical grid behind goblet -->
+  <rect x="0" y="0" width="500" height="320" fill="#efe6dc"/>
+  <rect x="0" y="0" width="500" height="320" fill="url(#vertGrid)" opacity="0.9"/>
+
+  <!-- Table with damask cloth -->
+  <g transform="translate(0,300)">
+    <rect x="0" y="0" width="500" height="200" fill="#2b1420"/>
+    <rect x="0" y="-40" width="500" height="120" fill="url(#damask)" opacity="0.95"/>
+  </g>
+
+  <!-- Velvet drape left -->
+  <g transform="translate(-20,40) rotate(-6)">
+    <path d="M40 40 C10 120 30 250 60 300 L110 300 C100 240 140 140 120 80 C100 20 60 10 40 40 z"
+          fill="url(#velvetSheen)" />
+    <path d="M40 40 C10 120 30 250 60 300 L110 300 C100 240 140 140 120 80 C100 20 60 10 40 40 z"
+          fill="url(#velvetFiber)" opacity="0.25" />
+  </g>
+
+  <!-- Cast shadow for drape -->
+  <path d="M50 320 C70 340 120 360 160 360 L380 360 L380 375 L0 375 L0 360 z"
+        fill="rgba(0,0,0,0.1)" filter="url(#softShadow)"/>
+
+  <!-- Silver ewer (simplified) -->
+  <g transform="translate(120,160)">
+    <!-- body with reflective gradient and micro-scratches -->
+    <ellipse cx="0" cy="80" rx="45" ry="60" fill="url(#fresnel2)" filter="url(#specLight)" />
+    <ellipse cx="0" cy="80" rx="45" ry="60" fill="url(#scratches)" opacity="0.12"/>
+    <!-- neck and spout -->
+    <path d="M-10 10 L-4 -30 L30 -20 L34 -14 L8 2" fill="#dddfe3" stroke="#cfd2d6" stroke-width="1" filter="url(#specLight)"/>
+    <!-- handle -->
+    <path d="M40 40 C70 20 70 120 40 120" fill="none" stroke="#d6d6d8" stroke-width="6" stroke-linecap="round" filter="url(#specLight)"/>
+    <!-- rim Fresnel -->
+    <ellipse cx="0" cy="10" rx="22" ry="8" fill="url(#fresnel1)" opacity="0.7"/>
+    <!-- micro scratches highlight -->
+    <path d="M-35 110 L20 50" stroke="rgba(255,255,255,0.25)" stroke-width="0.8" stroke-dasharray="1 4" />
+  </g>
+
+  <!-- Lemon with peeled curl -->
+  <g transform="translate(320,230)">
+    <!-- lemon body -->
+    <ellipse cx="0" cy="0" rx="26" ry="18" fill="#f7e07a" stroke="#e6cf4a" stroke-width="1"/>
+    <!-- pith inner with noisy texture mask -->
+    <ellipse cx="6" cy="-2" rx="9" ry="6" fill="#fff6dd" filter="url(#pithNoise)" opacity="0.85" />
+    <!-- peel curl (approx 3mm thick ~ 11 px, 18mm wide ~ 68 px) -->
+    <path d="M-10 6 C10 12 50 8 58 -6 C64 -16 42 -30 30 -26 C18 -22 2 -12 -8 -6 Z"
+          fill="#ffd85a" stroke="#e0b83a" stroke-width="2" />
+    <!-- peel inner edge to imply thickness -->
+    <path d="M-10 6 C10 12 50 8 58 -6" fill="none" stroke="#fff5cc" stroke-width="6" stroke-linecap="round" opacity="0.9"/>
+  </g>
+
+  <!-- Goblet with refraction of vertical grid -->
+  <g transform="translate(220,150)">
+    <!-- base -->
+    <ellipse cx="0" cy="150" rx="36" ry="8" fill="#e6e9eb" opacity="0.95" filter="url(#specLight)"/>
+    <rect x="-18" y="20" width="36" height="120" rx="10" fill="rgba(250,250,255,0.05)" />
+    <!-- stem -->
+    <rect x="-6" y="90" width="12" height="60" fill="#dadfe2" opacity="0.95" filter="url(#specLight)"/>
+    <!-- bowl area: use the grid behind but displaced to simulate refraction -->
+    <g>
+      <g filter="url(#glassRefract)">
+        <rect x="-36" y="-30" width="72" height="90" fill="url(#vertGrid)" clip-path="url(#gobClip)"/>
+      </g>
+      <!-- bowl shape mask -->
+      <defs>
+        <clipPath id="gobClip">
+          <path d="M-36 40 C-36 10 -18 -20 0 -22 C18 -20 36 10 36 40 z"/>
+        </clipPath>
+      </defs>
+      <path d="M-36 40 C-36 10 -18 -20 0 -22 C18 -20 36 10 36 40 z"
+            fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.25)" stroke-width="1.2" />
+      <!-- rim highlights -->
+      <ellipse cx="0" cy="-22" rx="34" ry="9" fill="url(#fresnel1)" opacity="0.6"/>
+    </g>
+  </g>
+
+  <!-- Grapes cluster with dew symbols -->
+  <g transform="translate(380,260)">
+    <!-- grapes circles -->
+    <g id="grapes" fill="#3b1d52" stroke="#4e2b6f" stroke-width="1">
+      <circle cx="-10" cy="0" r="12"/>
+      <circle cx="8" cy="-4" r="11"/>
+      <circle cx="26" cy="6" r="10"/>
+      <circle cx="-2" cy="14" r="11"/>
+      <circle cx="18" cy="18" r="9"/>
+      <circle cx="36" cy="12" r="8"/>
+    </g>
+    <!-- dew drops placed as repeated symbols -->
+    <use href="#dew" x="-20" y="-12" width="12" height="12"/>
+    <use href="#dew" x="6" y="-10" width="10" height="10" opacity="0.9"/>
+    <use href="#dew" x="30" y="4" width="9" height="9" opacity="0.9"/>
+    <use href="#dew" x="2" y="22" width="11" height="11" opacity="0.95"/>
+    <use href="#dew" x="24" y="22" width="8" height="8" opacity="0.9"/>
+    <!-- subtle specular layer for grapes -->
+    <ellipse cx="6" cy="2" rx="44" ry="30" fill="rgba(255,245,240,0.02)"/>
+  </g>
+
+  <!-- Foreground occlusion contact shadows for objects -->
+  <g opacity="0.9" filter="url(#softShadow)">
+    <!-- shadow under ewer -->
+    <ellipse cx="140" cy="360" rx="56" ry="18" fill="#1b0f0a" opacity="0.18"/>
+    <!-- shadow under goblet -->
+    <ellipse cx="245" cy="360" rx="40" ry="12" fill="#0f0c08" opacity="0.16"/>
+    <!-- shadow under lemon -->
+    <ellipse cx="320" cy="355" rx="30" ry="9" fill="#2a1308" opacity="0.14"/>
+    <!-- shadow under grapes -->
+    <ellipse cx="385" cy="365" rx="34" ry="10" fill="#190d0a" opacity="0.15"/>
+  </g>
+
+  <!-- subtle vignette to focus light -->
+  <rect x="0" y="0" width="500" height="500" fill="url(#vignette)" style="mix-blend-mode:multiply"/>
+
+</svg>

@@ -1,0 +1,111 @@
+<svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Golden hour sky/light gradient -->
+    <linearGradient id="goldenHourSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" /> <!-- Gold -->
+      <stop offset="50%" style="stop-color:#FFA500;stop-opacity:1" /> <!-- Orange -->
+      <stop offset="100%" style="stop-color:#FF4500;stop-opacity:1" /> <!-- Orange-Red -->
+    </linearGradient>
+
+    <!-- Stone color for walls and columns, with slight variation for visual depth -->
+    <linearGradient id="stoneGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#908C82;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#B0ABA0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#908C82;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="stoneGradientLight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#A09C92;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#C0BAAE;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A09C92;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Floor gradient to suggest depth and texture -->
+    <linearGradient id="floorGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#605A50;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#403A30;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Filter for soft glow of light and simplified stained glass appearance -->
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+    <filter id="stainedGlassGlow">
+      <feGaussianBlur stdDeviation="1"/>
+      <feColorMatrix type="matrix" values="1 0 0 0 0
+                                           0 1 0 0 0
+                                           0 0 1 0 0
+                                           0 0 0 0.8 0"/> <!-- Semi-transparent and slightly blurred -->
+    </filter>
+
+    <!-- Define a single stained glass segment path for reuse in the rose window
+         This path represents a 30-degree wedge from an inner radius (r=12) to an outer radius (R=40) -->
+    <path id="roseSegment" d="M 0 -12 L 0 -40 A 40 40 0 0 1 20 -34.64 L 6 -10.39 Z"/>
+  </defs>
+
+  <!-- Background: Golden Hour Sky/Light (overall ambient light) -->
+  <rect x="0" y="0" width="500" height="500" fill="url(#goldenHourSky)"/>
+
+  <!-- Floor of the nave (simplified perspective) -->
+  <path d="M 0 500 L 500 500 L 400 280 L 100 280 Z" fill="url(#floorGradient)"/>
+
+  <!-- Nave walls and columns (simplified perspective, hinting at occlusion) -->
+  <!-- Left Wall / Columns -->
+  <path d="M 100 280 L 120 0 L 150 0 L 130 280 Z" fill="url(#stoneGradient)"/>
+  <path d="M 130 280 L 150 0 L 200 0 L 180 280 Z" fill="url(#stoneGradientLight)"/>
+  <path d="M 180 280 L 200 0 L 250 0 L 230 280 Z" fill="url(#stoneGradient)"/>
+
+  <!-- Right Wall / Columns -->
+  <path d="M 400 280 L 380 0 L 350 0 L 370 280 Z" fill="url(#stoneGradient)"/>
+  <path d="M 370 280 L 350 0 L 300 0 L 320 280 Z" fill="url(#stoneGradientLight)"/>
+  <path d="M 320 280 L 300 0 L 250 0 L 270 280 Z" fill="url(#stoneGradient)"/>
+
+  <!-- Far end wall (back of the nave) -->
+  <path d="M 230 280 L 270 280 L 250 0 Z" fill="url(#stoneGradientLight)"/>
+
+  <!-- Pointed Arches (simplified representation) -->
+  <path d="M 100 280 Q 110 150, 120 0 L 150 0 Q 140 150, 130 280 Z" fill="none" stroke="#504A40" stroke-width="2" />
+  <path d="M 130 280 Q 160 150, 180 280" fill="none" stroke="#504A40" stroke-width="2" />
+  <path d="M 180 280 Q 200 150, 230 280" fill="none" stroke="#504A40" stroke-width="2" />
+  <path d="M 400 280 Q 390 150, 370 280" fill="none" stroke="#504A40" stroke-width="2" />
+  <path d="M 370 280 Q 340 150, 320 280" fill="none" stroke="#504A40" stroke-width="2" />
+  <path d="M 320 280 Q 300 150, 270 280" fill="none" stroke="#504A40" stroke-width="2" />
+
+  <!-- Rose Window at the far end (simplified 12-fold symmetry hint with Tetramorph colors) -->
+  <g transform="translate(250, 100)">
+    <!-- Main outer circle of the rose window -->
+    <circle cx="0" cy="0" r="40" fill="none" stroke="#504A40" stroke-width="3"/>
+    <!-- Central Oculi (inner circle) -->
+    <circle cx="0" cy="0" r="12" fill="none" stroke="#504A40" stroke-width="2"/>
+
+    <!-- Use the defined roseSegment path and rotate it 12 times with different colors
+         Colors represent the Tetramorph: Red (Lion/Mark), Green (Man/Matthew), Blue (Eagle/John), Yellow (Ox/Luke) -->
+    <g filter="url(#stainedGlassGlow)">
+      <use href="#roseSegment" transform="rotate(0)" fill="#E64A19"/>    <!-- Red -->
+      <use href="#roseSegment" transform="rotate(30)" fill="#388E3C"/>  <!-- Green -->
+      <use href="#roseSegment" transform="rotate(60)" fill="#1976D2"/>   <!-- Blue -->
+      <use href="#roseSegment" transform="rotate(90)" fill="#FBC02D"/> <!-- Yellow -->
+      <use href="#roseSegment" transform="rotate(120)" fill="#E64A19"/>
+      <use href="#roseSegment" transform="rotate(150)" fill="#388E3C"/>
+      <use href="#roseSegment" transform="rotate(180)" fill="#1976D2"/>
+      <use href="#roseSegment" transform="rotate(210)" fill="#FBC02D"/>
+      <use href="#roseSegment" transform="rotate(240)" fill="#E64A19"/>
+      <use href="#roseSegment" transform="rotate(270)" fill="#388E3C"/>
+      <use href="#roseSegment" transform="rotate(300)" fill="#1976D2"/>
+      <use href="#roseSegment" transform="rotate(330)" fill="#FBC02D"/>
+    </g>
+  </g>
+
+  <!-- Pews (simplified, showing some perspective and suggesting occlusion) -->
+  <rect x="150" y="300" width="200" height="20" fill="#402810" />
+  <rect x="160" y="330" width="180" height="20" fill="#402810" />
+  <rect x="170" y="360" width="160" height="20" fill="#402810" />
+  <rect x="180" y="390" width="140" height="20" fill="#402810" />
+
+  <!-- Hint of golden hour light rays/glow (simplified caustics and dust rays) -->
+  <g filter="url(#softGlow)">
+    <rect x="0" y="0" width="500" height="500" fill="white" opacity="0.03"/> <!-- Overall soft light overlay -->
+    <polygon points="400 280, 500 500, 300 450, 250 280" fill="#FFC107" opacity="0.08"/> <!-- Floor light patch right -->
+    <polygon points="100 280, 0 500, 200 450, 250 280" fill="#FFC107" opacity="0.08"/> <!-- Floor light patch left -->
+    <path d="M 250 0 L 230 280 L 270 280 Z" fill="#FFD700" opacity="0.1"/> <!-- Light on far wall from rose window -->
+  </g>
+</svg>

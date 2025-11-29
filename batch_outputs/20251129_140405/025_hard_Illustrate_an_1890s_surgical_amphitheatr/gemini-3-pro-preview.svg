@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <!-- Filters for lighting and shadow -->
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="4" stdDeviation="3" flood-color="#1a1a1a" flood-opacity="0.5"/>
+    </filter>
+    <filter id="gasGlow">
+      <feGaussianBlur stdDeviation="10" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Markers for schematic labels -->
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333" />
+    </marker>
+    <!-- Gradients -->
+    <radialGradient id="warmLight" cx="0.5" cy="0" r="0.8">
+      <stop offset="0%" stop-color="#ffedcc" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#ffedcc" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="metalSheen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#cfd9df"/>
+      <stop offset="50%" stop-color="#e2ebf0"/>
+      <stop offset="100%" stop-color="#aab7c4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background: Slate Walls & Floor -->
+  <rect width="500" height="500" fill="#2b2b2b"/>
+  
+  <!-- Tiered Seating (Concentric Arcs) -->
+  <g id="amphitheatre-seating" fill="#3e3025" stroke="#1a1a1a" stroke-width="1">
+    <path d="M-50,100 Q250,250 550,100 L550,160 Q250,310 -50,160 Z" />
+    <path d="M-50,160 Q250,310 550,160 L550,220 Q250,370 -50,220 Z" fill="#4a3b2f"/>
+  </g>
+
+  <!-- Chalk Diagrams on Slate Background -->
+  <g id="chalk-diagrams" fill="none" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="3,3">
+    <circle cx="400" cy="150" r="30" />
+    <path d="M380,150 L420,150 M400,130 L400,170" />
+    <text x="390" y="200" fill="#ffffff" fill-opacity="0.4" font-family="serif" font-size="10" stroke="none">Fig. A</text>
+  </g>
+
+  <!-- Main Surgical Table Area -->
+  <g id="table-setup" filter="url(#softShadow)">
+    <path d="M100,350 L400,350 L440,500 L60,500 Z" fill="#405045" stroke="#222" stroke-width="1"/>
+    <path d="M110,360 L390,360 L410,480 L90,480 Z" fill="#e8e8e8" fill-opacity="0.9"/> <!-- Sterile Drape -->
+  </g>
+
+  <!-- Anatomy: Upper Limb (Schematic) -->
+  <g id="anatomy" transform="translate(180, 330) scale(0.9)">
+    <!-- Humerus (Upper Arm) -->
+    <g transform="rotate(-15, 50, 50)">
+        <!-- Skin/Outline -->
+        <path d="M30,10 C20,50 25,100 30,130 C50,130 55,100 50,10" fill="#f0dcb1" stroke="#333" stroke-width="1"/>
+        <!-- Muscle (Biceps - Low Saturation) -->
+        <ellipse cx="40" cy="70" rx="8" ry="25" fill="#c28e8e" opacity="0.8" />
+        <!-- Tendon Insertion -->
+        <line x1="40" y1="95" x2="40" y2="130" stroke="#fff" stroke-width="2" opacity="0.8"/>
+    </g>
+    
+    <!-- Forearm (Radius/Ulna region) -->
+    <g transform="translate(25, 125) rotate(10)">
+        <path d="M5,0 C-5,40 0,80 10,100 C25,100 30,60 25,0" fill="#f0dcb1" stroke="#333" stroke-width="1"/>
+        <line x1="12" y1="10" x2="12" y2="80" stroke="#a89f91" stroke-width="1" stroke-dasharray="2,2"/> <!-- Bone Schematic -->
+    </g>
+
+    <!-- Labels with Leader Lines -->
+    <g stroke="#333" stroke-width="1" fill="none">
+      <path d="M-30,70 L25,70" marker-end="url(#arrow)"/>
+      <path d="M130,140 L60,140" marker-end="url(#arrow)"/>
+    </g>
+    <text x="-70" y="73" font-family="serif" font-size="10" fill="#111">Biceps</text>
+    <text x="135" y="143" font-family="serif" font-size="10" fill="#111">Tendon</text>
+  </g>
+
+  <!-- Instruments -->
+  <g id="instruments" transform="translate(300, 420)">
+    <!-- Bone Saw -->
+    <g transform="rotate(15)">
+      <rect x="0" y="0" width="80" height="15" fill="url(#metalSheen)" stroke="#555" stroke-width="0.5"/>
+      <path d="M0,15 L80,15" stroke="#333" stroke-width="1" stroke-dasharray="2,1"/> <!-- Serration hint -->
+      <rect x="-20" y="2" width="20" height="11" rx="2" fill="#3e2b1f"/> <!-- Handle -->
+    </g>
+    <!-- Forceps -->
+    <g transform="translate(-50, 20) rotate(-10)">
+       <path d="M0,0 L30,5 M0,10 L30,5" stroke="url(#metalSheen)" stroke-width="2" fill="none"/>
+    </g>
+  </g>
+
+  <!-- Lighting & Atmosphere -->
+  <!-- Gas Lamp Glow -->
+  <circle cx="250" cy="-50" r="400" fill="url(#warmLight)" pointer-events="none"/>
+  
+  <!-- Glass/Jar Glare Simulation (Clipped Speculars) -->
+  <g id="glass-glare" transform="translate(380, 380)" opacity="0.4">
+     <path d="M0,0 C10,-5 20,0 20,30 C20,40 10,45 0,40 L0,0 Z" fill="#fff"/>
+     <path d="M5,5 L8,20" stroke="#fff" stroke-width="1" stroke-linecap="round"/>
+  </g>
+
+  <!-- Etching Style Vignette -->
+  <rect width="500" height="500" fill="none" stroke="#000" stroke-width="30" stroke-opacity="0.1" rx="50" ry="50"/>
+
+</svg>

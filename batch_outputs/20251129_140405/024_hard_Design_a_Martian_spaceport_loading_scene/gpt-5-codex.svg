@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8c880"/>
+      <stop offset="100%" stop-color="#d1853d"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="0.78" cy="0.2" r="0.18">
+      <stop offset="0%" stop-color="#fff3be" stop-opacity="1"/>
+      <stop offset="70%" stop-color="#ffd27a" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#f8c880" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="dustDevil" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="9" result="noise">
+        <animate attributeName="baseFrequency" values="0.012;0.018;0.012" dur="6s" repeatCount="indefinite"/>
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="18">
+        <animate attributeName="scale" values="12;22;12" dur="6s" repeatCount="indefinite"/>
+      </feDisplacementMap>
+      <feGaussianBlur stdDeviation="0.8"/>
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.6 0"/>
+    </filter>
+    <filter id="heatShimmer" x="-10%" y="-10%" width="120%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="1" seed="3" result="shimmer">
+        <animate attributeName="baseFrequency" values="0.08;0.11;0.08" dur="4s" repeatCount="indefinite"/>
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="shimmer" scale="6">
+        <animate attributeName="scale" values="2;6;2" dur="3s" repeatCount="indefinite"/>
+      </feDisplacementMap>
+    </filter>
+    <filter id="jointSpec" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="0.7" result="blur"/>
+      <feSpecularLighting in="blur" surfaceScale="2" specularConstant="0.8" specularExponent="25" lighting-color="#f5f5f5" result="spec">
+        <fePointLight x="420" y="120" z="180"/>
+      </feSpecularLighting>
+      <feComposite in="spec" in2="SourceGraphic" operator="in"/>
+      <feComposite in="SourceGraphic" in2="spec" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
+    </filter>
+    <mask id="rutsMask">
+      <rect width="500" height="500" fill="white"/>
+      <path d="M60 320 q60 -18 120 0 t120 0 t120 0" stroke="#000" stroke-width="6" stroke-linecap="round" fill="none" opacity="0.45"/>
+      <path d="M40 340 q70 -12 140 4 t140 0 t120 0" stroke="#000" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.35"/>
+    </mask>
+    <marker id="hazChevron" orient="auto" markerWidth="6" markerHeight="6" refX="1" refY="3">
+      <path d="M0 0 L6 3 L0 6 z" fill="#f7c30f"/>
+    </marker>
+  </defs>
+  <rect width="500" height="500" fill="url(#skyGrad)"/>
+  <rect width="500" height="500" fill="url(#sunGlow)"/>
+  <rect y="280" width="500" height="220" fill="#b06f3c"/>
+  <g mask="url(#rutsMask)">
+    <rect y="310" width="500" height="140" fill="#9b5b2b"/>
+    <rect y="330" width="500" height="140" fill="#8a4d22" opacity="0.6"/>
+  </g>
+  <path d="M0 300 L500 270 L500 290 L0 320 Z" fill="#c27c45" opacity="0.5"/>
+  <circle cx="420" cy="130" r="22" fill="#ffe6a1"/>
+  <path d="M240 356 l64 24 110 0 -64 -24 z" fill="#5f4023" opacity="0.24"/>
+  <path d="M160 360 l80 30 130 0 -80 -30 z" fill="#5f4023" opacity="0.32"/>
+  <g id="mech" transform="translate(230 250)">
+    <g fill="#e2e0dd" stroke="#c8c7c3" stroke-width="1.2">
+      <path d="M20 40 q30 -15 60 0 v48 h-60 z" fill="#dedbd5"/>
+      <ellipse cx="50" cy="28" rx="18" ry="12"/>
+    </g>
+    <g fill="#b6b3af" stroke="#807f7a" stroke-width="1">
+      <rect x="38" y="88" width="24" height="18" rx="3"/>
+    </g>
+    <g id="hips" transform="translate(50 106)">
+      <rect x="-26" y="0" width="52" height="16" rx="5" fill="#d9d6d1"/>
+      <g id="leftLeg" transform="rotate(12)">
+        <g filter="url(#jointSpec)">
+          <ellipse cx="-14" cy="18" rx="6" ry="8" fill="#6d727d"/>
+        </g>
+        <path d="M-18 18 l-10 48 q12 10 26 6 l8 -52 z" fill="#d6d3cd" stroke="#b1afa9" stroke-width="1"/>
+        <g filter="url(#jointSpec)">
+          <ellipse cx="-2" cy="68" rx="6" ry="8" fill="#6d727d"/>
+        </g>
+        <path d="M-8 70 l6 52 q14 6 28 -4 l-6 -56 z" fill="#d0cdc6" stroke="#aba9a3" stroke-width="1"/>
+        <path d="M-18 24 l-16 40" stroke="#9e3f2a" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M-4 70 l-18 38" stroke="#9e3f2a" stroke-width="2.5" stroke-linecap="round"/>
+      </g>
+      <g id="rightLeg" transform="scale(-1,1) rotate(6) translate(-4 0)">
+        <g filter="url(#jointSpec)">
+          <ellipse cx="-14" cy="18" rx="6" ry="8" fill="#6d727d"/>
+        </g>
+        <path d="M-18 18 l-10 48 q12 10 26 6 l8 -52 z" fill="#d6d3cd" stroke="#b1afa9" stroke-width="1"/>
+        <g filter="url(#jointSpec)">
+          <ellipse cx="-2" cy="68" rx="6" ry="8" fill="#6d727d"/>
+        </g>
+        <path d="M-8 70 l6 54 q14 4 28 -6 l-6 -58 z" fill="#cfcbc3" stroke="#aba9a3" stroke-width="1"/>
+        <path d="M-18 24 l-16 40" stroke="#9e3f2a" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M-4 70 l-18 40" stroke="#9e3f2a" stroke-width="2.5" stroke-linecap="round"/>
+      </g>
+    </g>
+    <g id="arms" transform="translate(50 70)">
+      <g transform="rotate(-18)">
+        <g filter="url(#jointSpec)">
+          <ellipse cx="0" cy="0" rx="6" ry="7" fill="#6d727d"/>
+        </g>
+        <path d="M0 0 l44 -18 q10 26 2 44 l-44 8 z" fill="#dedbd5" stroke="#b9b6b0" stroke-width="1"/>
+        <g filter="url(#jointSpec)">
+          <ellipse cx="44" cy="-18" rx="6" ry="7" fill="#6d727d"/>
+        </g>
+        <path d="M42 -18 l36 -14 q6 32 -2 50 l-40 -4 z" fill="#d3d0c9" stroke="#b4b1ab" stroke-width="1"/>
+        <path d="M4 4 l30 -24" stroke="#9e3f2a" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M44 -14 l24 -20" stroke="#9e3f2a" stroke-width="2.5" stroke-linecap="round"/>
+      </g>
+      <g transform="scale(-1,1) rotate(12)">
+        <g filter="url(#jointSpec)">
+          <ellipse cx="0" cy="0" rx="6" ry="7" fill="#6d727d"/>
+        </g>
+        <path d="M0 0 l44 -18 q10 26 2 44 l-44 8 z" fill="#dedbd5" stroke="#b9b6b0" stroke-width="1"/>
+        <g filter="url(#jointSpec)">
+          <ellipse cx="44" cy="-18" rx="6" ry="7" fill="#6d727d"/>
+        </g>
+        <path d="M42 -18 l36 -14 q6 32 -2 50 l-40 -4 z" fill="#d3d0c9" stroke="#b4b1ab" stroke-width="1"/>
+        <path d="M4 4 l30 -24" stroke="#9e3f2a" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M44 -14 l24 -20" stroke="#9e3f2a" stroke-width="2.5" stroke-linecap="round"/>
+      </g>
+    </g>
+    <g transform="translate(36 96)">
+      <path d="M0 0 l28 -6 28 6" stroke="#f7c30f" stroke-width="3" marker-end="url(#hazChevron)" marker-mid="url(#hazChevron)" fill="none"/>
+    </g>
+  </g>
+  <g id="crates" transform="translate(80 308)">
+    <g transform="skewX(-12)">
+      <rect x="0" y="0" width="80" height="46" fill="#7c6f5d" stroke="#5e5242" stroke-width="1.2"/>
+      <line x1="0" y1="16" x2="80" y2="16" stroke="#5e5242" stroke-width="1"/>
+      <text x="6" y="12" font-family="monospace" font-size="7" fill="#f5f0e7">MSCU 123456 7</text>
+      <text x="6" y="28" font-family="monospace" font-size="7" fill="#f5f0e7">22G1</text>
+    </g>
+    <g transform="translate(94 -10) skewX(-12)">
+      <rect x="0" y="0" width="70" height="40" fill="#6a5f4e" stroke="#4f4639" stroke-width="1"/>
+      <line x1="0" y1="14" x2="70" y2="14" stroke="#4f4639" stroke-width="0.8"/>
+      <text x="6" y="12" font-family="monospace" font-size="6.5" fill="#f0eadf">CMAU 987654 3</text>
+      <text x="6" y="26" font-family="monospace" font-size="6.5" fill="#f0eadf">45R1</text>
+    </g>
+  </g>
+  <g filter="url(#heatShimmer)">
+    <rect x="320" y="320" width="60" height="60" fill="none"/>
+  </g>
+  <g transform="translate(360 320)">
+    <rect x="-12" y="30" width="24" height="26" fill="#5e4e3f"/>
+    <rect x="-8" y="10" width="16" height="30" fill="#7f6b57"/>
+    <path d="M-6 10 h12 l-2 -16 h-8 z" fill="#a3907b"/>
+    <path d="M-4 -6 h8 l4 -8 h-16 z" fill="#c1a58c"/>
+    <g filter="url(#dustDevil)">
+      <path d="M-30 30 q14 -28 4 -56 q-10 -28 12 -42 q-12 38 8 56 q8 8 6 24 z" fill="#dcb48b" opacity="0.5"/>
+    </g>
+  </g>
+  <g filter="url(#dustDevil)" transform="translate(120 280)">
+    <path d="M-12 44 q18 -40 2 -78 q-10 -22 16 -34 q-14 34 6 56 q6 12 0 32 z" fill="#deb892" opacity="0.4"/>
+  </g>
+</svg>

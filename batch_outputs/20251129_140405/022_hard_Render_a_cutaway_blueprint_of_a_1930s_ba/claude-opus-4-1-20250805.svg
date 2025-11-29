@@ -1,0 +1,102 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="water" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#001a33"/>
+      <stop offset="100%" style="stop-color:#000511"/>
+    </radialGradient>
+    <radialGradient id="steel" cx="30%" cy="30%">
+      <stop offset="0%" style="stop-color:#8a9597"/>
+      <stop offset="100%" style="stop-color:#3e4547"/>
+    </radialGradient>
+    <radialGradient id="glass" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#e6f4ff;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#a6d4ff;stop-opacity:0.6"/>
+    </radialGradient>
+    <filter id="caustic">
+      <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="2" seed="2"/>
+      <feDisplacementMap in="SourceGraphic" scale="8"/>
+    </filter>
+    <filter id="blur">
+      <feGaussianBlur stdDeviation="0.5"/>
+    </filter>
+    <symbol id="rivet" viewBox="0 0 10 10">
+      <circle cx="5" cy="5" r="4" fill="#2a2f31"/>
+      <circle cx="5" cy="5" r="2" fill="#1a1f21"/>
+    </symbol>
+    <path id="stressArc" d="M 150 250 A 100 100 0 0 1 350 250" fill="none"/>
+  </defs>
+  
+  <rect width="500" height="500" fill="url(#water)"/>
+  
+  <!-- Caustic water effects -->
+  <g filter="url(#caustic)" opacity="0.3">
+    <path d="M0 100 Q125 120 250 100 T500 100" stroke="#0066cc" stroke-width="2" fill="none" opacity="0.5"/>
+    <path d="M0 200 Q125 220 250 200 T500 200" stroke="#0066cc" stroke-width="2" fill="none" opacity="0.5"/>
+    <path d="M0 300 Q125 320 250 300 T500 300" stroke="#0066cc" stroke-width="2" fill="none" opacity="0.5"/>
+  </g>
+  
+  <!-- Bathysphere outer hull -->
+  <circle cx="250" cy="250" r="187" fill="url(#steel)" stroke="#2a2f31" stroke-width="19"/>
+  
+  <!-- Inner hull cutaway -->
+  <path d="M 250 63 A 187 187 0 0 1 437 250 L 418 250 A 168 168 0 0 0 250 82 Z" fill="#4a5557" opacity="0.8"/>
+  
+  <!-- Viewport -->
+  <circle cx="250" cy="160" r="37" fill="url(#glass)" stroke="#6a7577" stroke-width="11"/>
+  <circle cx="250" cy="160" r="26" fill="rgba(200,230,255,0.4)" stroke="none"/>
+  
+  <!-- Internal components -->
+  <!-- Winch drum -->
+  <ellipse cx="250" cy="280" rx="50" ry="30" fill="#3a4042" stroke="#2a2f31" stroke-width="2"/>
+  <rect x="200" y="275" width="100" height="10" fill="#2a2f31"/>
+  
+  <!-- Gauge -->
+  <circle cx="320" cy="200" r="25" fill="#f0f0f0" stroke="#3a3a3a" stroke-width="2"/>
+  <circle cx="320" cy="200" r="3" fill="#1a1a1a"/>
+  <line x1="320" y1="200" x2="305" y2="185" stroke="#cc0000" stroke-width="2" stroke-linecap="round">
+    <animateTransform attributeName="transform" type="rotate" from="0 320 200" to="45 320 200" dur="4s" repeatCount="indefinite"/>
+  </line>
+  
+  <!-- Rivets -->
+  <g id="rivetPattern">
+    <use href="#rivet" x="240" y="53" width="10" height="10"/>
+    <use href="#rivet" x="260" y="55" width="10" height="10"/>
+    <use href="#rivet" x="280" y="62" width="10" height="10"/>
+    <use href="#rivet" x="300" y="74" width="10" height="10"/>
+    <use href="#rivet" x="320" y="90" width="10" height="10"/>
+    <use href="#rivet" x="340" y="110" width="10" height="10"/>
+    <use href="#rivet" x="355" y="130" width="10" height="10"/>
+    <use href="#rivet" x="370" y="155" width="10" height="10"/>
+  </g>
+  <use href="#rivetPattern" transform="rotate(90 250 250)"/>
+  <use href="#rivetPattern" transform="rotate(180 250 250)"/>
+  <use href="#rivetPattern" transform="rotate(270 250 250)"/>
+  
+  <!-- Bioluminescent creatures -->
+  <g opacity="0.7">
+    <circle cx="100" cy="150" r="8" fill="none" stroke="#00ffcc" stroke-width="1" stroke-dasharray="2,3">
+      <animate attributeName="stroke-dashoffset" from="0" to="5" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="400" cy="320" r="12" fill="none" stroke="#00ff88" stroke-width="1" stroke-dasharray="3,2">
+      <animate attributeName="stroke-dashoffset" from="0" to="5" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <path d="M50 400 Q70 380 90 400 T130 400" stroke="#66ffaa" stroke-width="1" fill="none" stroke-dasharray="4,2">
+      <animate attributeName="stroke-dashoffset" from="0" to="6" dur="2.5s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Stress annotation -->
+  <text fill="#ff6600" font-size="10" font-family="monospace">
+    <textPath href="#stressArc">PRESSURE: 4.2 MPa</textPath>
+  </text>
+  
+  <!-- Condensation drops -->
+  <g filter="url(#blur)" opacity="0.6">
+    <ellipse cx="230" cy="140" rx="2" ry="3" fill="rgba(200,220,255,0.7)"/>
+    <ellipse cx="270" cy="145" rx="2" ry="4" fill="rgba(200,220,255,0.7)"/>
+    <ellipse cx="250" cy="135" rx="3" ry="2" fill="rgba(200,220,255,0.7)"/>
+  </g>
+  
+  <!-- Lamp light effect -->
+  <ellipse cx="250" cy="160" rx="60" ry="40" fill="rgba(255,200,100,0.2)" filter="url(#blur)"/>
+</svg>

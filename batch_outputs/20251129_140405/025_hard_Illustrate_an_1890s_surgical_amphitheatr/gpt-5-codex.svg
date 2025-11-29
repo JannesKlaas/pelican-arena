@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <linearGradient id="awningGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2f3a4c"/>
+      <stop offset="70%" stop-color="#3f4d63"/>
+      <stop offset="100%" stop-color="#1f272f"/>
+    </linearGradient>
+    <radialGradient id="lampGlow" cx="0.5" cy="0.3" r="0.7">
+      <stop offset="0%" stop-color="#ffddb3" stop-opacity="1"/>
+      <stop offset="85%" stop-color="#b9864b" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#704a2e" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softPenumbra" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#2a1d0f" flood-opacity="0.35"/>
+    </filter>
+    <marker id="arrowHead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#556170"/>
+    </marker>
+    <clipPath id="glassClip">
+      <rect x="360" y="60" width="90" height="160" rx="6"/>
+    </clipPath>
+    <path id="chalkCurve" d="M70,160 C90,140 130,140 150,160 S210,200 230,170" />
+  </defs>
+  <rect width="500" height="500" fill="url(#awningGradient)"/>
+  <line x1="0" y1="237.5" x2="500" y2="237.5" stroke="#222a35" stroke-width="0.8" stroke-dasharray="4 4"/>
+  <g fill="#1a212b" opacity="0.45">
+    <path d="M60,260 A240,200 0 0 1 440,260 L430,275 A220,180 0 0 0 70,275 Z"/>
+    <path d="M80,300 A220,180 0 0 1 420,300 L408,316 A200,160 0 0 0 92,316 Z"/>
+    <path d="M100,340 A200,160 0 0 1 400,340 L388,356 A180,140 0 0 0 112,356 Z"/>
+  </g>
+  <g font-size="7" fill="#bfc8d2" font-family="serif">
+    <text x="85" y="284">Riser 180 mm</text>
+    <text x="95" y="322">Tread 280 mm</text>
+  </g>
+  <g filter="url(#softPenumbra)">
+    <circle cx="180" cy="110" r="22" fill="url(#lampGlow)"/>
+    <circle cx="320" cy="110" r="22" fill="url(#lampGlow)"/>
+    <line x1="180" y1="40" x2="180" y2="90" stroke="#614428" stroke-width="2"/>
+    <line x1="320" y1="40" x2="320" y2="90" stroke="#614428" stroke-width="2"/>
+  </g>
+  <g clip-path="url(#glassClip)">
+    <rect x="360" y="60" width="90" height="160" rx="6" fill="#1d2d3a" opacity="0.7"/>
+    <rect x="360" y="60" width="90" height="160" rx="6" fill="#2b3f4e" opacity="0.35"/>
+    <path d="M355,80 L455,120" stroke="#ffffff" stroke-width="3" stroke-opacity="0.25"/>
+    <path d="M365,90 L425,70" stroke="#ffffff" stroke-width="2" stroke-opacity="0.2"/>
+  </g>
+  <rect x="55" y="150" width="170" height="110" rx="4" fill="#1b262f" stroke="#4a5a66" stroke-width="1"/>
+  <text font-family="Courier New, monospace" fill="#f3f6ff" font-size="7">
+    <textPath href="#chalkCurve">ulnar nerve / brachial plexus / arterial clamp</textPath>
+  </text>
+  <g stroke="#3a4656" stroke-width="0.6">
+    <line x1="250" y1="237.5" x2="120" y2="380" stroke-linecap="round" opacity="0.25"/>
+    <line x1="250" y1="237.5" x2="380" y2="380" stroke-linecap="round" opacity="0.25"/>
+  </g>
+  <g>
+    <ellipse cx="250" cy="395" rx="140" ry="36" fill="#2c3947" opacity="0.7"/>
+    <rect x="195" y="320" width="110" height="24" rx="5" fill="#697b8a"/>
+    <rect x="170" y="344" width="160" height="20" rx="6" fill="#dad9d4"/>
+    <ellipse cx="250" cy="372" rx="140" ry="34" fill="#c7c5be" opacity="0.55"/>
+  </g>
+  <g id="upperLimb" transform="translate(210 305)">
+    <path d="M-15,-20 L60,-4 Q70,2 62,16 L-10,2 Z" fill="#d3c8bb" stroke="#a89b8f" stroke-width="1.2"/>
+    <g opacity="0.65">
+      <path d="M-5,-18 L-2,-34 L48,-26 L44,-12 Z" fill="#c2b2a2"/>
+      <path d="M42,-28 L56,-22 L68,-4 L62,10 Q47,2 45,-6 Z" fill="#b8a999"/>
+    </g>
+    <g stroke="#7b8a90" stroke-width="0.8" fill="none">
+      <path d="M-4,-10 C15,-6 35,-8 52,-10" />
+      <path d="M10,-30 C22,-20 20,0 18,16" stroke-dasharray="3 3"/>
+    </g>
+  </g>
+  <g fill="#d4cec3" stroke="#8f8478" stroke-width="1.1">
+    <path d="M205,307 C205,290 218,270 240,265 C262,260 286,264 298,280 C308,293 305,303 296,308 C284,315 216,319 205,307 Z" opacity="0.7"/>
+  </g>
+  <g stroke="#51606c" stroke-width="0.65" fill="none" marker-end="url(#arrowHead)" font-family="serif" font-size="7" fill="#daddde">
+    <path d="M235 294 C200 280 180 260 150 252"/>
+    <text x="132" y="249">Deltoid origin</text>
+    <path d="M252 312 C270 320 300 330 320 332"/>
+    <text x="323" y="335">Brachialis tendon</text>
+    <path d="M278 292 C310 280 340 260 352 244"/>
+    <text x="355" y="240">Scapular plane 30°</text>
+  </g>
+  <g>
+    <path d="M310,348 h44 l-3,4 h-44 z" fill="#b0b7bf" stroke="#5a6570" stroke-width="0.8" vector-effect="non-scaling-stroke"/>
+    <path d="M320,340 c8,-6 28,-6 36,0 l6,8 h-48 z" fill="#c5cfd8" stroke="#5f6871" stroke-width="0.8" vector-effect="non-scaling-stroke"/>
+    <path d="M152,348 h28 l6,12 h-28 z" fill="#d0d5db" stroke="#65707a" stroke-width="0.8" vector-effect="non-scaling-stroke"/>
+    <rect x="148" y="340" width="36" height="6" rx="2" fill="#8f9aa5" stroke="#4c5660" stroke-width="0.8" vector-effect="non-scaling-stroke"/>
+  </g>
+  <g stroke="#7a8794" stroke-width="0.5" fill="none" vector-effect="non-scaling-stroke">
+    <path d="M180,360 C210,348 240,348 270,360" stroke="#b5beca"/>
+    <path d="M182,366 C208,356 242,356 268,366" stroke="#a4aeb9"/>
+  </g>
+  <text x="360" y="232" fill="#d4dbe8" font-size="8" font-family="serif">Observation gallery glass</text>
+  <text x="110" y="200" fill="#d8e1ef" font-size="9" font-family="serif">Chalk notes</text>
+  <text x="210" y="430" fill="#f2d7b2" font-size="11" font-family="serif">1890s Surgical Amphitheatre</text>
+</svg>

@@ -1,0 +1,191 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Candlelight warm color -->
+    <filter id="warmLight">
+      <feColorMatrix type="matrix" values="1.2 0 0 0 0
+                                           0.8 0.5 0 0 0
+                                           0 0 0.4 0 0
+                                           0 0 0 1 0"/>
+    </filter>
+    
+    <!-- Specular lighting for metallic surfaces -->
+    <filter id="specular">
+      <feSpecularLighting surfaceScale="5" specularConstant="1.2" specularExponent="20" lighting-color="#fff5e6">
+        <fePointLight x="100" y="150" z="200"/>
+      </feSpecularLighting>
+      <feComposite in="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
+    </filter>
+    
+    <!-- Noise for pith texture -->
+    <filter id="pithNoise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="2"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="discrete" tableValues="0.3 0.5 0.7"/>
+      </feComponentTransfer>
+    </filter>
+    
+    <!-- Damask pattern -->
+    <pattern id="damask" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <rect fill="#8b7355" width="40" height="40"/>
+      <path d="M20,5 Q25,15 20,25 Q15,15 20,5 M5,20 Q15,25 25,20 Q15,15 5,20" fill="#9d8264" opacity="0.4"/>
+    </pattern>
+    
+    <!-- Silver gradient with environment reflection -->
+    <radialGradient id="silverGrad" cx="0.3" cy="0.3">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="30%" stop-color="#d4d4d4"/>
+      <stop offset="60%" stop-color="#8b8b8b"/>
+      <stop offset="100%" stop-color="#5a5a5a"/>
+    </radialGradient>
+    
+    <!-- Fresnel rim effect -->
+    <radialGradient id="fresnelRim" cx="0.5" cy="0.5">
+      <stop offset="0%" stop-color="#666" stop-opacity="0"/>
+      <stop offset="70%" stop-color="#999" stop-opacity="0"/>
+      <stop offset="95%" stop-color="#fff" stop-opacity="0.8"/>
+    </radialGradient>
+    
+    <!-- Glass gradient with refraction hint -->
+    <linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset="50%" stop-color="#e8f4f8" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#b8d4e8" stop-opacity="0.4"/>
+    </linearGradient>
+    
+    <!-- Velvet anisotropic sheen -->
+    <linearGradient id="velvetSheen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4a1a1a"/>
+      <stop offset="40%" stop-color="#6b2020"/>
+      <stop offset="60%" stop-color="#4a1a1a"/>
+      <stop offset="100%" stop-color="#2a0a0a"/>
+    </linearGradient>
+    
+    <!-- Grape gradient -->
+    <radialGradient id="grapeGrad" cx="0.35" cy="0.35">
+      <stop offset="0%" stop-color="#9b7eb5"/>
+      <stop offset="60%" stop-color="#6b4a8a"/>
+      <stop offset="100%" stop-color="#3a2050"/>
+    </radialGradient>
+    
+    <!-- Dew droplet symbol -->
+    <symbol id="dew">
+      <ellipse cx="0" cy="0" rx="2" ry="1.8" fill="#fff" opacity="0.7"/>
+      <ellipse cx="-0.5" cy="-0.5" rx="0.8" ry="0.8" fill="#fff" opacity="0.9"/>
+    </symbol>
+    
+    <!-- Lemon yellow gradient -->
+    <radialGradient id="lemonGrad" cx="0.4" cy="0.3">
+      <stop offset="0%" stop-color="#fff8a0"/>
+      <stop offset="50%" stop-color="#f4d843"/>
+      <stop offset="100%" stop-color="#d4a82f"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect fill="#1a1410" width="500" height="500"/>
+  
+  <!-- Distorted grid behind glass (refraction simulation) -->
+  <g opacity="0.15">
+    <line x1="280" y1="100" x2="285" y2="200" stroke="#666" stroke-width="0.5"/>
+    <line x1="300" y1="100" x2="298" y2="200" stroke="#666" stroke-width="0.5"/>
+    <line x1="320" y1="100" x2="315" y2="200" stroke="#666" stroke-width="0.5"/>
+  </g>
+  
+  <!-- Table with damask -->
+  <path d="M0,350 Q250,340 500,350 L500,500 L0,500 Z" fill="url(#damask)"/>
+  
+  <!-- Shadow base layer with color bleed -->
+  <ellipse cx="250" cy="420" rx="180" ry="40" fill="#0a0604" opacity="0.8"/>
+  <ellipse cx="200" cy="410" rx="90" ry="25" fill="#1a0a04" opacity="0.6"/>
+  <ellipse cx="320" cy="415" rx="70" ry="20" fill="#0d0804" opacity="0.7"/>
+  
+  <!-- Velvet drape with anisotropic sheen -->
+  <path d="M50,200 Q80,250 70,320 Q75,380 60,450 L0,450 L0,180 Z" fill="url(#velvetSheen)"/>
+  <path d="M50,200 Q80,250 70,320 Q75,380 60,450" stroke="#8b4545" stroke-width="0.5" fill="none" opacity="0.3"/>
+  <path d="M65,220 Q85,260 77,330" stroke="#5a2020" stroke-width="1" fill="none" opacity="0.4"/>
+  
+  <!-- Silver ewer body -->
+  <ellipse cx="180" cy="320" rx="55" ry="70" fill="url(#silverGrad)" filter="url(#specular)"/>
+  <ellipse cx="180" cy="320" rx="55" ry="70" fill="url(#fresnelRim)" opacity="0.6"/>
+  
+  <!-- Ewer neck -->
+  <rect x="170" y="250" width="20" height="50" rx="10" fill="url(#silverGrad)" filter="url(#specular)"/>
+  
+  <!-- Ewer handle -->
+  <path d="M200,280 Q230,290 225,320 Q220,340 205,335" stroke="url(#silverGrad)" stroke-width="8" fill="none" filter="url(#specular)"/>
+  
+  <!-- Ewer spout -->
+  <path d="M175,260 Q165,240 170,230" stroke="url(#silverGrad)" stroke-width="6" fill="none" filter="url(#specular)"/>
+  
+  <!-- Micro-scratches on silver -->
+  <path d="M160,300 L200,340" stroke="#444" stroke-width="0.3" opacity="0.4" stroke-dasharray="2,3"/>
+  <path d="M170,290 L190,330" stroke="#444" stroke-width="0.3" opacity="0.3" stroke-dasharray="1,4"/>
+  
+  <!-- Glass goblet bowl -->
+  <ellipse cx="300" cy="260" rx="35" ry="40" fill="url(#glassGrad)" stroke="#b8d4e8" stroke-width="2" opacity="0.9"/>
+  <ellipse cx="300" cy="260" rx="35" ry="40" fill="none" stroke="#fff" stroke-width="1" opacity="0.5"/>
+  
+  <!-- Glass stem -->
+  <rect x="295" y="290" width="10" height="50" fill="url(#glassGrad)" opacity="0.8"/>
+  
+  <!-- Glass base -->
+  <ellipse cx="300" cy="345" rx="25" ry="8" fill="url(#glassGrad)" opacity="0.9"/>
+  
+  <!-- Specular highlight on glass -->
+  <ellipse cx="285" cy="245" rx="8" ry="15" fill="#fff" opacity="0.8"/>
+  <ellipse cx="310" cy="270" rx="5" ry="10" fill="#fff" opacity="0.6"/>
+  
+  <!-- Lemon body -->
+  <ellipse cx="380" cy="360" rx="40" ry="30" fill="url(#lemonGrad)"/>
+  
+  <!-- Peeled lemon section -->
+  <path d="M340,350 Q330,355 330,365 L340,370 Q345,365 340,350" fill="#fff8d0"/>
+  <path d="M340,350 Q330,355 330,365 L340,370 Q345,365 340,350" fill="url(#pithNoise)" opacity="0.6"/>
+  
+  <!-- Lemon peel curl (3mm thick, 18mm wide simulation) -->
+  <path d="M340,355 Q320,340 310,330 Q308,328 310,326 Q325,335 345,352 Z" fill="#f4d843"/>
+  <path d="M340,355 Q320,340 310,330" stroke="#d4a82f" stroke-width="1.5" fill="none"/>
+  
+  <!-- Second peel curl -->
+  <path d="M350,365 Q335,380 325,395 Q323,397 325,399 Q338,385 353,368 Z" fill="#f4d843"/>
+  
+  <!-- Lemon segments -->
+  <path d="M365,355 L395,355 M375,365 L385,365" stroke="#e8c030" stroke-width="1" opacity="0.5"/>
+  
+  <!-- Grape cluster -->
+  <g>
+    <circle cx="420" cy="340" r="12" fill="url(#grapeGrad)"/>
+    <circle cx="438" cy="345" r="11" fill="url(#grapeGrad)"/>
+    <circle cx="425" cy="360" r="12" fill="url(#grapeGrad)"/>
+    <circle cx="410" cy="358" r="11" fill="url(#grapeGrad)"/>
+    <circle cx="442" cy="365" r="10" fill="url(#grapeGrad)"/>
+    <circle cx="430" cy="378" r="11" fill="url(#grapeGrad)"/>
+    <circle cx="415" cy="375" r="10" fill="url(#grapeGrad)"/>
+    
+    <!-- Dew droplets on grapes -->
+    <use href="#dew" x="422" y="338"/>
+    <use href="#dew" x="440" y="343"/>
+    <use href="#dew" x="427" y="358"/>
+    <use href="#dew" x="433" y="376"/>
+    
+    <!-- Specular highlights on grapes -->
+    <circle cx="418" cy="337" r="3" fill="#fff" opacity="0.7"/>
+    <circle cx="436" cy="342" r="2.5" fill="#fff" opacity="0.6"/>
+    <circle cx="423" cy="357" r="3" fill="#fff" opacity="0.7"/>
+    <circle cx="440" cy="362" r="2" fill="#fff" opacity="0.6"/>
+  </g>
+  
+  <!-- Grape stem -->
+  <path d="M425,340 Q428,320 430,310" stroke="#5a4a3a" stroke-width="2" fill="none"/>
+  
+  <!-- Contact shadows (occlusion) -->
+  <ellipse cx="180" cy="385" rx="50" ry="8" fill="#000" opacity="0.6"/>
+  <ellipse cx="300" cy="350" rx="22" ry="4" fill="#000" opacity="0.5"/>
+  <ellipse cx="380" cy="385" rx="35" ry="6" fill="#000" opacity="0.5"/>
+  <ellipse cx="425" cy="390" rx="25" ry="5" fill="#000" opacity="0.5"/>
+  
+  <!-- Ambient color bleed from candlelight -->
+  <ellipse cx="150" cy="300" rx="100" ry="120" fill="#ff9944" opacity="0.08"/>
+  <ellipse cx="250" cy="320" rx="140" ry="100" fill="#ffaa55" opacity="0.06"/>
+</svg>

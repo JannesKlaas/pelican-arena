@@ -1,0 +1,235 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500">
+  <defs>
+    <linearGradient id="goldenHour" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8e6c6"/>
+      <stop offset="0.52" stop-color="#f2a862"/>
+      <stop offset="1" stop-color="#3b2721"/>
+    </linearGradient>
+    <linearGradient id="floorGlow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fbe39c" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#6e5136" stop-opacity="0.95"/>
+    </linearGradient>
+    <radialGradient id="tetramorphGlass" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffeab7"/>
+      <stop offset="0.28" stop-color="#f08863"/>
+      <stop offset="0.55" stop-color="#a44a7e"/>
+      <stop offset="0.78" stop-color="#4f62d2"/>
+      <stop offset="1" stop-color="#17224b"/>
+    </radialGradient>
+    <radialGradient id="dustSpot" cx="0.4" cy="0.3" r="0.7">
+      <stop offset="0" stop-color="white" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="black" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="dustSpotSmall" cx="0.6" cy="0.4" r="0.5">
+      <stop offset="0" stop-color="white" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="black" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="beamGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f9e27c" stop-opacity="0.7"/>
+      <stop offset="0.45" stop-color="#8bc5ff" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#d984ff" stop-opacity="0.25"/>
+    </linearGradient>
+    <linearGradient id="penumbraGrad" gradientUnits="userSpaceOnUse" x1="110" y1="590" x2="230" y2="650">
+      <stop offset="0" stop-color="#000000" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="penumbraGradR" gradientUnits="userSpaceOnUse" x1="270" y1="590" x2="390" y2="650">
+      <stop offset="0" stop-color="#000000" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="ashlar" width="30" height="20" patternUnits="userSpaceOnUse">
+      <rect width="30" height="20" fill="#d9cbb0"/>
+      <path d="M0 10 H30 M15 0 V10 M5 10 V20 M25 10 V20" stroke="#b6a283" stroke-width="0.6"/>
+    </pattern>
+    <filter id="stoneNoise" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0.35 0 0 0 0  0 0.3 0 0 0  0 0 0.25 0 0  0 0 0 0.5 0" result="stone"/>
+      <feComposite in="SourceGraphic" in2="stone" operator="arithmetic" k1="0" k2="1" k3="0.25" k4="0"/>
+    </filter>
+    <filter id="spectral" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 0.55 0 0 0.08  0 0 1.25 0 0.12  0 0 0 1 0" result="split"/>
+      <feBlend in="SourceGraphic" in2="split" mode="screen"/>
+    </filter>
+    <mask id="dustMask" maskUnits="userSpaceOnUse">
+      <rect x="0" y="-120" width="500" height="900" fill="black"/>
+      <circle cx="250" cy="260" r="260" fill="url(#dustSpot)"/>
+      <ellipse cx="210" cy="350" rx="180" ry="140" fill="url(#dustSpotSmall)"/>
+      <ellipse cx="320" cy="420" rx="150" ry="110" fill="url(#dustSpotSmall)"/>
+    </mask>
+    <path id="archivoltPath" d="M170 540 L170 411 Q210 250 250 154 Q290 250 330 411 L330 540"/>
+  </defs>
+  <rect width="500" height="500" fill="url(#goldenHour)"/>
+  <g transform="translate(0,-120)">
+    <g id="floor">
+      <path d="M120 660 L380 660 L340 300 L160 300 Z" fill="url(#floorGlow)" stroke="#8b6841" stroke-width="1.2"/>
+      <path d="M120 660 L-3000 620" stroke="#d4b38b" stroke-width="0.7" opacity="0.6"/>
+      <path d="M380 660 L5200 620" stroke="#d4b38b" stroke-width="0.7" opacity="0.6"/>
+      <path d="M133.3 540 L366.7 540" stroke="#ad8d66" stroke-width="1" opacity="0.55"/>
+      <path d="M146.7 420 L353.3 420" stroke="#ad8d66" stroke-width="0.9" opacity="0.5"/>
+      <path d="M160 300 L340 300" stroke="#ad8d66" stroke-width="0.9" opacity="0.45"/>
+      <path d="M250 660 L250 300" stroke="#cfa871" stroke-width="0.8" opacity="0.45"/>
+    </g>
+    <g id="walls" filter="url(#stoneNoise)">
+      <path d="M60 600 L120 660 L160 300 L120 240 L92 160 L56 210 Z" fill="url(#ashlar)" stroke="#b79f84" stroke-width="1.2"/>
+      <path d="M440 600 L380 660 L340 300 L380 240 L408 160 L444 210 Z" fill="url(#ashlar)" stroke="#b79f84" stroke-width="1.2"/>
+      <path d="M200 110 L300 110 L340 300 L160 300 Z" fill="url(#ashlar)" stroke="#b79f84" stroke-width="1.1"/>
+    </g>
+    <g id="roseWindow" transform="translate(250 210)">
+      <circle r="92" fill="#1a110e" opacity="0.6"/>
+      <circle r="90" fill="url(#tetramorphGlass)" stroke="#f4ecd8" stroke-width="6"/>
+      <circle r="32" fill="#6a2f48" stroke="#f4ecd8" stroke-width="4"/>
+      <g stroke="#f6eedc" stroke-width="4" stroke-linecap="round">
+        <line x1="0" y1="0" x2="0" y2="-86"/>
+        <line x1="0" y1="0" x2="0" y2="-86" transform="rotate(30)"/>
+        <line x1="0" y1="0" x2="0" y2="-86" transform="rotate(60)"/>
+        <line x1="0" y1="0" x2="0" y2="-86" transform="rotate(90)"/>
+        <line x1="0" y1="0" x2="0" y2="-86" transform="rotate(120)"/>
+        <line x1="0" y1="0" x2="0" y2="-86" transform="rotate(150)"/>
+        <line x1="0" y1="0" x2="0" y2="-86" transform="rotate(180)"/>
+        <line x1="0" y1="0" x2="0" y2="-86" transform="rotate(210)"/>
+        <line x1="0" y1="0" x2="0" y2="-86" transform="rotate(240)"/>
+        <line x1="0" y1="0" x2="0" y2="-86" transform="rotate(270)"/>
+        <line x1="0" y1="0" x2="0" y2="-86" transform="rotate(300)"/>
+        <line x1="0" y1="0" x2="0" y2="-86" transform="rotate(330)"/>
+      </g>
+      <g fill="none" stroke="#f6eedc" stroke-width="3">
+        <circle r="60"/>
+        <circle r="18"/>
+      </g>
+      <g fill="#f7edd4">
+        <circle cx="0" cy="-60" r="11"/>
+        <circle cx="0" cy="-60" r="11" transform="rotate(30)"/>
+        <circle cx="0" cy="-60" r="11" transform="rotate(60)"/>
+        <circle cx="0" cy="-60" r="11" transform="rotate(90)"/>
+        <circle cx="0" cy="-60" r="11" transform="rotate(120)"/>
+        <circle cx="0" cy="-60" r="11" transform="rotate(150)"/>
+        <circle cx="0" cy="-60" r="11" transform="rotate(180)"/>
+        <circle cx="0" cy="-60" r="11" transform="rotate(210)"/>
+        <circle cx="0" cy="-60" r="11" transform="rotate(240)"/>
+        <circle cx="0" cy="-60" r="11" transform="rotate(270)"/>
+        <circle cx="0" cy="-60" r="11" transform="rotate(300)"/>
+        <circle cx="0" cy="-60" r="11" transform="rotate(330)"/>
+      </g>
+      <g stroke-linejoin="round">
+        <g transform="translate(0,-58)">
+          <circle r="16" fill="#d87490" fill-opacity="0.75" stroke="#f8eddc" stroke-width="1.2"/>
+          <path d="M-6 -4 Q0 -12 6 -4" stroke="#f8eddc" stroke-width="1.2" fill="none"/>
+          <path d="M-4 4 Q0 8 4 4" stroke="#f8eddc" stroke-width="1.2" fill="none"/>
+          <circle cy="-2" r="3" fill="#fcebd8" stroke="none"/>
+        </g>
+        <g transform="translate(52,0)">
+          <circle r="16" fill="#f2a53b" fill-opacity="0.75" stroke="#f8eddc" stroke-width="1.2"/>
+          <path d="M-8 2 Q0 -8 8 2 Q2 10 -2 10 Z" fill="#fce9c7" stroke="#c36b24" stroke-width="1"/>
+          <path d="M-4 -2 L-8 -8 M4 -2 L8 -8" stroke="#c36b24" stroke-width="1" fill="none" stroke-linecap="round"/>
+        </g>
+        <g transform="translate(0,52)">
+          <circle r="16" fill="#ae7c45" fill-opacity="0.78" stroke="#f8eddc" stroke-width="1.2"/>
+          <path d="M-7 6 Q-6 -4 0 -8 Q6 -4 7 6" fill="#f8e4c4" stroke="#8b5a2e" stroke-width="1"/>
+          <path d="M-10 2 Q-4 -4 0 -2" stroke="#8b5a2e" stroke-width="1" fill="none"/>
+          <path d="M10 2 Q4 -4 0 -2" stroke="#8b5a2e" stroke-width="1" fill="none"/>
+        </g>
+        <g transform="translate(-52,0)">
+          <circle r="16" fill="#6382c7" fill-opacity="0.78" stroke="#f8eddc" stroke-width="1.2"/>
+          <path d="M0 -10 Q6 -6 9 2 Q0 10 -9 2 Q-6 -6 0 -10 Z" fill="#e9f0ff" stroke="#4969a6" stroke-width="1"/>
+          <path d="M-2 -4 L0 -12 L2 -4" stroke="#4969a6" stroke-width="1" fill="none"/>
+        </g>
+      </g>
+    </g>
+    <g id="tetramorphPanels">
+      <g>
+        <rect x="92" y="260" width="18" height="120" rx="6" fill="url(#tetramorphGlass)" stroke="#f0d8b0" stroke-width="1"/>
+        <path d="M101 278 Q96 300 101 322 Q106 300 101 278 Z" fill="#fbe4cf" stroke="#b4677a" stroke-width="0.8"/>
+        <circle cx="101" cy="306" r="6" fill="#d77c90" stroke="#b85b72" stroke-width="0.6"/>
+      </g>
+      <g>
+        <rect x="118" y="248" width="18" height="132" rx="6" fill="url(#tetramorphGlass)" stroke="#f0d8b0" stroke-width="1"/>
+        <path d="M127 270 Q120 304 127 326 Q134 304 127 270 Z" fill="#f7e0bc" stroke="#c17a2d" stroke-width="0.8"/>
+        <path d="M122 305 Q127 300 132 305" stroke="#c17a2d" stroke-width="0.8" fill="none"/>
+        <path d="M124 292 L120 286 M130 292 L134 286" stroke="#c17a2d" stroke-width="0.7" stroke-linecap="round"/>
+      </g>
+      <g>
+        <rect x="372" y="248" width="18" height="132" rx="6" fill="url(#tetramorphGlass)" stroke="#f0d8b0" stroke-width="1"/>
+        <path d="M381 270 Q373 304 381 330 Q389 304 381 270 Z" fill="#f8e3c6" stroke="#8f6a3b" stroke-width="0.8"/>
+        <path d="M373 309 Q381 302 389 309" stroke="#8f6a3b" stroke-width="0.8" fill="none"/>
+        <path d="M378 296 L372 288 M384 296 L390 288" stroke="#8f6a3b" stroke-width="0.7" stroke-linecap="round"/>
+      </g>
+      <g>
+        <rect x="400" y="260" width="18" height="120" rx="6" fill="url(#tetramorphGlass)" stroke="#f0d8b0" stroke-width="1"/>
+        <path d="M409 282 Q400 304 409 326 Q418 304 409 282 Z" fill="#e3eaff" stroke="#5f7ec1" stroke-width="0.8"/>
+        <path d="M404 298 L409 288 L414 298" stroke="#5f7ec1" stroke-width="0.8" fill="none"/>
+        <path d="M406 310 Q409 314 412 310" stroke="#5f7ec1" stroke-width="0.6" fill="none"/>
+      </g>
+    </g>
+    <g id="bay3">
+      <rect x="158" y="30" width="10" height="270" fill="url(#ashlar)" filter="url(#stoneNoise)"/>
+      <rect x="170" y="30" width="7" height="270" fill="#efe1c7"/>
+      <rect x="185" y="30" width="5" height="270" fill="#e1d4b9"/>
+      <rect x="332" y="30" width="10" height="270" fill="url(#ashlar)" filter="url(#stoneNoise)"/>
+      <rect x="323" y="30" width="7" height="270" fill="#efe1c7"/>
+      <rect x="310" y="30" width="5" height="270" fill="#e1d4b9"/>
+      <rect x="157" y="203" width="33" height="8" fill="#f5edd6"/>
+      <rect x="332" y="203" width="33" height="8" fill="#f5edd6"/>
+      <rect x="157" y="292" width="33" height="8" fill="#9b764d" opacity="0.85"/>
+      <rect x="332" y="292" width="33" height="8" fill="#9b764d" opacity="0.85"/>
+      <path d="M190 300 Q250 55 310 300" fill="none" stroke="#f5edd6" stroke-width="4.5" stroke-linecap="round" opacity="0.7"/>
+      <path d="M250 55 L250 300" stroke="#e3d6ba" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+      <path d="M190 203 Q230 150 270 120 Q290 98 310 80" fill="none" stroke="#f5edd6" stroke-width="3.2" stroke-linecap="round" opacity="0.7"/>
+      <path d="M310 203 Q290 150 270 120 Q230 98 190 80" fill="none" stroke="#f5edd6" stroke-width="3.2" stroke-linecap="round" opacity="0.7"/>
+    </g>
+    <g id="bay2" opacity="0.82">
+      <rect x="148" y="90" width="12" height="330" fill="url(#ashlar)" filter="url(#stoneNoise)"/>
+      <rect x="162" y="90" width="8" height="330" fill="#efe1c7"/>
+      <rect x="174" y="90" width="6" height="330" fill="#e1d4b9"/>
+      <rect x="340" y="90" width="12" height="330" fill="url(#ashlar)" filter="url(#stoneNoise)"/>
+      <rect x="330" y="90" width="8" height="330" fill="#efe1c7"/>
+      <rect x="320" y="90" width="6" height="330" fill="#e1d4b9"/>
+      <rect x="148" y="308" width="32" height="10" fill="#f5edd6"/>
+      <rect x="340" y="308" width="32" height="10" fill="#f5edd6"/>
+      <rect x="148" y="408" width="32" height="10" fill="#9b764d" opacity="0.85"/>
+      <rect x="340" y="408" width="32" height="10" fill="#9b764d" opacity="0.85"/>
+      <path d="M180 420 Q250 160 320 420" fill="none" stroke="#f9f1da" stroke-width="5" stroke-linecap="round" opacity="0.78"/>
+      <path d="M250 160 L250 420" stroke="#e5d9bb" stroke-width="2.6" stroke-linecap="round" opacity="0.7"/>
+      <path d="M180 307 Q220 230 273.3 200 Q300 176 320 160" fill="none" stroke="#f9f1da" stroke-width="3.4" stroke-linecap="round" opacity="0.78"/>
+      <path d="M320 307 Q290 230 273.3 200 Q240 176 180 160" fill="none" stroke="#f9f1da" stroke-width="3.4" stroke-linecap="round" opacity="0.78"/>
+    </g>
+    <g id="bay1">
+      <rect x="132" y="154" width="14" height="386" fill="url(#ashlar)" filter="url(#stoneNoise)"/>
+      <rect x="151" y="154" width="9" height="386" fill="#efe1c7"/>
+      <rect x="164" y="154" width="6" height="386" fill="#e1d4b9"/>
+      <rect x="354" y="154" width="14" height="386" fill="url(#ashlar)" filter="url(#stoneNoise)"/>
+      <rect x="340" y="154" width="9" height="386" fill="#efe1c7"/>
+      <rect x="330" y="154" width="6" height="386" fill="#e1d4b9"/>
+      <rect x="132" y="411" width="38" height="12" fill="#f5edd6"/>
+      <rect x="354" y="411" width="38" height="12" fill="#f5edd6"/>
+      <rect x="132" y="528" width="38" height="12" fill="#9b764d" opacity="0.9"/>
+      <rect x="354" y="528" width="38" height="12" fill="#9b764d" opacity="0.9"/>
+      <path d="M170 540 Q250 220 330 540" fill="none" stroke="#fcf4de" stroke-width="5.6" stroke-linecap="round"/>
+      <path d="M250 220 L250 540" stroke="#eadfc0" stroke-width="3" stroke-linecap="round"/>
+      <path d="M170 411 Q215 300 276.7 260 Q305 232 330 208" fill="none" stroke="#fcf4de" stroke-width="3.8" stroke-linecap="round"/>
+      <path d="M330 411 Q285 300 276.7 260 Q245 232 170 208" fill="none" stroke="#fcf4de" stroke-width="3.8" stroke-linecap="round"/>
+    </g>
+    <g id="pews">
+      <path d="M120 600 L205 600 L220 630 L130 630 Z" fill="#7b4d2d" stroke="#4f2d19" stroke-width="1.2"/>
+      <path d="M135 540 L205 540 L215 565 L145 565 Z" fill="#7b4d2d" stroke="#4f2d19" stroke-width="1.1" opacity="0.9"/>
+      <path d="M380 600 L295 600 L280 630 L370 630 Z" fill="#7b4d2d" stroke="#4f2d19" stroke-width="1.2"/>
+      <path d="M365 540 L295 540 L285 565 L355 565 Z" fill="#7b4d2d" stroke="#4f2d19" stroke-width="1.1" opacity="0.9"/>
+      <path d="M120 600 L220 630 L230 650 L110 622 Z" fill="url(#penumbraGrad)" opacity="0.6"/>
+      <path d="M365 600 L270 630 L260 650 L380 622 Z" fill="url(#penumbraGradR)" opacity="0.6"/>
+    </g>
+    <g id="choirStalls" stroke="#d8b98a" fill="none" stroke-width="1.2">
+      <path d="M170 320 Q180 300 190 320 Q200 340 210 320 Q220 300 230 320" vector-effect="non-scaling-stroke" stroke-linecap="round"/>
+      <path d="M330 320 Q320 300 310 320 Q300 340 290 320 Q280 300 270 320" vector-effect="non-scaling-stroke" stroke-linecap="round"/>
+      <path d="M190 320 L190 350 M210 320 L210 350 M230 320 L230 350" vector-effect="non-scaling-stroke" stroke-linecap="round"/>
+      <path d="M310 320 L310 350 M290 320 L290 350 M270 320 L270 350" vector-effect="non-scaling-stroke" stroke-linecap="round"/>
+    </g>
+    <g id="caustics" filter="url(#spectral)" mask="url(#dustMask)" opacity="0.75">
+      <path d="M90 210 L130 230 L250 540 L210 540 Z" fill="url(#beamGrad)"/>
+      <path d="M140 260 L180 250 L320 540 L280 540 Z" fill="url(#beamGrad)" opacity="0.8"/>
+      <path d="M180 200 L210 220 L350 530 L320 530 Z" fill="url(#beamGrad)" opacity="0.6"/>
+    </g>
+    <text font-family="Garamond, serif" font-size="12" fill="#fbead4" letter-spacing="4">
+      <textPath xlink:href="#archivoltPath" startOffset="50%" text-anchor="middle">LUX • DEI • PERFICIT • OMNIA</textPath>
+    </text>
+  </g>
+</svg>

@@ -1,0 +1,86 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sunlight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffeb99;stop-opacity:0.7"/>
+      <stop offset="100%" style="stop-color:#ff9933;stop-opacity:0.3"/>
+    </linearGradient>
+    <radialGradient id="rose" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#ff0066"/>
+      <stop offset="25%" style="stop-color:#0099ff"/>
+      <stop offset="50%" style="stop-color:#ffcc00"/>
+      <stop offset="75%" style="stop-color:#00ff99"/>
+      <stop offset="100%" style="stop-color:#660099"/>
+    </radialGradient>
+    <filter id="dust">
+      <feTurbulence baseFrequency="0.02" numOctaves="3"/>
+      <feColorMatrix values="0 0 0 0 1 0 0 0 0 0.9 0 0 0 0 0.5 0 0 0 0.2 0"/>
+      <feGaussianBlur stdDeviation="2"/>
+      <feBlend mode="screen"/>
+    </filter>
+    <pattern id="stone" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <rect width="20" height="20" fill="#d4c4a0"/>
+      <rect x="0" y="0" width="19" height="9" fill="#c8b898" opacity="0.5"/>
+      <rect x="0" y="10" width="9" height="9" fill="#bfad88" opacity="0.5"/>
+    </pattern>
+  </defs>
+  
+  <rect width="500" height="500" fill="#1a1a2e"/>
+  
+  <g id="architecture">
+    <rect x="0" y="0" width="500" height="500" fill="url(#stone)"/>
+    
+    <path d="M 100 500 L 100 150 Q 150 100 200 150 L 200 500" fill="none" stroke="#8b7355" stroke-width="3"/>
+    <path d="M 300 500 L 300 150 Q 350 100 400 150 L 400 500" fill="none" stroke="#8b7355" stroke-width="3"/>
+    
+    <ellipse cx="150" cy="180" rx="45" ry="80" fill="none" stroke="#8b7355" stroke-width="2"/>
+    <ellipse cx="350" cy="180" rx="45" ry="80" fill="none" stroke="#8b7355" stroke-width="2"/>
+    
+    <path d="M 100 250 Q 250 200 400 250" fill="none" stroke="#8b7355" stroke-width="2"/>
+    <path d="M 100 300 Q 250 250 400 300" fill="none" stroke="#8b7355" stroke-width="2"/>
+  </g>
+  
+  <g id="rose-window">
+    <circle cx="250" cy="100" r="60" fill="url(#rose)" opacity="0.8"/>
+    <g transform="translate(250,100)">
+      <path d="M 0,-60 L 17,-57 L 30,-52 L 42,-42 L 52,-30 L 57,-17 L 60,0 L 57,17 L 52,30 L 42,42 L 30,52 L 17,57 L 0,60 L -17,57 L -30,52 L -42,42 L -52,30 L -57,17 L -60,0 L -57,-17 L -52,-30 L -42,-42 L -30,-52 L -17,-57 Z" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+      <circle r="20" fill="none" stroke="#2a2a2a" stroke-width="2"/>
+      <path d="M 0,-20 L 0,20 M -20,0 L 20,0 M -14,-14 L 14,14 M -14,14 L 14,-14" stroke="#2a2a2a" stroke-width="1"/>
+    </g>
+  </g>
+  
+  <g id="light-rays" opacity="0.4" filter="url(#dust)">
+    <polygon points="190,100 150,500 200,500" fill="url(#sunlight)"/>
+    <polygon points="250,100 200,500 300,500" fill="url(#sunlight)"/>
+    <polygon points="310,100 300,500 350,500" fill="url(#sunlight)"/>
+  </g>
+  
+  <g id="columns">
+    <rect x="95" y="200" width="10" height="300" fill="#9d8b6e"/>
+    <rect x="195" y="200" width="10" height="300" fill="#9d8b6e"/>
+    <rect x="295" y="200" width="10" height="300" fill="#9d8b6e"/>
+    <rect x="395" y="200" width="10" height="300" fill="#9d8b6e"/>
+  </g>
+  
+  <g id="shadows" opacity="0.3">
+    <polygon points="105,200 110,500 105,500" fill="#000"/>
+    <polygon points="205,200 210,500 205,500" fill="#000"/>
+    <polygon points="305,200 310,500 305,500" fill="#000"/>
+    <polygon points="405,200 410,500 405,500" fill="#000"/>
+  </g>
+  
+  <g id="pews">
+    <rect x="120" y="420" width="60" height="8" fill="#4a3c28"/>
+    <rect x="120" y="440" width="60" height="8" fill="#4a3c28"/>
+    <rect x="120" y="460" width="60" height="8" fill="#4a3c28"/>
+    <rect x="320" y="420" width="60" height="8" fill="#4a3c28"/>
+    <rect x="320" y="440" width="60" height="8" fill="#4a3c28"/>
+    <rect x="320" y="460" width="60" height="8" fill="#4a3c28"/>
+  </g>
+  
+  <path id="archText" d="M 100 150 Q 250 50 400 150" fill="none"/>
+  <text font-family="serif" font-size="10" fill="#8b7355">
+    <textPath href="#archText" startOffset="50%" text-anchor="middle">
+      DOMINE DEUS REX CAELESTIS
+    </textPath>
+  </text>
+</svg>

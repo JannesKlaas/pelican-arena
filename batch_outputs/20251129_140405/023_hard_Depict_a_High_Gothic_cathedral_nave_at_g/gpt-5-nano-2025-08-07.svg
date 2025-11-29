@@ -1,0 +1,206 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" version="1.1">
+  <defs>
+    <!-- Sky and sun gradients for golden hour -->
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#87CEFA" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#FFDAB9" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#F4A460" stop-opacity="0.8"/>
+    </linearGradient>
+
+    <radialGradient id="sunGrad" cx="0.25" cy="0.14" r="0.6">
+      <stop offset="0%" stop-color="#FFF6A9"/>
+      <stop offset="60%" stop-color="#FFD27A" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#FFA500" stop-opacity="0.0"/>
+    </radialGradient>
+
+    <!-- Rose window gradient -->
+    <radialGradient id="roseGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff8c6"/>
+      <stop offset="40%" stop-color="#ffe18d"/>
+      <stop offset="70%" stop-color="#ffd166"/>
+      <stop offset="100%" stop-color="#f3a7a7" stop-opacity="0.0"/>
+    </radialGradient>
+
+    <!-- Glass base color for tracery/lantern -->
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#b6d5ff"/>
+      <stop offset="60%" stop-color="#7fb1ff"/>
+      <stop offset="100%" stop-color="#4a7cff"/>
+    </linearGradient>
+
+    <!-- Ashlar stone pattern (softened with turbulence-like texture) -->
+    <pattern id="ashlar" width="40" height="22" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="40" height="22" fill="#d8d0c0"/>
+      <rect x="0" y="0" width="18" height="22" fill="#c9b6a0" opacity="0.6"/>
+      <rect x="22" y="0" width="18" height="22" fill="#e4d9c1" opacity="0.6"/>
+      <rect x="0" y="0" width="8" height="6" fill="rgba(0,0,0,0.05)"/>
+      <rect x="32" y="6" width="6" height="6" fill="rgba(0,0,0,0.05)"/>
+    </pattern>
+
+    <!-- Subtle stone texture filter (noise illusion) -->
+    <filter id="stoneNoise" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" result="n" seed="3"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+      <feGaussianBlur stdDeviation="0.6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <!-- Shadow and penumbra for pews and columns -->
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="6" dy="8" stdDeviation="6" flood-color="rgba(0,0,0,0.45)"/>
+    </filter>
+
+    <!-- Soft caustic filter (spectral split) -->
+    <filter id="spectralCaustic" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="
+        1 0 0 0 0
+        0 0.9 0 0 0
+        0 0 0.8 0 0
+        0 0 0 1 0" result="colorShift"/>
+      <feBlend in="SourceGraphic" in2="colorShift" mode="screen"/>
+    </filter>
+
+    <!-- Reusable path for archivolt motto -->
+    <path id="archPath" d="M 120 320 Q 250 260 380 320" fill="none"/>
+
+    <!-- Arch and arc group for filigree (non-scaling-stroke) -->
+    <style>
+      .filigree { vector-effect: non-scaling-stroke; paint-order: stroke; stroke: #2b2b2b; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <!-- Sky background -->
+  <rect x="0" y="0" width="500" height="500" fill="url(#sky)"/>
+
+  <!-- Sun with caustics emanating to nave (west, low elevation) -->
+  <defs>
+    <clipPath id="clipBeam">
+      <rect x="0" y="0" width="500" height="260"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#clipBeam)">
+    <circle cx="60" cy="60" r="22" fill="url(#sunGrad)" opacity="0.9"/>
+    <!-- Beams (soft colored caustics) -->
+    <path d="M60,60 L140,210" stroke="rgba(255,214,120,0.5)" stroke-width="2" filter="url(#spectralCaustic)"/>
+    <path d="M60,60 L210,260" stroke="rgba(120,200,255,0.35)" stroke-width="2" filter="url(#spectralCaustic)"/>
+    <path d="M60,60 L260,290" stroke="rgba(255,120,200,0.25)" stroke-width="2" filter="url(#spectralCaustic)"/>
+  </g>
+
+  <!-- Backdrop: distant arcade and clerestory (simple silhouettes) -->
+  <g opacity="0.9" fill="url(#ashlar)">
+    <!-- Left wall -->
+    <polygon points="40,120 100,110 170,360 60,380" filter="url(#stoneNoise)"/>
+    <!-- Right wall -->
+    <polygon points="460,120 420,110 340,360 450,380" filter="url(#stoneNoise)"/>
+  </g>
+
+  <!-- Central nave floor and aisles (two-point perspective impression) -->
+  <polygon points="60,420 440,420 500,460 0,460" fill="#7a746a" opacity="0.9" filter="url(#stoneNoise)"/>
+
+  <!-- Series of arches along the nave (simplified) -->
+  <g fill="none" stroke="#e8e4d8" stroke-width="2" opacity="0.95" filter="url(#stoneNoise)">
+    <!-- far arches (suggestive) -->
+    <path d="M150,320 C170,275 230,260 260,320" />
+    <path d="M130,300 C150,260 190,250 210,300" />
+    <path d="M110,290 C125,260 165,250 185,290" />
+  </g>
+
+  <!-- Rose window at near roof center -->
+  <g transform="translate(0,0)">
+    <!-- circular rose -->
+    <circle cx="250" cy="170" r="90" fill="url(#roseGrad)" stroke="#8b5a2b" stroke-width="2"/>
+    <!-- inner tracery: 12 radii -->
+    <g stroke="#6b3b0a" stroke-width="2" opacity="0.95">
+      <!-- 12 spokes from center -->
+      <line x1="250" y1="170" x2="340" y2="170"/>
+      <line x1="250" y1="170" x2="328" y2="125"/>
+      <line x1="250" y1="170" x2="250" y2="80"/>
+      <line x1="250" y1="170" x2="172" y2="125"/>
+      <line x1="250" y1="170" x2="160" y2="170"/>
+      <line x1="250" y1="170" x2="160" y2="214"/>
+      <line x1="250" y1="170" x2="172" y2="258"/>
+      <line x1="250" y1="170" x2="250" y2="260"/>
+      <line x1="250" y1="170" x2="328" y2="214"/>
+      <line x1="250" y1="170" x2="340" y2="260"/>
+      <line x1="250" y1="170" x2="328" y2="214"/>
+      <line x1="250" y1="170" x2="172" y2="214"/>
+    </g>
+    <!-- central boss -->
+    <circle cx="250" cy="170" r="28" fill="#fff" stroke="#6b3b0a" stroke-width="2"/>
+    <!-- Tetramorph panels (stylized symbols around center) -->
+    <!-- Angel (NW) -->
+    <g transform="translate(205,125)" opacity="0.95">
+      <path d="M0,0 L14,-18 L28,0 L14,12 Z" fill="#ffd700" opacity="0.95"/>
+      <circle cx="14" cy="-6" r="2" fill="#000" opacity="0.6"/>
+    </g>
+    <!-- Lion (NE) -->
+    <g transform="translate(300,125)" opacity="0.95">
+      <path d="M0,0 L18,-8 L28,0 L18,8 Z" fill="#ff6b6b" opacity="0.95"/>
+      <rect x="9" y="-2" width="2" height="4" fill="#000" opacity="0.6"/>
+    </g>
+    <!-- Ox (SW) -->
+    <g transform="translate(205,190)" opacity="0.95">
+      <path d="M0,0 L16,6 L0,12 Z" fill="#8ec5ff" opacity="0.95"/>
+      <circle cx="6" cy="6" r="2" fill="#000" opacity="0.6"/>
+    </g>
+    <!-- Eagle (SE) -->
+    <g transform="translate(300,190)" opacity="0.95">
+      <path d="M0,0 L12,-6 L24,0 L12,6 Z" fill="#66ffcc" opacity="0.95"/>
+      <circle cx="12" cy="0" r="2" fill="#000" opacity="0.6"/>
+    </g>
+  </g>
+
+  <!-- Tracery surrounding inner arch and archivolt motto -->
+  <g fill="none" stroke="#6b3b0a" stroke-width="2" opacity="0.9" filter="url(#stoneNoise)">
+    <!-- archivolt band composed of multiple shallow arches -->
+    <path d="M 110 340 Q 180 320 250 340 T 390 340" />
+    <path d="M 120 350 Q 210 340 290 350 T 460 350" />
+  </g>
+
+  <!-- Archivolt motto along curved archivolt (textPath) -->
+  <text font-family="Georgia, serif" font-size="12" fill="#1a1a1a" textLength="260" style="letter-spacing:1px">
+    <textPath href="#archPath" startOffset="25%">
+      GLORIA IN EXCELSIS DEO, LUMEN IN TENEBRIS
+    </textPath>
+  </text>
+
+  <!-- Choir stalls with non-scaling-stroke filigree (topographic filigree) -->
+  <g transform="translate(0,300)">
+    <!-- pew rows -->
+    <g fill="#5e4b31" opacity="0.95" filter="url(#softShadow)">
+      <!-- simple pew silhouettes across width -->
+      <rect x="40" y="0" width="70" height="20" rx="4"/>
+      <rect x="120" y="0" width="70" height="20" rx="4"/>
+      <rect x="200" y="0" width="70" height="20" rx="4"/>
+      <rect x="280" y="0" width="70" height="20" rx="4"/>
+      <rect x="360" y="0" width="70" height="20" rx="4"/>
+    </g>
+    <!-- filigree arch behind pews (paths) -->
+    <path class="filigree" d="M30,20 C60,10 90,10 120,18" />
+    <path class="filigree" d="M150,22 C180,14 210,14 240,22" />
+    <path class="filigree" d="M270,20 C300,12 330,12 360,20" />
+  </g>
+
+  <!-- Textured walls with ashlar pattern, applied pattern fill -->
+  <rect x="20" y="50" width="140" height="320" fill="url(#ashlar)" opacity="0.95" filter="url(#stoneNoise)"/>
+  <rect x="340" y="50" width="140" height="320" fill="url(#ashlar)" opacity="0.95" filter="url(#stoneNoise)"/>
+
+  <!-- Floor shadow and penumbra across pews (soft) -->
+  <ellipse cx="250" cy="480" rx="210" ry="26" fill="black" opacity="0.15"/>
+
+  <!-- Foreground central aisle shadow -->
+  <path d="M250,420 C270,400 310,400 330,420 L320,452 L180,452 L170,420 Z" fill="rgba(0,0,0,0.25)"/>
+
+  <!-- Doors/arches silhouettes at far end (nice depth) -->
+  <g fill="#222" opacity="0.9" filter="url(#softShadow)">
+    <path d="M230,300 Q250,270 295,300 L295,360 L230,360Z"/>
+    <path d="M205,280 Q230,260 260,280 L260,350 L205,350Z"/>
+  </g>
+
+  <!-- Label: horizon (not visible, but indicates two-point perspective VPs far off) -->
+  <line x1="0" y1="620" x2="500" y2="620" stroke="#000" stroke-width="0.5" opacity="0.0"/>
+
+  <!-- A faint vignette to unify composition -->
+  <rect x="0" y="0" width="500" height="500" fill="none" stroke="none" style="box-shadow: inset 0 0 60px rgba(0,0,0,0.25)"/>
+</svg>

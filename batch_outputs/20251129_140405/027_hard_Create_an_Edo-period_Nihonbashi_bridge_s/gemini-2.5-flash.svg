@@ -1,0 +1,218 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <!-- Palette: 12 flat hues -->
+    <style type="text/css">
+      /* 1. Black Outline/Shadows */
+      .c1 { fill: #1A1A1A; stroke: #1A1A1A; }
+      /* 2. Paper/Sky Base */
+      .c2 { fill: #E0D5B5; stroke: #E0D5B5; }
+      /* 3. Pale Blue Sky */
+      .c3 { fill: #C4D8E7; stroke: #C4D8E7; }
+      /* 4. Water Light Blue */
+      .c4 { fill: #8DB3CC; stroke: #8DB3CC; }
+      /* 5. Water Dark Blue */
+      .c5 { fill: #5D8AA8; stroke: #5D8AA8; }
+      /* 6. Wood Brown Light */
+      .c6 { fill: #A37C50; stroke: #A37C50; }
+      /* 7. Wood Brown Dark */
+      .c7 { fill: #7B5A33; stroke: #7B5A33; }
+      /* 8. Foliage Green */
+      .c8 { fill: #6B8E23; stroke: #6B8E23; }
+      /* 9. Skin/Yellowish */
+      .c9 { fill: #E1AD6C; stroke: #E1AD6C; }
+      /* 10. Red/Kimono pattern, Misregistration */
+      .c10 { fill: #CC3333; stroke: #CC3333; }
+      /* 11. Purple/Kimono pattern, Misregistration */
+      .c11 { fill: #996699; stroke: #996699; }
+      /* 12. Gold/Detail Yellow */
+      .c12 { fill: #E6B800; stroke: #E6B800; }
+
+      .outline { stroke: #1A1A1A; stroke-width: 2; fill: none; }
+      .outline-bold { stroke: #1A1A1A; stroke-width: 4; fill: none; }
+    </style>
+
+    <!-- Filters for woodgrain/paper textures -->
+    <filter id="paperTexture">
+      <feTurbulence type="fractalNoise" baseFrequency="0.005 0.05" numOctaves="3" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise" result="desaturatedNoise"/>
+      <feComponentTransfer in="desaturatedNoise" result="lightNoise">
+        <feFuncA type="linear" slope="0.2" intercept="0.2"/>
+      </feComponentTransfer>
+      <feBlend in="SourceGraphic" in2="lightNoise" mode="multiply"/>
+    </filter>
+    <filter id="woodgrainTexture">
+      <feTurbulence type="fractalNoise" baseFrequency="0.005 0.05" numOctaves="2" seed="12" result="grain"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0" in="grain" result="grainOpacity"/>
+      <feComposite operator="in" in="grainOpacity" in2="SourceGraphic" result="maskedGrain"/>
+      <feBlend in="SourceGraphic" in2="maskedGrain" mode="multiply"/>
+    </filter>
+
+    <!-- Kimono patterns -->
+    <pattern id="asanoha" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M20 0 L40 20 L20 40 L0 20 Z M20 0 L0 0 L0 20 L20 40 L40 40 L40 20 Z" fill="none" stroke="#CC3333" stroke-width="1.5"/>
+      <path d="M20 0 L0 20 L20 40 L40 20 Z" fill="none" stroke="#CC3333" stroke-width="1.5"/>
+      <path d="M20 0 L20 40 M0 20 L40 20 M10 10 L30 30 M30 10 L10 30" stroke="#996699" stroke-width="0.8"/>
+    </pattern>
+    <pattern id="seigaiha" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="0" cy="30" r="15" fill="none" stroke="#5D8AA8" stroke-width="1"/>
+      <circle cx="15" cy="15" r="15" fill="none" stroke="#5D8AA8" stroke-width="1"/>
+      <circle cx="30" cy="0" r="15" fill="none" stroke="#5D8AA8" stroke-width="1"/>
+      <circle cx="30" cy="30" r="15" fill="none" stroke="#5D8AA8" stroke-width="1"/>
+      <circle cx="0" cy="0" r="15" fill="none" stroke="#5D8AA8" stroke-width="1"/>
+    </pattern>
+
+    <!-- Drone radial blur for rotors -->
+    <radialGradient id="rotorBlur" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#C4D8E7" stop-opacity="0.3"/>
+      <stop offset="70%" stop-color="#C4D8E7" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#C4D8E7" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Main group to apply overall scaling and centering for 500x500 viewBox -->
+  <!-- Content scaled from 2100x1200 to 500x285.7 and centered vertically -->
+  <g transform="translate(0, 107.143) scale(0.238095238)">
+    <!-- Paper background -->
+    <rect x="0" y="0" width="2100" height="1200" class="c2" filter="url(#paperTexture)"/>
+
+    <!-- Sky -->
+    <rect x="0" y="0" width="2100" height="780" class="c3"/>
+
+    <!-- Mountains in background (simplified) -->
+    <path d="M0 780 L300 400 L600 600 L900 300 L1200 500 L1500 200 L1800 400 L2100 0 L2100 780 Z" class="c8" stroke="#1A1A1A" stroke-width="2"/>
+    <path d="M0 780 L150 500 L400 700 L700 400 L1000 600 L1300 300 L1600 500 L1900 200 L2100 400 L2100 780 Z" class="c8" fill-opacity="0.8" stroke="#1A1A1A" stroke-width="2"/>
+
+    <!-- Horizon line -->
+    <line x1="0" y1="780" x2="2100" y2="780" class="outline-bold"/>
+
+    <!-- Water -->
+    <rect x="0" y="780" width="2100" height="420" class="c4"/>
+
+    <!-- River ripples -->
+    <g fill="none" stroke="#5D8AA8" stroke-width="1.5" stroke-opacity="0.7">
+      <path d="M0 800 Q200 805 400 800 T800 800 T1200 800 T1600 800 T2000 800" />
+      <path d="M50 820 Q250 828 450 820 T850 820 T1250 820 T1650 820 T2050 820" />
+      <path d="M20 840 Q220 843 420 840 T820 840 T1220 840 T1620 840 T2020 840" />
+      <path d="M100 860 Q300 865 500 860 T900 860 T1300 860 T1700 860 T2100 860" />
+      <path d="M0 880 Q200 882 400 880 T800 880 T1200 880 T1600 880 T2000 880" />
+    </g>
+
+    <!-- Bridge Structure -->
+    <g filter="url(#woodgrainTexture)">
+      <!-- Bridge deck -->
+      <rect x="200" y="550" width="1700" height="150" class="c6" stroke="#1A1A1A" stroke-width="2"/>
+      <rect x="200" y="500" width="1700" height="50" class="c7" stroke="#1A1A1A" stroke-width="2"/>
+      <line x1="200" y1="500" x2="200" y2="700" class="outline-bold"/>
+      <line x1="1900" y1="500" x2="1900" y2="700" class="outline-bold"/>
+
+      <!-- Posts -->
+      <line x1="250" y1="500" x2="250" y2="700" class="outline-bold" stroke="#7B5A33"/>
+      <line x1="400" y1="500" x2="400" y2="700" class="outline-bold" stroke="#7B5A33"/>
+      <line x1="600" y1="500" x2="600" y2="700" class="outline-bold" stroke="#7B5A33"/>
+      <line x1="800" y1="500" x2="800" y2="700" class="outline-bold" stroke="#7B5A33"/>
+      <line x1="1050" y1="500" x2="1050" y2="700" class="outline-bold" stroke="#7B5A33"/>
+      <line x1="1300" y1="500" x2="1300" y2="700" class="outline-bold" stroke="#7B5A33"/>
+      <line x1="1500" y1="500" x2="1500" y2="700" class="outline-bold" stroke="#7B5A33"/>
+      <line x1="1700" y1="500" x2="1700" y2="700" class="outline-bold" stroke="#7B5A33"/>
+
+      <!-- Bridge arch path (catenary approximation) -->
+      <path id="bridgeArchOutline" class="c7" d="M 250 966
+        L 350 900 L 450 871 L 550 830 L 650 802 L 750 780 L 850 762 L 950 754
+        L 1050 750 L 1150 754 L 1250 762 L 1350 780 L 1450 802 L 1550 830 L 1650 871
+        L 1750 900 L 1850 966
+        L 1850 1000 L 250 1000 Z" stroke="#1A1A1A" stroke-width="4"/>
+
+      <!-- Arch supports (simplified) -->
+      <line x1="250" y1="966" x2="250" y2="700" stroke="#1A1A1A" stroke-width="3"/>
+      <line x1="1850" y1="966" x2="1850" y2="700" stroke="#1A1A1A" stroke-width="3"/>
+      <line x1="450" y1="871" x2="450" y2="700" stroke="#1A1A1A" stroke-width="3"/>
+      <line x1="650" y1="802" x2="650" y2="700" stroke="#1A1A1A" stroke-width="3"/>
+      <line x1="850" y1="762" x2="850" y2="700" stroke="#1A1A1A" stroke-width="3"/>
+      <line x1="1050" y1="750" x2="1050" y2="700" stroke="#1A1A1A" stroke-width="3"/>
+      <line x1="1250" y1="762" x2="1250" y2="700" stroke="#1A1A1A" stroke-width="3"/>
+      <line x1="1450" y1="802" x2="1450" y2="700" stroke="#1A1A1A" stroke-width="3"/>
+      <line x1="1650" y1="871" x2="1650" y2="700" stroke="#1A1A1A" stroke-width="3"/>
+    </g>
+
+    <!-- Foreground elements on the bridge -->
+    <g>
+      <!-- People with misregistration -->
+      <!-- Person 1 (left) -->
+      <path id="person1Body" d="M300 550 L310 480 L320 550 L315 650 L305 650 Z" fill="url(#asanoha)"/>
+      <circle id="person1Head" cx="310" cy="470" r="15" class="c9"/>
+      <use xlink:href="#person1Body" stroke="#5D8AA8" stroke-width="2" transform="translate(-1,0)"/>
+      <use xlink:href="#person1Body" stroke="#CC3333" stroke-width="2" transform="translate(1,0)"/>
+      <use xlink:href="#person1Body" stroke="#1A1A1A" stroke-width="2"/>
+      <use xlink:href="#person1Head" stroke="#5D8AA8" stroke-width="2" transform="translate(-1,0)"/>
+      <use xlink:href="#person1Head" stroke="#CC3333" stroke-width="2" transform="translate(1,0)"/>
+      <use xlink:href="#person1Head" stroke="#1A1A1A" stroke-width="2"/>
+
+      <!-- Person 2 (center) -->
+      <path id="person2Body" d="M1000 550 L1010 470 L1020 550 L1015 680 L1005 680 Z" fill="url(#seigaiha)"/>
+      <circle id="person2Head" cx="1010" cy="460" r="15" class="c9"/>
+      <use xlink:href="#person2Body" stroke="#5D8AA8" stroke-width="2" transform="translate(-1.5,0.5)"/>
+      <use xlink:href="#person2Body" stroke="#CC3333" stroke-width="2" transform="translate(1.5,-0.5)"/>
+      <use xlink:href="#person2Body" stroke="#1A1A1A" stroke-width="2"/>
+      <use xlink:href="#person2Head" stroke="#5D8AA8" stroke-width="2" transform="translate(-1.5,0.5)"/>
+      <use xlink:href="#person2Head" stroke="#CC3333" stroke-width="2" transform="translate(1.5,-0.5)"/>
+      <use xlink:href="#person2Head" stroke="#1A1A1A" stroke-width="2"/>
+
+      <!-- Person 3 (right) -->
+      <path id="person3Body" d="M1600 550 L1610 490 L1620 550 L1615 630 L1605 630 Z" fill="url(#asanoha)"/>
+      <circle id="person3Head" cx="1610" cy="480" r="15" class="c9"/>
+      <use xlink:href="#person3Body" stroke="#5D8AA8" stroke-width="2" transform="translate(-0.5,1)"/>
+      <use xlink:href="#person3Body" stroke="#CC3333" stroke-width="2" transform="translate(0.5,-1)"/>
+      <use xlink:href="#person3Body" stroke="#1A1A1A" stroke-width="2"/>
+      <use xlink:href="#person3Head" stroke="#5D8AA8" stroke-width="2" transform="translate(-0.5,1)"/>
+      <use xlink:href="#person3Head" stroke="#CC3333" stroke-width="2" transform="translate(0.5,-1)"/>
+      <use xlink:href="#person3Head" stroke="#1A1A1A" stroke-width="2"/>
+    </g>
+
+    <!-- Shops/buildings background -->
+    <g>
+      <rect x="0" y="450" width="200" height="330" class="c6" stroke="#1A1A1A" stroke-width="2"/>
+      <rect x="1900" y="450" width="200" height="330" class="c6" stroke="#1A1A1A" stroke-width="2"/>
+      <rect x="250" y="400" width="150" height="150" class="c6" stroke="#1A1A1A" stroke-width="2"/>
+      <rect x="1700" y="400" width="150" height="150" class="c6" stroke="#1A1A1A" stroke-width="2"/>
+
+      <!-- Noren (curtain) with Kanji -->
+      <path id="norenPath1" d="M425 460 V530" fill="none"/>
+      <rect x="400" y="450" width="100" height="100" class="c2" stroke="#1A1A1A" stroke-width="2"/>
+      <rect x="400" y="450" width="50" height="100" class="c10"/>
+      <text font-family="serif" font-size="60" class="c1" text-rendering="optimizeLegibility">
+        <textPath xlink:href="#norenPath1" startOffset="50%" dominant-baseline="central">
+          店
+        </textPath>
+      </text>
+
+      <path id="norenPath2" d="M1525 460 V530" fill="none"/>
+      <rect x="1500" y="450" width="100" height="100" class="c2" stroke="#1A1A1A" stroke-width="2"/>
+      <rect x="1550" y="450" width="50" height="100" class="c11"/>
+      <text font-family="serif" font-size="60" class="c1" text-rendering="optimizeLegibility">
+        <textPath xlink:href="#norenPath2" startOffset="50%" dominant-baseline="central">
+          橋
+        </textPath>
+      </text>
+    </g>
+
+    <!-- Disguised Drone-Kite with misregistration -->
+    <g transform="translate(1400, 200)">
+      <path id="kiteBody" d="M0 -30 L50 20 L0 70 L-50 20 Z" class="c12"/>
+      <!-- Misregistration for the kite body -->
+      <use xlink:href="#kiteBody" stroke="#5D8AA8" stroke-width="2" transform="translate(-1,0.5)"/>
+      <use xlink:href="#kiteBody" stroke="#CC3333" stroke-width="2" transform="translate(1,-0.5)"/>
+      <use xlink:href="#kiteBody" stroke="#1A1A1A" stroke-width="2"/>
+
+      <!-- Bamboo frame strokes (on top of the kite body) -->
+      <line x1="0" y1="-30" x2="0" y2="70" class="c7" stroke-width="3"/>
+      <line x1="-50" y1="20" x2="50" y2="20" class="c7" stroke-width="3"/>
+      <line x1="-25" y1="0" x2="25" y2="0" class="c7" stroke-width="2"/>
+      <line x1="-25" y1="40" x2="25" y2="40" class="c7" stroke-width="2"/>
+
+      <!-- Faint rotor disks suggested by radial-gradient blur rings -->
+      <circle cx="50" cy="20" r="25" fill="url(#rotorBlur)"/>
+      <circle cx="-50" cy="20" r="25" fill="url(#rotorBlur)"/>
+      <circle cx="0" cy="-30" r="25" fill="url(#rotorBlur)"/>
+    </g>
+  </g>
+</svg>

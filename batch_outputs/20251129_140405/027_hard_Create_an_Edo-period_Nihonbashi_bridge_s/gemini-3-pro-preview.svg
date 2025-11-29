@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <!-- Paper Texture Filter -->
+    <filter id="paperTexture">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="5" result="noise"/>
+      <feDiffuseLighting in="noise" lighting-color="#fff8e7" surfaceScale="2">
+        <feDistantLight azimuth="45" elevation="60"/>
+      </feDiffuseLighting>
+      <feComposite operator="in" in2="SourceGraphic"/>
+    </filter>
+
+    <!-- Misalignment Filter for outlines -->
+    <filter id="misalign">
+      <feOffset in="SourceGraphic" dx="-1.5" dy="-0.5" result="offC"/>
+      <feOffset in="SourceGraphic" dx="1.5" dy="0.5" result="offM"/>
+      <feColorMatrix in="offC" type="matrix" values="1 0 0 0 0  0 0 0 0 1  0 0 0 0 1  0 0 0 0.5 0" result="cyan"/>
+      <feColorMatrix in="offM" type="matrix" values="1 0 0 0 1  0 0 0 0 0  0 0 0 0 1  0 0 0 0.5 0" result="magenta"/>
+      <feMerge>
+        <feMergeNode in="cyan"/>
+        <feMergeNode in="magenta"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Drone Rotor Blur Gradient -->
+    <radialGradient id="rotorBlur" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="70%" stop-color="#ffffff" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Seigaiha Pattern (Waves) -->
+    <pattern id="seigaiha" width="20" height="20" patternUnits="userSpaceOnUse" patternTransform="scale(0.5)">
+      <path d="M0,10 Q10,-5 20,10 M0,20 Q10,5 20,20" fill="none" stroke="#2a4065" stroke-width="2"/>
+    </pattern>
+
+    <!-- Asanoha Pattern (Hemp Leaf) -->
+    <pattern id="asanoha" width="20" height="34.6" patternUnits="userSpaceOnUse" patternTransform="scale(0.4)">
+      <path d="M10,0 L20,17.3 L10,34.6 L0,17.3 Z M10,17.3 L10,0 M10,17.3 L20,5.8 M10,17.3 L20,28.9 M10,17.3 L10,34.6 M10,17.3 L0,28.9 M10,17.3 L0,5.8" stroke="#8b3a3a" stroke-width="1.5" fill="none"/>
+    </pattern>
+
+    <!-- Path for Noren Text -->
+    <path id="norenPath" d="M340,140 L460,140" />
+  </defs>
+
+  <!-- Base Background (Paper Color) -->
+  <rect width="500" height="500" fill="#f4ecd8"/>
+  
+  <!-- Sky Gradient -->
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1c3f75"/> <!-- Prussian Blue -->
+      <stop offset="40%" stop-color="#f4ecd8" stop-opacity="0"/> 
+    </linearGradient>
+  </defs>
+  <rect width="500" height="300" fill="url(#skyGrad)"/>
+
+  <!-- Mt Fuji Silhouette -->
+  <path d="M80,350 Q200,340 250,200 Q300,340 420,350 Z" fill="#ffffff" stroke="none"/>
+  <path d="M230,215 L250,200 L270,215 L260,225 L250,215 L240,225 Z" fill="#1c3f75"/> <!-- Peak cap -->
+
+  <!-- Background Buildings / Noren -->
+  <g transform="translate(0, 50)">
+     <rect x="320" y="80" width="160" height="200" fill="#dcb386"/> <!-- Building -->
+     <rect x="320" y="120" width="160" height="60" fill="#2a4065"/> <!-- Noren Curtains -->
+     <text font-family="serif" font-size="24" fill="#f4ecd8" font-weight="bold" letter-spacing="10">
+       <textPath href="#norenPath" startOffset="10">江戸ドローン</textPath>
+     </text>
+  </g>
+
+  <!-- River -->
+  <rect x="0" y="350" width="500" height="150" fill="#89bce0"/>
+  <!-- River Ripples (Jittered) -->
+  <g stroke="#ffffff" fill="none" stroke-width="1.5" opacity="0.7">
+    <path d="M20,400 Q50,395 80,400 T140,400" />
+    <path d="M150,420 Q180,415 210,420 T270,420" />
+    <path d="M300,380 Q330,375 360,380 T420,380" />
+    <path d="M50,450 Q80,445 110,450 T170,450" />
+  </g>
+
+  <!-- Bridge (Nihonbashi) - Catenary approx -->
+  <g filter="url(#misalign)">
+    <!-- Arch Structure -->
+    <path d="M-50,500 Q250,280 550,500" fill="#b58863" stroke="#4a3728" stroke-width="2"/> <!-- Underside -->
+    <path d="M-50,480 Q250,260 550,480" fill="none" stroke="#b58863" stroke-width="40"/> <!-- Roadbed -->
+    
+    <!-- Railing / Giboshi -->
+    <path d="M-50,460 Q250,240 550,460" fill="none" stroke="#4a3728" stroke-width="4"/> <!-- Top Rail -->
+    
+    <!-- Posts (Simplified distribution along curve) -->
+    <g fill="#cdba96" stroke="#4a3728" stroke-width="1">
+      <circle cx="100" cy="395" r="4"/>
+      <rect x="98" y="395" width="4" height="15"/>
+      <circle cx="180" cy="365" r="4"/>
+      <rect x="178" y="365" width="4" height="15"/>
+      <circle cx="250" cy="355" r="4"/>
+      <rect x="248" y="355" width="4" height="15"/>
+      <circle cx="320" cy="365" r="4"/>
+      <rect x="318" y="365" width="4" height="15"/>
+      <circle cx="400" cy="395" r="4"/>
+      <rect x="398" y="395" width="4" height="15"/>
+    </g>
+  </g>
+
+  <!-- People on Bridge -->
+  <g transform="translate(0,-15)">
+    <!-- Person 1 (Seigaiha Kimono) -->
+    <g transform="translate(220, 345)">
+      <path d="M0,0 L10,30 L-10,30 Z" fill="url(#seigaiha)"/>
+      <circle cx="0" cy="-5" r="4" fill="#f4ecd8"/>
+      <path d="M-4,-8 Q0,-12 4,-8" stroke="#111" fill="none" stroke-width="3"/> <!-- Hair -->
+    </g>
+    <!-- Person 2 (Asanoha Kimono) -->
+    <g transform="translate(260, 348)">
+      <path d="M0,0 L12,30 L-12,30 Z" fill="url(#asanoha)"/>
+      <circle cx="0" cy="-5" r="4" fill="#f4ecd8"/>
+      <path d="M-4,-8 Q0,-12 4,-8" stroke="#111" fill="none" stroke-width="3"/>
+    </g>
+  </g>
+
+  <!-- The Disguised Drone-Kite -->
+  <g transform="translate(100, 100) rotate(-10)">
+    <!-- String -->
+    <path d="M0,20 Q120,150 220,240" stroke="#111" stroke-width="0.5" fill="none"/>
+    
+    <!-- Drone Body (Square "Kite") -->
+    <rect x="-25" y="-25" width="50" height="50" fill="#d95245" opacity="0.9"/>
+    
+    <!-- Bamboo Frame (Cross) -->
+    <path d="M-30,-30 L30,30 M30,-30 L-30,30" stroke="#cdba96" stroke-width="3" stroke-linecap="round"/>
+    <rect x="-26" y="-26" width="52" height="52" stroke="#cdba96" stroke-width="2" fill="none"/>
+
+    <!-- Rotor Disks (The "Modern" giveaway) -->
+    <circle cx="-25" cy="-25" r="12" fill="url(#rotorBlur)"/>
+    <circle cx="25" cy="-25" r="12" fill="url(#rotorBlur)"/>
+    <circle cx="-25" cy="25" r="12" fill="url(#rotorBlur)"/>
+    <circle cx="25" cy="25" r="12" fill="url(#rotorBlur)"/>
+    
+    <!-- Kite Tail (Camouflage) -->
+    <path d="M0,25 Q-10,50 5,70 T-5,100" stroke="#f4ecd8" stroke-width="4" fill="none"/>
+  </g>
+
+  <!-- Global Texture Overlay -->
+  <rect width="500" height="500" filter="url(#paperTexture)" opacity="0.4" style="mix-blend-mode: multiply;" pointer-events="none"/>
+
+  <!-- Frame Border -->
+  <rect x="5" y="5" width="490" height="490" stroke="#1c3f75" stroke-width="3" fill="none"/>
+</svg>

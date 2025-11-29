@@ -1,0 +1,58 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Golden Hour Light Gradient -->
+    <linearGradient id="goldLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff5cc" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#ffaa00" stop-opacity="0"/>
+    </linearGradient>
+    <!-- Stained Glass Gradient -->
+    <radialGradient id="roseGlass" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffdd00"/>
+      <stop offset="40%" stop-color="#ff0055"/>
+      <stop offset="100%" stop-color="#2200cc"/>
+    </radialGradient>
+    <!-- Stone Gradient -->
+    <linearGradient id="stone" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2a2a2a"/>
+      <stop offset="100%" stop-color="#1a1a1a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="500" height="500" fill="#151515"/>
+
+  <!-- Floor Perspective -->
+  <path d="M0 500 L220 350 L280 350 L500 500 Z" fill="#222"/>
+  <line x1="250" y1="350" x2="250" y2="500" stroke="#333" stroke-width="1"/>
+
+  <!-- Nave Structure (Back to Front) -->
+  
+  <!-- Layer 3 (Farthest Bay) -->
+  <path d="M180 500 V200 Q250 120 320 200 V500 H280 V350 H220 V500 Z" fill="#333"/>
+  
+  <!-- Rose Window -->
+  <circle cx="250" cy="200" r="30" fill="url(#roseGlass)"/>
+  <g stroke="#111" stroke-width="2" fill="none">
+    <circle cx="250" cy="200" r="30"/>
+    <path d="M250 170 V230 M220 200 H280 M229 179 L271 221 M229 221 L271 179"/>
+  </g>
+
+  <!-- Layer 2 (Middle Bay) -->
+  <path d="M120 500 V150 Q250 40 380 150 V500 L350 500 V180 Q250 90 150 180 V500 Z" fill="#262626"/>
+  
+  <!-- Layer 1 (Closest/Frame) -->
+  <path d="M0 500 V0 H60 V100 Q250 -50 440 100 V0 H500 V500 H440 V150 Q250 0 60 150 V500 Z" fill="#1a1a1a"/>
+
+  <!-- Golden Hour Rays (Dust Rays) -->
+  <path d="M230 180 L100 500 H400 L270 180 Z" fill="url(#goldLight)" style="mix-blend-mode: screen; pointer-events: none;"/>
+  
+  <!-- Archivolt Details (Simplified Filigree) -->
+  <path d="M70 160 Q250 20 430 160" fill="none" stroke="#444" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- Latin Motto suggestion (TextPath) -->
+  <path id="archCurve" d="M160 185 Q250 110 340 185" fill="none"/>
+  <text font-size="8" fill="#554433" font-family="serif" letter-spacing="2">
+    <textPath href="#archCurve" startOffset="50%" text-anchor="middle">LUX AETERNA</textPath>
+  </text>
+
+</svg>

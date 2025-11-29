@@ -1,0 +1,250 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <!-- Soft warm top lighting glow -->
+    <filter id="warmGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="
+        1 0 0 0 0.15
+        0 0.95 0 0 0.10
+        0 0 0.8 0 0
+        0 0 0 0.8 0" result="warm"/>
+      <feMerge>
+        <feMergeNode in="warm"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Soft penumbra drop shadow -->
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+
+    <!-- Glass glare streak -->
+    <linearGradient id="glareGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.4" stop-color="#ffffff" stop-opacity="0.7"/>
+      <stop offset="0.6" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Non scaling stroke for etching on instruments -->
+    <style>
+      .etch {
+        vector-effect: non-scaling-stroke;
+        stroke:#c0d6e8;
+        stroke-width:0.3;
+        fill:none;
+      }
+      .leader {
+        stroke:#444;
+        stroke-width:0.4;
+        fill:none;
+        marker-end:url(#arrow);
+        vector-effect:non-scaling-stroke;
+      }
+      .label {
+        font-family: sans-serif;
+        font-size:4px;
+        fill:#222;
+      }
+      .chalk {
+        font-family: "Courier New", monospace;
+        font-size:4px;
+        fill:#ffffff;
+      }
+    </style>
+
+    <!-- Arrow marker for leader lines -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#444"/>
+    </marker>
+
+    <!-- Chalk diagram paths -->
+    <path id="chalkPath1" d="M 340 275 C 350 260 370 260 380 275" />
+    <path id="chalkPath2" d="M 342 285 C 352 300 370 300 382 286" />
+  </defs>
+
+  <!-- Background wall -->
+  <rect x="0" y="0" width="500" height="500" fill="#f4f0e8"/>
+
+  <!-- Horizon line at y=950 scaled down (approx) to y ~ 400 to hint perspective -->
+  <line x1="0" y1="400" x2="500" y2="400" stroke="#d0c8b8" stroke-width="0.5" stroke-dasharray="3 3"/>
+
+  <!-- Surgical amphitheatre seating: concentric arcs -->
+  <g fill="none" stroke="#b39a7a" stroke-width="2" filter="url(#softShadow)">
+    <path d="M 20 280 Q 250 150 480 280" />
+    <path d="M 35 300 Q 250 170 465 300" />
+    <path d="M 50 320 Q 250 190 450 320" />
+    <path d="M 65 340 Q 250 210 435 340" />
+  </g>
+
+  <!-- Gas lamps overhead with warm light -->
+  <g filter="url(#warmGlow)">
+    <g>
+      <circle cx="200" cy="80" r="8" fill="#f7e0b8" stroke="#b08a4a" stroke-width="1"/>
+      <rect x="197" y="88" width="6" height="8" fill="#c9b08a"/>
+    </g>
+    <g>
+      <circle cx="300" cy="80" r="8" fill="#f7e0b8" stroke="#b08a4a" stroke-width="1"/>
+      <rect x="297" y="88" width="6" height="8" fill="#c9b08a"/>
+    </g>
+  </g>
+
+  <!-- Operating table -->
+  <g filter="url(#softShadow)">
+    <rect x="120" y="260" width="260" height="80" rx="6" ry="6" fill="#dcdfe5" stroke="#7f8790" stroke-width="1.5"/>
+    <!-- Table top highlight -->
+    <rect x="120" y="260" width="260" height="20" rx="6" ry="6" fill="url(#glareGrad)" opacity="0.3"/>
+    <!-- Table legs -->
+    <rect x="145" y="340" width="10" height="40" fill="#9da3aa"/>
+    <rect x="345" y="340" width="10" height="40" fill="#9da3aa"/>
+  </g>
+
+  <!-- Glass panel with glare in front (clipped specular streaks) -->
+  <g opacity="0.6">
+    <defs>
+      <clipPath id="glassClip">
+        <rect x="110" y="210" width="280" height="160" rx="6" ry="6"/>
+      </clipPath>
+    </defs>
+    <rect x="110" y="210" width="280" height="160" rx="6" ry="6"
+          fill="#e8f2ff" stroke="#9cb2c8" stroke-width="1"/>
+    <!-- Glare streaks -->
+    <g clip-path="url(#glassClip)">
+      <rect x="120" y="215" width="200" height="4" fill="url(#glareGrad)" transform="rotate(-15 120 215)" opacity="0.7"/>
+      <rect x="180" y="260" width="220" height="3" fill="url(#glareGrad)" transform="rotate(-15 180 260)" opacity="0.5"/>
+    </g>
+  </g>
+
+  <!-- Upper limb model on table (schematic, low saturation) -->
+  <g id="upperLimb" transform="translate(160,260)">
+    <!-- Scapula outline in scapular plane (approx 30°) -->
+    <g transform="rotate(-30 20 20)">
+      <path d="M 5 35 Q 10 5 35 10 Q 40 25 30 40 Q 18 45 5 35 Z"
+            fill="#d2d8da" stroke="#99a3aa" stroke-width="0.8"/>
+    </g>
+
+    <!-- Humerus (19% body height approximated as long bone) -->
+    <path d="M 60 40 Q 85 70 90 115"
+          fill="none" stroke="#c0a68a" stroke-width="6" stroke-linecap="round"/>
+
+    <!-- Forearm (15% body height) -->
+    <path d="M 90 115 Q 105 140 130 155"
+          fill="none" stroke="#c0a68a" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Hand simplified -->
+    <path d="M 130 155 q 8 2 12 8 q -4 4 -10 5 q -8 -1 -12 -6 q 4 -5 10 -7 z"
+          fill="#d0b89a" stroke="#b09578" stroke-width="0.8"/>
+
+    <!-- Tendons and muscular insertions (schematic) -->
+    <!-- Rotator cuff tendons -->
+    <path d="M 62 38 Q 70 32 78 34"
+          stroke="#a1b1c0" stroke-width="1" fill="none"/>
+    <path d="M 60 42 Q 70 40 80 41"
+          stroke="#a1b1c0" stroke-width="1" fill="none"/>
+
+    <!-- Biceps tendon -->
+    <path d="M 75 70 Q 82 75 88 85"
+          stroke="#a4b7c6" stroke-width="1" fill="none"/>
+
+    <!-- Forearm flexor tendons -->
+    <path d="M 95 120 Q 110 135 125 148"
+          stroke="#9caec0" stroke-width="1" fill="none"/>
+    <path d="M 93 118 Q 108 132 122 146"
+          stroke="#9caec0" stroke-width="0.8" fill="none"/>
+
+    <!-- Muscle bellies schematic -->
+    <ellipse cx="74" cy="78" rx="8" ry="14" fill="#d6c3b3" stroke="#b59d88" stroke-width="0.6"/>
+    <ellipse cx="102" cy="132" rx="9" ry="12" fill="#d6c3b3" stroke="#b59d88" stroke-width="0.6"/>
+
+    <!-- Leader lines and labels -->
+    <!-- Humerus label -->
+    <path class="leader" d="M 78 63 L 40 40"/>
+    <text class="label" x="20" y="38">humerus</text>
+
+    <!-- Forearm (radius/ulna) label -->
+    <path class="leader" d="M 110 140 L 60 180"/>
+    <text class="label" x="20" y="185">forearm (radius / ulna)</text>
+
+    <!-- Rotator cuff tendons label -->
+    <path class="leader" d="M 72 34 L 45 15"/>
+    <text class="label" x="10" y="15">rotator cuff tendons</text>
+
+    <!-- Biceps tendon label -->
+    <path class="leader" d="M 84 83 L 120 50"/>
+    <text class="label" x="122" y="48">biceps tendon</text>
+
+    <!-- Flexor tendons label -->
+    <path class="leader" d="M 118 147 L 160 160"/>
+    <text class="label" x="162" y="162">flexor tendons</text>
+  </g>
+
+  <!-- Surgical instruments with cool highlights and etching -->
+  <g id="instruments" transform="translate(150,310)" filter="url(#softShadow)">
+    <!-- Bone saw -->
+    <g>
+      <!-- Blade -->
+      <rect x="0" y="0" width="50" height="6" rx="1" ry="1" fill="#c7d0dd" stroke="#8a96a6" stroke-width="0.8"/>
+      <!-- Teeth -->
+      <path d="M 2 6 L 4 8 L 6 6 L 8 8 L 10 6 L 12 8 L 14 6 L 16 8 L 18 6 L 20 8 L 22 6 L 24 8 L 26 6 L 28 8 L 30 6 L 32 8 L 34 6 L 36 8 L 38 6 L 40 8 L 42 6 L 44 8 L 46 6 L 48 8"
+            fill="none" stroke="#9aa8bc" stroke-width="0.4"/>
+      <!-- Handle -->
+      <rect x="50" y="-3" width="14" height="12" rx="3" ry="3" fill="#9a6e46" stroke="#6f4c33" stroke-width="0.8"/>
+      <!-- Cool highlight -->
+      <path d="M 2 1 L 48 1" stroke="#e5f1ff" stroke-width="1.2" opacity="0.8"/>
+
+      <!-- Etched lines -->
+      <line class="etch" x1="5" y1="2" x2="5" y2="4"/>
+      <line class="etch" x1="10" y1="2" x2="10" y2="4"/>
+      <line class="etch" x1="15" y1="2" x2="15" y2="4"/>
+    </g>
+
+    <!-- Forceps -->
+    <g transform="translate(80,5) rotate(-10)">
+      <path d="M 0 0 Q 12 -2 22 0 Q 10 2 0 0 Z"
+            fill="#d1dbea" stroke="#8a96a6" stroke-width="0.8"/>
+      <path d="M 0 0 Q -5 18 2 32"
+            fill="none" stroke="#b6c4d8" stroke-width="1.1"/>
+      <path d="M 22 0 Q 27 18 20 32"
+            fill="none" stroke="#b6c4d8" stroke-width="1.1"/>
+      <!-- Tips -->
+      <path d="M 2 32 Q 5 35 3 38" stroke="#9aa8bc" stroke-width="0.8" fill="none"/>
+      <path d="M 20 32 Q 17 35 19 38" stroke="#9aa8bc" stroke-width="0.8" fill="none"/>
+      <!-- Cool highlight -->
+      <path d="M 3 -0.5 Q 12 -1.5 19 -0.5" stroke="#f0f7ff" stroke-width="0.8" opacity="0.8"/>
+      <!-- Etching -->
+      <line class="etch" x1="6" y1="1" x2="6" y2="4"/>
+      <line class="etch" x1="10" y1="1" x2="10" y2="4"/>
+    </g>
+  </g>
+
+  <!-- Slate with chalk diagrams -->
+  <g transform="translate(320,250)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="120" height="80" rx="4" ry="4" fill="#1d252b" stroke="#555e65" stroke-width="1.2"/>
+    <!-- Chalk curved text (white text-on-path) -->
+    <text class="chalk">
+      <textPath href="#chalkPath1" startOffset="5%">scapular plane ~ 30°</textPath>
+    </text>
+    <text class="chalk">
+      <textPath href="#chalkPath2" startOffset="10%">humerus ≈ 19% height, forearm ≈ 15%</textPath>
+    </text>
+    <!-- Simple diagram lines -->
+    <path d="M 10 60 Q 30 40 50 50" stroke="#f5f7f8" stroke-width="1" fill="none"/>
+    <path d="M 50 50 Q 70 60 90 45" stroke="#f5f7f8" stroke-width="1" fill="none"/>
+  </g>
+
+  <!-- Subtle audience silhouettes in seats -->
+  <g fill="#c2b7a4" opacity="0.7">
+    <circle cx="80" cy="275" r="4"/>
+    <rect x="76" y="279" width="8" height="6" rx="2" ry="2"/>
+    <circle cx="140" cy="285" r="4"/>
+    <rect x="136" y="289" width="8" height="6" rx="2" ry="2"/>
+    <circle cx="210" cy="295" r="4"/>
+    <rect x="206" y="299" width="8" height="6" rx="2" ry="2"/>
+    <circle cx="280" cy="285" r="4"/>
+    <rect x="276" y="289" width="8" height="6" rx="2" ry="2"/>
+    <circle cx="350" cy="275" r="4"/>
+    <rect x="346" y="279" width="8" height="6" rx="2" ry="2"/>
+  </g>
+</svg>

@@ -1,0 +1,205 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <style>
+      @keyframes siphonophorePulse {
+        0%, 100% { stroke-dashoffset: 0; opacity: 0.6; }
+        50% { stroke-dashoffset: 20; opacity: 1; }
+      }
+      @keyframes condensationDrip {
+        0% { transform: translateY(-2px); opacity: 0; }
+        50% { opacity: 1; }
+        100% { transform: translateY(4px); opacity: 0; }
+      }
+    </style>
+    
+    <!-- Water caustics filter -->
+    <filter id="waterCaustics">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" result="noise" seed="2"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    
+    <!-- Lighting and specular effects -->
+    <filter id="specularlighting">
+      <feSpecularLighting surfaceScale="4" specularConstant="0.7" specularExponent="20" lighting-color="#fff9e6" in="SourceAlpha">
+        <feSpotLight x="100" y="80" z="120" pointsAtX="250" pointsAtY="250" pointsAtZ="0" limitingConeAngle="45"/>
+      </feSpecularLighting>
+      <feComposite in="SourceGraphic" in2="SpecOut" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
+    </filter>
+    
+    <!-- Blur for condensation -->
+    <filter id="condensationBlur">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="1" flood-opacity="0.3"/>
+    </filter>
+    
+    <!-- Refraction through viewport -->
+    <filter id="viewportRefraction">
+      <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="2" result="turbulence"/>
+      <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    
+    <!-- Rivet symbol -->
+    <symbol id="rivet">
+      <circle cx="0" cy="0" r="2" fill="#8B7355" stroke="#5C4033" stroke-width="0.5"/>
+      <circle cx="0" cy="0" r="3.5" fill="none" stroke="#A0826D" stroke-width="0.3" opacity="0.6"/>
+    </symbol>
+    
+    <!-- Pressure indicator arc path -->
+    <path id="stressArc" d="M 200 150 A 80 80 0 0 1 320 150" fill="none"/>
+  </defs>
+  
+  <!-- Background: deep ocean water -->
+  <rect width="500" height="500" fill="#0a1f3e"/>
+  
+  <!-- Water caustics overlay -->
+  <rect width="500" height="500" fill="#1a3f5e" opacity="0.4" filter="url(#waterCaustics)"/>
+  
+  <!-- Bioluminescent siphonophores (animated) -->
+  <g id="siphonophores">
+    <path d="M 80 120 Q 85 140 80 160" stroke="#00ff88" stroke-width="1.5" fill="none" stroke-dasharray="5,3" opacity="0.8" animation-name="siphonophorePulse" animation-duration="3s" animation-iteration-count="infinite"/>
+    <path d="M 420 200 Q 415 220 420 240" stroke="#00dd99" stroke-width="1.5" fill="none" stroke-dasharray="5,3" opacity="0.7" animation-name="siphonophorePulse" animation-duration="4s" animation-iteration-count="infinite"/>
+    <path d="M 60 350 Q 70 370 60 390" stroke="#00ff77" stroke-width="1.2" fill="none" stroke-dasharray="4,2" opacity="0.75" animation-name="siphonophorePulse" animation-duration="3.5s" animation-iteration-count="infinite"/>
+    <path d="M 450 320 Q 440 340 450 360" stroke="#00ee88" stroke-width="1.3" fill="none" stroke-dasharray="5,3" opacity="0.7" animation-name="siphonophorePulse" animation-duration="3.2s" animation-iteration-count="infinite"/>
+  </g>
+  
+  <!-- Bathysphere main hull (orthographic cutaway) -->
+  <g id="bathysphere" filter="url(#viewportRefraction)">
+    <!-- Outer pressure hull -->
+    <circle cx="250" cy="250" r="120" fill="#2c3e50" stroke="#34495e" stroke-width="2"/>
+    
+    <!-- Pressure hull wall thickness visualization -->
+    <circle cx="250" cy="250" r="115" fill="#34495e" stroke="#2c3e50" stroke-width="1" opacity="0.6"/>
+    <circle cx="250" cy="250" r="110" fill="#1a1f2e" stroke="#2c3e50" stroke-width="0.5"/>
+    
+    <!-- Rivets polar placement (240 rivets simplified to 24 for performance) -->
+    <g id="rivetRing">
+      <use xlink:href="#rivet" x="250" y="130"/>
+      <use xlink:href="#rivet" x="280" y="135"/>
+      <use xlink:href="#rivet" x="305" y="150"/>
+      <use xlink:href="#rivet" x="320" y="175"/>
+      <use xlink:href="#rivet" x="328" y="205"/>
+      <use xlink:href="#rivet" x="328" y="235"/>
+      <use xlink:href="#rivet" x="320" y="265"/>
+      <use xlink:href="#rivet" x="305" y="290"/>
+      <use xlink:href="#rivet" x="280" y="305"/>
+      <use xlink:href="#rivet" x="250" y="310"/>
+      <use xlink:href="#rivet" x="220" y="305"/>
+      <use xlink:href="#rivet" x="195" y="290"/>
+      <use xlink:href="#rivet" x="180" y="265"/>
+      <use xlink:href="#rivet" x="172" y="235"/>
+      <use xlink:href="#rivet" x="172" y="205"/>
+      <use xlink:href="#rivet" x="180" y="175"/>
+      <use xlink:href="#rivet" x="195" y="150"/>
+      <use xlink:href="#rivet" x="220" y="135"/>
+      <use xlink:href="#rivet" x="250" y="180"/>
+      <use xlink:href="#rivet" x="290" y="210"/>
+      <use xlink:href="#rivet" x="250" y="280"/>
+      <use xlink:href="#rivet" x="210" y="210"/>
+    </g>
+    
+    <!-- Fused-silica viewport (90mm thick visualization) -->
+    <g id="viewport" filter="url(#specularlighting)">
+      <!-- Viewport frame -->
+      <circle cx="250" cy="160" r="55" fill="#b0e0e6" stroke="#0099cc" stroke-width="3" opacity="0.85"/>
+      <!-- Viewport inner surface with refraction -->
+      <circle cx="250" cy="160" r="52" fill="#87ceeb" opacity="0.3"/>
+      <!-- Viewport thickness rings -->
+      <circle cx="250" cy="160" r="50" fill="none" stroke="#5da3d5" stroke-width="0.5" opacity="0.5"/>
+      <!-- Condensation droplets on viewport -->
+      <circle cx="235" cy="145" r="2" fill="#e8f4f8" filter="url(#condensationBlur)" opacity="0.7" animation-name="condensationDrip" animation-duration="2s" animation-iteration-count="infinite"/>
+      <circle cx="260" cy="150" r="1.5" fill="#e8f4f8" filter="url(#condensationBlur)" opacity="0.6" animation-name="condensationDrip" animation-duration="2.5s" animation-iteration-count="infinite"/>
+      <circle cx="245" cy="170" r="1.8" fill="#e8f4f8" filter="url(#condensationBlur)" opacity="0.65" animation-name="condensationDrip" animation-duration="2.2s" animation-iteration-count="infinite"/>
+    </g>
+    
+    <!-- Internal structure: winch drum -->
+    <g id="winchDrum">
+      <ellipse cx="250" cy="280" rx="45" ry="35" fill="#8B4513" stroke="#654321" stroke-width="1.5"/>
+      <ellipse cx="250" cy="280" rx="40" ry="32" fill="#A0522D" opacity="0.7"/>
+      <!-- Winch rotation axis -->
+      <circle cx="250" cy="280" r="4" fill="#2c3e50" stroke="#1a1f2e" stroke-width="1"/>
+      <!-- Drum grooves -->
+      <ellipse cx="250" cy="270" rx="42" ry="3" fill="none" stroke="#654321" stroke-width="0.5" opacity="0.5"/>
+      <ellipse cx="250" cy="280" rx="42" ry="3" fill="none" stroke="#654321" stroke-width="0.5" opacity="0.5"/>
+      <ellipse cx="250" cy="290" rx="42" ry="3" fill="none" stroke="#654321" stroke-width="0.5" opacity="0.5"/>
+    </g>
+    
+    <!-- Crank and linkage mechanism (4:1 gearing) -->
+    <g id="crankLinkage">
+      <!-- Main crank arm -->
+      <line x1="250" y1="280" x2="280" y2="250" stroke="#555555" stroke-width="3"/>
+      <!-- Connecting rod -->
+      <line x1="280" y1="250" x2="310" y2="270" stroke="#666666" stroke-width="2"/>
+      <!-- Pivot points -->
+      <circle cx="280" cy="250" r="3" fill="#FFD700" stroke="#DAA520" stroke-width="1"/>
+      <circle cx="310" cy="270" r="3" fill="#FFD700" stroke="#DAA520" stroke-width="1"/>
+    </g>
+    
+    <!-- Pressure gauge -->
+    <g id="pressureGauge">
+      <!-- Gauge housing -->
+      <circle cx="180" cy="250" r="18" fill="#d4d4d4" stroke="#808080" stroke-width="1"/>
+      <circle cx="180" cy="250" r="15" fill="#f5f5f5" stroke="#999999" stroke-width="0.5"/>
+      <!-- Gauge dial markings -->
+      <circle cx="180" cy="250" r="12" fill="none" stroke="#333333" stroke-width="0.3"/>
+      <!-- Gauge needle (60mm scaled) -->
+      <line x1="180" y1="250" x2="189" y2="245" stroke="#c41e3a" stroke-width="1.5" stroke-linecap="round"/>
+      <!-- Gauge pivot -->
+      <circle cx="180" cy="250" r="1.5" fill="#333333"/>
+      <!-- Gauge text -->
+      <text x="180" y="268" font-size="7" fill="#333333" text-anchor="middle" font-family="Arial">PSI</text>
+    </g>
+    
+    <!-- Oxygen tanks (side compartments) -->
+    <g id="oxygenTanks">
+      <rect x="140" y="240" width="15" height="50" rx="3" fill="#1c1c1c" stroke="#404040" stroke-width="1"/>
+      <rect x="345" y="240" width="15" height="50" rx="3" fill="#1c1c1c" stroke="#404040" stroke-width="1"/>
+      <!-- Valve indicators -->
+      <circle cx="148" cy="235" r="2" fill="#ff4444" stroke="#cc0000" stroke-width="0.5"/>
+      <circle cx="353" cy="235" r="2" fill="#ff4444" stroke="#cc0000" stroke-width="0.5"/>
+    </g>
+    
+    <!-- Communication cable exit -->
+    <g id="communicationCable">
+      <path d="M 250 370 Q 245 385 240 400" stroke="#8b7355" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <circle cx="240" cy="400" r="2" fill="#8b7355"/>
+    </g>
+    
+    <!-- Stress annotation on path -->
+    <g id="stressLabels">
+      <text font-size="6" fill="#ff6b6b" font-family="monospace" font-weight="bold">
+        <textPath href="#stressArc" startOffset="50%" text-anchor="middle">
+          MAX COMPRESSION: 8.5 ksi
+        </textPath>
+      </text>
+    </g>
+  </g>
+  
+  <!-- Diver's lamp effect (2300K warm light simulation) -->
+  <g id="diverLamp" opacity="0.6">
+    <circle cx="120" cy="100" r="25" fill="#fff9e6" opacity="0.2"/>
+    <circle cx="120" cy="100" r="15" fill="#ffe4b5" opacity="0.3"/>
+    <circle cx="118" cy="98" r="5" fill="#ffffe0" opacity="0.5"/>
+  </g>
+  
+  <!-- External ocean environment -->
+  <g id="externalEnvironment">
+    <!-- Depth indicator -->
+    <text x="20" y="30" font-size="11" fill="#00ff88" font-family="monospace" font-weight="bold">DEPTH: 1850 ft</text>
+    <!-- Temperature reading -->
+    <text x="20" y="50" font-size="11" fill="#00ff88" font-family="monospace" font-weight="bold">TEMP: 38°F</text>
+    <!-- Pressure reading -->
+    <text x="20" y="70" font-size="11" fill="#ff6b6b" font-family="monospace" font-weight="bold">HULL STRESS: 8.5 ksi</text>
+  </g>
+  
+  <!-- Legend and blueprint annotations -->
+  <g id="annotations">
+    <!-- Title -->
+    <text x="250" y="480" font-size="12" fill="#00ff88" font-family="monospace" font-weight="bold" text-anchor="middle">BATHYSPHERE CUTAWAY BLUEPRINT • 1930s Deep-Sea Exploration</text>
+    <!-- Scale indicator -->
+    <line x1="460" y1="490" x2="490" y2="490" stroke="#00ff88" stroke-width="1"/>
+    <text x="475" y="500" font-size="8" fill="#00ff88" font-family="monospace" text-anchor="middle">1:50 Scale</text>
+  </g>
+  
+  <!-- Perspective grid overlay (subtle) -->
+  <g id="perspectiveGrid" opacity="0.05">
+    <line x1="0" y1="250" x2="500" y2="250" stroke="#00ff88" stroke-width="0</svg>

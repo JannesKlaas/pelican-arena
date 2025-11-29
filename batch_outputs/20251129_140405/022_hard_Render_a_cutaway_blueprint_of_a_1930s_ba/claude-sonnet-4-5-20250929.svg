@@ -1,0 +1,168 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="turbulence">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02 0.04" numOctaves="3" seed="1"/>
+      <feDisplacementMap in="SourceGraphic" scale="8"/>
+      <feGaussianBlur stdDeviation="0.5"/>
+    </filter>
+    
+    <filter id="specular">
+      <feSpecularLighting surfaceScale="5" specularConstant="1" specularExponent="20" lighting-color="#ffcc66">
+        <feSpotLight x="200" y="150" z="400" pointsAtX="250" pointsAtY="250" pointsAtZ="0" limitingConeAngle="15"/>
+      </feSpecularLighting>
+      <feComposite in="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
+    </filter>
+    
+    <filter id="droplet">
+      <feGaussianBlur stdDeviation="1.5"/>
+      <feMorphology operator="erode" radius="0.5"/>
+      <feGaussianBlur stdDeviation="0.5"/>
+    </filter>
+    
+    <radialGradient id="pressureGrad">
+      <stop offset="0%" stop-color="#4a5c6a"/>
+      <stop offset="85%" stop-color="#2a3c4a"/>
+      <stop offset="100%" stop-color="#1a2c3a"/>
+    </radialGradient>
+    
+    <radialGradient id="viewport">
+      <stop offset="0%" stop-color="#88ccee" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#66aacc" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#447799" stop-opacity="0.5"/>
+    </radialGradient>
+    
+    <linearGradient id="water" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#001a33"/>
+      <stop offset="100%" stop-color="#003355"/>
+    </linearGradient>
+    
+    <symbol id="rivet">
+      <circle r="1.2" fill="#556677"/>
+      <circle r="0.8" fill="#667788"/>
+    </symbol>
+    
+    <path id="stressArc" d="M 230 250 A 90 90 0 0 1 270 250" fill="none"/>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="500" height="500" fill="url(#water)" filter="url(#turbulence)"/>
+  
+  <g id="caustics" opacity="0.3">
+    <ellipse cx="150" cy="100" rx="40" ry="20" fill="none" stroke="#4488aa" stroke-width="1" opacity="0.6">
+      <animate attributeName="rx" values="40;50;40" dur="4s" repeatCount="indefinite"/>
+    </ellipse>
+    <ellipse cx="350" cy="150" rx="35" ry="15" fill="none" stroke="#4488aa" stroke-width="1" opacity="0.5">
+      <animate attributeName="ry" values="15;25;15" dur="5s" repeatCount="indefinite"/>
+    </ellipse>
+  </g>
+  
+  <g id="siphonophores">
+    <path d="M 80 200 Q 90 220 85 240" stroke="#66ffdd" stroke-width="1.5" fill="none" filter="url(#glow)" stroke-dasharray="5,3">
+      <animate attributeName="stroke-dashoffset" from="0" to="8" dur="2s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0; 5,-10; 0,0" dur="3s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 420 300 Q 410 320 415 340" stroke="#88ffee" stroke-width="1.2" fill="none" filter="url(#glow)" stroke-dasharray="4,2">
+      <animate attributeName="stroke-dashoffset" from="0" to="6" dur="1.8s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="translate" values="0,0; -5,8; 0,0" dur="4s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <g id="bathysphere">
+    <circle cx="250" cy="250" r="150" fill="url(#pressureGrad)" stroke="#1a2c3a" stroke-width="6"/>
+    
+    <g id="rivets">
+      <use href="#rivet" x="250" y="100"/>
+      <use href="#rivet" x="290" y="110"/>
+      <use href="#rivet" x="320" y="135"/>
+      <use href="#rivet" x="345" y="165"/>
+      <use href="#rivet" x="365" y="200"/>
+      <use href="#rivet" x="375" y="240"/>
+      <use href="#rivet" x="375" y="280"/>
+      <use href="#rivet" x="365" y="320"/>
+      <use href="#rivet" x="345" y="355"/>
+      <use href="#rivet" x="320" y="380"/>
+      <use href="#rivet" x="290" y="395"/>
+      <use href="#rivet" x="250" y="400"/>
+      <use href="#rivet" x="210" y="395"/>
+      <use href="#rivet" x="180" y="380"/>
+      <use href="#rivet" x="155" y="355"/>
+      <use href="#rivet" x="135" y="320"/>
+      <use href="#rivet" x="125" y="280"/>
+      <use href="#rivet" x="125" y="240"/>
+      <use href="#rivet" x="135" y="200"/>
+      <use href="#rivet" x="155" y="165"/>
+      <use href="#rivet" x="180" y="135"/>
+      <use href="#rivet" x="210" y="110"/>
+      <use href="#rivet" x="310" y="150"/>
+      <use href="#rivet" x="190" y="150"/>
+      <use href="#rivet" x="310" y="350"/>
+      <use href="#rivet" x="190" y="350"/>
+    </g>
+    
+    <circle cx="250" cy="250" r="131" fill="none" stroke="#334455" stroke-width="2"/>
+    
+    <circle cx="250" cy="220" r="30" fill="url(#viewport)" stroke="#88aacc" stroke-width="3" filter="url(#specular)"/>
+    <circle cx="250" cy="220" r="27" fill="none" stroke="#aaccee" stroke-width="1" opacity="0.6"/>
+    
+    <g id="spotlight" opacity="0.7">
+      <path d="M 250 220 L 200 150 L 210 145 Z" fill="#ffcc66" opacity="0.3"/>
+    </g>
+    
+    <g id="internals" opacity="0.7">
+      <circle cx="250" cy="310" r="50" fill="none" stroke="#667788" stroke-width="4"/>
+      <circle cx="250" cy="310" r="30" fill="none" stroke="#778899" stroke-width="2"/>
+      <line x1="250" y1="310" x2="280" y2="310" stroke="#889900" stroke-width="3"/>
+      <circle cx="280" cy="310" r="4" fill="#aa9900"/>
+      
+      <rect x="285" y="305" width="40" height="10" fill="#556677" rx="2"/>
+      <line x1="325" y1="310" x2="340" y2="295" stroke="#667788" stroke-width="2"/>
+      <circle cx="340" cy="295" r="5" fill="#778899"/>
+      
+      <g id="gauge">
+        <circle cx="180" cy="280" r="20" fill="#334455" stroke="#556677" stroke-width="2"/>
+        <line x1="180" y1="280" x2="190" y2="270" stroke="#cc4444" stroke-width="1.5">
+          <animateTransform attributeName="transform" type="rotate" values="0 180 280; 45 180 280; 0 180 280" dur="6s" repeatCount="indefinite"/>
+        </line>
+        <circle cx="180" cy="280" r="2" fill="#cc4444"/>
+      </g>
+    </g>
+    
+    <g id="cutaway">
+      <path d="M 250 100 L 350 200 L 350 400 L 250 400 Z" fill="#2a3c4a" opacity="0.3"/>
+      <line x1="250" y1="100" x2="350" y2="200" stroke="#667788" stroke-width="1" stroke-dasharray="3,2"/>
+    </g>
+    
+    <text font-family="monospace" font-size="6" fill="#aaccee">
+      <textPath href="#stressArc">σ=12.5 MPa</textPath>
+    </text>
+    
+    <g id="condensation" filter="url(#droplet)">
+      <ellipse cx="245" cy="225" rx="2" ry="3" fill="#88aacc" opacity="0.6"/>
+      <ellipse cx="252" cy="218" rx="1.5" ry="2" fill="#99bbdd" opacity="0.5"/>
+      <ellipse cx="248" cy="215" rx="1" ry="1.5" fill="#aaccee" opacity="0.4"/>
+      <ellipse cx="255" cy="222" rx="1.2" ry="2.5" fill="#88aacc" opacity="0.5"/>
+    </g>
+  </g>
+  
+  <g id="annotations">
+    <text x="360" y="180" font-family="monospace" font-size="7" fill="#aaccee">Ø300mm</text>
+    <text x="360" y="190" font-family="monospace" font-size="6" fill="#88aacc">viewport</text>
+    <line x1="280" y1="220" x2="355" y2="180" stroke="#88aacc" stroke-width="0.5"/>
+    
+    <text x="140" y="360" font-family="monospace" font-size="6" fill="#aaccee">winch Ø800</text>
+    <line x1="190" y1="350" x2="230" y2="360" stroke="#88aacc" stroke-width="0.5"/>
+    
+    <text x="30" y="250" font-family="monospace" font-size="7" fill="#aaccee">38mm hull</text>
+    <line x1="90" y1="250" x2="100" y2="250" stroke="#88aacc" stroke-width="0.5"/>
+  </g>
+  
+  <text x="20" y="30" font-family="serif" font-size="10" fill="#88aacc" font-style="italic">BATHYSPHERE MK-II</text>
+  <text x="20" y="42" font-family="monospace" font-size="6" fill="#668899">DEPTH: 923m | PRESS: 9.2MPa</text>
+</svg>

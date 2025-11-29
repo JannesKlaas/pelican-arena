@@ -1,0 +1,336 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <!-- Gradient sky: butterscotch -->
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffc979"/>
+      <stop offset="60%" stop-color="#f2a64f"/>
+      <stop offset="100%" stop-color="#d47832"/>
+    </linearGradient>
+
+    <!-- Ground gradient -->
+    <linearGradient id="groundGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#b86c3a"/>
+      <stop offset="100%" stop-color="#7a3e1c"/>
+    </linearGradient>
+
+    <!-- Sun -->
+    <radialGradient id="sunGrad" cx="0.3" cy="0.2" r="0.12">
+      <stop offset="0%" stop-color="#fff7d1" stop-opacity="1"/>
+      <stop offset="70%" stop-color="#ffe18a" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ffc15a" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Regolith texture -->
+    <filter id="regolithHeightField" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8 0.3" numOctaves="2" seed="3" result="noise"/>
+      <feColorMatrix in="noise" type="matrix"
+        values="0.5 0 0 0 0.3
+                0 0.5 0 0 0.15
+                0 0 0.5 0 0.1
+                0 0 0 1 0" result="tint"/>
+      <feBlend in="SourceGraphic" in2="tint" mode="overlay"/>
+    </filter>
+
+    <!-- Heat shimmer on background only -->
+    <filter id="heatShimmer" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="turbulence" baseFrequency="0.015" numOctaves="2" seed="8" result="heatNoise"/>
+      <feDisplacementMap in="SourceGraphic" in2="heatNoise" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <!-- Dust devil filter -->
+    <filter id="dustDevil" x="-50%" y="-50%" width="200%" height="200%">
+      <feTurbulence id="dustTurb" type="turbulence" baseFrequency="0.25 0.6" numOctaves="3" seed="12" result="turb"/>
+      <feDisplacementMap in="SourceGraphic" in2="turb" scale="15" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <!-- Specular for anodized joints -->
+    <filter id="jointSpecular" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1" result="blur"/>
+      <feSpecularLighting in="blur" surfaceScale="2" specularConstant="0.8" specularExponent="20"
+                          lighting-color="#ffffff" result="spec">
+        <fePointLight x="-200" y="-100" z="300"/>
+      </feSpecularLighting>
+      <feComposite in="spec" in2="SourceGraphic" operator="in" result="specMask"/>
+      <feBlend in="SourceGraphic" in2="specMask" mode="screen"/>
+    </filter>
+
+    <!-- Hazard chevron marker -->
+    <marker id="hazChevron" viewBox="0 0 10 6" refX="0" refY="3"
+            markerWidth="6" markerHeight="4" orient="auto">
+      <path d="M0,0 L6,0 L10,3 L6,6 L0,6 Z" fill="#f0b000"/>
+      <path d="M2,0 L6,0 L8,3 L6,6 L2,6 Z" fill="#3a2300"/>
+    </marker>
+
+    <!-- Crate label text style -->
+    <style><![CDATA[
+      .crateLabel {
+        font-family: monospace;
+        font-size: 4px;
+        fill: #1a140d;
+      }
+      .smallLabel {
+        font-size: 3px;
+      }
+    ]]></style>
+  </defs>
+
+  <!-- Background group with heat shimmer (for illustration, we apply to sky+far ground only) -->
+  <g filter="url(#heatShimmer)">
+    <!-- Sky -->
+    <rect x="0" y="0" width="500" height="500" fill="url(#skyGrad)"/>
+
+    <!-- Sun (approx 25° elevation, right side) -->
+    <circle cx="380" cy="120" r="60" fill="url(#sunGrad)"/>
+  </g>
+
+  <!-- Ground / landing pad -->
+  <g>
+    <!-- Horizon at y=250 in this scaled view -->
+    <rect x="0" y="250" width="500" height="250" fill="url(#groundGrad)" filter="url(#regolithHeightField)"/>
+
+    <!-- Pressed-regolith landing pad -->
+    <rect x="60" y="290" width="380" height="140" rx="6" ry="6"
+          fill="#a25b30" stroke="#d8a477" stroke-width="1"/>
+
+    <!-- Wheel ruts (simple height-field mask impression) -->
+    <g opacity="0.45" stroke="#6d3516" stroke-width="2" stroke-linecap="round">
+      <path d="M80,300 C120,302 160,306 200,315 240,324 280,335 320,340 360,345 400,346 430,345"/>
+      <path d="M78,310 C118,312 158,316 198,325 238,334 278,345 318,350 358,355 398,356 428,355"/>
+      <path d="M82,320 C122,323 162,328 202,337 242,346 282,357 322,362 362,366 402,368 432,366"/>
+    </g>
+  </g>
+
+  <!-- Distant structures / reactor -->
+  <g>
+    <!-- Reactor stack -->
+    <g transform="translate(420,240)">
+      <rect x="-12" y="-60" width="24" height="60" fill="#774d3a" stroke="#f3c896" stroke-width="0.8"/>
+      <rect x="-9" y="-80" width="18" height="20" fill="#99644b" stroke="#f3c896" stroke-width="0.6"/>
+      <!-- Exhaust plume with shimmer (background-only visually) -->
+      <g opacity="0.55" filter="url(#heatShimmer)">
+        <path d="M-6,-20 C-10,10 -8,30 -4,50 C0,70 4,90 6,110"
+              fill="none" stroke="#f1d1a0" stroke-width="4" stroke-linecap="round"/>
+      </g>
+    </g>
+
+    <!-- Simple habitat modules -->
+    <g fill="#f7e4cf" stroke="#c79e7e" stroke-width="0.8">
+      <rect x="40" y="235" width="60" height="25" rx="4" ry="4"/>
+      <rect x="105" y="238" width="45" height="22" rx="3" ry="3"/>
+      <rect x="165" y="232" width="55" height="28" rx="4" ry="4"/>
+    </g>
+  </g>
+
+  <!-- Cargo mech (stylized, in perspective, simple) -->
+  <!-- Torso and hips: set basic dimensions then follow given proportions loosely -->
+  <g id="mech" transform="translate(260,260)">
+    <!-- Shadow to match sun direction (top-right) and 0.38g scaling -->
+    <ellipse cx="0" cy="120" rx="45" ry="10" fill="#3e2010" opacity="0.45"
+             transform="skewX(-25) scale(1,0.7)"/>
+
+    <!-- Torso: matte ceramic armor -->
+    <g id="torso" transform="translate(0,40)">
+      <rect x="-22" y="-40" width="44" height="60" rx="6" ry="6"
+            fill="#f3eee8" stroke="#c7c3be" stroke-width="1.2"/>
+      <rect x="-16" y="-34" width="32" height="16" rx="3" ry="3"
+            fill="#e0dad2" stroke="#b4afa7" stroke-width="0.8"/>
+      <!-- Upper chest plate -->
+      <path d="M-22,-40 L22,-40 L16,-48 L-16,-48 Z"
+            fill="#e8e1da" stroke="#bfb6ad" stroke-width="1"/>
+    </g>
+
+    <!-- Hip block -->
+    <g id="hips" transform="translate(0,70)">
+      <rect x="-26" y="0" width="52" height="18" rx="4" ry="4"
+            fill="#e8e1da" stroke="#bfb6ad" stroke-width="1.2"/>
+    </g>
+
+    <!-- Left leg (screen-left) -->
+    <g id="leftLeg" transform="translate(-12,88)">
+      <!-- Upper leg armor -->
+      <path d="M-4,0 L10,0 L18,38 L4,38 Z"
+            fill="#f1eae3" stroke="#c5beb6" stroke-width="1"/>
+      <!-- Knee joint: anodized aluminum with specular -->
+      <g filter="url(#jointSpecular)">
+        <circle cx="9" cy="40" r="4.5" fill="#7f8fa4" stroke="#c8d5e8" stroke-width="0.8"/>
+      </g>
+      <!-- Lower leg armor -->
+      <path d="M3,42 L17,42 L13,78 L-1,78 Z"
+            fill="#f1eae3" stroke="#c5beb6" stroke-width="1"/>
+
+      <!-- Foot -->
+      <path d="M-4,78 L20,78 L24,84 L-2,84 Z"
+            fill="#d6c8bc" stroke="#a28f80" stroke-width="0.8"/>
+
+      <!-- Hydraulic pistons opposing knee joint -->
+      <!-- Piston 1 -->
+      <g stroke-linecap="round">
+        <line x1="-2" y1="4" x2="4" y2="40"
+              stroke="#6f7c8a" stroke-width="1.4"/>
+        <line x1="-2" y1="4" x2="-2" y2="-4"
+              stroke="#c4cfdd" stroke-width="2.4"/>
+        <line x1="4" y1="40" x2="4" y2="50"
+              stroke="#c4cfdd" stroke-width="2.4"/>
+      </g>
+      <!-- Piston 2 -->
+      <g stroke-linecap="round">
+        <line x1="14" y1="4" x2="10" y2="40"
+              stroke="#6f7c8a" stroke-width="1.4"/>
+        <line x1="14" y1="4" x2="14" y2="-4"
+              stroke="#c4cfdd" stroke-width="2.4"/>
+        <line x1="10" y1="40" x2="10" y2="50"
+              stroke="#c4cfdd" stroke-width="2.4"/>
+      </g>
+    </g>
+
+    <!-- Right leg (screen-right) -->
+    <g id="rightLeg" transform="translate(12,88)">
+      <path d="M-10,0 L4,0 L8,38 L-6,38 Z"
+            fill="#ebe4dd" stroke="#bcb4ac" stroke-width="1"/>
+      <g filter="url(#jointSpecular)">
+        <circle cx="-3" cy="40" r="4.5" fill="#7f8fa4" stroke="#c8d5e8" stroke-width="0.8"/>
+      </g>
+      <path d="M-8,42 L6,42 L4,78 L-10,78 Z"
+            fill="#ebe4dd" stroke="#bcb4ac" stroke-width="1"/>
+      <path d="M-14,78 L10,78 L14,84 L-12,84 Z"
+            fill="#d6c8bc" stroke="#a28f80" stroke-width="0.8"/>
+
+      <!-- Knee pistons -->
+      <g stroke-linecap="round">
+        <line x1="-6" y1="4" x2="-3" y2="40"
+              stroke="#6f7c8a" stroke-width="1.4"/>
+        <line x1="-6" y1="4" x2="-6" y2="-4"
+              stroke="#c4cfdd" stroke-width="2.4"/>
+        <line x1="-3" y1="40" x2="-3" y2="50"
+              stroke="#c4cfdd" stroke-width="2.4"/>
+      </g>
+      <g stroke-linecap="round">
+        <line x1="4" y1="4" x2="1" y2="40"
+              stroke="#6f7c8a" stroke-width="1.4"/>
+        <line x1="4" y1="4" x2="4" y2="-4"
+              stroke="#c4cfdd" stroke-width="2.4"/>
+        <line x1="1" y1="40" x2="1" y2="50"
+              stroke="#c4cfdd" stroke-width="2.4"/>
+      </g>
+    </g>
+
+    <!-- Shoulders and arms (approx 45° yaw, 110° elbow) -->
+    <!-- Left arm (screen-left, reaching towards crates) -->
+    <g id="leftArm" transform="translate(-22,40)">
+      <!-- Shoulder joint -->
+      <g filter="url(#jointSpecular)">
+        <circle cx="0" cy="-18" r="4.5" fill="#7f8fa4" stroke="#c8d5e8" stroke-width="0.8"/>
+      </g>
+      <!-- Upper arm -->
+      <path d="M-2,-18 L14,-26 L18,-20 L2,-12 Z"
+            fill="#f1eae3" stroke="#c5beb6" stroke-width="1"/>
+      <!-- Elbow joint -->
+      <g filter="url(#jointSpecular)">
+        <circle cx="18" cy="-20" r="3.5" fill="#7f8fa4" stroke="#c8d5e8" stroke-width="0.7"/>
+      </g>
+      <!-- Forearm (bent to ~110°) -->
+      <path d="M18,-20 L32,-8 L28,-2 L14,-14 Z"
+            fill="#f1eae3" stroke="#c5beb6" stroke-width="1"/>
+      <!-- Hand / gripper -->
+      <rect x="26" y="-6" width="9" height="8" rx="1.5" ry="1.5"
+            fill="#d1ccc6" stroke="#9a948e" stroke-width="0.7"/>
+
+      <!-- Elbow opposing pistons -->
+      <g stroke-linecap="round">
+        <line x1="4" y1="-22" x2="16" y2="-20"
+              stroke="#6f7c8a" stroke-width="1.2"/>
+        <line x1="4" y1="-22" x2="0" y2="-27"
+              stroke="#c4cfdd" stroke-width="2.1"/>
+        <line x1="16" y1="-20" x2="20" y2="-15"
+              stroke="#c4cfdd" stroke-width="2.1"/>
+      </g>
+      <g stroke-linecap="round">
+        <line x1="6" y1="-14" x2="18" y2="-18"
+              stroke="#6f7c8a" stroke-width="1.2"/>
+        <line x1="6" y1="-14" x2="3" y2="-9"
+              stroke="#c4cfdd" stroke-width="2.1"/>
+        <line x1="18" y1="-18" x2="21" y2="-23"
+              stroke="#c4cfdd" stroke-width="2.1"/>
+      </g>
+    </g>
+
+    <!-- Right arm (screen-right, more vertical) -->
+    <g id="rightArm" transform="translate(22,40)">
+      <g filter="url(#jointSpecular)">
+        <circle cx="0" cy="-18" r="4.5" fill="#7f8fa4" stroke="#c8d5e8" stroke-width="0.8"/>
+      </g>
+      <path d="M-2,-18 L8,-30 L14,-26 L4,-14 Z"
+            fill="#ebe4dd" stroke="#bcb4ac" stroke-width="1"/>
+      <g filter="url(#jointSpecular)">
+        <circle cx="14" cy="-26" r="3.5" fill="#7f8fa4" stroke="#c8d5e8" stroke-width="0.7"/>
+      </g>
+      <path d="M14,-26 L18,-6 L12,-4 L8,-22 Z"
+            fill="#ebe4dd" stroke="#bcb4ac" stroke-width="1"/>
+      <rect x="8" y="-6" width="9" height="8" rx="1.5" ry="1.5"
+            fill="#d1ccc6" stroke="#9a948e" stroke-width="0.7"/>
+
+      <!-- Elbow pistons -->
+      <g stroke-linecap="round">
+        <line x1="2" y1="-26" x2="12" y2="-26"
+              stroke="#6f7c8a" stroke-width="1.2"/>
+        <line x1="2" y1="-26" x2="-1" y2="-32"
+              stroke="#c4cfdd" stroke-width="2.1"/>
+        <line x1="12" y1="-26" x2="15" y2="-20"
+              stroke="#c4cfdd" stroke-width="2.1"/>
+      </g>
+      <g stroke-linecap="round">
+        <line x1="4" y1="-20" x2="13" y2="-24"
+              stroke="#6f7c8a" stroke-width="1.2"/>
+        <line x1="4" y1="-20" x2="2" y2="-14"
+              stroke="#c4cfdd" stroke-width="2.1"/>
+        <line x1="13" y1="-24" x2="15" y2="-30"
+              stroke="#c4cfdd" stroke-width="2.1"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- Cargo crates with ISO container-style codes -->
+  <g id="crates" transform="translate(110,320)">
+    <!-- Main crate stack -->
+    <g>
+      <rect x="0" y="0" width="70" height="40" rx="2" ry="2"
+            fill="#d5d0c7" stroke="#8f8572" stroke-width="1"
+            marker-start="url(#hazChevron)" marker-end="url(#hazChevron)"/>
+      <!-- Top panel shading -->
+      <path d="M0,0 L10,-8 L80,-8 L70,0 Z"
+            fill="#e5ded3" stroke="#a99d8b" stroke-width="0.6"/>
+
+      <!-- ISO labels -->
+      <text x="4" y="12" class="crateLabel">MSLU 204581-3</text>
+      <text x="4" y="20" class="crateLabel smallLabel">22G1</text>
+      <text x="4" y="28" class="crateLabel smallLabel">NET 12,480 KG</text>
+    </g>
+
+    <!-- Secondary crate -->
+    <g transform="translate(84,10)">
+      <rect x="0" y="0" width="50" height="30" rx="2" ry="2"
+            fill="#c6cfda" stroke="#6c7784" stroke-width="1"
+            marker-start="url(#hazChevron)" marker-end="url(#hazChevron)"/>
+      <path d="M0,0 L8,-6 L58,-6 L50,0 Z"
+            fill="#d7e0ea" stroke="#929eac" stroke-width="0.6"/>
+      <text x="4" y="11" class="crateLabel">MAEU 731095-9</text>
+      <text x="4" y="19" class="crateLabel smallLabel">45R1</text>
+    </g>
+  </g>
+
+  <!-- Dust devils in mid-ground -->
+  <g opacity="0.6">
+    <g filter="url(#dustDevil)">
+      <path d="M70,260 C76,246 80,238 86,230 C92,222 94,214 92,206
+               C94,214 96,222 104,230 C112,238 116,248 118,260
+               C112,256 106,254 98,254 C90,254 82,256 70,260 Z"
+            fill="#f2c88f" fill-opacity="0.55"/>
+    </g>
+    <g filter="url(#dustDevil)" transform="translate(280,10) scale(0.8)">
+      <path d="M70,260 C76,246 80,238 86,230 C92,222 94,214 92,206
+               C94,214 98,222 106,230 C114,238 118,248 120,260
+               C112,256 104,254 96,254 C88,254 80,256 70,260 Z"
+            fill="#f6d29c" fill-opacity="0.5"/>
+    </g>
+  </g>
+</svg>

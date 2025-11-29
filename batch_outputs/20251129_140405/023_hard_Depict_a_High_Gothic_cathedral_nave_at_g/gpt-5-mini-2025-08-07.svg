@@ -1,0 +1,288 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" aria-hidden="true">
+  <!-- Golden hour sky -->
+  <defs>
+    <linearGradient id="gold-sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#FFD89B"/>
+      <stop offset="1" stop-color="#7C4A1D"/>
+    </linearGradient>
+
+    <!-- Ashlar noise and pattern -->
+    <pattern id="ashlar" width="40" height="20" patternUnits="userSpaceOnUse">
+      <rect width="40" height="20" fill="#cfc8bf"/>
+      <rect x="0" y="10" width="40" height="1" fill="#bdb5ab" opacity="0.45"/>
+      <rect x="20" y="0" width="1" height="20" fill="#bdb5ab" opacity="0.35"/>
+    </pattern>
+    <filter id="stoneNoise" x="-50%" y="-50%" width="200%" height="200%">
+      <feTurbulence baseFrequency="0.8" numOctaves="1" seed="4" stitchTiles="stitch" result="turb"/>
+      <feColorMatrix type="saturate" values="0" in="turb" result="gray"/>
+      <feBlend in="SourceGraphic" in2="gray" mode="multiply"/>
+    </filter>
+
+    <!-- colored caustics / spectral split for stained glass -->
+    <filter id="glassCaustic" x="-50%" y="-50%" width="200%" height="200%">
+      <!-- subtle bloom -->
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blurred"/>
+      <!-- spectral split: three shifted channels -->
+      <feColorMatrix in="blurred" result="r" type="matrix"
+        values="1 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 1 0"/>
+      <feOffset in="r" dx="-6" dy="3" result="r2"/>
+      <feColorMatrix in="blurred" result="g" type="matrix"
+        values="0 0 0 0 0
+                0 1 0 0 0
+                0 0 0 0 0
+                0 0 0 1 0"/>
+      <feOffset in="g" dx="0" dy="0" result="g2"/>
+      <feColorMatrix in="blurred" result="b" type="matrix"
+        values="0 0 0 0 0
+                0 0 0 0 0
+                0 0 1 0 0
+                0 0 0 1 0"/>
+      <feOffset in="b" dx="6" dy="-3" result="b2"/>
+      <feBlend in="r2" in2="g2" mode="screen" result="rg"/>
+      <feBlend in="rg" in2="b2" mode="screen" result="rgb"/>
+      <feComposite in="rgb" in2="SourceGraphic" operator="over" result="caustic"/>
+      <feGaussianBlur in="caustic" stdDeviation="2" result="soft"/>
+      <feBlend in="SourceGraphic" in2="soft" mode="screen"/>
+    </filter>
+
+    <!-- soft dust rays mask -->
+    <radialGradient id="rayMask" cx="0.1" cy="0.3" r="1">
+      <stop offset="0" stop-color="white" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+    <mask id="dustMask">
+      <rect x="0" y="0" width="500" height="500" fill="black"/>
+      <!-- angled soft rays -->
+      <g transform="rotate(-12 250 250)" fill="url(#rayMask)" opacity="0.28">
+        <rect x="200" y="-200" width="20" height="1200" rx="10"/>
+        <rect x="260" y="-200" width="14" height="1200" rx="7"/>
+        <rect x="320" y="-200" width="10" height="1200" rx="5"/>
+      </g>
+    </mask>
+
+    <!-- archivolt path for motto -->
+    <path id="archPath" d="M170,170 Q250,110 330,170" />
+
+    <!-- small filigree stroke style -->
+    <style id="filigreeStyle"><![CDATA[
+      .filig { fill:none; stroke:#302418; stroke-width:1.2; vector-effect: non-scaling-stroke; stroke-linecap:round; opacity:0.95 }
+    ]]></style>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="500" height="500" fill="url(#gold-sky)"/>
+
+  <!-- Distant light - sun glow at west low (left) -->
+  <radialGradient id="sun" cx="0.08" cy="0.65">
+    <stop offset="0" stop-color="#ffd98a" stop-opacity="0.95"/>
+    <stop offset="1" stop-color="#ffb366" stop-opacity="0"/>
+  </radialGradient>
+  <circle cx="30" cy="420" r="120" fill="url(#sun)" />
+
+  <!-- Nave trapezoid (two-point perspective implied) -->
+  <!-- computed: top width 96, bottom width 160, height ~386 from ratio -->
+  <g id="nave" transform="">
+    <polygon points="202,60 298,60 330,446 170,446" fill="#efe6db" stroke="#c9bcae" stroke-width="1.5" filter="url(#stoneNoise)"/>
+    <!-- side walls with ashlar -->
+    <polygon points="170,446 330,446 365,420 365,120 330,60 298,60" fill="url(#ashlar)" opacity="0.55" />
+    <polygon points="135,120 170,60 202,60 202,120 170,420 170,446" fill="url(#ashlar)" opacity="0.55" />
+
+    <!-- clerestory: rose window centered above nave -->
+    <g transform="translate(250,80)">
+      <circle r="90" fill="url(#gold-sky)" stroke="#2d2d2d" stroke-opacity="0.12" stroke-width="1.5"/>
+      <g filter="url(#glassCaustic)" opacity="0.95">
+        <!-- 12-fold tracery -->
+        <g stroke="#2b2330" stroke-width="1.6" fill="none" transform="rotate(0)">
+          <!-- outer ring -->
+          <circle r="74" fill="none" stroke="#2b2330" stroke-width="2.2" opacity="0.9"/>
+          <!-- petal elements -->
+          <g id="petals">
+            <path d="M74,0 C60,0 48,18 38,36 C28,54 18,74 0,74" transform="rotate(0)" />
+          </g>
+          <!-- replicate petals 12 times -->
+          <g id="rot">
+            <g transform="rotate(0)"><use href="#petals" /></g>
+            <g transform="rotate(30)"><use href="#petals" /></g>
+            <g transform="rotate(60)"><use href="#petals" /></g>
+            <g transform="rotate(90)"><use href="#petals" /></g>
+            <g transform="rotate(120)"><use href="#petals" /></g>
+            <g transform="rotate(150)"><use href="#petals" /></g>
+            <g transform="rotate(180)"><use href="#petals" /></g>
+            <g transform="rotate(210)"><use href="#petals" /></g>
+            <g transform="rotate(240)"><use href="#petals" /></g>
+            <g transform="rotate(270)"><use href="#petals" /></g>
+            <g transform="rotate(300)"><use href="#petals" /></g>
+            <g transform="rotate(330)"><use href="#petals" /></g>
+          </g>
+          <!-- central medallion -->
+          <circle r="14" fill="#f7e3b7" stroke="#2b2330" stroke-width="1.2"/>
+        </g>
+
+        <!-- stained glass panels narrating the Tetramorph - 4 medallions in rose quadrants -->
+        <g fill-opacity="0.95" stroke="#1c1211" stroke-width="0.9">
+          <!-- Matthew - angel (top-right) -->
+          <g transform="translate(45,-15)">
+            <circle r="14" fill="#5aa2e6"/>
+            <path d="M-6,2 C-4,-2 0,-6 6,-2" fill="#ffe9b0"/>
+            <path d="M-6,6 L0,0 L6,6" fill="#f7d1b1"/>
+          </g>
+          <!-- Mark - lion (bottom-right) -->
+          <g transform="translate(30,50)">
+            <circle r="14" fill="#e86b45"/>
+            <path d="M-6,4 Q-2,0 6,2 Q-2,1 -6,4z" fill="#f9d59c"/>
+            <circle cx="2" cy="0" r="2" fill="#2b1b12"/>
+          </g>
+          <!-- Luke - ox (bottom-left) -->
+          <g transform="translate(-38,38)">
+            <circle r="14" fill="#7fbf6f"/>
+            <rect x="-6" y="-2" width="12" height="6" rx="2" fill="#f7e3b7"/>
+            <circle cx="-2" cy="-1" r="1.5" fill="#2b1b12"/>
+          </g>
+          <!-- John - eagle (top-left) -->
+          <g transform="translate(-40,-10)">
+            <circle r="14" fill="#8a6fe6"/>
+            <path d="M-6,4 Q0,-2 6,2 Q0,0 -6,4z" fill="#fde9b8"/>
+            <path d="M0,-1 L4,-5" stroke="#2b1b12" stroke-width="1.1" fill="none"/>
+          </g>
+        </g>
+      </g>
+    </g>
+
+    <!-- archivolt entrance with motto -->
+    <g transform="translate(0,0)">
+      <path d="M170,170 Q250,110 330,170" fill="none" stroke="#3a2f2a" stroke-width="2.2" />
+      <text font-size="10" fill="#2b1b12" font-family="serif">
+        <textPath href="#archPath" startOffset="50%" text-anchor="middle">Laus Deo et Sanctis</textPath>
+      </text>
+    </g>
+
+    <!-- Bay divisions (spacing 120 px) -->
+    <g stroke="#c0b3a6" stroke-width="1">
+      <line x1="202" y1="180" x2="298" y2="180" opacity="0.6"/>
+      <line x1="202" y1="300" x2="298" y2="300" opacity="0.6"/>
+      <line x1="202" y1="420" x2="298" y2="420" opacity="0.6"/>
+    </g>
+
+    <!-- Pointed arches spring at 1/3 height -->
+    <g fill="none" stroke="#826b53" stroke-width="2.2">
+      <!-- left arcade (arches) -->
+      <g transform="">
+        <!-- three arches along left side -->
+        <path d="M202,180 Q186,152 202,128 Q222,152 202,180" transform="translate(-12,0) scale(1,1)" opacity="0.95"/>
+        <path d="M202,300 Q186,272 202,248 Q222,272 202,300" transform="translate(-12,0) scale(1,1)" opacity="0.95"/>
+        <path d="M202,420 Q186,392 202,368 Q222,392 202,420" transform="translate(-12,0) scale(1,1)" opacity="0.95"/>
+      </g>
+      <!-- right arcade -->
+      <g transform="">
+        <path d="M298,180 Q314,152 298,128 Q278,152 298,180" opacity="0.95"/>
+        <path d="M298,300 Q314,272 298,248 Q278,272 298,300" opacity="0.95"/>
+        <path d="M298,420 Q314,392 298,368 Q278,392 298,420" opacity="0.95"/>
+      </g>
+    </g>
+
+    <!-- Rib vaults crossing at 2/3 span (approx) -->
+    <g stroke="#6b5040" stroke-width="1.6" fill="none" opacity="0.9">
+      <!-- first bay -->
+      <path d="M202,60 C225,120 275,120 298,60" stroke-linecap="round" />
+      <path d="M202,180 C238,160 262,160 298,180" stroke-linecap="round" />
+      <path d="M202,180 C225,140 275,140 298,180" stroke-linecap="round" opacity="0.9"/>
+      <!-- second bay -->
+      <path d="M202,300 C225,260 275,260 298,300" stroke-linecap="round"/>
+      <path d="M202,300 C238,280 262,280 298,300" stroke-linecap="round" opacity="0.9"/>
+      <!-- third bay -->
+      <path d="M202,420 C225,380 275,380 298,420" stroke-linecap="round"/>
+      <path d="M202,420 C238,400 262,400 298,420" stroke-linecap="round" opacity="0.9"/>
+    </g>
+
+    <!-- clustered columns along arcade (occlusion ordering: back to front) -->
+    <g id="columns">
+      <!-- back-most (draw first) -->
+      <g fill="#d8d0c6" stroke="#8f7e6b" stroke-width="1.2">
+        <circle cx="210" cy="150" r="12"/>
+        <circle cx="290" cy="150" r="12"/>
+        <circle cx="210" cy="270" r="12"/>
+        <circle cx="290" cy="270" r="12"/>
+        <circle cx="210" cy="390" r="12"/>
+        <circle cx="290" cy="390" r="12"/>
+      </g>
+      <!-- shadow penumbrae cast from columns across pews (warm, soft) -->
+      <g opacity="0.7">
+        <ellipse cx="230" cy="360" rx="45" ry="18" fill="#ffcc88" transform="skewX(-12)" opacity="0.28" filter="url(#stoneNoise)"/>
+        <ellipse cx="270" cy="360" rx="45" ry="18" fill="#ffcc88" transform="skewX(12)" opacity="0.24" />
+      </g>
+      <!-- foreground columns (draw last to occlude) -->
+      <g fill="#e4ddd4" stroke="#7f6b57" stroke-width="1.2">
+        <circle cx="230" cy="160" r="14"/>
+        <circle cx="270" cy="160" r="14"/>
+        <circle cx="230" cy="280" r="14"/>
+        <circle cx="270" cy="280" r="14"/>
+        <circle cx="230" cy="400" r="14"/>
+        <circle cx="270" cy="400" r="14"/>
+      </g>
+    </g>
+
+    <!-- pews with shadow penumbrae across them -->
+    <g id="pews">
+      <!-- three pew rows -->
+      <g fill="#6b4f3a" stroke="#3b2a20" stroke-width="0.6">
+        <rect x="210" y="320" width="36" height="8" rx="1" transform="skewX(-6)"/>
+        <rect x="210" y="336" width="36" height="8" rx="1" transform="skewX(-6)"/>
+        <rect x="210" y="352" width="36" height="8" rx="1" transform="skewX(-6)"/>
+      </g>
+      <!-- shadows from columns onto pews -->
+      <g opacity="0.5" fill="#2b1b12">
+        <ellipse cx="225" cy="328" rx="18" ry="6" transform="skewX(-6)" opacity="0.28"/>
+        <ellipse cx="225" cy="344" rx="18" ry="6" transform="skewX(-6)" opacity="0.22"/>
+        <ellipse cx="225" cy="360" rx="18" ry="6" transform="skewX(-6)" opacity="0.18"/>
+      </g>
+    </g>
+
+    <!-- choir stalls with non-scaling-stroke filigree -->
+    <g transform="translate(170,350)">
+      <rect x="-28" y="-10" width="56" height="18" fill="#3b2415" stroke="#24140b" stroke-width="1.2"/>
+      <g class="filig" style="vector-effect:non-scaling-stroke">
+        <path d="M-20,0 C-10,-6 10,-6 20,0" class="filig"/>
+        <path d="M-22,4 C-12,-2 12,-2 22,4" class="filig" opacity="0.9"/>
+      </g>
+      <rect x="112" y="-10" width="56" height="18" fill="#3b2415" stroke="#24140b" stroke-width="1.2"/>
+      <g class="filig" style="vector-effect:non-scaling-stroke" transform="translate(112,0)">
+        <path d="M-20,0 C-10,-6 10,-6 20,0" class="filig"/>
+        <path d="M-22,4 C-12,-2 12,-2 22,4" class="filig" opacity="0.9"/>
+      </g>
+    </g>
+
+    <!-- floor caustics from stained glass panels -->
+    <g filter="url(#glassCaustic)" mask="url(#dustMask)" opacity="0.9">
+      <ellipse cx="225" cy="420" rx="48" ry="24" fill="#5aa2e6" opacity="0.15" transform="skewX(-8)"/>
+      <ellipse cx="275" cy="420" rx="48" ry="24" fill="#e86b45" opacity="0.12" transform="skewX(8)"/>
+      <ellipse cx="200" cy="400" rx="30" ry="12" fill="#7fbf6f" opacity="0.10" transform="skewX(-6)"/>
+      <ellipse cx="300" cy="400" rx="30" ry="12" fill="#8a6fe6" opacity="0.10" transform="skewX(6)"/>
+    </g>
+
+    <!-- soft dust rays interior -->
+    <g mask="url(#dustMask)" opacity="0.18" fill="#fff2d4">
+      <rect x="150" y="0" width="40" height="600" transform="skewX(-12)" />
+      <rect x="210" y="0" width="24" height="600" transform="skewX(-12)" opacity="0.8"/>
+    </g>
+
+  </g>
+
+  <!-- Ground and distant nave terminus -->
+  <rect x="0" y="446" width="500" height="54" fill="#d8cbbd"/>
+
+  <!-- include filigree style -->
+  <style><![CDATA[
+    text { font-family: "Times New Roman", serif; }
+    /* simple, clean colors and thin outlines kept */
+  ]]></style>
+
+  <!-- embed filigree style content -->
+  <g><foreignObject width="0" height="0">{}</foreignObject></g>
+  <style type="text/css"><![CDATA[
+    /* attach the filigree class rules pulled from defs */
+    .filig { fill:none; stroke:#302418; stroke-width:1.2; vector-effect: non-scaling-stroke; stroke-linecap:round; opacity:0.95 }
+  ]]></style>
+</svg>

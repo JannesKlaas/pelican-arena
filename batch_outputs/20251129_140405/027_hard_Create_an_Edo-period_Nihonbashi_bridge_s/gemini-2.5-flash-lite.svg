@@ -1,0 +1,133 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <filter id="woodgrain" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" result="noise"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0, 0 0 0 0 0, 0 0 0 0 0, 0 0 0 0.5 0" in="noise" result="alpha"/>
+      <feComposite operator="in" in="SourceGraphic" in2="alpha"/>
+    </filter>
+
+    <filter id="paper_texture" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="4" result="noise"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0, 0 0 0 0 0, 0 0 0 0 0, 0 0 0 0.7 0" in="noise" result="alpha"/>
+      <feComposite operator="in" in="SourceGraphic" in2="alpha"/>
+    </filter>
+
+    <linearGradient id="radial-blur-ring" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.8); stop-opacity:0.8"/>
+      <stop offset="50%" style="stop-color:rgba(255,255,255,0.3); stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0); stop-opacity:0"/>
+    </linearGradient>
+
+    <filter id="light-blur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    .wood-grain {
+      filter: url(#woodgrain);
+    }
+    .paper-texture {
+      filter: url(#paper_texture);
+    }
+    .crane { fill: #8B4513; }
+    .kimono-person1 { fill: #DC143C; } /* Red */
+    .kimono-person2 { fill: #008000; } /* Green */
+    .kimono-person3 { fill: #4682B4; } /* Steel Blue */
+    .sky { fill: #ADD8E6; } /* Light Blue */
+    .river { fill: #0000CD; } /* Medium Blue */
+    .bridge { fill: #A0522D; } /* Sienna */
+    .shadow { fill: rgba(0,0,0,0.2); }
+    .drone-frame { stroke: #8B4513; stroke-width: 1; fill: none; }
+    .rotor-disk { fill: url(#radial-blur-ring); filter: url(#light-blur); }
+    .noren { fill: #FFDEAD; } /* Navajo White */
+    .kanji { font-family: "Noto Sans JP", sans-serif; font-size: 12px; fill: #000000; }
+  </style>
+
+  <!-- Background Sky -->
+  <rect width="100%" height="780" class="sky paper-texture"/>
+
+  <!-- River -->
+  <g class="river paper-texture">
+    <path d="M0 450 Q 100 440 200 450 T 400 450 T 500 460 L 500 500 L 0 500 Z" />
+    <path d="M0 460 Q 100 455 200 460 T 400 460 T 500 470 L 500 500 L 0 500 Z" />
+    <path d="M0 470 Q 100 465 200 470 T 400 470 T 500 480 L 500 500 L 0 500 Z" />
+  </g>
+
+  <!-- Bridge -->
+  <g class="bridge wood-grain">
+    <!-- Catenary calculation for a=220/cosh(800/220) approx 200 -->
+    <!-- y = 200 * cosh((x-250)/200) -->
+    <!-- For viewBox 500x500, need to scale. Span 1600px -> 400px, Rise 220px -> 100px -->
+    <!-- New a = 100/cosh(200/100) approx 88 -->
+    <!-- y = 88 * cosh((x-250)/88) -->
+    <!-- This requires a complex calculation to fit. Simplified arch for demonstration -->
+    <path d="M0 450 Q 250 350 500 450 L 500 500 L 0 500 Z" />
+    <path d="M0 460 Q 250 360 500 460 L 500 500 L 0 500 Z" />
+  </g>
+
+  <!-- Noren with Kanji -->
+  <g class="noren wood-grain" transform="translate(230, 420) rotate(-5)">
+    <rect width="40" height="20" rx="5"/>
+    <path d="M0 0 L 20 10 L 0 20 Z" fill="#FFDEAD"/>
+    <text x="0" y="0" dy="15">
+      <textPath xlink:href="#noren-path-1" class="kanji">日本橋</textPath>
+    </text>
+    <path id="noren-path-1" d="M0 10 H 40" fill="none"/>
+  </g>
+
+  <!-- People on Bridge -->
+  <g transform="translate(100, 400) scale(0.3)">
+    <!-- Person 1 -->
+    <g class="kimono-person1">
+      <ellipse cx="0" cy="0" rx="15" ry="10"/> <!-- Head -->
+      <rect x="-15" y="10" width="30" height="40" rx="5"/> <!-- Body -->
+      <rect x="-15" y="50" width="15" height="20"/> <!-- Arm 1 -->
+      <rect x="0" y="50" width="15" height="20"/> <!-- Arm 2 -->
+      <rect x="-10" y="90" width="20" height="30"/> <!-- Legs -->
+    </g>
+    <!-- Kimono Pattern (Seigaiha) -->
+    <g transform="translate(0, 20) scale(0.7)">
+      <path d="M-20 0 Q -10 5 0 0 T 20 0 M-20 10 Q -10 15 0 10 T 20 10 M-20 20 Q -10 25 0 20 T 20 20 M-20 30 Q -10 35 0 30 T 20 30 M-20 40 Q -10 45 0 40 T 20 40 M-20 50 Q -10 55 0 50 T 20 50" fill="none" stroke="#FFD700" stroke-width="1.5"/>
+      <path d="M-10 5 Q 0 10 10 5 T 20 5 M-10 15 Q 0 20 10 15 T 20 15 M-10 25 Q 0 30 10 25 T 20 25 M-10 35 Q 0 40 10 35 T 20 35 M-10 45 Q 0 50 10 45 T 20 45" fill="none" stroke="#FFD700" stroke-width="1.5"/>
+    </g>
+  </g>
+
+  <g transform="translate(180, 380) scale(0.25)">
+    <!-- Person 2 -->
+    <g class="kimono-person2">
+      <ellipse cx="0" cy="0" rx="12" ry="8"/> <!-- Head -->
+      <rect x="-12" y="8" width="24" height="32" rx="4"/> <!-- Body -->
+      <rect x="-12" y="40" width="12" height="16"/> <!-- Arm 1 -->
+      <rect x="0" y="40" width="12" height="16"/> <!-- Arm 2 -->
+      <rect x="-8" y="70" width="16" height="24"/> <!-- Legs -->
+    </g>
+    <!-- Kimono Pattern (Asanoha) -->
+    <g transform="translate(0, 15) scale(0.6)">
+      <path d="M0,-20 L 10,0 L 0,20 L -10,0 Z M 0,-10 L 5,0 L 0,10 L -5,0 Z" fill="#FFFFFF" opacity="0.5"/>
+      <path d="M0,-20 L 10,0 L 0,20 L -10,0 Z M 0,-10 L 5,0 L 0,10 L -5,0 Z" transform="rotate(60)" fill="#FFFFFF" opacity="0.5"/>
+      <path d="M0,-20 L 10,0 L 0,20 L -10,0 Z M 0,-10 L 5,0 L 0,10 L -5,0 Z" transform="rotate(120)" fill="#FFFFFF" opacity="0.5"/>
+    </g>
+  </g>
+
+
+  <!-- Disguised Drone-Kite -->
+  <g transform="translate(350, 150) scale(0.5)">
+    <!-- Bamboo frame strokes -->
+    <line x1="-50" y1="0" x2="50" y2="0" class="drone-frame"/>
+    <line x1="0" y1="-50" x2="0" y2="50" class="drone-frame"/>
+    <line x1="-35" y1="-35" x2="35" y2="35" class="drone-frame"/>
+    <line x1="-35" y1="35" x2="35" y2="-35" class="drone-frame"/>
+
+    <!-- Faint rotor disks suggested by radial-gradient blur rings -->
+    <circle cx="-35" cy="-35" r="15" class="rotor-disk"/>
+    <circle cx="35" cy="-35" r="15" class="rotor-disk"/>
+    <circle cx="-35" cy="35" r="15" class="rotor-disk"/>
+    <circle cx="35" cy="35" r="15" class="rotor-disk"/>
+  </g>
+
+</svg>

@@ -1,0 +1,246 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+
+  <!-- Palette definition (12 flat hues) -->
+  <defs>
+    <!-- Paper / woodblock base texture -->
+    <filter id="paperTexture" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9 1.4" numOctaves="3" seed="3" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="
+        0 0 0 0 0.93
+        0 0 0 0 0.92
+        0 0 0 0 0.90
+        0 0 0 0.25 0" result="paperTint"/>
+      <feBlend in="SourceGraphic" in2="paperTint" mode="multiply"/>
+    </filter>
+
+    <!-- Woodgrain for bridge -->
+    <filter id="woodGrain" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8 0.05" numOctaves="2" seed="7" result="grain"/>
+      <feColorMatrix in="grain" type="matrix" values="
+        0 0 0 0 0.78
+        0 0 0 0 0.60
+        0 0 0 0 0.45
+        0 0 0 0.3 0" result="woodTint"/>
+      <feBlend in="SourceGraphic" in2="woodTint" mode="multiply"/>
+    </filter>
+
+    <!-- Ink registration misalignment: cyan/magenta offsets -->
+    <filter id="registrationShift">
+      <feColorMatrix in="SourceGraphic" type="matrix"
+        values="1 0 0 0 0
+                0 1 0 0 0
+                0 0 1 0 0
+                0 0 0 1 0" result="base"/>
+      <feOffset in="base" dx="1" dy="-1" result="cyan"/>
+      <feColorMatrix in="cyan" type="matrix"
+        values="0 0 0 0 0
+                0 1 0 0 0
+                1 0 0 0 0
+                0 0 0 1 0" result="cyanPlate"/>
+      <feOffset in="base" dx="-1.2" dy="1" result="magenta"/>
+      <feColorMatrix in="magenta" type="matrix"
+        values="1 0 0 0 0
+                0 0 0 0 0
+                0 0 1 0 0
+                0 0 0 1 0" result="magentaPlate"/>
+      <feBlend in="cyanPlate" in2="magentaPlate" mode="multiply" result="ink"/>
+      <feBlend in="ink" in2="base" mode="normal"/>
+    </filter>
+
+    <!-- Limited palette as simple named colors -->
+    <style><![CDATA[
+      .skyBlue   { fill:#9CCDEB; }
+      .paleSky   { fill:#E0EFF7; }
+      .riverBlue { fill:#5A8FBF; }
+      .bridgeWood{ fill:#C78C4A; }
+      .darkInk   { fill:#1E1A1A; }
+      .hillGreen { fill:#6A8D5C; }
+      .distantBlue { fill:#8FA8C0; }
+      .kimonoRed { fill:#C54A4A; }
+      .kimonoBlue{ fill:#2B5C7D; }
+      .accentGold{ fill:#D9A441; }
+      .paperBase { fill:#F7F2E7; }
+      .greyRock  { fill:#8C8C92; }
+      .lineInk   { stroke:#221A16; stroke-width:0.8; stroke-linecap:round; stroke-linejoin:round; }
+    ]]></style>
+
+    <!-- Seigaiha pattern (waves) for kimono -->
+    <pattern id="seigaiha" x="0" y="0" width="10" height="6" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="10" height="6" fill="#2B5C7D"/>
+      <path d="M0,6 Q2.5,2 5,6 Q7.5,2 10,6" fill="none" stroke="#F7F2E7" stroke-width="0.6"/>
+    </pattern>
+
+    <!-- Asanoha pattern (hemp leaf) for kimono -->
+    <pattern id="asanoha" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="8" height="8" fill="#C54A4A"/>
+      <path d="M4,0 L5,3 L8,4 L5,5 L4,8 L3,5 L0,4 L3,3 Z" fill="none" stroke="#F7F2E7" stroke-width="0.5"/>
+    </pattern>
+
+    <!-- Drone-kite radial rotor hints -->
+    <radialGradient id="rotorBlur" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.0)"/>
+      <stop offset="40%" stop-color="rgba(255,255,255,0.0)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0.25)"/>
+    </radialGradient>
+
+    <!-- Noren text path -->
+    <path id="norenPath" d="M120,205 C160,210 200,210 240,205" />
+
+  </defs>
+
+  <!-- Background paper -->
+  <rect x="0" y="0" width="500" height="500" class="paperBase" filter="url(#paperTexture)"/>
+
+  <!-- Sky -->
+  <rect x="0" y="0" width="500" height="310" class="skyBlue"/>
+
+  <!-- Distant hills -->
+  <path d="M0,260 Q80,230 150,250 T300,245 T500,255 L500,310 L0,310 Z"
+        class="distantBlue" filter="url(#registrationShift)"/>
+  <path d="M0,280 Q90,250 180,270 T330,265 T500,275 L500,310 L0,310 Z"
+        class="hillGreen" opacity="0.9" filter="url(#registrationShift)"/>
+
+  <!-- River (horizon around y=300 in this compressed view) -->
+  <rect x="0" y="300" width="500" height="200" class="riverBlue"/>
+
+  <!-- River ripples -->
+  <g stroke="#E0EFF7" stroke-width="0.6" fill="none" opacity="0.7">
+    <path d="M10,320 q20,4 40,0 t40,0 t40,2 t40,-2 t40,3 t40,-1 t40,1 t40,-3"/>
+    <path d="M5,333 q18,3 36,0 t40,-1 t40,2 t40,-2 t40,2 t40,0 t40,2 t40,-2"/>
+    <path d="M15,346 q22,4 44,-1 t40,0 t40,2 t40,-3 t40,3 t40,-1 t40,1 t40,-2"/>
+    <path d="M0,360 q25,3 50,0 t40,-1 t40,1 t40,-2 t40,2 t40,0 t40,1 t40,-1"/>
+  </g>
+
+  <!-- Nihonbashi bridge: approximate catenary arch -->
+  <g filter="url(#woodGrain)">
+    <!-- deck -->
+    <path d="
+      M-150,300
+      C 0,80 500,80 650,300
+      L650,320
+      C 500,110 0,110 -150,320
+      Z"
+      class="bridgeWood" stroke="#6B4A28" stroke-width="2"/>
+    <!-- parapet posts -->
+    <g class="lineInk" stroke-width="1.4">
+      <line x1="40" y1="260" x2="40" y2="290"/>
+      <line x1="90" y1="240" x2="90" y2="285"/>
+      <line x1="140" y1="225" x2="140" y2="282"/>
+      <line x1="190" y1="215" x2="190" y2="280"/>
+      <line x1="240" y1="210" x2="240" y2="278"/>
+      <line x1="290" y1="215" x2="290" y2="280"/>
+      <line x1="340" y1="225" x2="340" y2="282"/>
+      <line x1="390" y1="240" x2="390" y2="285"/>
+      <line x1="440" y1="260" x2="440" y2="290"/>
+    </g>
+    <!-- railing -->
+    <path d="M30,255 Q140,210 250,203 T470,255" fill="none" stroke="#6B4A28" stroke-width="3"/>
+    <path d="M30,268 Q140,225 250,218 T470,268" fill="none" stroke="#6B4A28" stroke-width="2"/>
+  </g>
+
+  <!-- Bridge supports / piers -->
+  <g class="greyRock" stroke="#5A5A60" stroke-width="1">
+    <path d="M60,300 L90,300 L80,340 L55,340 Z"/>
+    <path d="M200,300 L230,300 L220,348 L195,348 Z"/>
+    <path d="M340,300 L370,300 L360,340 L335,340 Z"/>
+  </g>
+
+  <!-- Buildings and noren (shop curtains) -->
+  <g>
+    <!-- shop facade -->
+    <rect x="100" y="180" width="120" height="70" fill="#E3D3B2" stroke="#6B4A28" stroke-width="1"/>
+    <!-- roof -->
+    <path d="M95,180 L160,155 L225,180 Z" fill="#8C8C92" stroke="#4A4A4A" stroke-width="1"/>
+    <!-- noren bar -->
+    <line x1="110" y1="200" x2="210" y2="200" stroke="#4A2A1A" stroke-width="2"/>
+    <!-- noren panels -->
+    <g>
+      <rect x="112" y="202" width="26" height="28" fill="#2B5C7D" stroke="#101010" stroke-width="0.7"/>
+      <rect x="140" y="202" width="26" height="28" fill="#2B5C7D" stroke="#101010" stroke-width="0.7"/>
+      <rect x="168" y="202" width="26" height="28" fill="#2B5C7D" stroke="#101010" stroke-width="0.7"/>
+      <rect x="196" y="202" width="26" height="28" fill="#2B5C7D" stroke="#101010" stroke-width="0.7"/>
+    </g>
+    <!-- Kanji signage along curved path on noren -->
+    <text x="0" y="0" fill="#F7F2E7" font-family="serif" font-size="10">
+      <textPath href="#norenPath" startOffset="5%">日本橋魚市</textPath>
+    </text>
+  </g>
+
+  <!-- Figures on the bridge -->
+  <!-- Left kimono (seigaiha) -->
+  <g filter="url(#registrationShift)">
+    <path d="M150,245
+             c-6,10 -10,24 -11,38
+             l0,0
+             c6,4 16,4 23,0
+             c-1,-14 -5,-28 -12,-38
+             z"
+          fill="url(#seigaiha)" stroke="#221A16" stroke-width="0.8"/>
+    <!-- Obi -->
+    <rect x="145" y="263" width="18" height="6" fill="#D9A441" stroke="#221A16" stroke-width="0.7"/>
+    <!-- Head -->
+    <circle cx="152" cy="238" r="4.2" fill="#F7E0C8" stroke="#221A16" stroke-width="0.6"/>
+    <!-- Hair -->
+    <path d="M148,234 a6,4 0 0 1 8,0 l-1,3 h-6 z" fill="#1E1A1A"/>
+  </g>
+
+  <!-- Right kimono (asanoha) -->
+  <g filter="url(#registrationShift)">
+    <path d="M330,250
+             c-5,9 -9,22 -10,35
+             c6,3 15,3 21,0
+             c-1,-13 -4,-26 -11,-35
+             z"
+          fill="url(#asanoha)" stroke="#221A16" stroke-width="0.8"/>
+    <!-- Obi -->
+    <rect x="324" y="266" width="16" height="6" fill="#2B5C7D" stroke="#221A16" stroke-width="0.7"/>
+    <!-- Head -->
+    <circle cx="331" cy="243" r="4.2" fill="#F7E0C8" stroke="#221A16" stroke-width="0.6"/>
+    <!-- Hair -->
+    <path d="M327,239 a6,4 0 0 1 8,0 l-1,3 h-6 z" fill="#1E1A1A"/>
+  </g>
+
+  <!-- Central porter with load -->
+  <g filter="url(#registrationShift)">
+    <rect x="235" y="250" width="14" height="24" fill="#C78C4A" stroke="#221A16" stroke-width="0.8"/>
+    <circle cx="242" cy="244" r="4" fill="#F7E0C8" stroke="#221A16" stroke-width="0.6"/>
+    <line x1="228" y1="252" x2="256" y2="244" stroke="#221A16" stroke-width="1.1"/>
+    <rect x="220" y="236" width="14" height="8" fill="#8C8C92" stroke="#221A16" stroke-width="0.7"/>
+    <rect x="252" y="230" width="16" height="10" fill="#8C8C92" stroke="#221A16" stroke-width="0.7"/>
+  </g>
+
+  <!-- Drone-kite in the sky -->
+  <g transform="translate(355,120)">
+    <!-- Kite body (disguised drone fuselage) -->
+    <polygon points="0,-18 16,0 0,18 -16,0"
+             fill="#C54A4A" stroke="#221A16" stroke-width="1"/>
+    <polygon points="0,-10 10,0 0,10 -10,0"
+             fill="#D9A441" stroke="#221A16" stroke-width="0.7"/>
+
+    <!-- Bamboo frame -->
+    <g stroke="#6B4A28" stroke-width="1.2">
+      <line x1="-16" y1="0" x2="16" y2="0"/>
+      <line x1="0" y1="-18" x2="0" y2="18"/>
+      <line x1="-16" y1="0" x2="0" y2="-18"/>
+      <line x1="16" y1="0" x2="0" y2="-18"/>
+      <line x1="-16" y1="0" x2="0" y2="18"/>
+      <line x1="16" y1="0" x2="0" y2="18"/>
+    </g>
+
+    <!-- Faint rotor disks (radial gradient blur rings) -->
+    <g fill="url(#rotorBlur)" opacity="0.45">
+      <circle cx="-10" cy="-10" r="8"/>
+      <circle cx="10" cy="-10" r="8"/>
+      <circle cx="-10" cy="10" r="8"/>
+      <circle cx="10" cy="10" r="8"/>
+    </g>
+
+    <!-- Kite tail string (no motion lines crossing frame) -->
+    <path d="M0,18 C-5,35 -8,60 -4,80" fill="none" stroke="#221A16" stroke-width="0.7"/>
+  </g>
+
+  <!-- Foreground bank -->
+  <path d="M0,340 Q120,330 250,340 T500,345 L500,500 L0,500 Z"
+        fill="#D9A441" opacity="0.8"/>
+
+</svg>

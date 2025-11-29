@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <!-- warm top lighting (3200K approx) -->
+    <radialGradient id="warmTop" cx="50%" cy="10%" r="60%">
+      <stop offset="0%" stop-color="#FFD8A8" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#F1C79B" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#C9B39A" stop-opacity="0.3"/>
+    </radialGradient>
+
+    <!-- low saturation skin/structures -->
+    <linearGradient id="skin" x1="0" x2="1">
+      <stop offset="0%" stop-color="#E1BFAF" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#D7B5A6" stop-opacity="0.9"/>
+    </linearGradient>
+
+    <!-- cool metal highlight for instruments -->
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#dfe9f7"/>
+      <stop offset="50%" stop-color="#b7cfe8"/>
+      <stop offset="100%" stop-color="#9fb6d7"/>
+    </linearGradient>
+
+    <!-- soft penumbra -->
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6" result="blur"/>
+      <feOffset dx="0" dy="6" result="offset"/>
+      <feMerge>
+        <feMergeNode in="offset"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- specular streak blur -->
+    <filter id="glareBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="12" result="gblur"/>
+      <feComponentTransfer in="gblur" result="gtr">
+        <feFuncA type="table" tableValues="0 0.25"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode in="gtr"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- arrow marker for leader lines -->
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,4 L0,8 L2,4 z" fill="#333" opacity="0.9"/>
+    </marker>
+
+    <!-- chalk style font fallback -->
+    <style type="text/css"><![CDATA[
+      .chalk { font-family: "Segoe UI", Arial, sans-serif; font-size:10px; fill:white; opacity:0.95; }
+      .label { font-family: "Segoe UI", Arial, sans-serif; font-size:11px; fill:#222; }
+    ]]></style>
+
+    <!-- clip for table top glare -->
+    <clipPath id="tableTopClip">
+      <polygon points="170,360 330,360 300,280 200,280"/>
+    </clipPath>
+
+    <!-- paths for chalk text on slate -->
+    <path id="slateCurve" d="M320,290 C340,280 370,285 390,270" fill="none"/>
+  </defs>
+
+  <!-- background wall with warm top light -->
+  <rect x="0" y="0" width="500" height="500" fill="#6b5b4b"/>
+  <rect x="0" y="0" width="500" height="200" fill="url(#warmTop)" opacity="0.95"/>
+
+  <!-- amphitheatre tiered seating: concentric arcs (foreshortened) -->
+  <g transform="translate(250,360) scale(1,0.45)" opacity="0.9">
+    <!-- using several arcs with subtle colors -->
+    <path d="M-200,0 A200,200 0 0 1 200,0" fill="none" stroke="#cfc7bf" stroke-width="18" stroke-linecap="round"/>
+    <path d="M-160,0 A160,160 0 0 1 160,0" fill="none" stroke="#d8d0c7" stroke-width="14"/>
+    <path d="M-120,0 A120,120 0 0 1 120,0" fill="none" stroke="#e5e0db" stroke-width="12"/>
+    <path d="M-80,0 A80,80 0 0 1 80,0" fill="none" stroke="#efeae6" stroke-width="10"/>
+    <path d="M-40,0 A40,40 0 0 1 40,0" fill="none" stroke="#f6f4f2" stroke-width="8"/>
+  </g>
+
+  <!-- subtle perspective guide lines (converging to VP at 250,396) -->
+  <g opacity="0.08">
+    <line x1="50" y1="480" x2="250" y2="396" stroke="#000" stroke-width="1"/>
+    <line x1="100" y1="460" x2="250" y2="396" stroke="#000" stroke-width="1"/>
+    <line x1="400" y1="460" x2="250" y2="396" stroke="#000" stroke-width="1"/>
+    <line x1="450" y1="480" x2="250" y2="396" stroke="#000" stroke-width="1"/>
+  </g>
+
+  <!-- surgical table (trapezoid in perspective) -->
+  <g filter="url(#softShadow)">
+    <polygon points="170,360 330,360 300,280 200,280" fill="#4b3a2f"/>
+    <polygon points="175,355 325,355 298,284 202,284" fill="url(#warmTop)" opacity="0.12"/>
+  </g>
+
+  <!-- glass glare streaks clipped to table top to simulate specular highlights -->
+  <g clip-path="url(#tableTopClip)" filter="url(#glareBlur)" opacity="0.55">
+    <path d="M180,300 C200,295 220,290 240,289" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.6"/>
+    <path d="M215,305 C235,302 255,300 275,299" stroke="#fff" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.45"/>
+  </g>
+
+  <!-- surgical subject: upper limb schematic on table -->
+  <g filter="url(#softShadow)">
+    <!-- shoulder marker -->
+    <circle cx="230" cy="300" r="6" fill="#d0b7a8" stroke="#7a5b4f" stroke-width="1"/>
+
+    <!-- humerus (upper arm) - length ~110 px (humerus ≈19% of body height proportion represented) -->
+    <path d="M230,300 C260,318 288,335 325,355" fill="none" stroke="url(#skin)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+
+    <!-- elbow marker -->
+    <circle cx="325" cy="355" r="5" fill="#d0b7a8" stroke="#7a5b4f" stroke-width="0.8"/>
+
+    <!-- forearm - length ~100 px (forearm ≈15% of body height proportion represented) -->
+    <path d="M325,355 C355,367 390,375 420,385" fill="none" stroke="url(#skin)" stroke-width="10" stroke-linecap="round" opacity="0.95"/>
+
+    <!-- hand simplified -->
+    <g transform="translate(420,385) rotate(-8)">
+      <ellipse cx="10" cy="6" rx="12" ry="6" fill="#d9c4b7" opacity="0.95"/>
+    </g>
+
+    <!-- scapular plane indication (angled 30° relative to frontal) -->
+    <line x1="210" y1="284" x2="260" y2="312" stroke="#b07a5a" stroke-width="2" stroke-dasharray="4 3" opacity="0.8"/>
+    <text x="184" y="276" class="label" fill="#3b2f2a">Scapular plane ≈ 30°</text>
+
+    <!-- tendons (schematic, low saturation) -->
+    <path d="M340,365 C352,361 370,358 385,362" fill="none" stroke="#f7efe9" stroke-width="3" opacity="0.6" stroke-linecap="round"/>
+    <path d="M300,330 C312,338 332,345 345,352" fill="none" stroke="#f3e9e3" stroke-width="2.5" opacity="0.6" stroke-linecap="round"/>
+
+    <!-- muscle origin/insertion markers -->
+    <circle cx="238" cy="306" r="3.5" fill="#9b7f72" opacity="0.9"/>
+    <circle cx="315" cy="350" r="3.5" fill="#9b7f72" opacity="0.9"/>
+    <circle cx="380" cy="365" r="3.5" fill="#9b7f72" opacity="0.9"/>
+  </g>
+
+  <!-- leader lines with marker-end arrows and labels -->
+  <g stroke="#333" stroke-width="1.2" fill="none" marker-end="url(#arrow)">
+    <!-- humerus label -->
+    <path d="M245,285 L200,245" stroke-opacity="0.9"/>
+    <text x="170" y="240" class="label">Humerus (≈19% BH)</text>
+
+    <!-- forearm label -->
+    <path d="M402,378 L460,350" stroke-opacity="0.9"/>
+    <text x="462" y="346" class="label">Forearm (≈15% BH)</text>
+
+    <!-- tendon label -->
+    <path d="M370,358 L445,315" stroke-opacity="0.9"/>
+    <text x="447" y="313" class="label">Extensor tendons</text>
+  </g>
+
+  <!-- instruments with cool highlights; non-scaling strokes for etching look -->
+  <g vector-effect="non-scaling-stroke" filter="url(#softShadow)">
+    <!-- forceps -->
+    <g stroke="url(#metal)" stroke-width="3" fill="none" stroke-linecap="round">
+      <path d="M360,330 C375,340 385,355 398,365" />
+      <path d="M372,330 C388,339 397,354 410,365" />
+      <circle cx="405" cy="360" r="2.5" fill="#dfe9f7"/>
+    </g>
+
+    <!-- bone saw simplified -->
+    <g transform="translate(340,320)" fill="none" stroke="url(#metal)" stroke-width="2.6" stroke-linecap="round">
+      <rect x="-4" y="10" width="60" height="10" rx="2" fill="#e9f0fa" opacity="0.1"/>
+      <path d="M0,15 L60,15" />
+      <!-- serration -->
+      <path d="M10,15 l2,-4 l2,4 l2,-4 l2,4 l2,-4 l2,4 l2,-4 l2,4" stroke="#9fb6d7" stroke-width="1.6" />
+      <rect x="58" y="8" width="6" height="16" rx="2" fill="#b7cfe8" opacity="0.4"/>
+    </g>
+  </g>
+
+  <!-- small slate with chalk diagrams (text-on-path) -->
+  <g transform="translate(320,250)">
+    <rect x="-6" y="-12" width="160" height="64" rx="4" ry="4" fill="#22282a" opacity="0.85" stroke="#000" stroke-width="0.6"/>
+    <path id="diagram1" d="M0,4 C20,-6 60,-2 110,-10" fill="none"/>
+    <text class="chalk">
+      <textPath href="#diagram1" startOffset="0%">Scapula 30°  —  axis</textPath>
+    </text>
+    <path d="M6,22 C40,12 90,20 140,18" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity="0.95"/>
+    <text x="6" y="40" class="chalk">Anatomy sketch</text>
+  </g>
+
+  <!-- subtle vignette for focus -->
+  <radialGradient id="vignette" cx="50%" cy="60%" r="70%">
+    <stop offset="60%" stop-color="#000" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0.25"/>
+  </radialGradient>
+  <rect x="0" y="0" width="500" height="500" fill="url(#vignette)" opacity="0.6"/>
+
+</svg>

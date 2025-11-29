@@ -1,0 +1,194 @@
+<svg viewBox="0 0 2100 1200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Woodgrain texture -->
+    <filter id="woodgrain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" seed="1"/>
+      <feColorMatrix type="saturate" values="0.3"/>
+      <feComponentTransfer>
+        <feFuncA type="discrete" tableValues="0 0.05 0.1"/>
+      </feComponentTransfer>
+    </filter>
+    
+    <!-- Paper texture -->
+    <filter id="paper">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="2"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="discrete" tableValues="0 0.02 0.03"/>
+      </feComponentTransfer>
+    </filter>
+    
+    <!-- Color palette -->
+    <g id="palette">
+      <rect fill="#E8DCC4"/> <!-- paper -->
+      <rect fill="#1A3B5C"/> <!-- indigo -->
+      <rect fill="#8B4513"/> <!-- brown -->
+      <rect fill="#C41E3A"/> <!-- red -->
+      <rect fill="#2F5233"/> <!-- green -->
+      <rect fill="#F4C542"/> <!-- gold -->
+      <rect fill="#4A90A4"/> <!-- cyan -->
+      <rect fill="#8B7355"/> <!-- tan -->
+      <rect fill="#1C1C1C"/> <!-- black -->
+      <rect fill="#D4A574"/> <!-- wood -->
+      <rect fill="#6B8E95"/> <!-- blue-gray -->
+      <rect fill="#A4243B"/> <!-- crimson -->
+    </g>
+    
+    <!-- Seigaiha wave pattern -->
+    <pattern id="seigaiha" width="40" height="20" patternUnits="userSpaceOnUse">
+      <path d="M0,20 Q10,10 20,20 Q30,10 40,20" fill="none" stroke="#4A90A4" stroke-width="0.5" opacity="0.6"/>
+      <path d="M0,20 Q10,13 20,20 Q30,13 40,20" fill="none" stroke="#4A90A4" stroke-width="0.5" opacity="0.4"/>
+    </pattern>
+    
+    <!-- Asanoha hemp leaf pattern -->
+    <pattern id="asanoha" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M15,0 L15,30 M0,15 L30,15 M5,5 L25,25 M25,5 L5,25" stroke="#C41E3A" stroke-width="0.8" opacity="0.5"/>
+      <circle cx="15" cy="15" r="8" fill="none" stroke="#C41E3A" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+    
+    <!-- Rotor blur gradient -->
+    <radialGradient id="rotor">
+      <stop offset="0%" stop-color="#6B8E95" stop-opacity="0.1"/>
+      <stop offset="50%" stop-color="#4A90A4" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#1A3B5C" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- Background sky -->
+  <rect width="2100" height="780" fill="#E8DCC4"/>
+  <rect width="2100" height="780" fill="url(#paper)" opacity="0.3"/>
+  
+  <!-- Distant mountains -->
+  <path d="M0,600 Q300,480 600,560 L700,780 L0,780 Z" fill="#6B8E95" opacity="0.4"/>
+  <path d="M500,620 Q900,420 1300,580 L1400,780 L400,780 Z" fill="#4A90A4" opacity="0.3"/>
+  <path d="M1100,640 Q1500,500 1900,620 L2100,780 L1000,780 Z" fill="#6B8E95" opacity="0.35"/>
+  
+  <!-- River -->
+  <rect y="780" width="2100" height="420" fill="#4A90A4"/>
+  
+  <!-- River ripples with jitter -->
+  <g opacity="0.3">
+    <path d="M0,820 Q100,815 200,820 Q300,825 400,820 Q500,815 600,820 Q700,825 800,820 Q900,815 1000,820 Q1100,825 1200,820 Q1300,815 1400,820 Q1500,825 1600,820 Q1700,815 1800,820 Q1900,825 2000,820 Q2050,815 2100,820" stroke="#1A3B5C" stroke-width="1" fill="none"/>
+    <path d="M0,880 Q100,877 200,880 Q300,883 400,880 Q500,877 600,880 Q700,883 800,880 Q900,877 1000,880 Q1100,883 1200,880 Q1300,877 1400,880 Q1500,883 1600,880 Q1700,877 1800,880 Q1900,883 2000,880 Q2050,877 2100,880" stroke="#1A3B5C" stroke-width="1" fill="none"/>
+    <path d="M0,940 Q100,938 200,940 Q300,942 400,940 Q500,938 600,940 Q700,942 800,940 Q900,938 1000,940 Q1100,942 1200,940 Q1300,938 1400,940 Q1500,942 1600,940 Q1700,938 1800,940 Q1900,942 2000,940 Q2050,938 2100,940" stroke="#1A3B5C" stroke-width="1" fill="none"/>
+  </g>
+  
+  <!-- Bridge structure (catenary curve approximation) -->
+  <g id="bridge">
+    <!-- Bridge deck supports -->
+    <path d="M250,780 Q1050,560 1850,780" fill="none" stroke="#8B4513" stroke-width="80"/>
+    <path d="M250,780 Q1050,560 1850,780" fill="none" stroke="#D4A574" stroke-width="60"/>
+    
+    <!-- Vertical posts -->
+    <rect x="400" y="640" width="15" height="140" fill="#8B4513"/>
+    <rect x="600" y="600" width="15" height="180" fill="#8B4513"/>
+    <rect x="800" y="580" width="15" height="200" fill="#8B4513"/>
+    <rect x="1000" y="570" width="15" height="210" fill="#8B4513"/>
+    <rect x="1200" y="580" width="15" height="200" fill="#8B4513"/>
+    <rect x="1400" y="600" width="15" height="180" fill="#8B4513"/>
+    <rect x="1600" y="640" width="15" height="140" fill="#8B4513"/>
+    
+    <!-- Deck -->
+    <path d="M250,780 L1850,780 L1850,820 L250,820 Z" fill="#8B7355"/>
+    <rect x="250" y="780" width="1600" height="40" fill="url(#woodgrain)" opacity="0.4"/>
+    
+    <!-- Railings -->
+    <line x1="250" y1="760" x2="1850" y2="760" stroke="#8B4513" stroke-width="6"/>
+  </g>
+  
+  <!-- Registration offset - cyan plate -->
+  <g opacity="0.3" transform="translate(-1.5, 0)">
+    <path d="M250,780 Q1050,560 1850,780" fill="none" stroke="#4A90A4" stroke-width="3"/>
+  </g>
+  
+  <!-- Registration offset - magenta plate -->
+  <g opacity="0.3" transform="translate(1.5, 0)">
+    <path d="M250,780 Q1050,560 1850,780" fill="none" stroke="#A4243B" stroke-width="3"/>
+  </g>
+  
+  <!-- People on bridge with kimonos -->
+  <g id="figure1" transform="translate(700, 700)">
+    <ellipse cx="0" cy="-50" rx="12" ry="15" fill="#E8DCC4"/>
+    <path d="M0,-35 L-15,20 L-12,60 L-8,80 M0,-35 L15,20 L12,60 L8,80" stroke="#1C1C1C" stroke-width="2" fill="none"/>
+    <path d="M-18,-10 Q0,0 18,-10 L15,60 Q0,65 -15,60 Z" fill="url(#seigaiha)"/>
+    <path d="M-18,-10 Q0,0 18,-10 L15,60 Q0,65 -15,60 Z" fill="#C41E3A" opacity="0.7"/>
+  </g>
+  
+  <g id="figure2" transform="translate(1100, 710)">
+    <ellipse cx="0" cy="-50" rx="12" ry="15" fill="#E8DCC4"/>
+    <path d="M0,-35 L-15,20 L-12,60 L-8,80 M0,-35 L15,20 L12,60 L8,80" stroke="#1C1C1C" stroke-width="2" fill="none"/>
+    <path d="M-18,-10 Q0,0 18,-10 L15,60 Q0,65 -15,60 Z" fill="url(#asanoha)"/>
+    <path d="M-18,-10 Q0,0 18,-10 L15,60 Q0,65 -15,60 Z" fill="#2F5233" opacity="0.7"/>
+  </g>
+  
+  <g id="figure3" transform="translate(1400, 705)">
+    <ellipse cx="0" cy="-50" rx="12" ry="15" fill="#E8DCC4"/>
+    <path d="M0,-35 L-15,20 L-12,60 L-8,80 M0,-35 L15,20 L12,60 L8,80" stroke="#1C1C1C" stroke-width="2" fill="none"/>
+    <path d="M-18,-10 Q0,0 18,-10 L15,60 Q0,65 -15,60 Z" fill="#1A3B5C"/>
+  </g>
+  
+  <!-- Drone disguised as kite -->
+  <g id="drone-kite" transform="translate(1600, 320)">
+    <!-- Rotor blur disks (hidden) -->
+    <circle cx="-35" cy="-35" r="30" fill="url(#rotor)"/>
+    <circle cx="35" cy="-35" r="30" fill="url(#rotor)"/>
+    <circle cx="-35" cy="35" r="30" fill="url(#rotor)"/>
+    <circle cx="35" cy="35" r="30" fill="url(#rotor)"/>
+    
+    <!-- Kite paper -->
+    <path d="M0,-60 L50,0 L0,60 L-50,0 Z" fill="#C41E3A"/>
+    <path d="M0,-60 L50,0 L0,60 L-50,0 Z" fill="url(#asanoha)" opacity="0.6"/>
+    
+    <!-- Bamboo frame -->
+    <line x1="0" y1="-60" x2="0" y2="60" stroke="#8B7355" stroke-width="3"/>
+    <line x1="-50" y1="0" x2="50" y2="0" stroke="#8B7355" stroke-width="3"/>
+    <line x1="-50" y1="0" x2="0" y2="60" stroke="#8B7355" stroke-width="2"/>
+    <line x1="50" y1="0" x2="0" y2="60" stroke="#8B7355" stroke-width="2"/>
+    
+    <!-- Kite string -->
+    <path d="M0,60 Q-20,150 -40,240 Q-50,320 -60,400" stroke="#8B7355" stroke-width="1.5" fill="none"/>
+    
+    <!-- Small decorative tassels -->
+    <g transform="translate(0, 60)">
+      <line x1="-20" y1="0" x2="-25" y2="15" stroke="#F4C542" stroke-width="2"/>
+      <line x1="0" y1="0" x2="0" y2="18" stroke="#F4C542" stroke-width="2"/>
+      <line x1="20" y1="0" x2="25" y2="15" stroke="#F4C542" stroke-width="2"/>
+    </g>
+  </g>
+  
+  <!-- Shop buildings -->
+  <g id="shop1" transform="translate(100, 600)">
+    <rect x="0" y="0" width="150" height="180" fill="#8B7355"/>
+    <rect x="0" y="0" width="150" height="180" fill="url(#woodgrain)" opacity="0.3"/>
+    <path d="M-20,-20 L75,0 L170,-20 L150,0 L0,0 Z" fill="#8B4513"/>
+    
+    <!-- Noren curtain -->
+    <rect x="30" y="30" width="90" height="80" fill="#E8DCC4"/>
+    <line x1="75" y1="30" x2="75" y2="110" stroke="#C41E3A" stroke-width="2"/>
+    
+    <!-- Kanji on noren (茶 - tea) -->
+    <path id="noren1" d="M 45,50 L 45,100" fill="none"/>
+    <text font-size="24" fill="#1C1C1C" font-family="serif">
+      <textPath href="#noren1" startOffset="20%">茶</textPath>
+    </text>
+  </g>
+  
+  <g id="shop2" transform="translate(1850, 600)">
+    <rect x="0" y="0" width="150" height="180" fill="#8B7355"/>
+    <rect x="0" y="0" width="150" height="180" fill="url(#woodgrain)" opacity="0.3"/>
+    <path d="M-20,-20 L75,0 L170,-20 L150,0 L0,0 Z" fill="#8B4513"/>
+    
+    <!-- Noren curtain -->
+    <rect x="30" y="30" width="90" height="80" fill="#E8DCC4"/>
+    <line x1="75" y1="30" x2="75" y2="110" stroke="#1A3B5C" stroke-width="2"/>
+    
+    <!-- Kanji on noren (酒 - sake) -->
+    <path id="noren2" d="M 45,50 L 45,100" fill="none"/>
+    <text font-size="24" fill="#1C1C1C" font-family="serif">
+      <textPath href="#noren2" startOffset="20%">酒</textPath>
+    </text>
+  </g>
+  
+  <!-- Trees -->
+  <g id="tree1" transform="translate(50, 650)">
+    <rect x="-8"</svg>

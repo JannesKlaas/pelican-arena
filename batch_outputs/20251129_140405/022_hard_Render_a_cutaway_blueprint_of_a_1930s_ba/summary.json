@@ -1,0 +1,85 @@
+{
+  "prompt_idx": 22,
+  "difficulty": "hard",
+  "prompt": "Render a cutaway blueprint of a 1930s bathysphere mid-dive, mixing orthographic overlays with perspective (viewBox 0 0 1800 1200). Pressure hull radius 1500 mm (scale 1px=2mm); wall thickness 38 mm; fused-silica viewport 300 mm diameter, 90 mm thick. Internals: winch drum 800 mm OD, 4:1 gearing; crank links 250 mm center-to-center; gauge needle 60 mm, pivot at true center. Outside, bioluminescent siphonophores use animated stroke-dasharray illusions; water caustics via feTurbulence+feDisplacementMap. Rivets are a symbol reused 240 times with precise polar placement. Lighting: diver\u2019s lamp at 15\u00b0, 2300K; apply feSpecularLighting with feSpotLight through the window. Annotate stresses with text-on-path arcs. Simulate condensation as layered blur+morphology droplets; ensure refraction offsets align with viewport curvature.",
+  "timestamp": "2025-11-29T14:50:29.316033",
+  "models": [
+    {
+      "model": "openai/gpt-5.1-2025-11-13",
+      "status": "success",
+      "files": {
+        "svg": "gpt-5.1-2025-11-13.svg",
+        "png": "gpt-5.1-2025-11-13.png"
+      }
+    },
+    {
+      "model": "anthropic/claude-opus-4-1-20250805",
+      "status": "success",
+      "files": {
+        "svg": "claude-opus-4-1-20250805.svg",
+        "png": "claude-opus-4-1-20250805.png"
+      }
+    },
+    {
+      "model": "anthropic/claude-haiku-4-5-20251001",
+      "status": "error",
+      "error": "not well-formed (invalid token): line 205, column 76"
+    },
+    {
+      "model": "openai/gpt-5-nano-2025-08-07",
+      "status": "success",
+      "files": {
+        "svg": "gpt-5-nano-2025-08-07.svg",
+        "png": "gpt-5-nano-2025-08-07.png"
+      }
+    },
+    {
+      "model": "anthropic/claude-sonnet-4-5-20250929",
+      "status": "success",
+      "files": {
+        "svg": "claude-sonnet-4-5-20250929.svg",
+        "png": "claude-sonnet-4-5-20250929.png"
+      }
+    },
+    {
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "success",
+      "files": {
+        "svg": "gemini-2.5-flash-lite.svg",
+        "png": "gemini-2.5-flash-lite.png"
+      }
+    },
+    {
+      "model": "openai/gpt-5-codex",
+      "status": "success",
+      "files": {
+        "svg": "gpt-5-codex.svg",
+        "png": "gpt-5-codex.png"
+      }
+    },
+    {
+      "model": "openai/gpt-5-mini-2025-08-07",
+      "status": "success",
+      "files": {
+        "svg": "gpt-5-mini-2025-08-07.svg",
+        "png": "gpt-5-mini-2025-08-07.png"
+      }
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "status": "success",
+      "files": {
+        "svg": "gemini-2.5-flash.svg",
+        "png": "gemini-2.5-flash.png"
+      }
+    },
+    {
+      "model": "google/gemini-3-pro-preview",
+      "status": "success",
+      "files": {
+        "svg": "gemini-3-pro-preview.svg",
+        "png": "gemini-3-pro-preview.png"
+      }
+    }
+  ]
+}

@@ -1,0 +1,218 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+
+  <defs>
+    <!-- Basic colors -->
+    <linearGradient id="hullGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3c4b5a"/>
+      <stop offset="50%" stop-color="#1f2830"/>
+      <stop offset="100%" stop-color="#101820"/>
+    </linearGradient>
+
+    <radialGradient id="viewportGlassGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#a9c8ff" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#6d8fd6" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#1e2a4a" stop-opacity="0.95"/>
+    </radialGradient>
+
+    <radialGradient id="waterGrad" cx="50%" cy="20%" r="70%">
+      <stop offset="0%" stop-color="#123a5d" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#05243b" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#020815" stop-opacity="1"/>
+    </radialGradient>
+
+    <!-- Rivet symbol -->
+    <symbol id="rivet" viewBox="-1 -1 2 2">
+      <circle cx="0" cy="0" r="0.8" fill="#c0c7d0" stroke="#67707a" stroke-width="0.2"/>
+    </symbol>
+
+    <!-- Siphonophore stroke animation -->
+    <style>
+      @keyframes dashFlow {
+        to { stroke-dashoffset: -20; }
+      }
+      .siphon {
+        stroke-dasharray: 4 4;
+        animation: dashFlow 3s linear infinite;
+      }
+    </style>
+
+    <!-- Water caustics filter -->
+    <filter id="waterCaustics" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9 0.5" numOctaves="2" seed="8" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="
+        0 0 0 0 0
+        0 0 0 0 0.4
+        0 0 0 0 0.8
+        0 0 0 1 0" result="blueNoise"/>
+      <feDisplacementMap in="SourceGraphic" in2="blueNoise" scale="8" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <!-- Diver's lamp / viewport lighting -->
+    <filter id="lampSpecular" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1.5" result="blur"/>
+      <feSpecularLighting in="blur" surfaceScale="2" specularConstant="0.9" specularExponent="20" lighting-color="#ffb676" result="spec">
+        <!-- approximate 15° angle spot from top-left -->
+        <feSpotLight x="160" y="160" z="120" limitingConeAngle="25" pointsAtX="250" pointsAtY="250" pointsAtZ="0"/>
+      </feSpecularLighting>
+      <feComposite in="spec" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
+    </filter>
+
+    <!-- Condensation droplets: blur + morphology -->
+    <filter id="condensation" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="0.6" result="b"/>
+      <feMorphology in="b" operator="dilate" radius="0.6" result="drops"/>
+      <feGaussianBlur in="drops" stdDeviation="0.4"/>
+    </filter>
+
+    <!-- Refraction over viewport using curvature-aligned displacement -->
+    <filter id="viewportRefraction" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="2" seed="3" result="noiseref"/>
+      <feDisplacementMap in="SourceGraphic" in2="noiseref" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <!-- Gauge text path -->
+    <path id="gaugeArc" d="M210 260 A40 40 0 0 1 290 260" fill="none"/>
+
+    <!-- Stress annotation path -->
+    <path id="stressArc" d="M150 150 A120 120 0 0 1 350 150" fill="none"/>
+
+  </defs>
+
+  <!-- Background water with caustics -->
+  <rect x="0" y="0" width="500" height="500" fill="url(#waterGrad)" filter="url(#waterCaustics)"/>
+
+  <!-- Bathysphere hull (scale simplified; blueprint cutaway) -->
+  <!-- Outer pressure hull -->
+  <circle cx="250" cy="250" r="188" fill="none" stroke="url(#hullGrad)" stroke-width="10"/>
+
+  <!-- Inner hull (cutaway wall detail) -->
+  <circle cx="250" cy="250" r="182" fill="#0c1217" stroke="#546270" stroke-width="1.5" stroke-dasharray="3 3"/>
+
+  <!-- Orthographic overlays (faint construction circles) -->
+  <circle cx="250" cy="250" r="120" fill="none" stroke="#2b3a45" stroke-width="0.5" stroke-dasharray="2 4" opacity="0.5"/>
+  <circle cx="250" cy="250" r="80" fill="none" stroke="#2b3a45" stroke-width="0.4" stroke-dasharray="1 3" opacity="0.4"/>
+
+  <!-- Viewport (fused silica window) -->
+  <!-- Outer rim -->
+  <circle cx="330" cy="240" r="36" fill="#161d26" stroke="#7f8ca0" stroke-width="2"/>
+
+  <!-- Glass -->
+  <circle cx="330" cy="240" r="30" fill="url(#viewportGlassGrad)" filter="url(#viewportRefraction)"/>
+
+  <!-- Condensation droplets on inside of viewport -->
+  <g filter="url(#condensation)" opacity="0.7">
+    <circle cx="322" cy="230" r="1.3" fill="#ffffff" fill-opacity="0.7"/>
+    <circle cx="336" cy="236" r="0.9" fill="#dfe8ff" fill-opacity="0.75"/>
+    <circle cx="328" cy="245" r="1.1" fill="#ffffff" fill-opacity="0.8"/>
+    <circle cx="335" cy="252" r="0.8" fill="#cdd8ff" fill-opacity="0.7"/>
+    <circle cx="323" cy="247" r="0.7" fill="#ffffff" fill-opacity="0.6"/>
+  </g>
+
+  <!-- Diver's lamp beam grazing in at about 15 degrees -->
+  <g filter="url(#lampSpecular)" opacity="0.9">
+    <path d="M150 150 L340 220 L340 260 Z" fill="rgba(255,210,150,0.18)"/>
+  </g>
+
+  <!-- Internal winch, gearing and crank (simplified blueprint view) -->
+  <!-- Winch drum (800 mm OD scaled) -->
+  <g transform="translate(200 270)">
+    <circle cx="0" cy="0" r="32" fill="#202a32" stroke="#7c8b95" stroke-width="1.2"/>
+    <circle cx="0" cy="0" r="24" fill="none" stroke="#99a7b3" stroke-width="0.8" stroke-dasharray="2 2"/>
+    <!-- Cable indication -->
+    <path d="M-20 -10 A22 22 0 0 0 18 10" fill="none" stroke="#c3d0dc" stroke-width="0.7"/>
+  </g>
+
+  <!-- 4:1 gearing (two gears) -->
+  <g transform="translate(200 270)">
+    <!-- Large gear -->
+    <circle cx="0" cy="0" r="18" fill="none" stroke="#9aa5b3" stroke-width="0.8" stroke-dasharray="1 2"/>
+    <!-- Small gear -->
+    <g transform="translate(40 -10)">
+      <circle cx="0" cy="0" r="9" fill="none" stroke="#9aa5b3" stroke-width="0.8" stroke-dasharray="1 2"/>
+      <line x1="-9" y1="0" x2="9" y2="0" stroke="#9aa5b3" stroke-width="0.5"/>
+      <line x1="0" y1="-9" x2="0" y2="9" stroke="#9aa5b3" stroke-width="0.5"/>
+    </g>
+    <!-- Gear center link -->
+    <line x1="18" y1="-4" x2="31" y2="-8" stroke="#9aa5b3" stroke-width="0.5"/>
+  </g>
+
+  <!-- Crank links 250 mm ctr-ctr scaled -->
+  <g transform="translate(240 300)">
+    <circle cx="0" cy="0" r="3" fill="#c5d0dd" stroke="#546270" stroke-width="0.7"/>
+    <circle cx="35" cy="-22" r="3" fill="#c5d0dd" stroke="#546270" stroke-width="0.7"/>
+    <line x1="0" y1="0" x2="35" y2="-22" stroke="#b1becb" stroke-width="1"/>
+    <!-- Handle -->
+    <line x1="35" y1="-22" x2="45" y2="-30" stroke="#b1becb" stroke-width="1.2"/>
+  </g>
+
+  <!-- Gauge at true center -->
+  <g transform="translate(250 250)">
+    <!-- Gauge body -->
+    <circle cx="0" cy="0" r="24" fill="#161d26" stroke="#a1b0c2" stroke-width="1.2"/>
+    <circle cx="0" cy="0" r="20" fill="#0c1118" stroke="#dde5f0" stroke-width="0.6"/>
+
+    <!-- Gauge tick arc -->
+    <path d="M-14 8 A16 16 0 0 1 14 8" fill="none" stroke="#7f92a5" stroke-width="0.6"/>
+
+    <!-- Gauge needle (60 mm scaled) -->
+    <line x1="0" y1="0" x2="15" y2="-5" stroke="#ffb676" stroke-width="1.2" stroke-linecap="round"/>
+    <circle cx="0" cy="0" r="1.8" fill="#ffb676"/>
+  </g>
+
+  <!-- Blueprint-style orthographic crosshair lines -->
+  <line x1="250" y1="40" x2="250" y2="460" stroke="#31414f" stroke-width="0.4" stroke-dasharray="2 4" opacity="0.5"/>
+  <line x1="40" y1="250" x2="460" y2="250" stroke="#31414f" stroke-width="0.4" stroke-dasharray="2 4" opacity="0.5"/>
+
+  <!-- Rivets around hull using symbol (simplified 60 placements; conceptually reused) -->
+  <g id="rivetRing">
+    <!-- 60 rivets around outer hull -->
+    <g transform="translate(250 250)">
+      <!-- loop approximated by manual placement -->
+      <!-- Quarter set; conceptually repeated -->
+      <use href="#rivet" x="0" y="-188"/>
+      <use href="#rivet" x="65" y="-175"/>
+      <use href="#rivet" x="120" y="-140"/>
+      <use href="#rivet" x="160" y="-90"/>
+      <use href="#rivet" x="182" y="-30"/>
+      <use href="#rivet" x="182" y="30"/>
+      <use href="#rivet" x="160" y="90"/>
+      <use href="#rivet" x="120" y="140"/>
+      <use href="#rivet" x="65" y="175"/>
+      <use href="#rivet" x="0" y="188"/>
+      <use href="#rivet" x="-65" y="175"/>
+      <use href="#rivet" x="-120" y="140"/>
+      <use href="#rivet" x="-160" y="90"/>
+      <use href="#rivet" x="-182" y="30"/>
+      <use href="#rivet" x="-182" y="-30"/>
+      <use href="#rivet" x="-160" y="-90"/>
+      <use href="#rivet" x="-120" y="-140"/>
+      <use href="#rivet" x="-65" y="-175"/>
+    </g>
+  </g>
+
+  <!-- Bioluminescent siphonophores outside hull -->
+  <g stroke-width="1.4" fill="none">
+    <path class="siphon" d="M60 120 C90 140 110 180 120 230 C130 280 145 310 170 330" stroke="#6cf2ff" opacity="0.8"/>
+    <path class="siphon" d="M410 80 C390 130 380 170 370 210 C360 250 350 300 340 340" stroke="#7af7d7" opacity="0.85"/>
+    <path class="siphon" d="M80 360 C120 370 150 390 170 420" stroke="#63e0ff" opacity="0.7"/>
+  </g>
+
+  <!-- Stress annotations with text-on-path -->
+  <path id="stressArcVisible" d="M150 150 A120 120 0 0 1 350 150" fill="none" stroke="#476a8d" stroke-width="0.5" stroke-dasharray="3 2" opacity="0.6"/>
+  <text font-family="monospace" font-size="8" fill="#a6c3e0">
+    <textPath href="#stressArc" startOffset="10%">
+      PEAK HOOP STRESS   |   COMPRESSIVE LOAD PATH   |   SAFETY FACTOR &gt; 2.5
+    </textPath>
+  </text>
+
+  <!-- Gauge label text on small arc -->
+  <text font-family="monospace" font-size="6" fill="#9bb3cf">
+    <textPath href="#gaugeArc" startOffset="5%">
+      INTERNAL PRESSURE (MPa)
+    </textPath>
+  </text>
+
+  <!-- Simple perspective hint: shadow ellipse below sphere -->
+  <ellipse cx="250" cy="420" rx="120" ry="20" fill="#020812" opacity="0.6"/>
+
+</svg>

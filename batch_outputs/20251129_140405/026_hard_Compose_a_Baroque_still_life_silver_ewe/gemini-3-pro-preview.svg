@@ -1,0 +1,144 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <!-- Lighting: Warm Candlelight (1800K approx #FF9329) -->
+    <filter id="candleLight" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+      <feSpecularLighting in="blur" surfaceScale="5" specularConstant="1" specularExponent="20" lighting-color="#ffdb99" result="specOut">
+        <fePointLight x="125" y="100" z="200"/>
+      </feSpecularLighting>
+      <feComposite in="specOut" in2="SourceAlpha" operator="in" result="spec"/>
+      <feComposite in="SourceGraphic" in2="spec" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
+    </filter>
+
+    <!-- Silver Material: Environment reflection simulation -->
+    <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2a2a2a"/>
+      <stop offset="20%" stop-color="#0f0f0f"/>
+      <stop offset="40%" stop-color="#555"/>
+      <stop offset="45%" stop-color="#fff"/>
+      <stop offset="55%" stop-color="#888"/>
+      <stop offset="80%" stop-color="#1a1a1a"/>
+      <stop offset="100%" stop-color="#444"/>
+    </linearGradient>
+
+    <!-- Velvet Sheen -->
+    <linearGradient id="velvetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a0000"/>
+      <stop offset="40%" stop-color="#4d0000"/>
+      <stop offset="60%" stop-color="#2b0000"/>
+      <stop offset="100%" stop-color="#000"/>
+    </linearGradient>
+
+    <!-- Lemon Pith Texture -->
+    <filter id="pithNoise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" result="noise"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+         <feFuncR type="linear" slope="2" intercept="-0.5"/>
+         <feFuncG type="linear" slope="2" intercept="-0.5"/>
+         <feFuncB type="linear" slope="2" intercept="-0.5"/>
+      </feComponentTransfer>
+      <feComposite operator="in" in2="SourceGraphic"/>
+    </filter>
+
+    <!-- Glass Refraction (Displacement) -->
+    <filter id="glassDistort">
+        <feTurbulence type="turbulence" baseFrequency="0.05" numOctaves="2" result="turb"/>
+        <feDisplacementMap in2="turb" in="SourceGraphic" scale="10" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <!-- Table Pattern -->
+    <pattern id="damask" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <rect width="40" height="40" fill="#1a1100"/>
+      <circle cx="20" cy="20" r="10" fill="#261a00"/>
+      <path d="M0,0 L10,10 M40,0 L30,10 M0,40 L10,30 M40,40 L30,30" stroke="#261a00" stroke-width="2"/>
+    </pattern>
+
+    <!-- Drop Shadow -->
+    <filter id="dropShadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+      <feOffset dx="5" dy="5" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.5"/>
+      </feComponentTransfer>
+      <feMerge> 
+        <feMergeNode in="offsetblur"/>
+        <feMergeNode in="SourceGraphic"/> 
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background: Velvet Drape -->
+  <rect width="500" height="500" fill="url(#velvetGrad)"/>
+  <path d="M0,0 C150,200 350,0 500,100 V500 H0 Z" fill="url(#velvetGrad)" opacity="0.8">
+     <animate attributeName="d" dur="10s" repeatCount="indefinite" values="M0,0 C150,200 350,0 500,100 V500 H0 Z; M0,0 C160,210 340,10 500,100 V500 H0 Z; M0,0 C150,200 350,0 500,100 V500 H0 Z"/>
+  </path>
+
+  <!-- Table -->
+  <rect x="0" y="350" width="500" height="150" fill="url(#damask)"/>
+  <linearGradient id="tableFade" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#000" stop-opacity="0.8"/>
+    <stop offset="1" stop-color="#000" stop-opacity="0"/>
+  </linearGradient>
+  <rect x="0" y="350" width="500" height="150" fill="url(#tableFade)"/>
+
+  <!-- Silver Ewer (Back Left) -->
+  <g transform="translate(100, 250)" filter="url(#candleLight)">
+    <path d="M-40,150 C-40,150 -60,100 -30,50 C-20,30 -20,10 -30,0 H30 C20,10 20,30 30,50 C60,100 40,150 40,150 Z" fill="url(#silverGrad)" filter="url(#dropShadow)"/>
+    <path d="M30,20 Q50,0 30,-10" stroke="#ddd" stroke-width="3" fill="none"/>
+    <!-- Micro-scratches overlay -->
+    <path d="M-20,60 L-10,70 M0,50 L5,55 M20,100 L15,105" stroke="#fff" stroke-width="0.5" stroke-opacity="0.3" stroke-dasharray="1,2"/>
+  </g>
+
+  <!-- Glass Goblet (Back Right) -->
+  <g transform="translate(350, 260)">
+    <!-- Rear Grid Distorted by Glass -->
+    <g opacity="0.3" filter="url(#glassDistort)">
+        <path d="M-30,0 V100 M-10,0 V100 M10,0 V100 M30,0 V100" stroke="#fff" stroke-width="1"/>
+    </g>
+    <!-- Goblet Shape -->
+    <path d="M-35,0 Q-35,60 0,60 Q35,60 35,0 H-35 Z" fill="#aaddff" fill-opacity="0.15" stroke="#fff" stroke-width="1" filter="url(#candleLight)"/>
+    <rect x="-3" y="60" width="6" height="50" fill="#aaddff" fill-opacity="0.2"/>
+    <ellipse cx="0" cy="110" rx="30" ry="5" fill="#aaddff" fill-opacity="0.2" stroke="#fff" stroke-width="0.5"/>
+    <!-- Specular Highlight on Glass -->
+    <path d="M-28,10 Q-28,40 -10,45" stroke="#fff" stroke-width="2" stroke-opacity="0.8" fill="none" filter="url(#dropShadow)"/>
+  </g>
+
+  <!-- Grapes (Front Center) -->
+  <g transform="translate(250, 380)" filter="url(#dropShadow)">
+    <defs>
+      <radialGradient id="grapeGrad" cx="30%" cy="30%">
+        <stop offset="0%" stop-color="#a8e"/>
+        <stop offset="100%" stop-color="#303"/>
+      </radialGradient>
+      <symbol id="dewDrop">
+         <circle cx="0" cy="0" r="1.5" fill="#fff" opacity="0.8"/>
+      </symbol>
+    </defs>
+    <!-- Cluster -->
+    <circle cx="-20" cy="-10" r="15" fill="url(#grapeGrad)"/>
+    <use href="#dewDrop" x="-25" y="-15"/>
+    <circle cx="0" cy="-20" r="15" fill="url(#grapeGrad)"/>
+    <circle cx="20" cy="-10" r="15" fill="url(#grapeGrad)"/>
+    <circle cx="-10" cy="10" r="15" fill="url(#grapeGrad)"/>
+    <use href="#dewDrop" x="-10" y="5"/>
+    <circle cx="10" cy="10" r="15" fill="url(#grapeGrad)"/>
+    <circle cx="0" cy="25" r="15" fill="url(#grapeGrad)"/>
+  </g>
+
+  <!-- Peeled Lemon (Front Left) -->
+  <g transform="translate(150, 400)" filter="url(#candleLight)">
+    <!-- Lemon Body -->
+    <ellipse cx="0" cy="0" rx="35" ry="28" fill="#fc0"/>
+    <!-- Pith (Textured) -->
+    <path d="M-30,-5 Q0,-20 30,-5 Q20,15 -30,-5" fill="#fff" filter="url(#pithNoise)"/>
+    <!-- Peel Spiral -->
+    <path d="M-35,0 Q-50,20 -20,35 Q10,40 40,30" stroke="#fc0" stroke-width="12" fill="none" stroke-linecap="round"/>
+    <path d="M-35,0 Q-50,20 -20,35 Q10,40 40,30" stroke="#fff" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <path d="M-35,0 Q-50,20 -20,35 Q10,40 40,30" stroke="#fc0" stroke-width="4" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Global Atmosphere / Color Grading -->
+  <rect width="500" height="500" fill="#421" opacity="0.15" style="mix-blend-mode: overlay; pointer-events: none;"/>
+  
+</svg>

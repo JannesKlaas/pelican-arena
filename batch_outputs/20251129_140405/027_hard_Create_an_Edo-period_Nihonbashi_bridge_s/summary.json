@@ -1,0 +1,85 @@
+{
+  "prompt_idx": 27,
+  "difficulty": "hard",
+  "prompt": "Create an Edo-period Nihonbashi bridge scene rendered as a woodblock-print-style SVG with a disguised modern drone-kite (viewBox 0 0 2100 1200). Limit palette to 12 flat hues; emulate woodgrain/paper with feTurbulence masked noise. Perspective: low horizon y=780; VP at (1050,780). Bridge arch follows catenary y=a cosh(x/a) with a scaled to 220 px rise over 1600 px span. Kimono patterns respect era-appropriate motifs (seigaiha, asanoha) on pattern fills aligned to body contours. The drone masquerades as a kite: bamboo frame strokes, but faint rotor disks suggested by radial-gradient blur rings (no motion lines crossing the frame). Simulate registration misalignment by offsetting cyan/magenta plates by 1\u20132 px. River ripples: repeated paths with slight random jitter. Include kanji signage using textPath along noren.",
+  "timestamp": "2025-11-29T15:09:23.890740",
+  "models": [
+    {
+      "model": "openai/gpt-5.1-2025-11-13",
+      "status": "success",
+      "files": {
+        "svg": "gpt-5.1-2025-11-13.svg",
+        "png": "gpt-5.1-2025-11-13.png"
+      }
+    },
+    {
+      "model": "anthropic/claude-opus-4-1-20250805",
+      "status": "success",
+      "files": {
+        "svg": "claude-opus-4-1-20250805.svg",
+        "png": "claude-opus-4-1-20250805.png"
+      }
+    },
+    {
+      "model": "anthropic/claude-haiku-4-5-20251001",
+      "status": "success",
+      "files": {
+        "svg": "claude-haiku-4-5-20251001.svg",
+        "png": "claude-haiku-4-5-20251001.png"
+      }
+    },
+    {
+      "model": "openai/gpt-5-codex",
+      "status": "success",
+      "files": {
+        "svg": "gpt-5-codex.svg",
+        "png": "gpt-5-codex.png"
+      }
+    },
+    {
+      "model": "anthropic/claude-sonnet-4-5-20250929",
+      "status": "error",
+      "error": "not well-formed (invalid token): line 194, column 16"
+    },
+    {
+      "model": "openai/gpt-5-mini-2025-08-07",
+      "status": "success",
+      "files": {
+        "svg": "gpt-5-mini-2025-08-07.svg",
+        "png": "gpt-5-mini-2025-08-07.png"
+      }
+    },
+    {
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "success",
+      "files": {
+        "svg": "gemini-2.5-flash-lite.svg",
+        "png": "gemini-2.5-flash-lite.png"
+      }
+    },
+    {
+      "model": "openai/gpt-5-nano-2025-08-07",
+      "status": "success",
+      "files": {
+        "svg": "gpt-5-nano-2025-08-07.svg",
+        "png": "gpt-5-nano-2025-08-07.png"
+      }
+    },
+    {
+      "model": "google/gemini-3-pro-preview",
+      "status": "success",
+      "files": {
+        "svg": "gemini-3-pro-preview.svg",
+        "png": "gemini-3-pro-preview.png"
+      }
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "status": "success",
+      "files": {
+        "svg": "gemini-2.5-flash.svg",
+        "png": "gemini-2.5-flash.png"
+      }
+    }
+  ]
+}

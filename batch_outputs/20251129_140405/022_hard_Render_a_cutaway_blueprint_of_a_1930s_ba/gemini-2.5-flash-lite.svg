@@ -1,0 +1,140 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <filter id="waterCaustics">
+      <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" result="turbulence"/>
+      <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="15" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <symbol id="rivet" viewBox="0 0 5 5">
+      <circle cx="2.5" cy="2.5" r="2.5" fill="#666"/>
+    </symbol>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#000"/> <!-- Deep ocean background -->
+
+  <!-- Water Caustics - Applied to a transparent overlay to simulate water -->
+  <rect x="0" y="0" width="100%" height="100%" fill="url(#waterCaustics)" opacity="0.4" style="mix-blend-mode: screen;"/>
+
+  <!-- Bathysphere Cutaway -->
+  <g id="bathysphere" transform="translate(250, 250)">
+    <!-- Pressure Hull (Orthographic Overlay) -->
+    <circle cx="0" cy="0" r="75" fill="#222" stroke="#aaa" stroke-width="2"/>
+    <circle cx="0" cy="0" r="71" fill="#333"/>
+
+    <!-- Viewport (Perspective Element) -->
+    <g transform="rotate(-15) translate(0, -50)">
+      <ellipse cx="0" cy="0" rx="15" ry="7.5" fill="rgba(150, 200, 255, 0.2)" stroke="#88c" stroke-width="1" opacity="0.8"/>
+      <ellipse cx="0" cy="0" rx="14.5" ry="7.25" fill="rgba(180, 220, 255, 0.1)"/>
+      <!-- Condensation Simulation -->
+      <g opacity="0.5" filter="url(#condensation)">
+        <circle cx="5" cy="-3" r="1" fill="white" opacity="0.7"/>
+        <circle cx="-3" cy="4" r="0.8" fill="white" opacity="0.6"/>
+        <circle cx="-6" cy="-2" r="0.9" fill="white" opacity="0.75"/>
+      </g>
+    </g>
+
+    <!-- Internals (Orthographic Overlay) -->
+    <!-- Winch Drum -->
+    <rect x="-15" y="-10" width="30" height="20" fill="#444" stroke="#888"/>
+    <circle cx="-15" cy="0" r="10" fill="#555"/>
+    <circle cx="15" cy="0" r="10" fill="#555"/>
+    <!-- Gearing Teeth (Simplified) -->
+    <path d="M -15 0 m -10 0 a 10 10 0 1 1 20 0 a 10 10 0 1 1 -20 0" fill="none" stroke="#888" stroke-width="1"/>
+    <path d="M -15 0 m -15 0 a 15 15 0 1 1 30 0 a 15 15 0 1 1 -30 0" fill="none" stroke="#777" stroke-width="0.5" opacity="0.7"/>
+
+    <!-- Crank Links -->
+    <line x1="-10" y1="-5" x2="10" y2="5" stroke="#bbb" stroke-width="3"/>
+    <circle cx="-10" cy="-5" r="3" fill="#999"/>
+    <circle cx="10" cy="5" r="3" fill="#999"/>
+
+    <!-- Gauge -->
+    <g transform="translate(30, -20)">
+      <circle cx="0" cy="0" r="8" fill="#333" stroke="#888"/>
+      <line x1="0" y1="0" x2="5" y2="0" stroke="#f00" stroke-width="1.5" transform="rotate(-45)"/> <!-- Needle -->
+      <circle cx="0" cy="0" r="1" fill="#f00"/>
+    </g>
+
+    <!-- Diver's Lamp -->
+    <g transform="translate(60, 20) rotate(-15)">
+      <path d="M 0 0 L 5 10 L -5 10 Z" fill="#ffcc88" stroke="#ff9933"/>
+      <circle cx="0" cy="0" r="2" fill="#fff"/>
+      <!-- Light beam simulated by a soft glow -->
+      <radialGradient id="lampLight" cx="0%" cy="0%" r="50%" fx="50%" fy="50%">
+        <stop offset="0%" style="stop-color:rgba(255,220,150,0.6);stop-opacity:1" />
+        <stop offset="100%" style="stop-color:rgba(255,220,150,0);stop-opacity:0" />
+      </radialGradient>
+      <circle cx="0" cy="0" r="10" fill="url(#lampLight)" opacity="0.7"/>
+    </g>
+  </g>
+
+  <!-- Rivets -->
+  <g id="rivets">
+    <use xlink:href="#rivet" x="250" y="175" width="5" height="5"/>
+    <use xlink:href="#rivet" x="250" y="325" width="5" height="5"/>
+    <use xlink:href="#rivet" x="175" y="250" width="5" height="5"/>
+    <use xlink:href="#rivet" x="325" y="250" width="5" height="5"/>
+    <!-- Add more for illustrative purposes, demonstrating polar placement -->
+    <use xlink:href="#rivet" x="210" y="210" width="5" height="5"/>
+    <use xlink:href="#rivet" x="290" y="210" width="5" height="5"/>
+    <use xlink:href="#rivet" x="210" y="290" width="5" height="5"/>
+    <use xlink:href="#rivet" x="290" y="290" width="5" height="5"/>
+  </g>
+
+  <!-- Bioluminescent Siphonophores (Animated) -->
+  <g id="siphonophores">
+    <path d="M 50 100 Q 80 120 100 100 T 150 100" stroke="#00ffcc" stroke-width="2" fill="none" class="bioluminescent-streak">
+      <animate attributeName="stroke-dasharray" from="0 10" to="10 0" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-dashoffset" from="0" to="-10" dur="4s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 450 200 Q 420 220 400 200 T 350 200" stroke="#ff00cc" stroke-width="2" fill="none" class="bioluminescent-streak">
+      <animate attributeName="stroke-dasharray" from="0 10" to="10 0" dur="3s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-dashoffset" from="0" to="-10" dur="3s" repeatCount="indefinite"/>
+    </path>
+     <path d="M 100 400 Q 120 420 140 400 T 180 400" stroke="#ccff00" stroke-width="2" fill="none" class="bioluminescent-streak">
+      <animate attributeName="stroke-dasharray" from="0 10" to="10 0" dur="5s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-dashoffset" from="0" to="-10" dur="5s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- Stress Annotations -->
+  <g id="stress-annotations">
+    <path id="stress-arc1" d="M 150 250 A 100 100 0 0 1 350 250" fill="none"/>
+    <text font-family="Arial, sans-serif" font-size="10" fill="#ffcc00">
+      <textPath href="#stress-arc1">Hull Compression Zones</textPath>
+    </text>
+
+    <path id="stress-arc2" d="M 250 150 A 100 100 0 0 1 250 350" fill="none"/>
+    <text font-family="Arial, sans-serif" font-size="10" fill="#ffcc00" transform="rotate(90 250 250)">
+      <textPath href="#stress-arc2">Viewport Stress Points</textPath>
+    </text>
+  </g>
+
+  <!-- Lighting Effect on Viewport (feSpecularLighting) -->
+  <defs>
+    <filter id="viewportLighting">
+      <feSpecularLighting specularConstant="0.5"
+                        specularExponent="10"
+                        lighting-color="#ffffff">
+        <feSpotLight x="0" y="-50" z="100"
+                     px="0" py="0" pz="0"
+                     concentration="10"
+                     exponent="5"
+                     />
+      </feSpecularLighting>
+    </filter>
+  </defs>
+  <g id="viewport-light-effect" transform="translate(250, 250) rotate(-15) translate(0, -50)">
+      <ellipse cx="0" cy="0" rx="15" ry="7.5" fill="none" filter="url(#viewportLighting)"/>
+  </g>
+
+
+  <!-- Condensation Filter (Placeholder - basic blur) -->
+  <defs>
+    <filter id="condensation">
+      <feGaussianBlur stdDeviation="1" result="blur"/>
+      <feMorphology operator="dilate" radius="0.5" in="blur" result="droplets"/>
+      <feComposite in="droplets" in2="SourceGraphic" operator="in" result="finalDroplets"/>
+    </filter>
+  </defs>
+
+</svg>

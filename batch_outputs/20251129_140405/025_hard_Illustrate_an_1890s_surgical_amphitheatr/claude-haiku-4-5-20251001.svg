@@ -1,0 +1,203 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <filter id="gasLampGlow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="softShadow">
+      <feDropShadow dx="2" dy="3" stdDeviation="2" flood-opacity="0.4" flood-color="#2a2a2a"/>
+    </filter>
+    
+    <filter id="glassGlare">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="0.5"/>
+    </filter>
+    
+    <linearGradient id="warmLight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd89b;stop-opacity:0.8"/>
+      <stop offset="100%" style="stop-color:#8b6914;stop-opacity:0.2"/>
+    </linearGradient>
+    
+    <linearGradient id="instrumentShine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8e8e8;stop-opacity:0.9"/>
+      <stop offset="50%" style="stop-color:#999999;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#555555;stop-opacity:0.4"/>
+    </linearGradient>
+    
+    <path id="arcPath1" d="M 150 400 A 200 200 0 0 1 350 400" fill="none"/>
+    <path id="arcPath2" d="M 140 420 A 220 220 0 0 1 360 420" fill="none"/>
+    
+    <marker id="arrowMarker" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#4a4a4a"/>
+    </marker>
+    
+    <clipPath id="glareClip">
+      <rect x="280" y="150" width="80" height="120"/>
+    </clipPath>
+  </defs>
+  
+  <!-- Background - Amphitheatre hall -->
+  <rect width="500" height="500" fill="#3d3d3d"/>
+  
+  <!-- Warm gas lamp lighting gradient overlay -->
+  <ellipse cx="250" cy="80" rx="200" ry="120" fill="url(#warmLight)" opacity="0.6"/>
+  
+  <!-- Tiered seating - concentric arcs -->
+  <g id="seating" stroke="#5a5a5a" stroke-width="1.5" fill="none" opacity="0.7">
+    <!-- Outer tier -->
+    <path d="M 80 420 A 180 180 0 0 1 420 420" stroke="#6a6a6a" stroke-width="2"/>
+    <!-- Middle tier -->
+    <path d="M 100 400 A 160 160 0 0 1 400 400" stroke="#5a5a5a" stroke-width="1.5"/>
+    <!-- Inner tier -->
+    <path d="M 120 380 A 140 140 0 0 1 380 380" stroke="#4a4a4a" stroke-width="1.5"/>
+    
+    <!-- Radial risers -->
+    <line x1="250" y1="240" x2="250" y2="420" stroke="#4a4a4a" stroke-width="1" opacity="0.5"/>
+    <line x1="180" y1="270" x2="140" y2="420" stroke="#4a4a4a" stroke-width="1" opacity="0.5"/>
+    <line x1="320" y1="270" x2="360" y2="420" stroke="#4a4a4a" stroke-width="1" opacity="0.5"/>
+    <line x1="130" y1="350" x2="80" y2="420" stroke="#4a4a4a" stroke-width="1" opacity="0.5"/>
+    <line x1="370" y1="350" x2="420" y2="420" stroke="#4a4a4a" stroke-width="1" opacity="0.5"/>
+  </g>
+  
+  <!-- Gas lamps on walls -->
+  <g id="gasLamps" filter="url(#gasLampGlow)">
+    <circle cx="60" cy="120" r="12" fill="#ffd89b" opacity="0.9"/>
+    <circle cx="60" cy="120" r="8" fill="#ffed4e" opacity="0.6"/>
+    
+    <circle cx="440" cy="120" r="12" fill="#ffd89b" opacity="0.9"/>
+    <circle cx="440" cy="120" r="8" fill="#ffed4e" opacity="0.6"/>
+    
+    <circle cx="80" cy="200" r="10" fill="#ffd89b" opacity="0.8"/>
+    <circle cx="80" cy="200" r="6" fill="#ffed4e" opacity="0.5"/>
+    
+    <circle cx="420" cy="200" r="10" fill="#ffd89b" opacity="0.8"/>
+    <circle cx="420" cy="200" r="6" fill="#ffed4e" opacity="0.5"/>
+  </g>
+  
+  <!-- Surgical table - perspective -->
+  <g id="surgicalTable" filter="url(#softShadow)">
+    <ellipse cx="250" cy="280" rx="85" ry="35" fill="#8b7355" stroke="#5a5a5a" stroke-width="1.5"/>
+    <rect x="180" y="275" width="140" height="30" fill="#a0826d" stroke="#5a5a5a" stroke-width="1" opacity="0.8"/>
+  </g>
+  
+  <!-- Upper limb anatomy on table -->
+  <g id="upperLimb" stroke="#6a5a4a" stroke-width="1.2" fill="none" opacity="0.85">
+    <!-- Humerus (scaled to ~19% of body height) -->
+    <line x1="240" y1="240" x2="240" y2="295" stroke="#8a7a6a" stroke-width="3.5"/>
+    <circle cx="240" cy="240" r="2.5" fill="#a09080"/>
+    <circle cx="240" cy="295" r="2.5" fill="#a09080"/>
+    
+    <!-- Radius -->
+    <path d="M 240 295 Q 245 320 250 340" stroke="#8a7a6a" stroke-width="2.5" fill="none"/>
+    
+    <!-- Ulna -->
+    <path d="M 240 295 Q 235 320 230 340" stroke="#8a7a6a" stroke-width="2.5" fill="none"/>
+    
+    <!-- Scapula indication (30° angle) -->
+    <path d="M 220 235 Q 200 225 195 245" stroke="#7a6a5a" stroke-width="2" opacity="0.7"/>
+    
+    <!-- Tendon lines (schematic) -->
+    <path d="M 242 270 Q 248 290 252 310" stroke="#a0a080" stroke-width="1.2" stroke-dasharray="2,2" opacity="0.6"/>
+    <path d="M 238 275 Q 232 295 228 315" stroke="#a0a080" stroke-width="1.2" stroke-dasharray="2,2" opacity="0.6"/>
+  </g>
+  
+  <!-- Anatomical labels with leader lines -->
+  <g id="anatomicalLabels" font-family="serif" font-size="10" fill="#d0d0d0" stroke="none">
+    <!-- Humerus label -->
+    <line x1="240" y1="265" x2="270" y2="250" stroke="#6a6a6a" stroke-width="0.8" marker-end="url(#arrowMarker)"/>
+    <text x="275" y="254" font-size="9">Humerus</text>
+    
+    <!-- Radius label -->
+    <line x1="250" y1="320" x2="280" y2="330" stroke="#6a6a6a" stroke-width="0.8" marker-end="url(#arrowMarker)"/>
+    <text x="285" y="334" font-size="9">Radius</text>
+    
+    <!-- Ulna label -->
+    <line x1="230" y1="320" x2="200" y2="335" stroke="#6a6a6a" stroke-width="0.8" marker-end="url(#arrowMarker)"/>
+    <text x="155" y="340" font-size="9">Ulna</text>
+    
+    <!-- Muscular origins -->
+    <circle cx="238" cy="275" r="1.5" fill="none" stroke="#c0a080" stroke-width="0.8" opacity="0.7"/>
+    <text x="210" y="270" font-size="8" fill="#b0a080" opacity="0.8">Origin</text>
+  </g>
+  
+  <!-- Surgical instruments -->
+  <g id="instruments">
+    <!-- Bone saw -->
+    <g filter="url(#softShadow)">
+      <rect x="320" y="260" width="60" height="4" fill="url(#instrumentShine)" stroke="#333333" stroke-width="0.8" rx="2"/>
+      <polygon points="375,262 385,258 385,266" fill="url(#instrumentShine)" stroke="#333333" stroke-width="0.8"/>
+      <path d="M 325 264 L 330 275 L 320 280 Z" fill="#999999" stroke="#333333" stroke-width="0.8"/>
+      <!-- Saw teeth suggestion -->
+      <line x1="330" y1="263" x2="370" y2="263" stroke="#666666" stroke-width="0.5" opacity="0.6"/>
+    </g>
+    
+    <!-- Forceps -->
+    <g filter="url(#softShadow)">
+      <path d="M 290 300 L 285 325 L 283 330" stroke="url(#instrumentShine)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M 290 300 L 295 325 L 297 330" stroke="url(#instrumentShine)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <circle cx="290" cy="295" r="3" fill="#888888" stroke="#333333" stroke-width="0.8"/>
+    </g>
+  </g>
+  
+  <!-- Glass skylight with glare -->
+  <g id="skylight" opacity="0.4">
+    <rect x="200" y="40" width="120" height="80" fill="#87ceeb" stroke="#5a7a8a" stroke-width="1" opacity="0.5"/>
+    <rect x="205" y="45" width="110" height="70" fill="#b0d4e3" opacity="0.3"/>
+  </g>
+  
+  <!-- Glass glare streaks -->
+  <g id="glareStreaks" clip-path="url(#glareClip)" filter="url(#glassGlare)" opacity="0.4">
+    <ellipse cx="300" cy="170" rx="25" ry="50" fill="#ffffff" opacity="0.5"/>
+    <path d="M 290 150 L 310 200" stroke="#ffffff" stroke-width="2" opacity="0.3"/>
+  </g>
+  
+  <!-- Slate board with chalk diagrams -->
+  <g id="slateBoard" filter="url(#softShadow)">
+    <rect x="360" y="380" width="110" height="90" fill="#2a2a2a" stroke="#5a5a5a" stroke-width="1.5" rx="2"/>
+    
+    <!-- Chalk text curves -->
+    <text x="375" y="400" font-family="serif" font-size="9" fill="#e8e8e8" opacity="0.8">Anatomical</text>
+    <text x="375" y="415" font-family="serif" font-size="9" fill="#e8e8e8" opacity="0.8">Notes:</text>
+    
+    <!-- Schematic diagram on slate -->
+    <path d="M 380 430 Q 390 440 400 435" stroke="#e8e8e8" stroke-width="1" fill="none" opacity="0.7"/>
+    <circle cx="380" cy="430" r="2" fill="#e8e8e8" opacity="0.7"/>
+    <circle cx="400" cy="435" r="2" fill="#e8e8e8" opacity="0.7"/>
+    
+    <text x="375" y="455" font-family="serif" font-size="7" fill="#c0c0c0" opacity="0.7">Anterior view</text>
+  </g>
+  
+  <!-- Observers in amphitheatre (silhouettes) -->
+  <g id="observers" opacity="0.5">
+    <circle cx="140" cy="370" r="5" fill="#4a4a4a"/>
+    <polygon points="140,375 135,385 145,385" fill="#4a4a4a"/>
+    
+    <circle cx="360" cy="365" r="5" fill="#4a4a4a"/>
+    <polygon points="360,370 355,380 365,380" fill="#4a4a4a"/>
+    
+    <circle cx="200" cy="340" r="4.5" fill="#4a4a4a"/>
+    <polygon points="200,344.5 196,353 204,353" fill="#4a4a4a"/>
+    
+    <circle cx="300" cy="345" r="4.5" fill="#4a4a4a"/>
+    <polygon points="300,349.5 296,358 304,358" fill="#4a4a4a"/>
+  </g>
+  
+  <!-- Architectural detail - column suggestion -->
+  <g id="columns" opacity="0.3">
+    <rect x="40" y="120" width="8" height="200" fill="#6a6a6a" stroke="none"/>
+    <rect x="452" y="120" width="8" height="200" fill="#6a6a6a" stroke="none"/>
+  </g>
+  
+  <!-- Perspective grid suggestion (horizon line) -->
+  <line x1="0" y1="380" x2="500" y2="380" stroke="#5a5a5a" stroke-width="0.5" opacity="0.2"/>
+  
+  <!-- Document/clipboard detail -->
+  <g id="clipboard" filter="url(#softShadow)">
+    <rect x="30" y="320" width="50" height="70" fill="#8b7355" stroke="#5a5a5a" stroke-width="1" rx="2"/>
+    <rect x="35" y="325" width="40" height="60" fill="#f5f5dc" stroke="#6a6a6a" stroke-width="0.5"/>
+    <line x1="38" y1="335" x2="72" y2="335" stroke="#999999" stroke-width="0.5" opacity="0.6"/>
+    <line x1="38" y1="343" x2="72" y2="343" stroke="#999999" stroke-width="0.5" opacity="0.6"/>
+    <line x1="38" y1="</svg>

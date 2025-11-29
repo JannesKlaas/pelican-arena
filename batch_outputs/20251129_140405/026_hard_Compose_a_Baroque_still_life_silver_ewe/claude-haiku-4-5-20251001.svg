@@ -1,0 +1,209 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="candlelight">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2"/>
+      <feSpecularLighting surfaceScale="5" specularConstant="0.8" lighting-color="#fff8dc" in="SourceAlpha">
+        <fePointLight x="-150" y="100" z="200"/>
+      </feSpecularLighting>
+      <feComposite in="SourceGraphic" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
+    </filter>
+    
+    <filter id="rimLight">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.6"/>
+      </feComponentTransfer>
+    </filter>
+    
+    <filter id="glassRefraction">
+      <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    
+    <filter id="velvetSheen">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="0.8"/>
+      <feColorMatrix type="saturate" values="0.85"/>
+    </filter>
+    
+    <filter id="dewDrops">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.2"/>
+      <feSpecularLighting surfaceScale="3" specularConstant="0.9" lighting-color="#ffffff" in="SourceAlpha">
+        <fePointLight x="-120" y="80" z="150"/>
+      </feSpecularLighting>
+    </filter>
+    
+    <radialGradient id="silverShine" cx="35%" cy="35%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1"/>
+      <stop offset="40%" style="stop-color:#e8e8e8;stop-opacity:1"/>
+      <stop offset="70%" style="stop-color:#b0b0b0;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#6a6a6a;stop-opacity:0.8"/>
+    </radialGradient>
+    
+    <radialGradient id="glassGlow" cx="40%" cy="30%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.9"/>
+      <stop offset="30%" style="stop-color:#d4e4f7;stop-opacity:0.5"/>
+      <stop offset="100%" style="stop-color:#8fa8c0;stop-opacity:0.3"/>
+    </radialGradient>
+    
+    <radialGradient id="lemonGlow" cx="40%" cy="35%">
+      <stop offset="0%" style="stop-color:#ffeb99;stop-opacity:1"/>
+      <stop offset="60%" style="stop-color:#ffd700;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#e6b800;stop-opacity:0.9"/>
+    </radialGradient>
+    
+    <radialGradient id="grapeSheen" cx="35%" cy="30%">
+      <stop offset="0%" style="stop-color:#9966cc;stop-opacity:1"/>
+      <stop offset="70%" style="stop-color:#663366;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#330033;stop-opacity:0.9"/>
+    </radialGradient>
+    
+    <linearGradient id="velvetDrape" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b0000;stop-opacity:1"/>
+      <stop offset="40%" style="stop-color:#5c0000;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#2a0000;stop-opacity:1"/>
+    </linearGradient>
+    
+    <pattern id="damask" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <rect width="40" height="40" fill="#d4a574" opacity="0.3"/>
+      <path d="M10,10 Q20,5 30,10 T30,30" stroke="#8b7355" stroke-width="0.5" fill="none" opacity="0.4"/>
+      <path d="M10,30 Q20,35 30,30 T30,10" stroke="#8b7355" stroke-width="0.5" fill="none" opacity="0.4"/>
+    </pattern>
+    
+    <filter id="shadowBleed">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2"/>
+      <feOffset dx="1" dy="2" result="offsetblur"/>
+      <feFlood flood-color="#1a1a1a" flood-opacity="0.4" result="offsetcolor"/>
+      <feComposite in="offsetcolor" in2="offsetblur" operator="in" result="offsetblur"/>
+      <feComposite in="offsetblur" in2="SourceGraphic" operator="over"/>
+    </filter>
+    
+    <filter id="microScratches">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise" seed="2"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.3"/>
+    </filter>
+
+    <mask id="lemonPithMask">
+      <rect width="500" height="500" fill="white"/>
+      <circle cx="180" cy="240" r="35" fill="black" opacity="0.6"/>
+      <circle cx="185" cy="235" r="8" fill="black" opacity="0.3"/>
+      <circle cx="175" cy="245" r="6" fill="black" opacity="0.25"/>
+    </mask>
+  </defs>
+  
+  <!-- Tablecloth with damask pattern -->
+  <rect width="500" height="500" fill="#c9a961"/>
+  <rect width="500" height="500" fill="url(#damask)"/>
+  
+  <!-- Shadow base -->
+  <ellipse cx="250" cy="420" rx="180" ry="40" fill="#1a1a1a" opacity="0.25" filter="url(#shadowBleed)"/>
+  
+  <!-- Velvet drape background -->
+  <path d="M 50 100 Q 80 80 150 90 L 150 450 Q 80 440 50 420 Z" fill="url(#velvetDrape)" filter="url(#velvetSheen)"/>
+  <path d="M 420 100 Q 400 75 350 85 L 350 450 Q 400 440 420 420 Z" fill="#6b0000" opacity="0.7" filter="url(#velvetSheen)"/>
+  
+  <!-- Drape fold highlights -->
+  <path d="M 80 120 Q 100 110 120 125" stroke="#a8340e" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M 370 130 Q 390 115 410 130" stroke="#a8340e" stroke-width="1.5" fill="none" opacity="0.5"/>
+  
+  <!-- Silver Ewer body -->
+  <ellipse cx="130" cy="280" rx="45" ry="60" fill="url(#silverShine)" filter="url(#candlelight)"/>
+  
+  <!-- Ewer neck -->
+  <rect x="115" y="200" width="30" height="80" fill="url(#silverShine)" rx="3"/>
+  
+  <!-- Ewer rim -->
+  <ellipse cx="130" cy="200" rx="20" ry="8" fill="#ffffff" opacity="0.4" filter="url(#rimLight)"/>
+  <ellipse cx="130" cy="198" rx="18" ry="6" fill="#f5f5dc" opacity="0.7"/>
+  
+  <!-- Ewer handle -->
+  <path d="M 155 240 Q 190 220 185 300" stroke="url(#silverShine)" stroke-width="12" fill="none" stroke-linecap="round"/>
+  
+  <!-- Ewer spout -->
+  <path d="M 90 260 Q 70 255 65 270" stroke="url(#silverShine)" stroke-width="10" fill="none" stroke-linecap="round"/>
+  
+  <!-- Glass Goblet base -->
+  <ellipse cx="280" cy="340" rx="35" ry="12" fill="#a9a9a9" opacity="0.3"/>
+  
+  <!-- Goblet stem -->
+  <rect x="270" y="260" width="20" height="80" fill="#e0e0e0" opacity="0.4" rx="2"/>
+  
+  <!-- Goblet bowl with refraction -->
+  <path d="M 250 260 L 240 320 Q 240 350 280 360 Q 320 350 320 320 L 310 260 Z" fill="url(#glassGlow)" filter="url(#glassRefraction)" opacity="0.85"/>
+  
+  <!-- Glass rim highlight -->
+  <ellipse cx="280" cy="258" rx="32" ry="8" fill="#ffffff" opacity="0.5" filter="url(#rimLight)"/>
+  <ellipse cx="280" cy="256" rx="28" ry="5" fill="#f0f8ff" opacity="0.8"/>
+  
+  <!-- Fresnel rim effect -->
+  <path d="M 250 260 Q 265 252 310 260" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.6"/>
+  
+  <!-- Grid distortion pattern inside goblet -->
+  <g filter="url(#glassRefraction)" opacity="0.2">
+    <line x1="260" y1="270" x2="300" y2="270" stroke="#4682b4" stroke-width="0.5"/>
+    <line x1="258" y1="290" x2="302" y2="290" stroke="#4682b4" stroke-width="0.5"/>
+    <line x1="250" y1="310" x2="310" y2="310" stroke="#4682b4" stroke-width="0.5"/>
+    <line x1="245" y1="330" x2="315" y2="330" stroke="#4682b4" stroke-width="0.5"/>
+  </g>
+  
+  <!-- Peeled Lemon -->
+  <circle cx="180" cy="240" r="40" fill="url(#lemonGlow)"/>
+  
+  <!-- Lemon peel curl (3mm thick, 18mm wide) -->
+  <path d="M 220 220 Q 250 200 270 210 Q 275 215 272 225 Q 250 215 220 235" fill="#e8d700" opacity="0.8" stroke="#d4a500" stroke-width="0.5"/>
+  
+  <!-- Second peel curl -->
+  <path d="M 200 180 Q 230 160 250 175 Q 252 182 248 188 Q 230 175 200 190" fill="#f0e000" opacity="0.7" stroke="#c9a500" stroke-width="0.5"/>
+  
+  <!-- Lemon pith with noise texture -->
+  <circle cx="180" cy="240" r="32" fill="#fff8dc" mask="url(#lemonPithMask)"/>
+  
+  <!-- Lemon pith segments -->
+  <g opacity="0.3">
+    <line x1="180" y1="208" x2="180" y2="272" stroke="#e8c800" stroke-width="0.5"/>
+    <line x1="148" y1="240" x2="212" y2="240" stroke="#e8c800" stroke-width="0.5"/>
+    <line x1="160" y1="220" x2="200" y2="260" stroke="#e8c800" stroke-width="0.5"/>
+    <line x1="200" y1="220" x2="160" y2="260" stroke="#e8c800" stroke-width="0.5"/>
+  </g>
+  
+  <!-- Grapes cluster -->
+  <g id="grapes">
+    <!-- Top grape -->
+    <circle cx="350" cy="200" r="12" fill="url(#grapeSheen)" filter="url(#dewDrops)"/>
+    <circle cx="350" cy="198" r="3" fill="#ffffff" opacity="0.8"/>
+    
+    <!-- Upper middle grapes -->
+    <circle cx="330" cy="220" r="12" fill="url(#grapeSheen)" filter="url(#dewDrops)"/>
+    <circle cx="330" cy="218" r="2.5" fill="#ffffff" opacity="0.7"/>
+    
+    <circle cx="370" cy="220" r="12" fill="url(#grapeSheen)" filter="url(#dewDrops)"/>
+    <circle cx="371" cy="217" r="3" fill="#ffffff" opacity="0.8"/>
+    
+    <!-- Lower middle grapes -->
+    <circle cx="315" cy="245" r="12" fill="url(#grapeSheen)" filter="url(#dewDrops)"/>
+    <circle cx="316" cy="242" r="2.5" fill="#ffffff" opacity="0.6"/>
+    
+    <circle cx="350" cy="250" r="12" fill="url(#grapeSheen)" filter="url(#dewDrops)"/>
+    <circle cx="350" cy="248" r="3" fill="#ffffff" opacity="0.8"/>
+    
+    <circle cx="385" cy="245" r="12" fill="url(#grapeSheen)" filter="url(#dewDrops)"/>
+    <circle cx="385" cy="242" r="2.5" fill="#ffffff" opacity="0.7"/>
+    
+    <!-- Bottom grapes -->
+    <circle cx="330" cy="270" r="12" fill="url(#grapeSheen)" filter="url(#dewDrops)"/>
+    <circle cx="330" cy="268" r="2.5" fill="#ffffff" opacity="0.6"/>
+    
+    <circle cx="370" cy="270" r="12" fill="url(#grapeSheen)" filter="url(#dewDrops)"/>
+    <circle cx="370" cy="268" r="3" fill="#ffffff" opacity="0.8"/>
+  </g>
+  
+  <!-- Dew on grapes with micro-scratches -->
+  <g filter="url(#microScratches)" opacity="0.4">
+    <line x1="350" y1="195" x2="352" y2="200" stroke="#e0e0e0" stroke-width="0.3" stroke-dasharray="1,2"/>
+    <line x1="328" y1="215" x2="332" y2="220" stroke="#e0e0e0" stroke-width="0.25" stroke-dasharray="1,1.5"/>
+    <line x1="370" y1="216" x2="373" y2="222" stroke="#e0e0e0" stroke-width="0.3" stroke-dasharray="1,2"/>
+  </g>
+  
+  <!-- Shadow contact on tablecloth -->
+  <ellipse cx="280" cy="355" rx="50" ry="15" fill="#1a1a1a" opacity="0.15"/>
+  <ellipse cx="130" cy="320" rx="45" ry="12" fill="#1a1a1a" opacity="0.12"/>
+  <ellipse cx="350" cy="280" rx="35</svg>

@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <!-- Palette: 12 flat hues -->
+    <style><![CDATA[
+      .c1{fill:#083d77}   /* indigo */
+      .c2{fill:#e63946}   /* crimson */
+      .c3{fill:#2a9d8f}   /* teal */
+      .c4{fill:#f4a261}   /* orange */
+      .c5{fill:#e9c46a}   /* warm yellow */
+      .c6{fill:#8d6b4f}   /* brown/wood */
+      .c7{fill:#00aacc}   /* cyan plate */
+      .c8{fill:#ff1a8c}   /* magenta plate */
+      .c9{fill:#1b1b1b}   /* black/dark */
+      .c10{fill:#7b8ea3}  /* sky blue */
+      .c11{fill:#f6ecd9}  /* paper cream */
+      .c12{fill:#ffffff}  /* white */
+      .strokeDark{stroke:#1b1b1b; stroke-linecap:round; stroke-linejoin:round}
+      .soft{opacity:0.9}
+      text{font-family: "Noto Serif JP", "Hiragino Mincho Pro", serif; font-size:18px; fill:#1b1b1b}
+    ]]></style>
+
+    <!-- Paper / woodgrain turbulence -->
+    <filter id="grain" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" seed="3" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="
+         0 0 0 0 0
+         0 0 0 0 0
+         0 0 0 0 0
+         0 0 0 0.12 0" result="alphaNoise"/>
+      <feComposite in="alphaNoise" in2="SourceGraphic" operator="in" result="grained"/>
+      <feBlend in="SourceGraphic" in2="grained" mode="normal"/>
+    </filter>
+
+    <!-- Rotor subtle ring gradient -->
+    <radialGradient id="rotorGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="60%" stop-color="#ffffff" stop-opacity="0.0"/>
+      <stop offset="70%" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="85%" stop-color="#ffffff" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.0"/>
+    </radialGradient>
+
+    <!-- Seigaiha (wave) pattern for kimono -->
+    <pattern id="seigaiha" width="40" height="20" patternUnits="userSpaceOnUse">
+      <path d="M0,20 Q10,0 20,20 T40,20" fill="none" stroke="#083d77" stroke-width="2"/>
+    </pattern>
+
+    <!-- Asanoha (hemp leaf) pattern for kimono -->
+    <pattern id="asanoha" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M12 0 L12 24 M0 12 L24 12 M4 4 L20 20 M20 4 L4 20" stroke="#2a9d8f" stroke-width="1.4" fill="none"/>
+    </pattern>
+
+    <!-- small wave ripple path for noren text path -->
+    <path id="norenPath" d="M100,200 q20,-8 40,0 q20,8 40,0" />
+
+  </defs>
+
+  <!-- Background paper tone with grain filter -->
+  <rect width="500" height="500" class="c11"/>
+  <g filter="url(#grain)">
+    <rect width="500" height="500" fill="none"/>
+  </g>
+
+  <!-- Sky with subtle registration misalignment (cyan/magenta plates offset) -->
+  <g class="soft">
+    <rect x="0" y="0" width="500" height="260" class="c10"/>
+    <rect x="-1" y="0" width="500" height="260" fill="#00aacc" opacity="0.06" transform="translate(-1,0)"/>
+    <rect x="1" y="0" width="500" height="260" fill="#ff1a8c" opacity="0.05" transform="translate(1,0)"/>
+  </g>
+
+  <!-- Horizon line / distant silhouettes -->
+  <g opacity="0.85">
+    <rect x="0" y="260" width="500" height="1.5" fill="#083d77" opacity="0.6"/>
+    <rect x="0" y="262" width="500" height="1" fill="#2a9d8f" opacity="0.12"/>
+  </g>
+
+  <!-- River area -->
+  <rect x="0" y="325" width="500" height="175" fill="#083d77" opacity="0.95"/>
+
+  <!-- Bridge (catenary arch) - sampled points, top curve then bottom offset for thickness -->
+  <!-- computed points (approx): -->
+  <!-- top: (59.5,325.15),(91.25,309.23),(123.0,296.29),(154.75,285.95),(186.5,278.68),(218.25,274.42),(250,273),(281.75,274.42),(313.5,278.68),(345.25,285.95),(377,296.29),(408.75,309.23),(440.5,325.15) -->
+  <g id="bridge" transform="">
+    <!-- magenta plate for misregistration -->
+    <path d="M59.5,325.15 L91.25,309.23 L123,296.29 L154.75,285.95 L186.5,278.68 L218.25,274.42 L250,273 L281.75,274.42 L313.5,278.68 L345.25,285.95 L377,296.29 L408.75,309.23 L440.5,325.15 L440.5,345.15 L408.75,329.23 L377,316.29 L345.25,307.95 L313.5,302.68 L281.75,300.42 L250,300 L218.25,300.42 L186.5,302.68 L154.75,307.95 L123,316.29 L91.25,329.23 L59.5,345.15 Z"
+          fill="#ff1a8c" opacity="0.07" transform="translate(1,-1)"/>
+    <!-- cyan plate -->
+    <path d="M59.5,325.15 L91.25,309.23 L123,296.29 L154.75,285.95 L186.5,278.68 L218.25,274.42 L250,273 L281.75,274.42 L313.5,278.68 L345.25,285.95 L377,296.29 L408.75,309.23 L440.5,325.15 L440.5,345.15 L408.75,329.23 L377,316.29 L345.25,307.95 L313.5,302.68 L281.75,300.42 L250,300 L218.25,300.42 L186.5,302.68 L154.75,307.95 L123,316.29 L91.25,329.23 L59.5,345.15 Z"
+          fill="#00aacc" opacity="0.06" transform="translate(-1,1)"/>
+    <!-- main wooden bridge fill -->
+    <path d="M59.5,325.15 L91.25,309.23 L123,296.29 L154.75,285.95 L186.5,278.68 L218.25,274.42 L250,273 L281.75,274.42 L313.5,278.68 L345.25,285.95 L377,296.29 L408.75,309.23 L440.5,325.15 L440.5,345.15 L408.75,329.23 L377,316.29 L345.25,307.95 L313.5,302.68 L281.75,300.42 L250,300 L218.25,300.42 L186.5,302.68 L154.75,307.95 L123,316.29 L91.25,329.23 L59.5,345.15 Z"
+          class="c6" stroke="#1b1b1b" stroke-width="1.2" opacity="0.98"/>
+    <!-- wood plank lines (registration offset subtle) -->
+    <g stroke="#6b4f3a" stroke-width="1" stroke-linecap="round" opacity="0.9">
+      <path d="M80,318 L80,337" transform="translate(-1,1)"/>
+      <path d="M140,305 L140,324" transform="translate(1,-1)"/>
+      <path d="M200,298 L200,317" />
+      <path d="M260,298 L260,317" transform="translate(1,1)"/>
+      <path d="M320,304 L320,323" />
+      <path d="M380,315 L380,334" transform="translate(-1,-1)"/>
+    </g>
+
+    <!-- Bridge posts (uprights) -->
+    <g stroke="#1b1b1b" stroke-width="1.6">
+      <line x1="95" y1="308" x2="95" y2="360"/>
+      <line x1="185" y1="295" x2="185" y2="360"/>
+      <line x1="275" y1="295" x2="275" y2="360"/>
+      <line x1="365" y1="305" x2="365" y2="360"/>
+    </g>
+
+    <!-- railing top -->
+    <path d="M59.5,325.15 Q250,250 440.5,325.15" fill="none" stroke="#1b1b1b" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- People with kimono patterns (stylized) on bridge -->
+  <!-- Left figure -->
+  <g transform="translate(160,285)">
+    <path d="M0,0 q-6,18 0,38 q12,30 24,30 q12,0 24,-30 q6,-20 0,-38 z" fill="url(#seigaiha)" stroke="#1b1b1b" stroke-width="1"/>
+    <!-- sleeve -->
+    <path d="M12,10 q-10,6 -4,18" fill="none" stroke="#1b1b1b" stroke-width="1.2"/>
+    <!-- head -->
+    <circle cx="24" cy="-6" r="8" fill="#f6ecd9" stroke="#1b1b1b" stroke-width="1"/>
+  </g>
+
+  <!-- Right figure -->
+  <g transform="translate(320,290)">
+    <path d="M0,0 q-8,20 0,40 q14,28 28,28 q14,0 28,-28 q8,-18 0,-40 z" fill="url(#asanoha)" stroke="#1b1b1b" stroke-width="1"/>
+    <path d="M12,10 q-10,6 -4,18" fill="none" stroke="#1b1b1b" stroke-width="1.2"/>
+    <circle cx="36" cy="-8" r="8" fill="#f6ecd9" stroke="#1b1b1b" stroke-width="1"/>
+  </g>
+
+  <!-- Kite disguised drone near upper-left over bridge -->
+  <g transform="translate(200,230)">
+    <!-- faint rotor suggestion: rings behind kite -->
+    <circle cx="-18" cy="-24" r="14" fill="url(#rotorGrad)" opacity="0.6"/>
+    <circle cx="18" cy="-28" r="10" fill="url(#rotorGrad)" opacity="0.55"/>
+    <!-- kite diamond -->
+    <g stroke="#6b4f3a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="#f4a261">
+      <!-- bamboo frame (four strokes) -->
+      <path d="M0,-34 L28,-4 L0,26 L-28,-4 Z" fill="#f4a261"/>
+      <path d="M0,-34 L0,26" stroke="#8d6b4f" stroke-width="1.8"/>
+      <path d="M-28,-4 L28,-4" stroke="#8d6b4f" stroke-width="1.8"/>
+      <path d="M-18,-18 L18,10" stroke="#8d6b4f" stroke-width="1.2"/>
+    </g>
+    <!-- phantom rotor blur rings not crossing frame (placed behind) -->
+    <circle cx="6" cy="-6" r="9" fill="none" stroke="#ffffff" stroke-opacity="0.12" stroke-width="6" />
+    <circle cx="-6" cy="-6" r="6" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="5" />
+    <!-- kite string -->
+    <path d="M0,26 q-6,12 -30,28" fill="none" stroke="#1b1b1b" stroke-width="0.9"/>
+  </g>
+
+  <!-- River ripples: repeated paths with slight jitter -->
+  <g stroke="#7b8ea3" stroke-width="1.2" fill="none" opacity="0.9">
+    <path d="M40,360 q40,6 80,0 q40,-6 80,0 q40,6 80,0" />
+    <path d="M30,376 q38,4 76,0 q38,-4 76,0 q38,4 76,0" opacity="0.8"/>
+    <path d="M50,392 q36,5 72,0 q36,-5 72,0" opacity="0.7"/>
+    <!-- small jittered ripples near bridge piers -->
+    <path d="M120,350 q12,3 24,0 q12,-3 24,0" opacity="0.6"/>
+    <path d="M260,352 q12,4 24,0 q12,-4 24,0" opacity="0.6"/>
+    <path d="M340,362 q10,3 20,0 q10,-3 20,0" opacity="0.55"/>
+  </g>
+
+  <!-- Shop noren curtain with kanji along a path -->
+  <g transform="translate(60,210)">
+    <rect x="0" y="-6" width="80" height="42" class="c2" opacity="0.95" stroke="#1b1b1b" stroke-width="1.2"/>
+    <path d="M0,0 q20,-8 40,0 q20,8 40,0" fill="none"/>
+    <text>
+      <textPath xlink:href="#norenPath" startOffset="10">
+        日本橋
+      </textPath>
+    </text>
+  </g>
+
+  <!-- small shop signboard with subtle misregistration shadow -->
+  <g transform="translate(60,200)">
+    <rect x="90" y="-8" width="60" height="18" class="c4" stroke="#1b1b1b" stroke-width="1"/>
+    <rect x="90" y="-8" width="60" height="18" fill="#00aacc" opacity="0.06" transform="translate(-1,1)"/>
+    <rect x="90" y="-8" width="60" height="18" fill="#ff1a8c" opacity="0.05" transform="translate(1,-1)"/>
+    <text x="120" y="6" font-size="12" text-anchor="middle">鮮</text>
+  </g>
+
+  <!-- subtle foreground grain overlay to mimic woodblock registration/ink -->
+  <rect x="0" y="0" width="500" height="500" fill="none" filter="url(#grain)" opacity="0.06"/>
+</svg>

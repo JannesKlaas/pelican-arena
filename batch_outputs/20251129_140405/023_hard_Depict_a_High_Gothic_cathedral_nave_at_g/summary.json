@@ -1,0 +1,85 @@
+{
+  "prompt_idx": 23,
+  "difficulty": "hard",
+  "prompt": "Depict a High Gothic cathedral nave at golden hour with rigorous geometry (viewBox 0 0 2200 1200). Nave width:height = 1:2.414; bay spacing = 6 m (scale 1px=50 mm). Pointed arches spring at 1/3 height; rib vaults cross at 2/3 span. Rose window radius 4.5 m; tracery follows 12-fold symmetry; stained glass panels narrate the Tetramorph with iconography accurate to 13th-century France. Two-point perspective: horizon y=620; VPs at (-3000,620) and (5200,620). Sun at 12\u00b0 elevation west; colored caustics from glass via feColorMatrix spectral split and soft masks on dust rays. Stone ashlar pattern with slight random noise. Choir stalls employ non-scaling-stroke filigree; Latin motto on textPath along archivolt. Require correct occlusion of clustered columns and shadow penumbrae across pews.",
+  "timestamp": "2025-11-29T14:58:09.794226",
+  "models": [
+    {
+      "model": "openai/gpt-5.1-2025-11-13",
+      "status": "success",
+      "files": {
+        "svg": "gpt-5.1-2025-11-13.svg",
+        "png": "gpt-5.1-2025-11-13.png"
+      }
+    },
+    {
+      "model": "anthropic/claude-opus-4-1-20250805",
+      "status": "success",
+      "files": {
+        "svg": "claude-opus-4-1-20250805.svg",
+        "png": "claude-opus-4-1-20250805.png"
+      }
+    },
+    {
+      "model": "anthropic/claude-haiku-4-5-20251001",
+      "status": "success",
+      "files": {
+        "svg": "claude-haiku-4-5-20251001.svg",
+        "png": "claude-haiku-4-5-20251001.png"
+      }
+    },
+    {
+      "model": "openai/gpt-5-nano-2025-08-07",
+      "status": "success",
+      "files": {
+        "svg": "gpt-5-nano-2025-08-07.svg",
+        "png": "gpt-5-nano-2025-08-07.png"
+      }
+    },
+    {
+      "model": "anthropic/claude-sonnet-4-5-20250929",
+      "status": "success",
+      "files": {
+        "svg": "claude-sonnet-4-5-20250929.svg",
+        "png": "claude-sonnet-4-5-20250929.png"
+      }
+    },
+    {
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "error",
+      "error": "unbound prefix: line 11, column 6"
+    },
+    {
+      "model": "openai/gpt-5-mini-2025-08-07",
+      "status": "success",
+      "files": {
+        "svg": "gpt-5-mini-2025-08-07.svg",
+        "png": "gpt-5-mini-2025-08-07.png"
+      }
+    },
+    {
+      "model": "google/gemini-3-pro-preview",
+      "status": "success",
+      "files": {
+        "svg": "gemini-3-pro-preview.svg",
+        "png": "gemini-3-pro-preview.png"
+      }
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "status": "success",
+      "files": {
+        "svg": "gemini-2.5-flash.svg",
+        "png": "gemini-2.5-flash.png"
+      }
+    },
+    {
+      "model": "openai/gpt-5-codex",
+      "status": "success",
+      "files": {
+        "svg": "gpt-5-codex.svg",
+        "png": "gpt-5-codex.png"
+      }
+    }
+  ]
+}

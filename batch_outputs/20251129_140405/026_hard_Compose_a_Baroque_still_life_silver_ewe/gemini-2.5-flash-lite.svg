@@ -1,0 +1,154 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <defs>
+    <!-- Environment Gradient Map (simulated baked light) -->
+    <radialGradient id="envGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:rgb(200,180,160); stop-opacity:1" />
+      <stop offset="50%" style="stop-color:rgb(120,100,80); stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(80,60,40); stop-opacity:1" />
+    </radialGradient>
+
+    <!-- Fresnel-like Rim Gradient -->
+    <radialGradient id="fresnelRim" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0); stop-opacity:1" />
+      <stop offset="70%" style="stop-color:rgba(255,255,255,0.5); stop-opacity:1" />
+      <stop offset="90%" style="stop-color:rgba(255,255,255,1); stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0); stop-opacity:1" />
+    </radialGradient>
+
+    <!-- Candlelight Filter -->
+    <filter id="candlelightFilter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Silver Ewer Texture -->
+    <filter id="silverTexture">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" result="noise"/>
+      <feSpecularLighting surfaceScale="5" specularConstant="0.5" specularExponent="20" lighting-color="rgb(255,240,200)">
+        <fePointLight x="25" y="25" z="50"/>
+        <feComposite in="noise" operator="arithmetic" k1="0.5" k2="0.5" k3="0" k4="0"/>
+      </feSpecularLighting>
+      <feComposite in="SourceGraphic" operator="in" result="silvered"/>
+      <feColorMatrix in="silvered" type="matrix" values="0.8 0 0 0 0, 0 0.8 0 0 0, 0 0 0.8 0 0, 0 0 0 1 0" result="desaturatedSilver"/>
+      <feColorMatrix in="desaturatedSilver" type="hueRotate" values="5"/>
+    </filter>
+
+    <!-- Glass Goblet Refraction -->
+    <filter id="refractionFilter">
+      <feImage xlink:href="#gridPattern" x="0" y="0" width="100%" height="100%" result="grid"/>
+      <feDisplacementMap in="grid" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <!-- Lemon Peel Noise Mask -->
+    <filter id="lemonNoiseMask">
+      <feTurbulence type="fractalNoise" baseFrequency="0.1" numOctaves="2" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0, 0 0 0 0 0, 0 0 0 0 0, 0 0 0 1 0" result="alphaNoise"/>
+    </filter>
+
+    <!-- Damask Pattern -->
+    <pattern id="damask" patternUnits="userSpaceOnUse" width="50" height="50">
+      <path d="M0 0 L50 0 L50 50 L0 50 Z" fill="#a08060" />
+      <path d="M25 0 L50 25 L25 50 L0 25 Z" fill="#c0a080" />
+      <path d="M12.5 12.5 L25 0 L37.5 12.5 L25 25 Z" fill="#d0b090" />
+      <path d="M25 12.5 L37.5 25 L25 37.5 L12.5 25 Z" fill="#d0b090" />
+    </pattern>
+
+    <!-- Dewdrop Symbol -->
+    <symbol id="dewdrop">
+      <circle cx="5" cy="5" r="4" fill="rgba(255,255,255,0.7)" />
+      <circle cx="4" cy="4" r="1" fill="rgba(255,255,255,1)" />
+    </symbol>
+
+    <!-- Vertical Grid for Refraction -->
+    <pattern id="gridPattern" patternUnits="userSpaceOnUse" width="10" height="50" >
+      <rect width="10" height="50" fill="rgba(0,0,0,0.1)"/>
+      <line x1="5" y1="0" x2="5" y2="50" stroke="rgba(0,0,0,0.2)" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <!-- Background Shade (simulating environment) -->
+  <rect width="100%" height="100%" fill="url(#envGradient)" />
+
+  <!-- Tablecloth with Damask Pattern -->
+  <rect x="50" y="350" width="400" height="150" fill="url(#damask)" opacity="0.8"/>
+
+  <!-- Velvet Drape -->
+  <path d="M0 250 Q 100 200 200 300 T 400 250 L400 350 Q 300 300 200 400 T 0 350 Z" fill="#800020" opacity="0.9">
+    <filter id="velvetSheen">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feSpecularLighting surfaceScale="3" specularConstant="0.2" specularExponent="10" lighting-color="rgb(220,180,160)">
+        <fePointLight x="25" y="75" z="30"/>
+        <feComposite in="blur" operator="arithmetic" k1="0.3" k2="0.3" k3="0" k4="0"/>
+      </feSpecularLighting>
+      <feComposite in="SourceGraphic" operator="arithmetic" k1="0.7" k2="0.3" k3="0" k4="0"/>
+    </filter>
+    <use xlink:href="#velvetSheen" />
+  </path>
+
+  <!-- Silver Ewer -->
+  <g transform="translate(100, 150) scale(0.8)">
+    <path d="M50 50 L60 10 Q 70 0 80 10 L90 50 L80 60 Q 70 70 60 60 L50 50 Z M60 10 C 65 10 70 13 70 20 L70 50 Q 65 55 60 50 Q 55 55 50 50 L50 20 C 50 13 55 10 60 10 Z" fill="#cccccc" filter="url(#silverTexture)"/>
+    <!-- Ewer handle -->
+    <path d="M90 50 Q 110 50 110 70 Q 110 90 90 90" stroke="#cccccc" stroke-width="8" fill="none" filter="url(#silverTexture)"/>
+    <path d="M90 50 Q 110 50 110 70 Q 110 90 90 90" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.3"/>
+  </g>
+
+  <!-- Peeled Lemon -->
+  <g transform="translate(250, 200) scale(0.5)">
+    <path d="M0 0 A 50 30 0 1 1 0 100 A 50 30 0 1 1 0 0 Z" fill="#ffdd00"/>
+    <!-- Lemon Peel -->
+    <path d="M-20 -10 Q -30 -5 -30 0 Q -30 5 -20 10" fill="#ffa500" stroke="#ffa500" stroke-width="6" filter="url(#lemonNoiseMask)"/>
+    <path d="M-20 -10 Q -30 -5 -30 0 Q -30 5 -20 10" fill="#ffa500" stroke="#ffa500" stroke-width="6" transform="rotate(90, 0, 0)"/>
+    <path d="M-20 -10 Q -30 -5 -30 0 Q -30 5 -20 10" fill="#ffa500" stroke="#ffa500" stroke-width="6" transform="rotate(180, 0, 0)"/>
+    <path d="M-20 -10 Q -30 -5 -30 0 Q -30 5 -20 10" fill="#ffa500" stroke="#ffa500" stroke-width="6" transform="rotate(270, 0, 0)"/>
+    <!-- Pith -->
+    <path d="M0 0 A 50 30 0 1 1 0 100 A 50 30 0 1 1 0 0 Z" fill="#ffffff" opacity="0.2" filter="url(#lemonNoiseMask)"/>
+  </g>
+
+  <!-- Grapes -->
+  <g transform="translate(350, 180)">
+    <use xlink:href="#dewdrop" x="30" y="20"/>
+    <use xlink:href="#dewdrop" x="40" y="35"/>
+    <use xlink:href="#dewdrop" x="25" y="40"/>
+    <circle cx="30" cy="20" r="10" fill="#800080"/>
+    <circle cx="40" cy="35" r="10" fill="#800080"/>
+    <circle cx="25" cy="40" r="10" fill="#800080"/>
+    <circle cx="35" cy="25" r="11" fill="#901090"/>
+    <circle cx="45" cy="40" r="11" fill="#901090"/>
+    <circle cx="30" cy="45" r="11" fill="#901090"/>
+    <circle cx="40" cy="30" r="12" fill="#a020a0"/>
+    <circle cx="50" cy="45" r="12" fill="#a020a0"/>
+    <circle cx="35" cy="50" r="12" fill="#a020a0"/>
+    <!-- Micro-scratches -->
+    <circle cx="32" cy="22" r="10.5" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5" stroke-dasharray="2,2"/>
+    <circle cx="42" cy="37" r="10.5" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5" stroke-dasharray="2,2"/>
+    <circle cx="27" cy="42" r="10.5" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5" stroke-dasharray="2,2"/>
+  </g>
+
+  <!-- Glass Goblet -->
+  <g transform="translate(180, 150) scale(0.6)">
+    <path d="M50 150 L60 20 Q 70 0 80 20 L90 150 L80 160 Q 70 170 60 160 L50 150 Z" fill="rgba(200,220,230,0.7)" stroke="rgba(150,170,180,0.9)" stroke-width="2">
+      <filter id="gobletFilter">
+        <feImage xlink:href="#gridPattern" x="0" y="0" width="100%" height="100%" result="grid"/>
+        <feDisplacementMap in="grid" scale="3" xChannelSelector="R" yChannelSelector="G" result="displacedGrid"/>
+        <feComposite in="SourceGraphic" in2="displacedGrid" operator="arithmetic" k1="0" k2="1" k3="0" k4="0" result="refractedGraphic"/>
+        <feGaussianBlur in="refractedGraphic" stdDeviation="2" result="blurredRefracted"/>
+        <feComposite in="SourceGraphic" in2="blurredRefracted" operator="add" result="finalRefracted"/>
+      </filter>
+      <use xlink:href="#gobletFilter" />
+    </path>
+    <!-- Rim highlight -->
+    <path d="M50 20 Q 70 0 90 20 Z" fill="url(#fresnelRim)" opacity="0.7"/>
+    <!-- Inner highlight -->
+    <path d="M60 20 L70 30 L80 20 Z" fill="rgba(255,255,255,0.3)" />
+  </g>
+
+  <!-- Candlelight Effect -->
+  <rect width="100%" height="100%" fill="rgba(255,200,150,0.1)" filter="url(#candlelightFilter)" />
+
+</svg>

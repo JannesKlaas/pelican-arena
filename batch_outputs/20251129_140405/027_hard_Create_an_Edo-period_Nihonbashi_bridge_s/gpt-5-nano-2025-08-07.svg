@@ -1,0 +1,99 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+  <defs>
+    <!-- Seigaiha pattern (waves) -->
+    <pattern id="p-seig" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M0,22 A22,22 0 0 1 44,22" fill="none" stroke="#1b1b1b" stroke-width="2"/>
+      <path d="M22,0 A22,22 0 0 1 0,22" fill="none" stroke="#1b1b1b" stroke-width="2"/>
+      <path d="M22,22 A22,22 0 0 0 0,0" fill="none" stroke="#1b1b1b" stroke-width="2"/>
+    </pattern>
+
+    <!-- Asanoha (hemp leaf) pattern -->
+    <pattern id="p-asanoha" width="28" height="28" patternUnits="userSpaceOnUse">
+      <polygon points="14,0 28,14 14,28 0,14" fill="none" stroke="#1b1b1b" stroke-width="2"/>
+      <polygon points="0,14 14,28 28,14 14,0" fill="none" stroke="#1b1b1b" stroke-width="2"/>
+    </pattern>
+
+    <!-- Rotor discs gradient -->
+    <radialGradient id="rotor" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e9e9e9"/>
+      <stop offset="60%" stop-color="#aaaaaa" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Woodgrain-like noise filter -->
+    <filter id="grain" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="7" result="noise"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComposite in="SourceGraphic" in2="noise" operator="in" />
+    </filter>
+
+    <!-- Subtle paper texture -->
+    <pattern id="paperTexture" width="120" height="120" patternUnits="userSpaceOnUse">
+      <rect width="120" height="120" fill="#f5efe3"/>
+      <path d="M0,60 L120,60 M60,0 L60,120" stroke="#e7e0d6" stroke-width="0.8"/>
+    </pattern>
+
+    <!-- Signboard path for textPath (kanji) -->
+    <path id="signPath" d="M 150 210 Q 250 235 350 210" fill="none" stroke="none"/>
+  </defs>
+
+  <!-- Scene: scaled to fit viewBox; 0..2100x0..1200 scaled by 0.235 to 500x500 -->
+  <g transform="scale(0.235)" filter="url(#grain)">
+    <!-- Background paper texture -->
+    <rect x="0" y="0" width="2100" height="1200" fill="url(#paperTexture)"/>
+
+    <!-- River ripples (repeated paths with slight jitter) -->
+    <path d="M0,600 Q 400,590 800,600 T 1600,600" fill="none" stroke="#2d88d7" stroke-width="8"/>
+    <path d="M0,630 Q 420,620 860,630 T 1680,630" fill="none" stroke="#2b78b1" stroke-width="6"/>
+    <path d="M0,660 Q 440,650 900,660 T 1680,660" fill="none" stroke="#275e96" stroke-width="4"/>
+
+    <!-- Nihonbashi bridge deck (stylized) -->
+    <path d="M0,900 C 400,830 1400,830 2100,900" fill="none" stroke="#5b3a22" stroke-width="40"/>
+
+    <!-- Bridge arch (catenary approximation) -->
+    <path d="M0,900 C 400,765 1200,679 1600,900" fill="none" stroke="#2b140f" stroke-width="28"/>
+
+    <!-- Pier foreground (simplified) -->
+    <rect x="0" y="840" width="60" height="260" fill="#5a3b24"/>
+    <rect x="1560" y="840" width="60" height="260" fill="#5a3b24"/>
+
+    <!-- Noren signage along a curved path with kanji 日本橋 -->
+    <g transform="translate(235,180)">
+      <rect x="0" y="0" width="260" height="120" rx="6" ry="6" fill="#e3d4a1" stroke="#000" stroke-width="3"/>
+      <path d="M5,60 L255,60" stroke="#000" stroke-width="2" fill="none"/>
+      <text font-family="serif" font-size="54" fill="#000">
+        <textPath href="#signPath" xlink:href="#signPath" startOffset="0%">日本橋</textPath>
+      </text>
+    </g>
+
+    <!-- Kimono figures with era-appropriate motifs -->
+    <!-- Left figure with seigaiha pattern -->
+    <g transform="translate(80,320)">
+      <path d="M0,0 C120,-120 260,-120 320,0 C290,140 210,260 90,320 C-10,260 -20,160 0,0 Z" fill="url(#p-seig)" stroke="#000" stroke-width="3"/>
+    </g>
+
+    <!-- Right figure with asanoha pattern (mirror) -->
+    <g transform="translate(420,320)">
+      <path d="M0,0 C-120,-120 -260,-120 -320,0 C-290,140 -210,260 -90,320 C-10,260 -20,160 0,0 Z" fill="url(#p-asanoha)" stroke="#000" stroke-width="3"/>
+    </g>
+
+    <!-- Drone-kite masquerading as a kite (bamboo frame) with cyan/magenta misalignment -->
+    <g id="droneKite" transform="translate(270,210)">
+      <!-- bamboo frame (main kite) -->
+      <polygon points="0,0 60,-40 120,0 60,40" fill="#f5d8a6" stroke="#6b4f2a" stroke-width="6"/>
+      <!-- cyan plate offset by 2 px -->
+      <polygon points="2,0 62,-42 122,0 62,42" fill="#00e5ff" opacity="0.6"/>
+      <!-- magenta plate offset by -2 px -->
+      <polygon points="-2,0 58,-38 118,0 58,40" fill="#ff00ff" opacity="0.6"/>
+
+      <!-- faint rotor discs (radial-gradient suggestion) -->
+      <circle cx="60" cy="0" r="18" fill="url(#rotor)"/>
+      <circle cx="60" cy="0" r="38" fill="none" stroke="url(#rotor)" stroke-width="6" filter="url(#softBlur)"/>
+    </g>
+
+    <!-- River ripples (additional subtle lines) -->
+    <path d="M0,920 Q 400,905 800,920 T 1600,920" fill="none" stroke="#2d7bd2" stroke-width="4"/>
+    <path d="M0,940 Q 350,928 700,940 T 1400,940" fill="none" stroke="#2d7bd2" stroke-width="3"/>
+
+  </g>
+</svg>

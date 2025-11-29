@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500">
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#87b0c4"/>
+      <stop offset="0.7" stop-color="#f2ede1"/>
+    </linearGradient>
+    <filter id="noiseTexture">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" seed="4" result="turb"/>
+      <feColorMatrix in="turb" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.35 0"/>
+    </filter>
+    <mask id="paperMask">
+      <rect width="500" height="500" fill="#f2ede1" filter="url(#noiseTexture)"/>
+    </mask>
+    <radialGradient id="rotorGrad" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#87b0c4" stop-opacity="0.25"/>
+      <stop offset="0.7" stop-color="#87b0c4" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#87b0c4" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="seigaihaPattern" patternUnits="userSpaceOnUse" width="16" height="8" patternTransform="matrix(0.94,0.34,-0.34,0.94,0,0)">
+      <rect width="16" height="8" fill="#3a4f66"/>
+      <path d="M-8 8 Q-4 2 0 8" fill="none" stroke="#f4b23a" stroke-width="0.6"/>
+      <path d="M0 8 Q4 2 8 8 Q12 2 16 8" fill="none" stroke="#f4b23a" stroke-width="0.6"/>
+    </pattern>
+    <pattern id="asanohaPattern" patternUnits="userSpaceOnUse" width="12" height="12" patternTransform="matrix(0.9,0.3,-0.3,0.9,0,0)">
+      <rect width="12" height="12" fill="#b23b3b"/>
+      <path d="M6 0 L7.8 4.2 L12 6 L7.8 7.8 L6 12 L4.2 7.8 L0 6 L4.2 4.2 Z" fill="none" stroke="#f4b23a" stroke-width="0.6"/>
+    </pattern>
+    <path id="bridgeBodyPath" d="M60 279.9 L100 259.2 L140 243.9 L180 233.2 L220 227.3 L250 226 L280 227.3 L320 233.2 L360 243.9 L400 259.2 L440 279.9 L440 263.9 L400 243.2 L360 227.9 L320 217.2 L280 211.3 L250 210 L220 211.3 L180 217.2 L140 227.9 L100 243.2 L60 263.9 Z"/>
+    <path id="bridgeRailPath" d="M60 263.9 L100 243.2 L140 227.9 L180 217.2 L220 211.3 L250 210 L280 211.3 L320 217.2 L360 227.9 L400 243.2 L440 263.9"/>
+    <path id="norenTextPath" d="M322 286 Q340 294 360 288 Q380 282 398 290"/>
+  </defs>
+  <g mask="url(#paperMask)">
+    <rect width="500" height="500" fill="url(#skyGrad)"/>
+    <path d="M0 320 Q80 300 160 312 Q240 302 320 318 Q380 306 500 320 L500 325 L0 325 Z" fill="#7c9b4e" stroke="#2f2f2f" stroke-width="1"/>
+    <rect x="0" y="325" width="500" height="175" fill="#6793a6"/>
+    <g stroke-linecap="round">
+      <path d="M40 360 q22 -5 44 0 t44 0 t44 0" fill="none" stroke="#87b0c4" stroke-width="1.2"/>
+      <path d="M120 378 q20 -4 40 0 t40 0 t40 2" fill="none" stroke="#f2ede1" stroke-width="1"/>
+      <path d="M210 395 q18 -3 36 0 t36 1 t36 -1" fill="none" stroke="#87b0c4" stroke-width="1"/>
+      <path d="M300 370 q18 -4 36 0 t36 0 t36 2" fill="none" stroke="#f2ede1" stroke-width="0.8"/>
+      <path d="M360 408 q15 -3 30 0 t30 1 t30 -1" fill="none" stroke="#87b0c4" stroke-width="0.8"/>
+    </g>
+    <g id="bridge">
+      <use xlink:href="#bridgeBodyPath" fill="#d6c6a5" stroke="#2f2f2f" stroke-width="1.8"/>
+      <use xlink:href="#bridgeBodyPath" fill="none" stroke="#87b0c4" stroke-width="1.2" transform="translate(1.2,1.2)"/>
+      <use xlink:href="#bridgeBodyPath" fill="none" stroke="#c480a1" stroke-width="1" transform="translate(-1,-0.8)"/>
+      <use xlink:href="#bridgeRailPath" fill="none" stroke="#8b5e3c" stroke-width="4"/>
+      <use xlink:href="#bridgeRailPath" fill="none" stroke="#2f2f2f" stroke-width="1.2" transform="translate(1,0.8)"/>
+      <use xlink:href="#bridgeRailPath" fill="none" stroke="#c480a1" stroke-width="1" transform="translate(-1,0)"/>
+      <g stroke="#8b5e3c" stroke-width="3">
+        <line x1="100" y1="243.2" x2="100" y2="259.2"/>
+        <line x1="140" y1="227.9" x2="140" y2="243.9"/>
+        <line x1="180" y1="217.2" x2="180" y2="233.2"/>
+        <line x1="220" y1="211.3" x2="220" y2="227.3"/>
+        <line x1="250" y1="210" x2="250" y2="226"/>
+        <line x1="280" y1="211.3" x2="280" y2="227.3"/>
+        <line x1="320" y1="217.2" x2="320" y2="233.2"/>
+        <line x1="360" y1="227.9" x2="360" y2="243.9"/>
+        <line x1="400" y1="243.2" x2="400" y2="259.2"/>
+      </g>
+    </g>
+    <g>
+      <rect x="305" y="270" width="120" height="70" fill="#d6c6a5" stroke="#2f2f2f" stroke-width="1.4"/>
+      <path d="M300 270 L365 250 L430 270 Z" fill="#8b5e3c" stroke="#2f2f2f" stroke-width="1.2"/>
+      <path d="M320 290 Q328 298 336 290 Q344 298 352 290 Q360 298 368 290 Q376 298 384 290 Q392 298 400 290 L400 322 L320 322 Z" fill="url(#asanohaPattern)" stroke="#2f2f2f" stroke-width="1"/>
+      <text font-family="serif" font-size="10" fill="#2f2f2f">
+        <textPath xlink:href="#norenTextPath" startOffset="5%">日本橋茶屋</textPath>
+      </text>
+    </g>
+    <g transform="translate(190 210)">
+      <path d="M0 60 L-18 2 L18 0 Z" fill="url(#seigaihaPattern)" stroke="#2f2f2f" stroke-width="1.2"/>
+      <path d="M-4 38 L0 32 L4 38 L0 46 Z" fill="#f4b23a" stroke="#2f2f2f" stroke-width="0.8"/>
+      <circle cx="0" cy="-6" r="7" fill="#e0a693" stroke="#2f2f2f" stroke-width="1"/>
+      <path d="M-10 12 Q0 18 10 12" fill="none" stroke="#8b5e3c" stroke-width="1.2"/>
+    </g>
+    <g transform="translate(260 218)">
+      <path d="M0 62 L-16 6 L18 0 L26 50 Z" fill="url(#asanohaPattern)" stroke="#2f2f2f" stroke-width="1.1"/>
+      <path d="M4 34 L18 34 L12 48 Z" fill="#f4b23a" stroke="#2f2f2f" stroke-width="0.8"/>
+      <circle cx="6" cy="-4" r="7" fill="#e0a693" stroke="#2f2f2f" stroke-width="1"/>
+      <path d="M-2 16 Q8 20 18 16" fill="none" stroke="#8b5e3c" stroke-width="1.2"/>
+      <path d="M26 26 Q60 10 90 -20" fill="none" stroke="#2f2f2f" stroke-width="1.1"/>
+    </g>
+    <g transform="translate(360 150)">
+      <path d="M0 -24 L18 0 L0 24 L-18 0 Z" fill="#f4b23a" stroke="#8b5e3c" stroke-width="1.6"/>
+      <line x1="-18" y1="0" x2="18" y2="0" stroke="#8b5e3c" stroke-width="1.2"/>
+      <line x1="0" y1="-24" x2="0" y2="24" stroke="#8b5e3c" stroke-width="1.2"/>
+      <circle cx="-13" cy="-13" r="12" fill="url(#rotorGrad)"/>
+      <circle cx="13" cy="-13" r="12" fill="url(#rotorGrad)"/>
+      <circle cx="-13" cy="13" r="12" fill="url(#rotorGrad)"/>
+      <circle cx="13" cy="13" r="12" fill="url(#rotorGrad)"/>
+      <path d="M0 24 L0 38 L-6 46" fill="none" stroke="#8b5e3c" stroke-width="1.1"/>
+    </g>
+    <path d="M286 244 Q326 210 360 186" fill="none" stroke="#87b0c4" stroke-width="1"/>
+    <path d="M286 244 Q326 210 360 186" fill="none" stroke="#c480a1" stroke-width="0.8" transform="translate(-1,1)"/>
+    <g fill="#7c9b4e" stroke="#2f2f2f" stroke-width="1.2">
+      <path d="M60 300 Q80 288 100 298 Q120 288 140 300 L140 318 L60 318 Z"/>
+      <path d="M170 306 Q188 292 206 306 Q224 292 242 306 L242 320 L170 320 Z"/>
+    </g>
+    <g stroke="#2f2f2f" stroke-width="1" fill="none">
+      <path d="M80 320 Q82 315 86 310"/>
+      <path d="M112 318 Q114 312 118 308"/>
+    </g>
+  </g>
+</svg>

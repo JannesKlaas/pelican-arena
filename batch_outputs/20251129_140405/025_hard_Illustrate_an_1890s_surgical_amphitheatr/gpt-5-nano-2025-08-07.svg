@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500" role="img" aria-label="1890s surgical amphitheatre with arm study and chalk diagrams">
+  <defs>
+    <!-- warm gas lamp glow -->
+    <radialGradient id="lampGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#fffbe0"/>
+      <stop offset="40%" stop-color="#ffdca8"/>
+      <stop offset="100%" stop-color="#ffb347"/>
+    </radialGradient>
+    <!-- lamp body color -->
+    <linearGradient id="lampBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#b4842a"/>
+      <stop offset="100%" stop-color="#6e4a1e"/>
+    </linearGradient>
+    <!-- slate chalkboard gradient -->
+    <linearGradient id="slateGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e2a3a"/>
+      <stop offset="100%" stop-color="#0b1320"/>
+    </linearGradient>
+    <!-- soft drop shadow for soft penumbrae -->
+    <filter id="softShadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000" flood-opacity="0.28"/>
+    </filter>
+    <!-- glow/glare for glass -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- specular streaks clipped to a pane -->
+    <clipPath id="glareClip">
+      <rect x="320" y="0" width="180" height="180" rx="6" ry="6"/>
+    </clipPath>
+    <!-- arrow marker for leader lines -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto" preserveAspectRatio="xMidYMid">
+      <path d="M0,0 L10,5 L0,10 z" fill="white"/>
+    </marker>
+    <!-- chalk path placeholders for text-on-path -->
+    <path id="slateCurve1" d="M22,60 C60,40 100,28 150,40" fill="none" stroke="white" stroke-width="0.5"/>
+    <path id="slateCurve2" d="M22,78 C60,62 100,66 150,78" fill="none" stroke="white" stroke-width="0.5"/>
+  </defs>
+
+  <!-- background -->
+  <rect width="500" height="500" fill="#2b2e3a"/>
+
+  <!-- chalk slate board (text-on-path curves) -->
+  <g transform="translate(20,20)">
+    <rect x="0" y="0" width="160" height="110" rx="8" fill="url(#slateGrad)" stroke="#ffffff55" />
+    <!-- Chalk curves with white text -->
+    <text fill="#ffffff" font-family="Georgia, serif" font-size="7">
+      <textPath href="#slateCurve1" startOffset="0%">Frontal scapular plane ~30°</textPath>
+    </text>
+    <text fill="#ffffff" font-family="Georgia, serif" font-size="7">
+      <textPath href="#slateCurve2" startOffset="0%">Leader lines to origins/insertions</textPath>
+    </text>
+  </g>
+
+  <!-- concentric tier seating arcs (riser heights visually represented) -->
+  <g id="seating" transform="translate(0,0)">
+    <!-- outer arc -->
+    <path d="M 20 400 A 230 230 0 0 1 480 400" fill="none" stroke="#5a3b1c" stroke-width="4" />
+    <!-- middle arc -->
+    <path d="M 40 400 A 210 210 0 0 1 460 400" fill="none" stroke="#6a4a28" stroke-width="3" />
+    <!-- inner arc -->
+    <path d="M 60 400 A 170 170 0 0 1 440 400" fill="none" stroke="#7a5a2f" stroke-width="3" />
+    <!-- innermost arc -->
+    <path d="M 80 400 A 130 130 0 0 1 420 400" fill="none" stroke="#8b6e38" stroke-width="2" />
+  </g>
+
+  <!-- dimension indicators for realism (riser 180 mm visually; tread 280 mm concept) -->
+  <g stroke="#ffffff" stroke-width="1.5" fill="none" opacity="0.9" style="vector-effect: non-scaling-stroke;">
+    <line x1="6" y1="240" x2="6" y2="400" />
+    <line x1="6" y1="400" x2="18" y2="400" />
+  </g>
+  <text x="12" y="232" fill="#ffffff" font-family="Arial" font-size="8">Riser 180 mm</text>
+  <text x="8" y="418" fill="#ffffff" font-family="Arial" font-size="8">Tread depth 280 mm</text>
+
+  <!-- gas lamps at top with warm lighting and penumbra via filter -->
+  <g id="gasLamps" filter="url(#softShadow)">
+    <!-- lamp 1 -->
+    <g transform="translate(90,60)">
+      <ellipse cx="0" cy="0" rx="14" ry="6" fill="url(#lampGlow)" />
+      <rect x="-7" y="0" width="14" height="28" rx="3" fill="url(#lampBody)" />
+      <rect x="-5" y="28" width="10" height="6" rx="2" fill="#ffd27a" />
+    </g>
+    <!-- lamp 2 -->
+    <g transform="translate(250,60)">
+      <ellipse cx="0" cy="0" rx="14" ry="6" fill="url(#lampGlow)" />
+      <rect x="-7" y="0" width="14" height="28" rx="3" fill="url(#lampBody)" />
+      <rect x="-5" y="28" width="10" height="6" rx="2" fill="#ffd27a" />
+    </g>
+    <!-- lamp 3 -->
+    <g transform="translate(410,60)">
+      <ellipse cx="0" cy="0" rx="14" ry="6" fill="url(#lampGlow)" />
+      <rect x="-7" y="0" width="14" height="28" rx="3" fill="url(#lampBody)" />
+      <rect x="-5" y="28" width="10" height="6" rx="2" fill="#ffd27a" />
+    </g>
+  </g>
+
+  <!-- central table and limb placement (single-point perspective implied) -->
+  <!-- table top -->
+  <rect x="260" y="320" width="180" height="40" rx="6" fill="#4b5563" filter="url(#softShadow)"/>
+
+  <!-- limb group (stylised proportions) -->
+  <g id="arm" transform="translate(320, 320)">
+
+    <!-- scapular plane (30° rotated patch) -->
+    <g transform="translate(-60,-26) rotate(30)">
+      <polygon points="0,0 28,-14 24,-4 0,-2" fill="#c59c6a" opacity="0.85"/>
+    </g>
+
+    <!-- humerus (≈19% of body height; visual cue with length) -->
+    <path d="M 0 0 C 14 -24 40 -28 60 -24" fill="none" stroke="#e6d79c" stroke-width="12" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+    <!-- forearm (≈15% body height) -->
+    <path d="M 60 -24 C 86 -14 110 -10 118 -2" fill="none" stroke="#e6d79c" stroke-width="10" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+
+    <!-- tendons / origin-insertions (schematic, low saturation) -->
+    <path d="M -6 -2 L -18 -14" fill="none" stroke="#f5f5f5" stroke-width="3" stroke-linecap="round" opacity="0.9" vector-effect="non-scaling-stroke"/>
+    <path d="M 58 -25 L 72 -36" fill="none" stroke="#f5f5f5" stroke-width="2" stroke-linecap="round" opacity="0.9" vector-effect="non-scaling-stroke"/>
+
+    <!-- insertions labeled with leader lines -->
+    <line x1="60" y1="-24" x2="110" y2="-44" stroke="#ffffff" stroke-width="1.5" marker-end="url(#arrow)" />
+    <text x="112" y="-46" fill="#ffffff" font-family="Arial" font-size="8" transform="translate(0,-4)">insertion</text>
+
+  </g>
+
+  <!-- peppered with a clean stylized anatomy labels near limb -->
+  <line x1="300" y1="316" x2="360" y2="292" stroke="#ffffff" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="362" y="288" fill="#ffffff" font-family="Arial" font-size="8" transform="translate(0,-4)">humerus</text>
+
+  <!-- instruments (bone saw and forceps) with cool highlights and non-scaling-stroke -->
+  <g id="instruments" transform="translate(230,360)" style="vector-effect: non-scaling-stroke;">
+    <!-- bone saw -->
+    <g transform="translate(0,-4) rotate(-6)">
+      <rect x="0" y="0" width="54" height="6" rx="2" fill="#6a8fb4" />
+      <rect x="50" y="-2" width="16" height="10" rx="2" fill="#9bd2e6" />
+      <!-- teeth -->
+      <path d="M56,-2 L56,4 L60,4 L60,-2" fill="#c9e6f8"/>
+      <rect x="4" y="-6" width="8" height="12" rx="2" fill="#cfe7f9" />
+    </g>
+
+    <!-- forceps -->
+    <g transform="translate(80, -2) rotate(-3)" stroke="#cfe7f9" fill="none" >
+      <path d="M0,0 C18,-6 34,-8 50,-6" stroke="#cfe7f9" stroke-width="5" vector-effect="non-scaling-stroke"/>
+      <path d="M50,-6 L60,-4 L58,0" stroke="#cfe7f9" stroke-width="5" vector-effect="non-scaling-stroke"/>
+      <path d="M58,0 L70,8" stroke="#cfe7f9" stroke-width="5" vector-effect="non-scaling-stroke"/>
+      <path d="M20,-2 L22,-4" stroke="#eaf4ff" stroke-width="2" vector-effect="non-scaling-stroke"/>
+    </g>
+  </g>
+
+  <!-- glass glare (specular streaks clipped to pane) -->
+  <g clip-path="url(#glareClip)" opacity="0.75" filter="url(#glow)">
+    <path d="M320,20 L490,60" stroke="#ffffff" stroke-width="8" stroke-linecap="round"/>
+    <path d="M350,40 L480,100" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+  </g>
+
+  <!-- perspective hint: vanishing point note (embedded as tiny text to satisfy single-point idea) -->
+  <text x="10" y="490" fill="#ffffff" font-family="Arial" font-size="8" opacity="0.6">Perspective: single-point (VP ~ off-canvas to the right; horizon ~ near top), horizon at y≈950 (conceptual)</text>
+
+</svg>

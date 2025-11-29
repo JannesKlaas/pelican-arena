@@ -1,0 +1,179 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="spectralGlass">
+      <feColorMatrix type="saturate" values="1.2"/>
+      <feComponentTransfer>
+        <feFuncR type="linear" slope="1.1"/>
+        <feFuncB type="linear" slope="0.9"/>
+      </feComponentTransfer>
+    </filter>
+    
+    <filter id="dustRays">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" result="noise"/>
+      <feGaussianBlur in="noise" stdDeviation="1.5"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+    </filter>
+    
+    <filter id="shadowPenumbra">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.6"/>
+      </feComponentTransfer>
+    </filter>
+    
+    <filter id="ashlarNoise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="2" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.5"/>
+    </filter>
+    
+    <radialGradient id="roseWindow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffd700;stop-opacity:0.9"/>
+      <stop offset="40%" style="stop-color:#e6b800;stop-opacity:0.8"/>
+      <stop offset="70%" style="stop-color:#cc0000;stop-opacity:0.7"/>
+      <stop offset="100%" style="stop-color:#330066;stop-opacity:0.6"/>
+    </radialGradient>
+    
+    <linearGradient id="sunLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffeb99;stop-opacity:0.8"/>
+      <stop offset="50%" style="stop-color:#ffcc66;stop-opacity:0.5"/>
+      <stop offset="100%" style="stop-color:#ff9933;stop-opacity:0"/>
+    </linearGradient>
+    
+    <pattern id="ashlarPattern" x="0" y="0" width="20" height="25" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="20" height="25" fill="#d4c5b0" stroke="#a89968" stroke-width="0.5" filter="url(#ashlarNoise)"/>
+      <rect x="1" y="1" width="18" height="23" fill="#e0d4c0" opacity="0.3"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background sky at golden hour -->
+  <rect width="500" height="500" fill="#2c2416"/>
+  <rect width="500" height="310" fill="#f4a460" opacity="0.6"/>
+  <rect width="500" height="250" fill="#ffb347" opacity="0.4"/>
+  
+  <!-- Dust rays from sun (west) -->
+  <g opacity="0.15" filter="url(#dustRays)">
+    <line x1="480" y1="100" x2="200" y2="400" stroke="#fff8dc" stroke-width="8"/>
+    <line x1="490" y1="120" x2="180" y2="420" stroke="#fff8dc" stroke-width="6"/>
+    <line x1="470" y1="110" x2="150" y2="380" stroke="#fff8dc" stroke-width="7"/>
+  </g>
+  
+  <!-- Left nave wall with ashlar pattern -->
+  <path d="M 80 480 L 150 100 L 160 100 L 100 480 Z" fill="url(#ashlarPattern)" filter="url(#ashlarNoise)"/>
+  
+  <!-- Right nave wall with ashlar pattern -->
+  <path d="M 420 480 L 350 100 L 340 100 L 400 480 Z" fill="url(#ashlarPattern)" filter="url(#ashlarNoise)"/>
+  
+  <!-- Left clustered columns (receding) -->
+  <g opacity="0.85">
+    <rect x="85" y="200" width="8" height="280" fill="#8b7d6b"/>
+    <rect x="98" y="210" width="6" height="270" fill="#9a8c7a"/>
+    <rect x="72" y="195" width="7" height="285" fill="#7a6e5d"/>
+  </g>
+  
+  <!-- Right clustered columns (receding) -->
+  <g opacity="0.85">
+    <rect x="407" y="200" width="8" height="280" fill="#8b7d6b"/>
+    <rect x="396" y="210" width="6" height="270" fill="#9a8c7a"/>
+    <rect x="421" y="195" width="7" height="285" fill="#7a6e5d"/>
+  </g>
+  
+  <!-- Left pointed arch ribs (2-point perspective) -->
+  <path d="M 95 200 Q 150 120 220 100" fill="none" stroke="#c9a876" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 95 260 Q 155 180 235 160" fill="none" stroke="#c9a876" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 95 320 Q 160 240 250 220" fill="none" stroke="#c9a876" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Right pointed arch ribs (2-point perspective) -->
+  <path d="M 405 200 Q 350 120 280 100" fill="none" stroke="#c9a876" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 405 260 Q 345 180 265 160" fill="none" stroke="#c9a876" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 405 320 Q 340 240 250 220" fill="none" stroke="#c9a876" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- Diagonal crossing ribs at 2/3 span -->
+  <path d="M 150 130 Q 180 140 250 150" fill="none" stroke="#b8956a" stroke-width="3" opacity="0.8"/>
+  <path d="M 350 130 Q 320 140 250 150" fill="none" stroke="#b8956a" stroke-width="3" opacity="0.8"/>
+  
+  <!-- Central nave vault surface -->
+  <path d="M 100 480 L 170 100 L 330 100 L 400 480 Z" fill="#d4b896" opacity="0.4"/>
+  
+  <!-- Rose window - center upper section -->
+  <g transform="translate(250, 110)">
+    <circle cx="0" cy="0" r="35" fill="url(#roseWindow)" filter="url(#spectralGlass)"/>
+    
+    <!-- 12-fold symmetry tracery -->
+    <g stroke="#4a3728" stroke-width="1" fill="none">
+      <line x1="0" y1="-35" x2="0" y2="-25"/>
+      <line x1="30.3" y1="-17.5" x2="25.6" y2="-12.5"/>
+      <line x1="30.3" y1="17.5" x2="25.6" y2="12.5"/>
+      <line x1="0" y1="35" x2="0" y2="25"/>
+      <line x1="-30.3" y1="17.5" x2="-25.6" y2="12.5"/>
+      <line x1="-30.3" y1="-17.5" x2="-25.6" y2="-12.5"/>
+      
+      <!-- Inner hexagonal divisions -->
+      <circle cx="0" cy="0" r="18" fill="none"/>
+      <path d="M 0,-18 L 15.6,9 L -15.6,9 Z" fill="none"/>
+      <path d="M 0,-18 L -15.6,9 L 15.6,9 Z" fill="none"/>
+    </g>
+    
+    <!-- Tetramorph stained glass panels - 13th century iconography -->
+    <!-- Eagle (St. John) - top right -->
+    <circle cx="18" cy="-18" r="8" fill="#cc0000" opacity="0.8"/>
+    <text x="18" y="-15" font-size="6" fill="#fff" text-anchor="middle" font-weight="bold">✦</text>
+    
+    <!-- Lion (St. Mark) - bottom right -->
+    <circle cx="18" cy="18" r="8" fill="#ffb347" opacity="0.8"/>
+    <text x="18" y="21" font-size="6" fill="#fff" text-anchor="middle" font-weight="bold">✦</text>
+    
+    <!-- Ox (St. Luke) - bottom left -->
+    <circle cx="-18" cy="18" r="8" fill="#8b4513" opacity="0.8"/>
+    <text x="-18" y="21" font-size="6" fill="#fff" text-anchor="middle" font-weight="bold">✦</text>
+    
+    <!-- Man/Angel (St. Matthew) - top left -->
+    <circle cx="-18" cy="-18" r="8" fill="#4169e1" opacity="0.8"/>
+    <text x="-18" y="-15" font-size="6" fill="#fff" text-anchor="middle" font-weight="bold">✦</text>
+  </g>
+  
+  <!-- Pews with shadow penumbra -->
+  <g filter="url(#shadowPenumbra)" opacity="0.7">
+    <rect x="110" y="350" width="280" height="8" fill="#6b5a47"/>
+    <rect x="110" y="380" width="280" height="8" fill="#6b5a47"/>
+    <rect x="110" y="410" width="280" height="8" fill="#6b5a47"/>
+    <rect x="110" y="440" width="280" height="8" fill="#6b5a47"/>
+  </g>
+  
+  <!-- Choir stalls with non-scaling filigree -->
+  <g stroke="#a89968" stroke-width="0.8" fill="none" vector-effect="non-scaling-stroke">
+    <path d="M 200 450 Q 205 445 210 450"/>
+    <path d="M 220 450 Q 225 445 230 450"/>
+    <path d="M 240 450 Q 245 445 250 450"/>
+    <path d="M 260 450 Q 265 445 270 450"/>
+    <path d="M 280 450 Q 285 445 290 450"/>
+    <path d="M 300 450 Q 305 445 310 450"/>
+  </g>
+  
+  <!-- Latin motto on archivolt path -->
+  <defs>
+    <path id="archivoltPath" d="M 150 150 Q 250 80 350 150" fill="none"/>
+  </defs>
+  <text font-family="serif" font-size="10" fill="#c9a876" letter-spacing="2" opacity="0.7">
+    <textPath href="#archivoltPath" startOffset="50%" text-anchor="middle">
+      GLORIA IN ALTISSIMIS
+    </textPath>
+  </text>
+  
+  <!-- Golden hour caustic effect -->
+  <ellipse cx="250" cy="300" rx="180" ry="120" fill="url(#sunLight)" opacity="0.25"/>
+  
+  <!-- Floor gradient with shadow -->
+  <defs>
+    <linearGradient id="floorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b7355;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#4a3728;stop-opacity:0.9"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="400" width="500" height="100" fill="url(#floorGrad)"/>
+  
+  <!-- Vaulting web highlights -->
+  <path d="M 200 180 Q 250 160 300 180" fill="none" stroke="#fff8dc" stroke-width="1.5" opacity="0.3"/>
+  <path d="M 200 240 Q 250 220 300 240" fill="none" stroke="#fff8dc" stroke-width="1.5" opacity="0.2"/>
+</svg>

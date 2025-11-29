@@ -1,0 +1,104 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="silverGrad">
+      <stop offset="0%" stop-color="#f4f4f6"/>
+      <stop offset="40%" stop-color="#c8c9d0"/>
+      <stop offset="80%" stop-color="#787885"/>
+      <stop offset="100%" stop-color="#454550"/>
+    </radialGradient>
+    <radialGradient id="glassGrad">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset="50%" stop-color="#e8f4ff" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#9fb8d4" stop-opacity="0.4"/>
+    </radialGradient>
+    <linearGradient id="velvetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2a0815"/>
+      <stop offset="50%" stop-color="#5c1a2f"/>
+      <stop offset="100%" stop-color="#1a0509"/>
+    </linearGradient>
+    <radialGradient id="grapeGrad">
+      <stop offset="0%" stop-color="#d4c5f0"/>
+      <stop offset="40%" stop-color="#8b6bb1"/>
+      <stop offset="100%" stop-color="#4a3660"/>
+    </radialGradient>
+    <radialGradient id="lemonGrad">
+      <stop offset="0%" stop-color="#fff8a0"/>
+      <stop offset="60%" stop-color="#f4d03f"/>
+      <stop offset="100%" stop-color="#d4a520"/>
+    </radialGradient>
+    <filter id="candlelight">
+      <feGaussianBlur stdDeviation="2"/>
+      <feColorMatrix values="1.2 0 0 0 0.1
+                             0 0.9 0 0 0.05
+                             0 0 0.6 0 0
+                             0 0 0 1 0"/>
+      <feSpecularLighting surfaceScale="3" specularConstant="0.75" specularExponent="20">
+        <fePointLight x="-50" y="100" z="200"/>
+      </feSpecularLighting>
+      <feComposite in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
+    </filter>
+    <pattern id="damask" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <rect width="40" height="40" fill="#3a2820"/>
+      <path d="M20,5 Q25,10 20,15 Q15,10 20,5" fill="#4a3830" opacity="0.5"/>
+      <path d="M5,20 Q10,25 15,20 Q10,15 5,20" fill="#4a3830" opacity="0.5"/>
+    </pattern>
+    <filter id="noise">
+      <feTurbulence baseFrequency="0.9" numOctaves="4" seed="5"/>
+      <feColorMatrix values="0 0 0 0 0
+                             0 0 0 0 0
+                             0 0 0 0 0
+                             0 0 0 0.2 0"/>
+    </filter>
+    <clipPath id="gobletClip">
+      <ellipse cx="320" cy="280" rx="35" ry="45"/>
+    </clipPath>
+  </defs>
+  
+  <rect width="500" height="500" fill="#1a1410"/>
+  
+  <rect y="300" width="500" height="200" fill="url(#damask)"/>
+  
+  <path d="M0,250 Q100,200 200,240 T400,220 L500,250 L500,500 L0,500 Z" fill="url(#velvetGrad)" opacity="0.9"/>
+  
+  <ellipse cx="150" cy="350" rx="80" ry="20" fill="#000000" opacity="0.4" filter="blur(8px)"/>
+  
+  <ellipse cx="150" cy="290" rx="45" ry="80" fill="url(#silverGrad)" filter="url(#candlelight)"/>
+  <ellipse cx="150" cy="220" rx="25" ry="8" fill="#e8e8ea"/>
+  <path d="M125,220 Q125,200 150,200 Q175,200 175,220" fill="none" stroke="#b8b8c0" stroke-width="2"/>
+  <path d="M170,250 Q185,245 190,260 Q185,270 170,270" fill="url(#silverGrad)"/>
+  
+  <ellipse cx="320" cy="380" rx="40" ry="15" fill="#000000" opacity="0.3" filter="blur(6px)"/>
+  
+  <g clip-path="url(#gobletClip)">
+    <rect x="285" y="235" width="70" height="90" fill="#a0c0e0" opacity="0.2"/>
+    <line x1="290" y1="240" x2="290" y2="320" stroke="#608090" stroke-width="0.5" opacity="0.3"/>
+    <line x1="300" y1="240" x2="300" y2="320" stroke="#608090" stroke-width="0.5" opacity="0.3"/>
+    <line x1="310" y1="240" x2="310" y2="320" stroke="#608090" stroke-width="0.5" opacity="0.3"/>
+    <line x1="320" y1="240" x2="320" y2="320" stroke="#608090" stroke-width="0.5" opacity="0.3"/>
+    <line x1="330" y1="240" x2="330" y2="320" stroke="#608090" stroke-width="0.5" opacity="0.3"/>
+    <line x1="340" y1="240" x2="340" y2="320" stroke="#608090" stroke-width="0.5" opacity="0.3"/>
+    <line x1="350" y1="240" x2="350" y2="320" stroke="#608090" stroke-width="0.5" opacity="0.3"/>
+  </g>
+  
+  <ellipse cx="320" cy="280" rx="35" ry="45" fill="url(#glassGrad)" stroke="#c0d8f0" stroke-width="1" opacity="0.8"/>
+  <ellipse cx="320" cy="240" rx="35" ry="12" fill="none" stroke="#e0e8f0" stroke-width="1.5"/>
+  <line x1="320" y1="325" x2="320" y2="370" stroke="#c0d8f0" stroke-width="3"/>
+  <ellipse cx="320" cy="375" rx="20" ry="5" fill="#a0b8d0" opacity="0.6"/>
+  
+  <ellipse cx="250" cy="370" rx="25" ry="30" fill="url(#lemonGrad)"/>
+  <path d="M225,370 Q210,365 200,375 Q195,385 205,390 Q215,385 225,380" fill="#fff8a0" stroke="#f4d03f" stroke-width="1"/>
+  <rect x="248" y="368" width="4" height="4" fill="#fffef0" filter="url(#noise)"/>
+  
+  <circle cx="380" cy="340" r="12" fill="url(#grapeGrad)"/>
+  <circle cx="395" cy="345" r="11" fill="url(#grapeGrad)"/>
+  <circle cx="385" cy="355" r="12" fill="url(#grapeGrad)"/>
+  <circle cx="400" cy="360" r="11" fill="url(#grapeGrad)"/>
+  <circle cx="370" cy="350" r="10" fill="url(#grapeGrad)"/>
+  
+  <circle cx="382" cy="338" r="2" fill="#ffffff" opacity="0.6"/>
+  <circle cx="397" cy="343" r="2" fill="#ffffff" opacity="0.6"/>
+  
+  <circle cx="378" cy="342" r="0.5" fill="#e0e8ff" opacity="0.8"/>
+  <circle cx="393" cy="347" r="0.5" fill="#e0e8ff" opacity="0.8"/>
+  <circle cx="383" cy="357" r="0.5" fill="#e0e8ff" opacity="0.8"/>
+</svg>

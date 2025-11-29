@@ -1,0 +1,124 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sunlight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd700;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#ff8c00;stop-opacity:0.1"/>
+    </linearGradient>
+    <radialGradient id="roseGlow" cx="50%" cy="30%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:0.9"/>
+      <stop offset="50%" style="stop-color:#4ecdc4;stop-opacity:0.7"/>
+      <stop offset="100%" style="stop-color:#45b7d1;stop-opacity:0.5"/>
+    </radialGradient>
+    <filter id="caustic">
+      <feColorMatrix type="matrix" values="1.3 0 0 0 0  0 1.1 0 0 0  0 0 1.5 0 0  0 0 0 1 0"/>
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
+    <pattern id="ashlar" width="30" height="20" patternUnits="userSpaceOnUse">
+      <rect width="30" height="20" fill="#d4c5b0"/>
+      <rect width="29" height="19" fill="#e8dcc8" stroke="#b8a890" stroke-width="0.5"/>
+    </pattern>
+    <path id="archPath" d="M 150,250 Q 250,180 350,250"/>
+  </defs>
+  
+  <!-- Stone floor with perspective -->
+  <path d="M 100,450 L 50,350 L 450,350 L 400,450 Z" fill="#8b7355" opacity="0.8"/>
+  
+  <!-- Side walls with ashlar pattern -->
+  <path d="M 50,350 L 80,150 L 80,50 L 50,200 Z" fill="url(#ashlar)"/>
+  <path d="M 450,350 L 420,150 L 420,50 L 450,200 Z" fill="url(#ashlar)"/>
+  
+  <!-- Clustered columns (left) -->
+  <ellipse cx="90" cy="320" rx="8" ry="15" fill="#a89880"/>
+  <ellipse cx="85" cy="300" rx="7" ry="25" fill="#c4b5a0"/>
+  <rect x="82" y="200" width="6" height="100" fill="#b8a890"/>
+  <ellipse cx="95" cy="320" rx="7" ry="15" fill="#9d8b75"/>
+  <rect x="92" y="200" width="6" height="120" fill="#a89880"/>
+  
+  <!-- Clustered columns (right) -->
+  <ellipse cx="410" cy="320" rx="8" ry="15" fill="#a89880"/>
+  <ellipse cx="415" cy="300" rx="7" ry="25" fill="#c4b5a0"/>
+  <rect x="412" y="200" width="6" height="100" fill="#b8a890"/>
+  <ellipse cx="405" cy="320" rx="7" ry="15" fill="#9d8b75"/>
+  <rect x="402" y="200" width="6" height="120" fill="#a89880"/>
+  
+  <!-- Pointed arches (nave bays) -->
+  <path d="M 90,200 Q 150,140 210,200" fill="none" stroke="#8b7d6b" stroke-width="4"/>
+  <path d="M 210,200 Q 250,160 290,200" fill="none" stroke="#8b7d6b" stroke-width="4"/>
+  <path d="M 290,200 Q 350,140 410,200" fill="none" stroke="#8b7d6b" stroke-width="4"/>
+  
+  <!-- Rib vaults -->
+  <path d="M 90,200 L 250,120 L 410,200" fill="none" stroke="#9d8b75" stroke-width="2" opacity="0.7"/>
+  <path d="M 150,180 L 250,120 L 350,180" fill="none" stroke="#9d8b75" stroke-width="1.5" opacity="0.6"/>
+  <line x1="250" y1="120" x2="250" y2="80" stroke="#8b7d6b" stroke-width="2"/>
+  
+  <!-- Vault ceiling -->
+  <path d="M 80,150 Q 250,80 420,150 L 420,50 Q 250,20 80,50 Z" fill="#d4c5b0" opacity="0.9"/>
+  
+  <!-- Rose window -->
+  <circle cx="250" cy="100" r="45" fill="url(#roseGlow)" opacity="0.9"/>
+  <circle cx="250" cy="100" r="45" fill="none" stroke="#6b5d4f" stroke-width="2"/>
+  <circle cx="250" cy="100" r="30" fill="none" stroke="#6b5d4f" stroke-width="1.5"/>
+  <circle cx="250" cy="100" r="15" fill="none" stroke="#6b5d4f" stroke-width="1"/>
+  
+  <!-- 12-fold tracery -->
+  <g stroke="#6b5d4f" stroke-width="1" fill="none">
+    <line x1="250" y1="55" x2="250" y2="145"/>
+    <line x1="205" y1="100" x2="295" y2="100"/>
+    <line x1="218" y1="68" x2="282" y2="132"/>
+    <line x1="218" y1="132" x2="282" y2="68"/>
+    <line x1="228" y1="61" x2="272" y2="139"/>
+    <line x1="228" y1="139" x2="272" y2="61"/>
+  </g>
+  
+  <!-- Tetramorph symbols in rose window -->
+  <g filter="url(#caustic)">
+    <circle cx="250" cy="85" r="6" fill="#ff6b6b"/>
+    <circle cx="265" cy="100" r="6" fill="#4ecdc4"/>
+    <circle cx="250" cy="115" r="6" fill="#f7b731"/>
+    <circle cx="235" cy="100" r="6" fill="#5f27cd"/>
+  </g>
+  
+  <!-- Light rays with caustics -->
+  <g opacity="0.4" filter="url(#caustic)">
+    <path d="M 250,100 L 220,350 L 240,350 Z" fill="url(#sunlight)"/>
+    <path d="M 250,100 L 260,350 L 280,350 Z" fill="url(#sunlight)"/>
+    <path d="M 250,100 L 300,350 L 320,350 Z" fill="#ffd700" opacity="0.2"/>
+    <path d="M 250,100 L 180,350 L 200,350 Z" fill="#ff8c00" opacity="0.2"/>
+  </g>
+  
+  <!-- Pews with shadows -->
+  <g opacity="0.8">
+    <rect x="140" y="360" width="80" height="15" fill="#6b5847" rx="1"/>
+    <rect x="145" y="365" width="70" height="5" fill="#5a4736"/>
+    <path d="M 140,375 L 145,380 L 215,380 L 220,375 Z" fill="#4a3626" opacity="0.6"/>
+    
+    <rect x="280" y="360" width="80" height="15" fill="#6b5847" rx="1"/>
+    <rect x="285" y="365" width="70" height="5" fill="#5a4736"/>
+    <path d="M 280,375 L 285,380 L 355,380 L 360,375 Z" fill="#4a3626" opacity="0.6"/>
+  </g>
+  
+  <!-- Choir stalls with filigree -->
+  <g>
+    <rect x="140" y="320" width="35" height="25" fill="#5a4736" stroke="#4a3626" stroke-width="0.5"/>
+    <path d="M 145,325 L 150,330 L 145,335 M 155,325 L 160,330 L 155,335 M 165,325 L 170,330 L 165,335" stroke="#8b7355" stroke-width="0.5" fill="none"/>
+    
+    <rect x="325" y="320" width="35" height="25" fill="#5a4736" stroke="#4a3626" stroke-width="0.5"/>
+    <path d="M 330,325 L 335,330 L 330,335 M 340,325 L 345,330 L 340,335 M 350,325 L 355,330 L 350,335" stroke="#8b7355" stroke-width="0.5" fill="none"/>
+  </g>
+  
+  <!-- Latin motto on archivolt -->
+  <text font-family="serif" font-size="8" fill="#6b5d4f">
+    <textPath href="#archPath" startOffset="50%" text-anchor="middle">
+      GLORIA IN EXCELSIS DEO
+    </textPath>
+  </text>
+  
+  <!-- Shadow penumbrae -->
+  <ellipse cx="220" cy="375" rx="40" ry="8" fill="#000" opacity="0.15"/>
+  <ellipse cx="340" cy="375" rx="40" ry="8" fill="#000" opacity="0.15"/>
+  <ellipse cx="90" cy="335" rx="12" ry="6" fill="#000" opacity="0.2"/>
+  <ellipse cx="410" cy="335" rx="12" ry="6" fill="#000" opacity="0.2"/>
+  
+  <!-- Golden hour atmosphere -->
+  <rect width="500" height="500" fill="url(#sunlight)" opacity="0.15"/>
+</svg>

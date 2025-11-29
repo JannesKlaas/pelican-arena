@@ -1,0 +1,206 @@
+<svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <!-- Filter for soft penumbra -->
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="2" dy="2" result="offsetblur"/>
+      <feFlood flood-color="#000" flood-opacity="0.4"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Marker for arrowhead for leader lines -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#FFF"/>
+    </marker>
+
+    <!-- ClipPath for glass glare simulation -->
+    <clipPath id="glareClip">
+      <path d="M-10 0 L 20 5 L -10 10 Z M 0 20 L 30 25 L 0 30 Z M 10 40 L 40 45 L 10 50 Z M-5 15 L 25 20 L -5 25 Z" />
+    </clipPath>
+
+    <!-- Warm light gradient (3200K simulation) -->
+    <radialGradient id="lampGlow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#FFFACD" /> <!-- Lemon Chiffon (brighter) -->
+      <stop offset="60%" stop-color="#FFD700" /> <!-- Gold -->
+      <stop offset="100%" stop-color="#FFA500" /> <!-- Orange -->
+    </radialGradient>
+
+  </defs>
+
+  <!-- Scaled perspective parameters (original 2000x1200 scaled by 0.25 and centered vertically) -->
+  <!-- VP_x = 250, VP_y = 337.5, Horizon_y = 337.5 -->
+
+  <!-- Background and overall amphitheater structure -->
+  <rect x="0" y="0" width="500" height="500" fill="#282828"/> <!-- Dark charcoal/brown background -->
+
+  <!-- Gas lamps (top lighting) -->
+  <g>
+    <circle cx="100" cy="80" r="15" fill="url(#lampGlow)" filter="url(#softShadow)"/>
+    <circle cx="250" cy="70" r="15" fill="url(#lampGlow)" filter="url(#softShadow)"/>
+    <circle cx="400" cy="80" r="15" fill="url(#lampGlow)" filter="url(#softShadow)"/>
+    
+    <!-- Glare simulation for lamps -->
+    <g transform="translate(85, 65) scale(0.3) rotate(15)">
+        <rect x="0" y="0" width="100" height="100" fill="white" clip-path="url(#glareClip)"/>
+    </g>
+    <g transform="translate(235, 55) scale(0.3) rotate(5)">
+        <rect x="0" y="0" width="100" height="100" fill="white" clip-path="url(#glareClip)"/>
+    </g>
+    <g transform="translate(385, 65) scale(0.3) rotate(-10)">
+        <rect x="0" y="0" width="100" height="100" fill="white" clip-path="url(#glareClip)"/>
+    </g>
+  </g>
+
+  <!-- Tiered Seating (concentric arcs, perspective) -->
+  <!-- Riser height 180mm, tread depth 280mm => tread is wider than riser is high -->
+  <g fill="#4A3C32" stroke="#332B25" stroke-width="1" filter="url(#softShadow)">
+    <!-- Back wall of the amphitheater, fading into darkness -->
+    <path d="M 0 337.5 C 100 280, 400 280, 500 337.5 L 500 500 L 0 500 Z" fill="#3D302B"/>
+
+    <!-- Seating tiers (from back to front) -->
+    <!-- Tread 4 (furthest) -->
+    <path d="M 120 380 A 130 65 0 0 1 380 380 L 370 390 A 120 60 0 0 0 130 390 L 120 380 Z" fill="#5E4C41"/>
+    <!-- Riser 4 -->
+    <path d="M 130 390 A 120 60 0 0 1 370 390 L 360 400 A 110 55 0 0 0 140 400 L 130 390 Z" />
+    
+    <!-- Tread 3 -->
+    <path d="M 140 400 A 110 55 0 0 1 360 400 L 350 410 A 100 50 0 0 0 150 410 L 140 400 Z" fill="#5E4C41"/>
+    <!-- Riser 3 -->
+    <path d="M 150 410 A 100 50 0 0 1 350 410 L 340 420 A 90 45 0 0 0 160 420 L 150 410 Z" />
+
+    <!-- Tread 2 -->
+    <path d="M 160 420 A 90 45 0 0 1 340 420 L 330 430 A 80 40 0 0 0 170 430 L 160 420 Z" fill="#5E4C41"/>
+    <!-- Riser 2 -->
+    <path d="M 170 430 A 80 40 0 0 1 330 430 L 320 440 A 70 35 0 0 0 180 440 L 170 430 Z" />
+
+    <!-- Tread 1 (closest) -->
+    <path d="M 180 440 A 70 35 0 0 1 320 440 L 310 450 A 60 30 0 0 0 190 450 L 180 440 Z" fill="#5E4C41"/>
+    <!-- Riser 1 -->
+    <path d="M 190 450 A 60 30 0 0 1 310 450 L 300 460 A 50 25 0 0 0 200 460 L 190 450 Z" />
+  </g>
+
+  <!-- Operating Table -->
+  <g filter="url(#softShadow)">
+    <path d="M 200 405 L 300 405 L 310 420 L 190 420 Z" fill="#964B00" stroke="#653200" stroke-width="2"/> <!-- Table top -->
+    <path d="M 190 420 L 180 470 L 200 470 L 210 420 Z" fill="#803C00" stroke="#653200" stroke-width="1"/> <!-- Table leg front left -->
+    <path d="M 310 420 L 320 470 L 300 470 L 290 420 Z" fill="#803C00" stroke="#653200" stroke-width="1"/> <!-- Table leg front right -->
+    <path d="M 200 405 L 190 455 L 210 455 L 220 405 Z" fill="#803C00" stroke="#653200" stroke-width="1"/> <!-- Table leg back left (partial) -->
+    <path d="M 300 405 L 290 455 L 310 455 L 320 405 Z" fill="#803C00" stroke="#653200" stroke-width="1"/> <!-- Table leg back right (partial) -->
+  </g>
+
+  <!-- Upper Limb Anatomy -->
+  <!-- Relative proportions: humerus ~19% body height, forearm ~15%.
+       Assuming an arm length of ~100px for visibility.
+       Scapular plane 30 deg relative to frontal (achieved by slight rotation). -->
+  <g transform="translate(250, 410) rotate(15)" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M -15 -10 Q -5 -30, 15 -10 Z" fill="#F0C6AA" stroke="#D8A88A" stroke-width="1"/> <!-- Shoulder/deltoid area -->
+
+    <!-- Humerus -->
+    <path d="M 0 0 C 10 15, 10 40, 0 55 C -10 40, -10 15, 0 0 Z" fill="#FDD7BA" stroke="#D8A88A" stroke-width="1"/>
+    <!-- Forearm -->
+    <path d="M 0 55 C 8 65, 8 90, 0 100 C -8 90, -8 65, 0 55 Z" fill="#FDD7BA" stroke="#D8A88A" stroke-width="1"/>
+    <!-- Hand -->
+    <path d="M 0 100 Q 10 105, 5 115 Q -10 110, 0 100 Z" fill="#FDD7BA" stroke="#D8A88A" stroke-width="1"/>
+
+    <!-- Tendons and Muscles (schematic, low saturation) -->
+    <path d="M 0 10 L 0 50" stroke="#A0A0A0" stroke-width="2" fill="none"/> <!-- Biceps tendon -->
+    <path d="M -5 60 C -10 65, -10 80, -5 85" stroke="#E0B0B0" stroke-width="3" fill="none"/> <!-- Forearm flexor -->
+    <path d="M 5 60 C 10 65, 10 80, 5 85" stroke="#E0B0B0" stroke-width="3" fill="none"/> <!-- Forearm extensor -->
+    <path d="M 0 88 L 0 98" stroke="#A0A0A0" stroke-width="1" fill="none"/> <!-- Wrist tendon -->
+
+    <!-- Labels for anatomy -->
+    <path id="pathHumerus" d="M 20 25 L 50 25" fill="none"/>
+    <text font-size="8" fill="#FFF">
+      <textPath xlink:href="#pathHumerus" startOffset="0">
+        Humerus
+      </textPath>
+    </text>
+    <path d="M 50 25 L 30 25" stroke="#CCC" stroke-width="0.5" marker-end="url(#arrow)"/>
+
+    <path id="pathForearm" d="M 20 75 L 50 75" fill="none"/>
+    <text font-size="8" fill="#FFF">
+      <textPath xlink:href="#pathForearm" startOffset="0">
+        Forearm
+      </textPath>
+    </text>
+    <path d="M 50 75 L 30 75" stroke="#CCC" stroke-width="0.5" marker-end="url(#arrow)"/>
+
+    <path id="pathBicep" d="M -20 30 Q -30 35, -20 40" fill="none"/>
+    <text font-size="8" fill="#FFF">
+      <textPath xlink:href="#pathBicep" startOffset="0">
+        Bicep
+      </textPath>
+    </text>
+    <path d="M -20 35 L -5 35" stroke="#CCC" stroke-width="0.5" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- Instruments (Bone Saw, Forceps) -->
+  <g transform="translate(190, 440)">
+    <!-- Bone Saw -->
+    <path d="M 0 0 L 5 20 L 40 18 L 35 -2 Z M 5 5 L 10 5 M 10 5 L 15 5 M 15 5 L 20 5 M 20 5 L 25 5 M 25 5 L 30 5"
+          fill="#C0C0C0" stroke="#777" stroke-width="0.5" vector-effect="non-scaling-stroke"/>
+    <rect x="35" y="-5" width="10" height="10" rx="2" ry="2" fill="#8B4513"/> <!-- Handle -->
+    <path d="M 3 3 L 38 0" stroke="white" stroke-width="0.2" vector-effect="non-scaling-stroke"/> <!-- Highlight -->
+
+    <!-- Forceps -->
+    <g transform="translate(60, 10)">
+      <path d="M 0 0 L 5 -10 L 10 0 L 8 5 L 7 10 L 6 5 Z" fill="#C0C0C0" stroke="#777" stroke-width="0.5" vector-effect="non-scaling-stroke"/> <!-- Tip -->
+      <path d="M 7 10 C 0 15, 0 25, 7 30 C 14 25, 14 15, 7 10 Z" fill="#C0C0C0" stroke="#777" stroke-width="0.5" vector-effect="non-scaling-stroke"/> <!-- Handle parts -->
+      <circle cx="7" cy="20" r="3" fill="#A0A0A0"/> <!-- Pivot -->
+      <path d="M 0 -5 L 14 25" stroke="white" stroke-width="0.2" vector-effect="non-scaling-stroke"/> <!-- Highlight -->
+    </g>
+  </g>
+
+  <!-- Chalk Diagrams on Slate -->
+  <g filter="url(#softShadow)">
+    <!-- First chalkboard -->
+    <g transform="translate(70, 150)">
+      <rect x="0" y="0" width="100" height="70" rx="5" ry="5" fill="#36454F" stroke="#000" stroke-width="2"/>
+      <path id="chalkPath1" d="M 10 20 Q 50 5, 90 20" fill="none"/>
+      <text font-family="Chalkboard SE, cursive" font-size="10" fill="#F0F0F0" style="text-shadow: 1px 1px 2px #000;">
+        <textPath xlink:href="#chalkPath1">
+          Anatomy
+        </textPath>
+      </text>
+      <path id="chalkPath2" d="M 10 45 Q 50 30, 90 45" fill="none"/>
+      <text font-family="Chalkboard SE, cursive" font-size="10" fill="#F0F0F0" style="text-shadow: 1px 1px 2px #000;">
+        <textPath xlink:href="#chalkPath2">
+          Incision
+        </textPath>
+      </text>
+      <path id="chalkPath3" d="M 10 70 Q 50 55, 90 70" fill="none"/>
+      <text font-family="Chalkboard SE, cursive" font-size="10" fill="#F0F0F0" style="text-shadow: 1px 1px 2px #000;">
+        <textPath xlink:href="#chalkPath3">
+          Procedure
+        </textPath>
+      </text>
+    </g>
+
+    <!-- Second chalkboard -->
+    <g transform="translate(330, 150)">
+      <rect x="0" y="0" width="100" height="70" rx="5" ry="5" fill="#36454F" stroke="#000" stroke-width="2"/>
+      <path id="chalkPath4" d="M 10 20 Q 50 5, 90 20" fill="none"/>
+      <text font-family="Chalkboard SE, cursive" font-size="10" fill="#F0F0F0" style="text-shadow: 1px 1px 2px #000;">
+        <textPath xlink:href="#chalkPath4">
+          Muscles
+        </textPath>
+      </text>
+      <path id="chalkPath5" d="M 10 45 Q 50 30, 90 45" fill="none"/>
+      <text font-family="Chalkboard SE, cursive" font-size="10" fill="#F0F0F0" style="text-shadow: 1px 1px 2px #000;">
+        <textPath xlink:href="#chalkPath5">
+          Tendons
+        </textPath>
+      </text>
+      <path id="chalkPath6" d="M 10 70 Q 50 55, 90 70" fill="none"/>
+      <text font-family="Chalkboard SE, cursive" font-size="10" fill="#F0F0F0" style="text-shadow: 1px 1px 2px #000;">
+        <textPath xlink:href="#chalkPath6">
+          Bones
+        </textPath>
+      </text>
+    </g>
+  </g>
+</svg>
