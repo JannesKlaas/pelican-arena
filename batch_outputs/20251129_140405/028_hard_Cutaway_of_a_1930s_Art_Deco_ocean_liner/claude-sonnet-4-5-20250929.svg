@@ -1,0 +1,126 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="metalLight">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+      <feSpecularLighting result="spec" specularExponent="20" lighting-color="#fff">
+        <feSpotLight x="250" y="100" z="300" pointsAtX="250" pointsAtY="300" pointsAtZ="0"/>
+      </feSpecularLighting>
+      <feComposite in="spec" in2="SourceAlpha" operator="in"/>
+      <feComposite in="SourceGraphic" in2="spec" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
+    </filter>
+    <filter id="steam">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3"/>
+      <feDisplacementMap in="SourceGraphic" scale="15"/>
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8899aa;stop-opacity:1"/>
+      <stop offset="50%" style="stop-color:#556677;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#334455;stop-opacity:1"/>
+    </linearGradient>
+    <radialGradient id="turbineGrad">
+      <stop offset="0%" style="stop-color:#667788"/>
+      <stop offset="100%" style="stop-color:#334455"/>
+    </radialGradient>
+    <symbol id="rivet">
+      <circle cx="0" cy="0" r="2" fill="#556677" stroke="#334455" stroke-width="0.5"/>
+    </symbol>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="500" height="500" fill="#2a3a4a"/>
+  
+  <!-- Floor plates -->
+  <path d="M 50 400 L 150 420 L 450 420 L 450 400 Z" fill="#445566" stroke="#334455" stroke-width="2"/>
+  <path d="M 50 400 L 50 450 L 450 450 L 450 420 Z" fill="#334455"/>
+  
+  <!-- Steam turbine housing - perspective adjusted -->
+  <ellipse cx="180" cy="250" rx="70" ry="90" fill="url(#turbineGrad)" filter="url(#metalLight)"/>
+  <rect x="110" y="200" width="140" height="100" fill="url(#metalGrad)" filter="url(#metalLight)"/>
+  <ellipse cx="180" cy="200" rx="70" ry="35" fill="#778899"/>
+  
+  <!-- Rivets on turbine -->
+  <use href="#rivet" x="115" y="220"/>
+  <use href="#rivet" x="115" y="240"/>
+  <use href="#rivet" x="115" y="260"/>
+  <use href="#rivet" x="115" y="280"/>
+  <use href="#rivet" x="245" y="220"/>
+  <use href="#rivet" x="245" y="240"/>
+  <use href="#rivet" x="245" y="260"/>
+  <use href="#rivet" x="245" y="280"/>
+  
+  <!-- Generator -->
+  <ellipse cx="320" cy="250" rx="85" ry="100" fill="url(#turbineGrad)" filter="url(#metalLight)"/>
+  <rect x="235" y="200" width="170" height="100" fill="url(#metalGrad)" filter="url(#metalLight)"/>
+  <ellipse cx="320" cy="200" rx="85" ry="40" fill="#778899"/>
+  
+  <!-- Drive shaft -->
+  <rect x="240" y="245" width="90" height="10" fill="#667788" stroke="#445566" stroke-width="1"/>
+  
+  <!-- Steam pipes (red) -->
+  <path d="M 100 150 Q 150 170 180 180" stroke="#cc3333" stroke-width="12" fill="none"/>
+  <path d="M 180 180 L 180 195" stroke="#cc3333" stroke-width="12" fill="none"/>
+  
+  <!-- Condensate return (blue) -->
+  <path d="M 180 310 L 180 340 Q 180 360 160 370" stroke="#3366cc" stroke-width="6" fill="none"/>
+  <path d="M 160 370 L 120 385" stroke="#3366cc" stroke-width="6" fill="none"/>
+  
+  <!-- Lube oil lines (yellow) -->
+  <path d="M 250 340 L 250 360 L 230 370" stroke="#ccaa33" stroke-width="3" fill="none"/>
+  <path d="M 320 340 L 320 360 L 340 370" stroke="#ccaa33" stroke-width="3" fill="none"/>
+  
+  <!-- Electric motors -->
+  <rect x="380" y="220" width="60" height="60" fill="url(#metalGrad)" filter="url(#metalLight)" rx="5"/>
+  <rect x="380" y="310" width="60" height="60" fill="url(#metalGrad)" filter="url(#metalLight)" rx="5"/>
+  <text x="410" y="255" font-family="sans-serif" font-size="10" fill="#fff" text-anchor="middle">10MW</text>
+  <text x="410" y="345" font-family="sans-serif" font-size="10" fill="#fff" text-anchor="middle">10MW</text>
+  
+  <!-- Electrical cables -->
+  <path d="M 320 230 Q 350 230 380 235" stroke="#ff8800" stroke-width="4" fill="none"/>
+  <path d="M 320 270 Q 350 290 380 330" stroke="#ff8800" stroke-width="4" fill="none"/>
+  
+  <!-- Manometer -->
+  <circle cx="140" cy="170" r="18" fill="#223344" stroke="#556677" stroke-width="2"/>
+  <circle cx="140" cy="170" r="15" fill="#112233" stroke="#445566" stroke-width="1"/>
+  <path d="M 140 170 L 148 162" stroke="#cc3333" stroke-width="1.5"/>
+  <text x="140" y="200" font-family="sans-serif" font-size="8" fill="#fff" text-anchor="middle">1.2 MPa</text>
+  
+  <!-- Catwalk -->
+  <path d="M 50 150 L 100 155 L 400 155 L 450 150" stroke="#667788" stroke-width="3" fill="none"/>
+  <path d="M 50 150 L 50 155 M 100 155 L 100 160 M 150 155 L 150 160 M 200 155 L 200 160 M 250 155 L 250 160 M 300 155 L 300 160 M 350 155 L 350 160 M 400 155 L 400 160" stroke="#667788" stroke-width="2"/>
+  
+  <!-- Ladder -->
+  <path d="M 70 155 L 60 250 M 80 155 L 70 250" stroke="#778899" stroke-width="2"/>
+  <path d="M 70 170 L 80 168 M 68 190 L 78 187 M 66 210 L 76 206 M 64 230 L 74 225" stroke="#778899" stroke-width="2"/>
+  
+  <!-- Lighting fixtures -->
+  <ellipse cx="150" cy="145" rx="8" ry="4" fill="#ffcc88" opacity="0.8"/>
+  <ellipse cx="300" cy="145" rx="8" ry="4" fill="#ffcc88" opacity="0.8"/>
+  <path d="M 150 120 L 150 145" stroke="#556677" stroke-width="2"/>
+  <path d="M 300 120 L 300 145" stroke="#556677" stroke-width="2"/>
+  
+  <!-- Light beams -->
+  <path d="M 150 145 L 180 250" stroke="#ffcc88" stroke-width="30" opacity="0.15"/>
+  <path d="M 300 145 L 320 250" stroke="#ffcc88" stroke-width="30" opacity="0.15"/>
+  
+  <!-- Steam plume -->
+  <ellipse cx="180" cy="180" rx="20" ry="15" fill="#ffffff" opacity="0.5" filter="url(#steam)"/>
+  <ellipse cx="185" cy="165" rx="15" ry="12" fill="#ffffff" opacity="0.4" filter="url(#steam)"/>
+  
+  <!-- Safety signage -->
+  <rect x="420" y="180" width="60" height="20" fill="#ffcc00" stroke="#333" stroke-width="1"/>
+  <text x="450" y="193" font-family="Arial" font-size="10" fill="#000" text-anchor="middle" font-weight="bold">CAUTION</text>
+  
+  <rect x="60" y="360" width="50" height="20" fill="#cc3333" stroke="#333" stroke-width="1"/>
+  <text x="85" y="373" font-family="Arial" font-size="9" fill="#fff" text-anchor="middle" font-weight="bold">HOT</text>
+  
+  <!-- Control valves -->
+  <rect x="165" y="185" width="30" height="15" fill="#556677" stroke="#334455" stroke-width="1" rx="2"/>
+  <circle cx="180" cy="192" r="4" fill="#cc3333"/>
+  
+  <!-- Instrument panel -->
+  <rect x="420" y="380" width="50" height="40" fill="#334455" stroke="#556677" stroke-width="2" rx="3"/>
+  <circle cx="435" cy="395" r="6" fill="#112233" stroke="#445566" stroke-width="1"/>
+  <circle cx="455" cy="395" r="6" fill="#112233" stroke="#445566" stroke-width="1"/>
+  <rect x="425" y="405" width="40" height="3" fill="#33cc33"/>
+</svg>

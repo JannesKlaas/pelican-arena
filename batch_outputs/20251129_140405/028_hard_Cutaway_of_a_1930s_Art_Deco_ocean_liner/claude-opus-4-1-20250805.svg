@@ -1,0 +1,87 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="turbulence">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2"/>
+      <feDisplacementMap in="SourceGraphic" scale="5"/>
+    </filter>
+    <filter id="metallic">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feSpecularLighting result="specOut" specularExponent="20" lighting-color="white">
+        <feSpotLight x="250" y="100" z="200"/>
+      </feSpecularLighting>
+      <feComposite in="specOut" in2="SourceAlpha" operator="in"/>
+      <feComposite in2="SourceGraphic"/>
+    </filter>
+    <pattern id="rivet" x="0" y="0" width="25" height="25" patternUnits="userSpaceOnUse">
+      <circle cx="12.5" cy="12.5" r="2" fill="#666"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background plates -->
+  <rect width="500" height="500" fill="#2a2a2a"/>
+  <rect x="0" y="0" width="500" height="300" fill="url(#rivet)" opacity="0.3"/>
+  
+  <!-- Floor grating -->
+  <rect x="0" y="350" width="500" height="150" fill="#1a1a1a"/>
+  <line x1="0" y1="350" x2="500" y2="350" stroke="#444" stroke-width="2"/>
+  
+  <!-- Turbine -->
+  <ellipse cx="150" cy="250" rx="60" ry="45" fill="#8a8a8a" filter="url(#metallic)"/>
+  <rect x="90" y="220" width="120" height="60" fill="#7a7a7a"/>
+  <circle cx="150" cy="250" r="35" fill="#666"/>
+  
+  <!-- Generator -->
+  <ellipse cx="350" cy="250" rx="75" ry="55" fill="#6a6a6a" filter="url(#metallic)"/>
+  <rect x="275" y="210" width="150" height="80" fill="#5a5a5a"/>
+  <circle cx="350" cy="250" r="45" fill="#4a4a4a"/>
+  
+  <!-- Coupling -->
+  <rect x="210" y="240" width="65" height="20" fill="#9a9a9a"/>
+  
+  <!-- Steam pipes (red) -->
+  <path d="M 50 100 L 150 100 L 150 200" stroke="#cc0000" stroke-width="12" fill="none"/>
+  <path d="M 150 300 L 150 400" stroke="#cc0000" stroke-width="12" fill="none"/>
+  
+  <!-- Condensate pipes (blue) -->
+  <path d="M 350 300 L 350 400 L 450 400" stroke="#0066cc" stroke-width="6" fill="none"/>
+  
+  <!-- Lube oil pipes (yellow) -->
+  <path d="M 100 280 L 100 320" stroke="#ffcc00" stroke-width="3" fill="none"/>
+  <path d="M 400 280 L 400 320" stroke="#ffcc00" stroke-width="3" fill="none"/>
+  
+  <!-- Manometer -->
+  <circle cx="450" cy="150" r="25" fill="white" stroke="#333" stroke-width="2"/>
+  <circle cx="450" cy="150" r="3" fill="#333"/>
+  <path d="M 450 150 L 460 135" stroke="#cc0000" stroke-width="2" fill="none"/>
+  <text x="440" y="190" font-family="sans-serif" font-size="8" fill="white">1.2 MPa</text>
+  
+  <!-- Catwalk -->
+  <rect x="0" y="120" width="500" height="5" fill="#666"/>
+  <rect x="100" y="100" width="3" height="20" fill="#666"/>
+  <rect x="200" y="100" width="3" height="20" fill="#666"/>
+  <rect x="300" y="100" width="3" height="20" fill="#666"/>
+  <rect x="400" y="100" width="3" height="20" fill="#666"/>
+  
+  <!-- Ladder -->
+  <line x1="30" y1="120" x2="45" y2="350" stroke="#666" stroke-width="3"/>
+  <line x1="50" y1="120" x2="65" y2="350" stroke="#666" stroke-width="3"/>
+  <line x1="35" y1="140" x2="60" y2="140" stroke="#666" stroke-width="2"/>
+  <line x1="37" y1="170" x2="62" y2="170" stroke="#666" stroke-width="2"/>
+  <line x1="39" y1="200" x2="64" y2="200" stroke="#666" stroke-width="2"/>
+  <line x1="41" y1="230" x2="66" y2="230" stroke="#666" stroke-width="2"/>
+  <line x1="43" y1="260" x2="68" y2="260" stroke="#666" stroke-width="2"/>
+  <line x1="45" y1="290" x2="70" y2="290" stroke="#666" stroke-width="2"/>
+  <line x1="47" y1="320" x2="72" y2="320" stroke="#666" stroke-width="2"/>
+  
+  <!-- Steam effect -->
+  <ellipse cx="150" cy="80" rx="40" ry="20" fill="white" opacity="0.3" filter="url(#turbulence)"/>
+  
+  <!-- Safety signage -->
+  <rect x="220" y="50" width="60" height="20" fill="#ffcc00" stroke="#333"/>
+  <text x="250" y="63" font-family="sans-serif" font-size="8" text-anchor="middle" fill="#333">DANGER</text>
+  
+  <!-- Lighting fixtures -->
+  <rect x="120" y="90" width="15" height="10" fill="#ffffcc"/>
+  <rect x="240" y="90" width="15" height="10" fill="#ffffcc"/>
+  <rect x="360" y="90" width="15" height="10" fill="#ffffcc"/>
+</svg>

@@ -1,0 +1,251 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+
+  <!-- Background -->
+  <rect x="0" y="0" width="500" height="500" fill="#10141b"/>
+
+  <!-- Filters -->
+  <defs>
+    <!-- Metallic specular highlights -->
+    <filter id="metalSpec">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1.2" result="blur"/>
+      <feSpecularLighting in="blur" surfaceScale="3" specularConstant="0.7" specularExponent="25" lighting-color="#ffffff" result="spec">
+        <feSpotLight x="250" y="80" z="120" pointsAtX="250" pointsAtY="220" pointsAtZ="0" limitingConeAngle="40"/>
+      </feSpecularLighting>
+      <feComposite in="spec" in2="SourceGraphic" operator="in" result="lit"/>
+      <feComposite in="SourceGraphic" in2="lit" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
+    </filter>
+
+    <!-- Steam plume (background only) -->
+    <filter id="steamPlume">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02 0.08" numOctaves="3" seed="7" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="15" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <!-- Rivet symbol -->
+    <symbol id="rivet" viewBox="0 0 4 4">
+      <circle cx="2" cy="2" r="1.2" fill="#b0b6bf" stroke="#666a70" stroke-width="0.3"/>
+    </symbol>
+
+    <!-- Manometer face -->
+    <symbol id="manometer" viewBox="0 0 30 30">
+      <circle cx="15" cy="15" r="14" fill="#f3f4f6" stroke="#222" stroke-width="1.2"/>
+      <!-- Scale ticks -->
+      <g stroke="#333" stroke-width="0.5">
+        <line x1="15" y1="3"  x2="15" y2="6"/>
+        <line x1="24" y1="6"  x2="22" y2="8"/>
+        <line x1="27" y1="15" x2="24" y2="15"/>
+        <line x1="24" y1="24" x2="22" y2="22"/>
+        <line x1="15" y1="27" x2="15" y2="24"/>
+      </g>
+      <!-- Needle @ ~1.2 MPa -->
+      <line x1="15" y1="15" x2="24" y2="11" stroke="#c00" stroke-width="1.2" stroke-linecap="round"/>
+      <circle cx="15" cy="15" r="1.2" fill="#333"/>
+    </symbol>
+
+    <!-- DIN 1451-like font substitute using basic shapes (approximation via text; actual font not embedded) -->
+  </defs>
+
+  <!-- Steam plume in background -->
+  <g filter="url(#steamPlume)" opacity="0.4">
+    <path d="M80,260 C70,210 90,190 110,175
+             C130,160 150,150 155,135
+             C160,120 150,100 145,85
+             C140,70 145,55 160,45
+             C175,35 190,40 200,55
+             C210,70 210,95 205,115
+             C200,135 205,150 215,165
+             C225,180 235,195 230,215
+             C225,235 205,255 185,265
+             C165,275 140,280 120,275
+             C100,270 90,250 80,260 Z"
+          fill="url(#gradSteam)"/>
+  </g>
+
+  <defs>
+    <linearGradient id="gradSteam" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#dfe6f0" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#aeb6c0" stop-opacity="0.0"/>
+    </linearGradient>
+
+    <!-- 4000K warm-neutral lighting impression -->
+    <linearGradient id="catwalkLight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f5f0e6" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#d0cbc2" stop-opacity="0.3"/>
+    </linearGradient>
+
+    <linearGradient id="steelBody" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d5d9e0"/>
+      <stop offset="40%" stop-color="#a5abb5"/>
+      <stop offset="100%" stop-color="#737a84"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Deck / catwalk -->
+  <g>
+    <polygon points="40,260 460,260 430,280 70,280"
+             fill="#20252f" stroke="#80858f" stroke-width="0.8"/>
+    <!-- Rail -->
+    <line x1="60" y1="240" x2="440" y2="240" stroke="#c3c6ce" stroke-width="1.2"/>
+    <line x1="60" y1="240" x2="60" y2="260" stroke="#c3c6ce" stroke-width="1.2"/>
+    <line x1="440" y1="240" x2="440" y2="260" stroke="#c3c6ce" stroke-width="1.2"/>
+    <!-- Catwalk luminaires -->
+    <g fill="url(#catwalkLight)" stroke="#777" stroke-width="0.3">
+      <rect x="120" y="232" width="16" height="5" rx="1"/>
+      <rect x="200" y="232" width="16" height="5" rx="1"/>
+      <rect x="280" y="232" width="16" height="5" rx="1"/>
+      <rect x="360" y="232" width="16" height="5" rx="1"/>
+    </g>
+  </g>
+
+  <!-- Engine room shell with riveted plates -->
+  <g fill="none" stroke="#4c5460" stroke-width="1">
+    <path id="shellTop" d="M50,150 C120,110 380,110 450,150"/>
+    <path id="shellMid" d="M40,300 C90,260 410,260 460,300"/>
+  </g>
+
+  <!-- Rivets along curved shell -->
+  <g>
+    <g id="rivetsTop">
+      <use href="#rivet">
+        <animateMotion dur="8s" repeatCount="1" fill="freeze"
+          path="M50,150 C120,110 380,110 450,150">
+          <mpath xlink:href="#shellTop"/>
+        </animateMotion>
+      </use>
+    </g>
+    <!-- Static placement approximation: a few rivets -->
+    <use href="#rivet" x="100" y="146"/>
+    <use href="#rivet" x="160" y="138"/>
+    <use href="#rivet" x="220" y="134"/>
+    <use href="#rivet" x="280" y="134"/>
+    <use href="#rivet" x="340" y="138"/>
+    <use href="#rivet" x="400" y="146"/>
+
+    <use href="#rivet" x="90" y="286"/>
+    <use href="#rivet" x="150" y="276"/>
+    <use href="#rivet" x="210" y="272"/>
+    <use href="#rivet" x="270" y="272"/>
+    <use href="#rivet" x="330" y="276"/>
+    <use href="#rivet" x="390" y="286"/>
+  </g>
+
+  <!-- Steam turbine casing -->
+  <g filter="url(#metalSpec)">
+    <ellipse cx="180" cy="310" rx="65" ry="40"
+             fill="url(#steelBody)" stroke="#515763" stroke-width="1.5"/>
+    <!-- Turbine rotor centerline -->
+    <line x1="115" y1="310" x2="245" y2="310"
+          stroke="#222833" stroke-width="1.3" stroke-dasharray="3,2"/>
+    <!-- Turbine label -->
+    <text x="140" y="305" font-size="7" fill="#f0f2f5" font-family="sans-serif">
+      STEAM TURBINE
+    </text>
+  </g>
+
+  <!-- Generator (slightly larger stator) -->
+  <g filter="url(#metalSpec)">
+    <ellipse cx="300" cy="310" rx="75" ry="45"
+             fill="url(#steelBody)" stroke="#4a515e" stroke-width="1.5"/>
+    <!-- Shaft alignment between turbine and generator -->
+    <line x1="245" y1="310" x2="225" y2="310" stroke="#111821" stroke-width="2"/>
+    <!-- Generator rotor -->
+    <ellipse cx="300" cy="310" rx="35" ry="18"
+             fill="#303846" stroke="#222833" stroke-width="1"/>
+    <text x="268" y="305" font-size="7" fill="#f0f2f5" font-family="sans-serif">
+      GENERATOR
+    </text>
+  </g>
+
+  <!-- Twin 10 MW drive motors -->
+  <g filter="url(#metalSpec)">
+    <!-- Left motor -->
+    <rect x="110" y="350" width="70" height="40" rx="6"
+          fill="url(#steelBody)" stroke="#4a515e" stroke-width="1.2"/>
+    <circle cx="145" cy="370" r="10" fill="#303846" stroke="#222833" stroke-width="1"/>
+    <!-- Right motor -->
+    <rect x="320" y="350" width="70" height="40" rx="6"
+          fill="url(#steelBody)" stroke="#4a515e" stroke-width="1.2"/>
+    <circle cx="355" cy="370" r="10" fill="#303846" stroke="#222833" stroke-width="1"/>
+    <!-- Labels -->
+    <text x="115" y="365" font-size="6" fill="#f0f2f5" font-family="sans-serif">
+      10 MW MOTOR
+    </text>
+    <text x="325" y="365" font-size="6" fill="#f0f2f5" font-family="sans-serif">
+      10 MW MOTOR
+    </text>
+  </g>
+
+  <!-- Perspective shaft/belt centerlines (approx two-point perspective) -->
+  <g stroke="#c7ccd5" stroke-width="0.8" stroke-dasharray="2,2">
+    <!-- From turbine/generator center towards notional VPs -->
+    <line x1="180" y1="310" x2="-380" y2="640"/>
+    <line x1="300" y1="310" x2="820" y2="640"/>
+    <!-- From motors toward same horizon -->
+    <line x1="145" y1="370" x2="-380" y2="640"/>
+    <line x1="355" y1="370" x2="820" y2="640"/>
+  </g>
+
+  <!-- Steam (red, Ø300 mm scaled) main pipe -->
+  <g stroke="#ff4040" stroke-width="6" fill="none">
+    <path d="M60,190 C130,180 170,220 200,250
+             C220,270 260,285 280,290" />
+  </g>
+
+  <!-- Condensate (blue, Ø150 mm scaled) -->
+  <g stroke="#4da6ff" stroke-width="3.5" fill="none">
+    <path d="M80,340 C110,330 140,330 170,335
+             C200,340 230,345 260,345
+             C290,345 320,340 350,335" />
+  </g>
+
+  <!-- Lube oil (yellow, Ø75 mm scaled) -->
+  <g stroke="#ffd23a" stroke-width="2" fill="none">
+    <path d="M220,320 C230,330 240,338 255,344
+             C270,350 285,352 300,352" />
+  </g>
+
+  <!-- Manometers on steam line -->
+  <g>
+    <use href="#manometer" x="215" y="215"/>
+    <use href="#manometer" x="310" y="280"/>
+  </g>
+
+  <!-- Ladder at 75° pitch (approx) -->
+  <g stroke="#cfd3db" stroke-width="1.2" stroke-linecap="round">
+    <!-- Rails -->
+    <line x1="430" y1="400" x2="445" y2="260"/>
+    <line x1="440" y1="404" x2="455" y2="264"/>
+    <!-- Rungs -->
+    <g>
+      <line x1="433" y1="392" x2="443" y2="396"/>
+      <line x1="435" y1="380" x2="445" y2="384"/>
+      <line x1="437" y1="368" x2="447" y2="372"/>
+      <line x1="439" y1="356" x2="449" y2="360"/>
+      <line x1="441" y1="344" x2="451" y2="348"/>
+      <line x1="443" y1="332" x2="453" y2="336"/>
+      <line x1="445" y1="320" x2="455" y2="324"/>
+      <line x1="447" y1="308" x2="457" y2="312"/>
+    </g>
+  </g>
+
+  <!-- Safety signage (DIN 1451 style approximated) -->
+  <g>
+    <rect x="60" y="210" width="60" height="20" rx="2"
+          fill="#f6f7f8" stroke="#cc0000" stroke-width="1.2"/>
+    <text x="65" y="224" font-size="7" font-family="sans-serif"
+          fill="#cc0000">
+      ACHTUNG STEAM
+    </text>
+
+    <rect x="380" y="320" width="70" height="20" rx="2"
+          fill="#f6f7f8" stroke="#006600" stroke-width="1.2"/>
+    <text x="385" y="334" font-size="7" font-family="sans-serif"
+          fill="#006600">
+      EMERGENCY STOP
+    </text>
+  </g>
+
+  <!-- Horizon line indication at y=640 (off-canvas, hinted by guide) -->
+  <line x1="-380" y1="640" x2="520" y2="640" stroke="#444" stroke-width="0.5" opacity="0.2"/>
+
+</svg>

@@ -1,0 +1,101 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="moon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8f4ff;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#1a3d5c;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2a2a3a"/>
+      <stop offset="100%" style="stop-color:#1a1a2a"/>
+    </linearGradient>
+    <radialGradient id="led">
+      <stop offset="0%" style="stop-color:#ff0000;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#ff0000;stop-opacity:0"/>
+    </radialGradient>
+    <filter id="dust">
+      <feTurbulence baseFrequency="0.02" numOctaves="2"/>
+      <feColorMatrix values="0 0 0 0 0.9 0 0 0 0 0.95 0 0 0 0 1 0 0 0 0.1 0"/>
+    </filter>
+    <filter id="reflect">
+      <feTurbulence baseFrequency="0.05" seed="5"/>
+      <feDisplacementMap in="SourceGraphic" scale="2"/>
+      <feGaussianBlur stdDeviation="0.5"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.4"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+  
+  <rect width="500" height="500" fill="#0a1520"/>
+  
+  <rect x="0" y="300" width="500" height="200" fill="url(#floor)"/>
+  
+  <path d="M 100 50 L 400 50 L 380 80 L 120 80 Z" fill="url(#moon)" filter="url(#dust)"/>
+  <path d="M 150 50 L 170 300 L 160 300 L 140 50" fill="url(#moon)" opacity="0.2"/>
+  <path d="M 330 50 L 350 300 L 340 300 L 320 50" fill="url(#moon)" opacity="0.2"/>
+  
+  <rect x="150" y="200" width="200" height="40" fill="#3a3a4a" stroke="#2a2a3a"/>
+  
+  <g id="skeleton" transform="translate(250,180)">
+    <ellipse cx="0" cy="-30" rx="35" ry="25" fill="#f4f0e6" stroke="#d4d0c6"/>
+    <path d="M -30 -35 Q -35 -40 -32 -55 Q -30 -58 -28 -55" fill="#f4f0e6"/>
+    <path d="M 30 -35 Q 35 -40 32 -55 Q 30 -58 28 -55" fill="#f4f0e6"/>
+    
+    <rect x="-2" y="-5" width="4" height="25" fill="#888"/>
+    
+    <g id="spine">
+      <ellipse cx="0" cy="0" rx="8" ry="6" fill="#f4f0e6"/>
+      <ellipse cx="-10" cy="2" rx="8" ry="6" fill="#f4f0e6"/>
+      <ellipse cx="-20" cy="4" rx="8" ry="6" fill="#f4f0e6"/>
+      <ellipse cx="-30" cy="5" rx="7" ry="5" fill="#f4f0e6"/>
+      <ellipse cx="-40" cy="5" rx="6" ry="4" fill="#f4f0e6"/>
+      <ellipse cx="-48" cy="4" rx="5" ry="3" fill="#f4f0e6"/>
+      <ellipse cx="-55" cy="3" rx="4" ry="3" fill="#f4f0e6"/>
+    </g>
+    
+    <g id="ribs">
+      <path d="M 0 0 Q 15 10 10 20" stroke="#f4f0e6" stroke-width="2" fill="none"/>
+      <path d="M -5 1 Q 12 12 7 22" stroke="#f4f0e6" stroke-width="2" fill="none"/>
+      <path d="M -10 2 Q 10 14 5 24" stroke="#f4f0e6" stroke-width="2" fill="none"/>
+      <path d="M 0 0 Q -15 10 -10 20" stroke="#f4f0e6" stroke-width="2" fill="none"/>
+      <path d="M -5 1 Q -12 12 -7 22" stroke="#f4f0e6" stroke-width="2" fill="none"/>
+    </g>
+    
+    <ellipse cx="-50" cy="10" rx="12" ry="15" fill="#f4f0e6"/>
+    <rect x="-52" y="10" width="4" height="15" fill="#888"/>
+    
+    <path d="M -60 5 L -65 2 L -68 1" stroke="#f4f0e6" stroke-width="2"/>
+    
+    <path d="M 8 5 Q 25 8 30 25" stroke="#f4f0e6" stroke-width="3"/>
+    <path d="M -45 15 Q -50 20 -48 30" stroke="#f4f0e6" stroke-width="3"/>
+  </g>
+  
+  <g id="skeleton-reflection" transform="translate(250,260) scale(1,-0.4)" opacity="0.3" filter="url(#reflect)">
+    <ellipse cx="0" cy="-30" rx="35" ry="25" fill="#f4f0e6"/>
+    <path d="M -30 -35 Q -35 -40 -32 -55 Q -30 -58 -28 -55" fill="#f4f0e6"/>
+    <path d="M 30 -35 Q 35 -40 32 -55 Q 30 -58 28 -55" fill="#f4f0e6"/>
+  </g>
+  
+  <rect x="380" y="160" width="40" height="20" fill="#4a4a5a"/>
+  <text x="382" y="168" font-size="2" fill="#dadada">SMILODON</text>
+  <text x="382" y="171" font-size="2" fill="#dadada">FATALIS</text>
+  <text x="382" y="174" font-size="2" fill="#dadada">PLEISTOCENE</text>
+  <text x="382" y="177" font-size="2" fill="#dadada">10,000 BCE</text>
+  
+  <circle cx="450" cy="100" r="3" fill="url(#led)"/>
+  <circle cx="450" cy="100" r="8" fill="url(#led)" opacity="0.3"/>
+  
+  <g id="janitor" transform="translate(80,280)">
+    <ellipse cx="0" cy="-20" rx="8" ry="10" fill="#1a1a2a"/>
+    <rect x="-5" y="-10" width="10" height="25" fill="#1a1a2a"/>
+    <rect x="-3" y="15" width="3" height="15" fill="#1a1a2a"/>
+    <rect x="0" y="15" width="3" height="15" fill="#1a1a2a"/>
+    <path d="M 5 -5 L 20 10 L 22 8" stroke="#1a1a2a" stroke-width="2"/>
+    <rect x="18" y="5" width="8" height="10" fill="#1a1a2a"/>
+  </g>
+  
+  <g id="janitor-reflection" transform="translate(80,330) scale(1,-0.3)" opacity="0.2">
+    <ellipse cx="0" cy="-20" rx="8" ry="10" fill="#1a1a2a"/>
+    <rect x="-5" y="-10" width="10" height="25" fill="#1a1a2a"/>
+  </g>
+</svg>

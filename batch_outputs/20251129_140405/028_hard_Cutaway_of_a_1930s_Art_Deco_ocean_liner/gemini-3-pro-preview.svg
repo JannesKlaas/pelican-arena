@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="steelGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#546e7a"/>
+      <stop offset="50%" stop-color="#37474f"/>
+      <stop offset="100%" stop-color="#263238"/>
+    </linearGradient>
+    <linearGradient id="copperGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#bcaaa4"/>
+      <stop offset="50%" stop-color="#8d6e63"/>
+      <stop offset="100%" stop-color="#5d4037"/>
+    </linearGradient>
+    <linearGradient id="brassGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fff59d"/>
+      <stop offset="50%" stop-color="#fbc02d"/>
+      <stop offset="100%" stop-color="#f57f17"/>
+    </linearGradient>
+    
+    <!-- Filters -->
+    <filter id="steamPlume">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="4" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="15"/>
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+    
+    <filter id="metallicGlow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feSpecularLighting in="blur" surfaceScale="3" specularConstant="1.2" specularExponent="15" lighting-color="#ffe0b2" result="specOut">
+        <feSpotLight x="250" y="-100" z="400" pointsAtX="250" pointsAtY="250" pointsAtZ="0" limitingConeAngle="45"/>
+      </feSpecularLighting>
+      <feComposite in="specOut" in2="SourceAlpha" operator="in" result="specOut"/>
+      <feComposite in="SourceGraphic" in2="specOut" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
+    </filter>
+
+    <!-- Symbols -->
+    <symbol id="rivet" viewBox="0 0 10 10">
+      <circle cx="5" cy="5" r="2.5" fill="#cfd8dc" stroke="#263238" stroke-width="0.5"/>
+      <circle cx="5" cy="5" r="2.5" fill="black" fill-opacity="0.2" transform="translate(1,1)"/>
+    </symbol>
+
+    <marker id="rivetMarker" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <use href="#rivet" width="10" height="10"/>
+    </marker>
+  </defs>
+
+  <!-- Background / Hull -->
+  <rect width="500" height="500" fill="#263238"/>
+  <!-- Perspective Floor Grid -->
+  <path d="M0 300 L500 300 M-100 500 L200 300 M600 500 L300 300" stroke="#455a64" stroke-width="1"/>
+
+  <!-- Steam Effect (Background) -->
+  <circle cx="100" cy="150" r="80" fill="white" fill-opacity="0.1" filter="url(#steamPlume)"/>
+
+  <!-- Background Motors (Twin 10MW) -->
+  <g transform="translate(320, 250) scale(0.6)">
+    <rect x="0" y="0" width="100" height="150" rx="10" fill="url(#steelGradient)"/>
+    <circle cx="50" cy="60" r="40" fill="#37474f" stroke="#cfd8dc" stroke-width="2"/>
+    <text x="50" y="120" font-family="DIN 1451, sans-serif" font-size="12" fill="#cfd8dc" text-anchor="middle">MOTOR A</text>
+  </g>
+  <g transform="translate(400, 220) scale(0.5)">
+    <rect x="0" y="0" width="100" height="150" rx="10" fill="url(#steelGradient)"/>
+    <circle cx="50" cy="60" r="40" fill="#37474f" stroke="#cfd8dc" stroke-width="2"/>
+  </g>
+
+  <!-- Main Turbine & Generator Set -->
+  <g filter="url(#metallicGlow)">
+    <!-- Generator Stator -->
+    <path d="M150 180 L300 200 L300 380 L150 400 Z" fill="url(#steelGradient)" stroke="#eceff1" stroke-width="1"/>
+    <path d="M300 200 L330 210 L330 370 L300 380" fill="#455a64"/> <!-- Side depth -->
+    
+    <!-- Turbine Cutaway Section -->
+    <path d="M50 200 L150 180 L150 400 L50 380 Z" fill="#546e7a" stroke="#eceff1" stroke-width="1"/>
+    
+    <!-- Internal Rotor (Cutaway detail) -->
+    <g clip-path="url(#cutawayClip)">
+       <rect x="60" y="210" width="80" height="160" fill="#37474f"/>
+       <line x1="60" y1="250" x2="140" y2="240" stroke="#cfd8dc" stroke-width="2"/>
+       <line x1="60" y1="290" x2="140" y2="280" stroke="#cfd8dc" stroke-width="2"/>
+       <line x1="60" y1="330" x2="140" y2="320" stroke="#cfd8dc" stroke-width="2"/>
+    </g>
+
+    <!-- Rivet Lines -->
+    <line x1="160" y1="190" x2="160" y2="390" stroke="none" fill="none" marker-start="url(#rivetMarker)" marker-mid="url(#rivetMarker)" marker-end="url(#rivetMarker)"/>
+    <circle cx="160" cy="200" r="2" fill="#cfd8dc"/> <circle cx="160" cy="250" r="2" fill="#cfd8dc"/> <circle cx="160" cy="300" r="2" fill="#cfd8dc"/> <circle cx="160" cy="350" r="2" fill="#cfd8dc"/>
+  </g>
+
+  <!-- Piping -->
+  <!-- Steam (Red) -->
+  <path d="M20 100 Q 80 100 100 220" fill="none" stroke="#d32f2f" stroke-width="20" stroke-linecap="round"/>
+  <path d="M20 100 Q 80 100 100 220" fill="none" stroke="black" stroke-width="2" stroke-opacity="0.3" transform="translate(2,2)"/> <!-- Shadow -->
+  
+  <!-- Condensate (Blue) -->
+  <path d="M100 390 Q 100 450 250 480" fill="none" stroke="#1976d2" stroke-width="12" stroke-linecap="round"/>
+
+  <!-- Lube Oil (Yellow) -->
+  <path d="M130 300 L 250 300 L 280 280" fill="none" stroke="#fbc02d" stroke-width="6"/>
+
+  <!-- Catwalk & Structures -->
+  <path d="M0 420 L500 420 L450 400 L50 400 Z" fill="url(#steelGradient)" fill-opacity="0.8" stroke="#b0bec5"/>
+  <!-- Railing -->
+  <path d="M0 360 L500 360" stroke="url(#brassGradient)" stroke-width="4"/>
+  <line x1="50" y1="360" x2="50" y2="400" stroke="url(#brassGradient)" stroke-width="3"/>
+  <line x1="150" y1="360" x2="150" y2="400" stroke="url(#brassGradient)" stroke-width="3"/>
+  <line x1="350" y1="360" x2="350" y2="400" stroke="url(#brassGradient)" stroke-width="3"/>
+
+  <!-- Ladder (75 deg pitch) -->
+  <g transform="translate(420, 300)">
+    <line x1="0" y1="0" x2="-30" y2="120" stroke="url(#brassGradient)" stroke-width="3"/>
+    <line x1="20" y1="0" x2="-10" y2="120" stroke="url(#brassGradient)" stroke-width="3"/>
+    <line x1="-2" y1="10" x2="18" y2="10" stroke="#bcaaa4" stroke-width="2"/>
+    <line x1="-7" y1="30" x2="13" y2="30" stroke="#bcaaa4" stroke-width="2"/>
+    <line x1="-12" y1="50" x2="8" y2="50" stroke="#bcaaa4" stroke-width="2"/>
+    <line x1="-17" y1="70" x2="3" y2="70" stroke="#bcaaa4" stroke-width="2"/>
+  </g>
+
+  <!-- Instrumentation -->
+  <!-- Manometer -->
+  <g transform="translate(120, 240)">
+    <circle cx="0" cy="0" r="15" fill="#eceff1" stroke="#455a64" stroke-width="2"/>
+    <!-- 1.2 MPa needle (approx 2 o'clock) -->
+    <line x1="0" y1="0" x2="8" y2="-8" stroke="#d32f2f" stroke-width="1.5"/> 
+    <circle cx="0" cy="0" r="2" fill="#37474f"/>
+  </g>
+
+  <!-- Signage -->
+  <rect x="200" y="220" width="60" height="25" fill="#f5f5f5" stroke="#37474f" rx="2"/>
+  <text x="230" y="237" font-family="DIN 1451, sans-serif" font-size="10" fill="#d32f2f" font-weight="bold" text-anchor="middle">DANGER</text>
+  <text x="230" y="230" font-family="DIN 1451, sans-serif" font-size="6" fill="#263238" text-anchor="middle">TURBO-ELEC</text>
+
+</svg>

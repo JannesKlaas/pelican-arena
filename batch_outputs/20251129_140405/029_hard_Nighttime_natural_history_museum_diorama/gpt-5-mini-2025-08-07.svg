@@ -1,0 +1,303 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <!-- Moonlight gradient (cool) -->
+    <linearGradient id="moonBeam" x1="1" y1="0" x2="0" y2="1" gradientTransform="rotate(15)">
+      <stop offset="0%" stop-color="#dff6ff" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#c6eaf7" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#a8d7ef" stop-opacity="0.0"/>
+    </linearGradient>
+
+    <!-- Dust shafts mask: noise + soft edges -->
+    <filter id="dustNoise" x="-50%" y="-50%" width="200%" height="200%">
+      <feTurbulence baseFrequency="0.8" numOctaves="2" stitchTiles="stitch" seed="8" result="turb"/>
+      <feColorMatrix in="turb" type="saturate" values="0" result="mono"/>
+      <feGaussianBlur in="mono" stdDeviation="4" result="blur"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.9"/>
+      </feComponentTransfer>
+    </filter>
+
+    <!-- Subtle polish imperfections for reflection -->
+    <filter id="polish" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0" result="gn"/>
+      <feGaussianBlur in="gn" stdDeviation="1.2" result="b"/>
+      <feDisplacementMap in="SourceGraphic" in2="b" scale="6" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <!-- Drop-off mask for reflection intensity -->
+    <linearGradient id="refFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="white" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="white" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0.05"/>
+    </linearGradient>
+    <mask id="reflectionMask">
+      <rect x="0" y="0" width="500" height="500" fill="url(#refFade)"/>
+    </mask>
+
+    <!-- Soft shadow filter -->
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="g"/>
+      <feOffset dx="0" dy="6" result="o"/>
+      <feMerge>
+        <feMergeNode in="o"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Bloom for red LED -->
+    <filter id="bloom" x="-200%" y="-200%" width="500%" height="500%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Slight vignette -->
+    <radialGradient id="vignette" cx="50%" cy="30%" r="75%">
+      <stop offset="60%" stop-color="rgba(0,0,0,0)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0.35)"/>
+    </radialGradient>
+
+    <!-- Simple terrazzo pattern -->
+    <pattern id="terrazzo" patternUnits="userSpaceOnUse" width="80" height="80">
+      <rect width="80" height="80" fill="#dcdfe6"/>
+      <g fill="#9aa7b6" opacity="0.65">
+        <rect x="6" y="10" width="6" height="6" />
+        <rect x="28" y="50" width="8" height="5" />
+        <rect x="54" y="20" width="5" height="9" />
+        <rect x="40" y="4" width="7" height="5" />
+      </g>
+      <g fill="#c7d7de" opacity="0.9">
+        <rect x="14" y="36" width="4" height="7" />
+        <rect x="66" y="64" width="6" height="4" />
+      </g>
+    </pattern>
+
+    <!-- Mask for dust shafts to be bounded by skylight area -->
+    <mask id="skylightMask">
+      <rect x="0" y="0" width="500" height="500" fill="black"/>
+      <!-- Skylight polygon area (soft edged) -->
+      <g fill="white" opacity="1" filter="url(#softShadow)">
+        <polygon points="320,18 470,40 420,120 270,95" />
+      </g>
+    </mask>
+  </defs>
+
+  <!-- Background wall layers (parallax separated) -->
+  <!-- far backdrop painting (farthest) -->
+  <rect x="-20" y="0" width="540" height="260" fill="#0b3040" />
+  <g transform="translate(0,10) scale(1.03)">
+    <rect x="40" y="20" width="420" height="220" fill="url(#terrazzo)" opacity="0.06"/>
+  </g>
+  <!-- mid backdrop layer (closer painting) -->
+  <g transform="translate(0,20) scale(1.02)" opacity="0.85">
+    <rect x="20" y="40" width="460" height="180" fill="#122a34" />
+    <ellipse cx="120" cy="110" rx="70" ry="30" fill="#0f2b34" opacity="0.5"/>
+  </g>
+
+  <!-- Skylight and moonbeams -->
+  <g mask="url(#skylightMask)">
+    <polygon points="320,18 470,40 420,120 270,95" fill="rgba(255,255,255,0.02)"/>
+    <rect x="0" y="0" width="500" height="500" fill="url(#moonBeam)" opacity="0.45"/>
+    <!-- dust shafts: using turbulence blurred as soft streaks -->
+    <g opacity="0.55" filter="url(#dustNoise)" transform="rotate(-10,300,80)">
+      <rect x="260" y="-40" width="60" height="320" fill="white" opacity="0.12" />
+      <rect x="300" y="-30" width="38" height="300" fill="white" opacity="0.08" />
+    </g>
+  </g>
+
+  <!-- Floor (terrazzo reflective) -->
+  <g transform="translate(0,280)">
+    <rect x="0" y="0" width="500" height="220" fill="url(#terrazzo)"/>
+    <!-- polished overlay to suggest sheen -->
+    <rect x="0" y="0" width="500" height="220" fill="rgba(255,255,255,0.02)"/>
+  </g>
+
+  <!-- Plinth shadow and base -->
+  <g transform="translate(60,160)">
+    <rect x="0" y="0" width="380" height="120" rx="6" fill="#f4f1ea" stroke="#cfc9bf" stroke-width="2"/>
+    <!-- shadow across plinth -->
+    <linearGradient id="plinthShadow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="rgba(0,0,0,0.12)"/>
+      <stop offset="50%" stop-color="rgba(0,0,0,0.08)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0.02)"/>
+    </linearGradient>
+    <rect x="0" y="18" width="380" height="8" fill="url(#plinthShadow)" opacity="0.6"/>
+  </g>
+
+  <!-- Smilodon skeleton group -->
+  <g id="skeleton" transform="translate(120,140) scale(0.9)">
+    <!-- vertebral column (neck to pelvis) with 7 lumbar emphasized -->
+    <g id="vertebrae" transform="translate(40,30)">
+      <!-- cervical/ thoracic small discs -->
+      <g fill="#f8f6f2" stroke="#bfb8ae" stroke-width="0.8">
+        <!-- skull (skull length scaled) -->
+        <g id="skull" transform="translate(-20,-40)">
+          <!-- skull main -->
+          <path d="M110 30 C140 20 170 30 170 54 C176 66 170 78 150 80 C144 82 130 78 120 74 C108 72 100 66 98 58 C94 44 100 36 110 30 Z" fill="#fbfaf8" stroke="#bdb4a8" />
+          <!-- oversized canines (~28cm almost equal skull length): long curved canines -->
+          <path d="M150 66 C155 88 160 130 150 150" stroke="#efe8e0" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <path d="M160 66 C165 88 170 130 160 150" stroke="#efe8e0" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.7"/>
+          <!-- mandible -->
+          <path d="M105 80 C120 95 150 104 168 100 C160 120 120 120 100 110 C94 104 95 92 105 80 Z" fill="#f6f4f1" stroke="#c8bfb3"/>
+        </g>
+
+        <!-- neck vertebrae -->
+        <g transform="translate(0,10)">
+          <circle cx="40" cy="20" r="4"/>
+          <circle cx="56" cy="24" r="4"/>
+          <circle cx="72" cy="28" r="4"/>
+          <!-- thoracic (ribs attach) -->
+          <g transform="translate(88,32)">
+            <rect x="0" y="0" width="10" height="6" rx="2" />
+            <rect x="14" y="2" width="10" height="6" rx="2" />
+            <rect x="28" y="4" width="10" height="6" rx="2" />
+          </g>
+        </g>
+
+        <!-- ribs (occlusion ordering: some ribs in front then back) -->
+        <g id="ribs" transform="translate(150,38)">
+          <!-- near ribs (front) -->
+          <path d="M0 4 C14 10 48 8 90 6" stroke="#efe8e0" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <path d="M6 18 C26 28 58 26 100 24" stroke="#efe8e0" stroke-width="5.6" fill="none" stroke-linecap="round"/>
+          <!-- overlay vertebrae pieces -->
+          <rect x="-6" y="0" width="14" height="10" rx="2" fill="#fbfaf8" stroke="#bdb4a8"/>
+          <!-- back ribs (slightly behind) -->
+          <g opacity="0.9">
+            <path d="M18 36 C40 44 80 44 118 42" stroke="#f7f5f2" stroke-width="5" fill="none" stroke-linecap="round" />
+            <path d="M28 50 C58 62 92 60 132 56" stroke="#f7f5f2" stroke-width="4.5" fill="none" stroke-linecap="round" />
+          </g>
+        </g>
+
+        <!-- lumbar vertebrae: explicitly 7 -->
+        <g id="lumbar" transform="translate(270,52)">
+          <g fill="#fbfaf8" stroke="#c8bfb3" stroke-width="0.9">
+            <rect x="0" y="0" width="18" height="8" rx="2"/>
+            <rect x="22" y="0" width="18" height="8" rx="2"/>
+            <rect x="44" y="0" width="18" height="8" rx="2"/>
+            <rect x="66" y="0" width="18" height="8" rx="2"/>
+            <rect x="88" y="0" width="18" height="8" rx="2"/>
+            <rect x="110" y="0" width="18" height="8" rx="2"/>
+            <rect x="132" y="0" width="18" height="8" rx="2"/>
+          </g>
+        </g>
+
+        <!-- pelvis -->
+        <g id="pelvis" transform="translate(420,46)">
+          <path d="M0 10 C16 -6 42 -6 60 10 C66 16 66 26 60 32 C44 44 18 44 0 32 C-6 26 -6 16 0 10 Z" fill="#f6f4f1" stroke="#cfc6bb"/>
+        </g>
+
+        <!-- tail (short) -->
+        <g id="tail" transform="translate(470,68)">
+          <path d="M0 4 C20 8 34 10 44 12" stroke="#f3f1ee" stroke-width="4" fill="none" stroke-linecap="round"/>
+        </g>
+
+        <!-- scapula tall (emphasize) -->
+        <g id="scapula" transform="translate(120,12)">
+          <path d="M0 0 C14 -18 36 -36 62 -36 C86 -36 108 -14 106 6 C98 34 64 36 36 30 C18 26 6 12 0 0 Z" fill="#fbfaf8" stroke="#bdb4a8"/>
+        </g>
+
+        <!-- forelimb -->
+        <g id="forelimb" transform="translate(150,84)">
+          <path d="M0 0 C6 18 22 36 36 44" stroke="#efe8e0" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <path d="M32 40 C40 54 44 72 36 86" stroke="#efe8e0" stroke-width="5" fill="none" stroke-linecap="round"/>
+        </g>
+
+        <!-- hindlimb -->
+        <g id="hindlimb" transform="translate(430,88)">
+          <path d="M0 0 C-8 16 -22 34 -34 46" stroke="#efe8e0" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <path d="M-34 46 C-44 64 -40 86 -26 96" stroke="#efe8e0" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+        </g>
+
+      </g>
+
+      <!-- mount rods (discreet) under mandible and pelvis -->
+      <g stroke="#9aa0a5" stroke-width="2" fill="#9aa0a5" opacity="0.9">
+        <!-- under mandible -->
+        <rect x="68" y="50" width="3" height="36" rx="1" />
+        <!-- under pelvis -->
+        <rect x="470" y="66" width="3" height="34" rx="1" />
+      </g>
+
+    </g>
+  </g>
+
+  <!-- Shadow cast from skeleton onto plinth/floor (direction 15° right from skylight) -->
+  <g opacity="0.45" fill="black" transform="translate(85,210) skewX(-10)">
+    <path d="M20 30 C90 70 340 70 380 40 L380 62 C330 86 80 86 20 50 Z" opacity="0.25"/>
+  </g>
+
+  <!-- Janitor silhouette mopping (right side) -->
+  <g id="janitor" transform="translate(350,260) scale(0.9)">
+    <g fill="#0b0f12">
+      <!-- body -->
+      <path d="M0 0 C6 -12 20 -20 26 -12 C34 -8 38 6 30 30 C18 48 6 50 -4 44 C-12 30 -10 6 0 0 Z" transform="translate(0,-20)"/>
+      <!-- head -->
+      <circle cx="10" cy="-36" r="8" />
+      <!-- arm holding mop -->
+      <path d="M18 -18 C30 -6 42 6 48 20" stroke="#0b0f12" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <!-- mop handle -->
+      <path d="M48 20 L64 52" stroke="#6a5140" stroke-width="3" stroke-linecap="round"/>
+      <path d="M61 54 C58 64 50 68 44 66 C38 64 36 56 40 50" fill="#cfcfcf"/>
+    </g>
+  </g>
+
+  <!-- Reflection group: flipped skeleton + janitor -->
+  <g transform="translate(0,560) scale(1,-1)" mask="url(#reflectionMask)" opacity="0.55">
+    <g transform="translate(0,60) scale(0.9)">
+      <!-- reflected skeleton (simplified silhouette for clarity) -->
+      <g transform="translate(120,140)" opacity="0.9" fill="#eef2f5">
+        <!-- skull reflection -->
+        <ellipse cx="155" cy="25" rx="28" ry="14" fill="#e9ecef" opacity="0.9"/>
+        <!-- long canines reflection -->
+        <path d="M170 40 C170 68 170 92 150 118" stroke="#e9ecef" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M180 40 C180 68 180 92 160 118" stroke="#e9ecef" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.8"/>
+        <!-- lumbar block -->
+        <rect x="290" y="62" width="130" height="12" rx="2" />
+      </g>
+      <!-- reflected janitor -->
+      <g transform="translate(350,260) scale(0.9)" opacity="0.9" fill="#0b0f12">
+        <path d="M0 0 C6 -12 20 -20 26 -12 C34 -8 38 6 30 30 C18 48 6 50 -4 44 C-12 30 -10 6 0 0 Z" transform="translate(0,-20)"/>
+        <circle cx="10" cy="-36" r="8" />
+        <path d="M18 -18 C30 -6 42 6 48 20" stroke="#0b0f12" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M48 20 L64 52" stroke="#6a5140" stroke-width="3" stroke-linecap="round"/>
+        <path d="M61 54 C58 64 50 68 44 66 C38 64 36 56 40 50" fill="#cfcfcf"/>
+      </g>
+    </g>
+    <!-- apply polish imperfections to reflection -->
+    <rect x="0" y="0" width="500" height="300" fill="transparent" filter="url(#polish)"/>
+  </g>
+
+  <!-- plaque with microtext: cap height 2.2 mm -> font-size ~8.3px -->
+  <g transform="translate(420,220)">
+    <rect x="-56" y="-26" width="110" height="44" rx="4" fill="#242b2f" stroke="#3a4146" />
+    <text x="0" y="-6" fill="#e7e7e3" font-family="Helvetica, Arial, sans-serif" font-size="8.3px" text-anchor="middle" letter-spacing="0.4">
+      Smilodon fatalis — Late Pleistocene
+    </text>
+    <text x="0" y="6" fill="#cfd3d6" font-family="Helvetica, Arial, sans-serif" font-size="6px" text-anchor="middle" opacity="0.9">
+      Collection no. 1847 · Donor: Natural History Fund
+    </text>
+  </g>
+
+  <!-- red security LED with faint bloom -->
+  <g transform="translate(430,40)">
+    <circle cx="0" cy="0" r="5" fill="#ff3b3b" filter="url(#bloom)"/>
+    <circle cx="0" cy="0" r="2" fill="#fff3f3"/>
+  </g>
+
+  <!-- subtle floor specular highlight -->
+  <g transform="translate(0,320)" opacity="0.12">
+    <rect x="0" y="0" width="500" height="160" fill="white" />
+  </g>
+
+  <!-- faint vignette -->
+  <rect x="0" y="0" width="500" height="500" fill="url(#vignette)" opacity="0.6"/>
+
+  <!-- small guide/legend indicating vanishing point/horizon (not visible but anchored) -->
+  <!-- Vanishing point mapped (scaled) to (250,375) per requested perspective -->
+  <g opacity="0.0">
+    <circle cx="250" cy="375" r="2" fill="red"/>
+  </g>
+</svg>

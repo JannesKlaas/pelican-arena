@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500" aria-label="1930s Art Deco ocean liner engine room with turbo-electric drive">
+  <defs>
+    <!-- metallic gradient for machinery -->
+    <linearGradient id="steel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e8e8e8"/>
+      <stop offset="100%" stop-color="#6b6b6b"/>
+    </linearGradient>
+
+    <!-- floor/deck gradient -->
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9aa3a8"/>
+      <stop offset="100%" stop-color="#5b5f65"/>
+    </linearGradient>
+
+    <!-- wall/deck wash -->
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#cbd5dc"/>
+      <stop offset="100%" stop-color="#7a8a99"/>
+    </linearGradient>
+
+    <!-- subtle glow for catwalk lighting (4000K vibe) -->
+    <radialGradient id="glow" cx="50%" cy="20%" r="60%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#fff5" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#fff0" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- rivet highlight -->
+    <radialGradient id="rivet" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffd" />
+      <stop offset="100%" stop-color="#b88a2a" />
+    </radialGradient>
+
+    <!-- rivet plate texture -->
+    <pattern id="rivetPattern" width="12" height="12" patternUnits="userSpaceOnUse">
+      <circle cx="6" cy="6" r="2" fill="#b28b2a"/>
+      <circle cx="6" cy="6" r="1" fill="#6b4a12"/>
+    </pattern>
+
+    <!-- highlight filter for metal parts -->
+    <filter id="metal" x="-20%" y="-20%" width="140%" height="140%">
+      <feSpecularLighting in="SourceGraphic" surfaceScale="6" specularConstant="0.9" specularExponent="40" lighting-color="#ffffff">
+        <feSpotLight x="260" y="60" z="600" limitingConeAngle="25"/>
+      </feSpecularLighting>
+    </filter>
+
+    <!-- plume using turbulence + displacement (composited over background) -->
+    <filter id="plumeFilter" x="-30%" y="-30%" width="160%" height="160%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="7" result="turb"/>
+      <feDisplacementMap in="SourceGraphic" in2="turb" scale="26" xChannelSelector="R" yChannelSelector="G"/>
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0
+                                                    1 0 0 0 0
+                                                    1 0 0 0 0
+                                                    0 0 0 0.9 0" />
+    </filter>
+
+    <!-- subtle ground light wash -->
+    <linearGradient id="wash" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- background walls and deck -->
+  <rect x="0" y="0" width="500" height="500" fill="url(#wall)"/>
+  <rect x="0" y="350" width="500" height="150" fill="url(#floor)"/>
+  <rect x="0" y="0" width="500" height="500" fill="url(#wash)" opacity="0.15"/>
+
+  <!-- two-point perspective horizon hints (lines to off-canvas vanishing points) -->
+  <line x1="180" y1="140" x2="-3800" y2="640" stroke="rgba(0,0,0,0.25)" stroke-width="1"/>
+  <line x1="260" y1="140" x2="5200" y2="640" stroke="rgba(0,0,0,0.25)" stroke-width="1"/>
+
+  <!-- DIN 1451 safety signage -->
+  <g>
+    <rect x="12" y="60" width="100" height="48" rx="6" fill="#f6f6f6" stroke="#333" stroke-width="2"/>
+    <text x="62" y="92" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333" style="letter-spacing:2">DIN 1451</text>
+  </g>
+
+  <!-- catwalk lighting glow above (4000K) -->
+  <ellipse cx="190" cy="110" rx="90" ry="20" fill="url(#glow)" opacity="0.6"/>
+
+  <!-- Turbo-electric drive: rotor (steam turbine) Ø1800 mm -> 150px visual -->
+  <g transform="translate(140,170)">
+    <!-- steam turbine rotor circle -->
+    <circle cx="60" cy="60" r="75" fill="url(#steel)" stroke="#555" stroke-width="2" filter="url(#metal)"/>
+    <!-- rotor hub -->
+    <circle cx="60" cy="60" r="26" fill="#777" />
+    <!-- turbine blades (stylized spokes) -->
+    <g stroke="#9aa5ad" stroke-width="3" stroke-linecap="round">
+      <line x1="60" y1="60" x2="117" y2="60"/>
+      <line x1="60" y1="60" x2="60" y2="-15"/>
+      <line x1="60" y1="60" x2="-0" y2="60"/>
+      <line x1="60" y1="60" x2="60" y2="120"/>
+    </g>
+
+    <!-- steam pipe (red, Ø300) approaching generator -->
+    <path d="M 15 50 C 50 30, 110 40, 150 60" fill="none" stroke="#e53935" stroke-width="28" stroke-linecap="round"/>
+    <!-- rivets along steam pipe (120 mm spacing visual) -->
+    <circle cx="35" cy="40" r="3" fill="url(#rivet)"/>
+    <circle cx="60" cy="46" r="3" fill="url(#rivet)"/>
+    <circle cx="85" cy="54" r="3" fill="url(#rivet)"/>
+    <circle cx="110" cy="60" r="3" fill="url(#rivet)"/>
+    <circle cx="135" cy="66" r="3" fill="url(#rivet)"/>
+    <circle cx="160" cy="70" r="3" fill="url(#rivet)"/>
+  </g>
+
+  <!-- generator (stator Ø2200 mm -> ~183px) -->
+  <g transform="translate(130,170)">
+    <circle cx="260" cy="60" r="93" fill="url(#steel)" stroke="#555" stroke-width="2" filter="url(#metal)"/>
+    <circle cx="260" cy="60" r="50" fill="#888"/>
+    <!-- belt/shaft centerlines from generator to twin motors -->
+  </g>
+
+  <!-- bridge belt connections from generator to twin motors (two 10 MW motors) -->
+  <!-- left motor -->
+  <g transform="translate(140,210)">
+    <circle cx="260" cy="100" r="28" fill="url(#steel)" stroke="#555" stroke-width="2" filter="url(#metal)"/>
+  </g>
+  <!-- right motor -->
+  <g transform="translate(230,210)">
+    <circle cx="360" cy="100" r="28" fill="url(#steel)" stroke="#555" stroke-width="2" filter="url(#metal)"/>
+  </g>
+  <!-- belts from generator to motors (perspective-aligned) -->
+  <path d="M 190 260 C 230 240, 260 238, 260 260" fill="none" stroke="#444" stroke-width="8" stroke-linecap="round" />
+  <path d="M 230 260 C 270 240, 310 238, 360 260" fill="none" stroke="#444" stroke-width="8" stroke-linecap="round" />
+
+  <!-- condensate pipe (blue Ø150) beneath, curving along lower deck -->
+  <path d="M 110 220 C 140 210, 180 210, 210 230" fill="none" stroke="#4dabf7" stroke-width="18" stroke-linecap="round"/>
+
+  <!-- lube oil pipe (yellow Ø75) small path -->
+  <path d="M 170 240 C 190 235, 210 240, 230 252" fill="none" stroke="#ffd54f" stroke-width="12" stroke-linecap="round"/>
+
+  <!-- riveted plates along curved condensate path (approx along steam region) -->
+  <g fill="none" stroke="none">
+    <!-- decorative riveted plate along path (reusing rivet symbol along curve) -->
+  </g>
+
+  <!-- rivet symbols along the steam path at approximate 120 mm spacing (visual) -->
+  <g fill="url(#rivetPattern)">
+    <circle cx="170" cy="220" r="0.1" fill="url(#rivet)"/>
+  </g>
+  <g fill="url(#rivetPattern)" stroke="none">
+    <circle cx="140" cy="215" r="3" fill="url(#rivet)"/>
+    <circle cx="155" cy="207" r="3" fill="url(#rivet)"/>
+    <circle cx="178" cy="199" r="3" fill="url(#rivet)"/>
+    <circle cx="202" cy="193" r="3" fill="url(#rivet)"/>
+    <circle cx="226" cy="188" r="3" fill="url(#rivet)"/>
+    <circle cx="252" cy="186" r="3" fill="url(#rivet)"/>
+  </g>
+
+  <!-- steam plume (feTurbulence + feDisplacementMap) composited over background only -->
+  <path d="M 180 80 C 210 60, 240 50, 260 68 C 280 100, 260 120, 230 140 C 210 150, 190 140, 170 120 Z" fill="white" opacity="0.75" filter="url(#plumeFilter)"/>
+
+  <!-- perspective guide lines (subtle) -->
+  <line x1="180" y1="140" x2="40" y2="300" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <line x1="260" y1="140" x2="450" y2="320" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+
+  <!-- ladders (75° pitch) -->
+  <!-- left ladder -->
+  <g stroke="#8b5a2b" stroke-width="6" fill="none">
+    <line x1="40" y1="420" x2="95" y2="300"/>
+    <!-- rungs -->
+    <line x1="40" y1="410" x2="90" y2="410"/>
+    <line x1="40" y1="380" x2="90" y2="380"/>
+    <line x1="40" y1="350" x2="90" y2="350"/>
+  </g>
+  <!-- right ladder -->
+  <g stroke="#8b5a2b" stroke-width="6" fill="none">
+    <line x1="360" y1="420" x2="310" y2="300"/>
+    <!-- rungs -->
+    <line x1="360" y1="410" x2="310" y2="410"/>
+    <line x1="360" y1="380" x2="310" y2="380"/>
+    <line x1="360" y1="350" x2="310" y2="350"/>
+  </g>
+
+  <!-- illumination highlights (spot lights on catwalk) -->
+  <circle cx="160" cy="120" r="6" fill="#fff" opacity="0.6" filter="url(#metal)"/>
+  <circle cx="200" cy="120" r="6" fill="#fff" opacity="0.6" filter="url(#metal)"/>
+  <circle cx="240" cy="120" r="6" fill="#fff" opacity="0.6" filter="url(#metal)"/>
+
+  <!-- note: horizon line conceptually at y=640 in world coords; not drawn since viewBox is 0-500 -->
+</svg>
