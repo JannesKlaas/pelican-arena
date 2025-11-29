@@ -80,5 +80,26 @@ export ANTHROPIC_API_KEY="your-key-here"
 
 1. Takes a text prompt and sends it to the specified LLM
 2. The LLM generates SVG code based on the prompt
-3. The SVG is converted to PNG using cairosvg
-4. The PNG is saved to the specified output path
+3. **Robust SVG extraction** that handles:
+   - SVG in code blocks (with or without language tags)
+   - Raw SVG mixed with explanatory text
+   - Partial SVG elements without wrapper tags
+   - Text before/after the actual SVG code
+4. The SVG is converted to PNG using cairosvg
+5. The PNG is saved to the specified output path
+
+## Advanced Features
+
+### Debug Mode
+Save both PNG and SVG files for debugging:
+```bash
+uv run python genimg.py openai/gpt-4 output.png "your prompt" --save-svg
+```
+
+### Robust SVG Extraction
+The script can handle various LLM response formats:
+- ✅ SVG wrapped in \`\`\`svg\`\`\` code blocks
+- ✅ Raw SVG with explanatory text before/after
+- ✅ Partial SVG elements (automatically wraps them)
+- ✅ Mixed content with multiple formats
+- ✅ Automatic cleanup of malformed responses
