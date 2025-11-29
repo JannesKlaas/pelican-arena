@@ -1,0 +1,246 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <!-- Global styles -->
+    <style>
+      .nonScaleStroke {
+        vector-effect: non-scaling-stroke;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .shadow {
+        fill: rgba(0,0,0,0.2);
+      }
+      .lampGlow {
+        fill: radial-gradient(#a0ffb0, #003300);
+      }
+    </style>
+
+    <!-- Simple drop shadow for objects (approximate cast shadows) -->
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="4" dy="4" result="offsetBlur"/>
+      <feMerge>
+        <feMergeNode in="offsetBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Specular highlight for orrery spheres -->
+    <filter id="specHighlight" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1" result="blur"/>
+      <feSpecularLighting in="blur" surfaceScale="3" specularConstant="1"
+                          specularExponent="20" lighting-color="#ffffff"
+                          result="spec">
+        <!-- Approximate overhead lamp -->
+        <fePointLight x="250" y="80" z="60"/>
+      </feSpecularLighting>
+      <feComposite in="spec" in2="SourceAlpha" operator="in" result="specOut"/>
+      <feComposite in="SourceGraphic" in2="specOut" operator="arithmetic"
+                   k1="0" k2="1" k3="1" k4="0"/>
+    </filter>
+
+    <!-- Clipping region to hide impossible connections -->
+    <clipPath id="stairsClip">
+      <rect x="40" y="80" width="420" height="340" rx="8" ry="8"/>
+    </clipPath>
+
+    <!-- Paths approximating 3-point perspective guide lines (for text-on-path) -->
+    <!-- Vertical VP far above; horizontals wide apart, compressed in 500x500 -->
+    <path id="helixLatin" d="M80,260 C160,200 240,220 320,190 S410,210 450,180" />
+    <path id="helixGreek" d="M70,290 C150,330 230,310 310,350 S400,340 460,370" />
+
+    <!-- Lamp glow radial gradient -->
+    <radialGradient id="lampRadial" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c6ffd1" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#8cff9b" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#003300" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Book gradients: invert at landings -->
+    <linearGradient id="booksUp" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e5d0a0"/>
+      <stop offset="100%" stop-color="#9c6b3a"/>
+    </linearGradient>
+    <linearGradient id="booksDown" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#e5d0a0"/>
+      <stop offset="100%" stop-color="#9c6b3a"/>
+    </linearGradient>
+
+    <!-- Saturn ring pattern via skew -->
+    <g id="saturnSystem">
+      <circle cx="0" cy="0" r="8" fill="#f4d29c"/>
+      <g transform="skewX(35)">
+        <ellipse cx="0" cy="0" rx="14" ry="4" fill="none" stroke="#e2c089" stroke-width="1.2"/>
+      </g>
+    </g>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="500" height="500" fill="#0f1820"/>
+
+  <!-- Multi-level library main volume -->
+  <g clip-path="url(#stairsClip)">
+    <!-- Back walls in cool tones to enhance Escher feel -->
+    <polygon points="80,100 420,70 420,360 80,380"
+             fill="#182430" stroke="#243344" stroke-width="1" class="nonScaleStroke"/>
+
+    <!-- Floor planes approximating 3-point perspective -->
+    <polygon points="60,260 240,240 440,260 260,290"
+             fill="#1e2c36" stroke="#2c3e50" stroke-width="0.8" class="nonScaleStroke"/>
+    <polygon points="90,320 280,310 410,330 220,345"
+             fill="#18222b" stroke="#2c3e50" stroke-width="0.8" class="nonScaleStroke"/>
+
+    <!-- Stairs: two segments with inverted book gradients at landing -->
+    <!-- Lower flight -->
+    <g stroke="#c7c7c7" stroke-width="0.8" class="nonScaleStroke">
+      <polygon points="120,330 170,320 190,270 140,280"
+               fill="#242f3a"/>
+      <!-- risers -->
+      <line x1="128" y1="325" x2="178" y2="316"/>
+      <line x1="133" y1="315" x2="183" y2="306"/>
+      <line x1="138" y1="305" x2="188" y2="296"/>
+    </g>
+
+    <!-- Landing with shelves: gradient A -->
+    <g>
+      <polygon points="140,280 210,270 260,275 190,285"
+               fill="#283744" stroke="#3b4e5b" stroke-width="0.8" class="nonScaleStroke"/>
+      <!-- shelves along the landing edge -->
+      <!-- Standard books (240) and folios (380) implied by relative height proportions -->
+      <g transform="translate(150,270)">
+        <!-- standard books -->
+        <rect x="0" y="-14" width="4" height="14" fill="url(#booksUp)" stroke="#5b3a24" stroke-width="0.3" class="nonScaleStroke"/>
+        <rect x="5" y="-14" width="3" height="14" fill="url(#booksUp)" stroke="#5b3a24" stroke-width="0.3" class="nonScaleStroke"/>
+        <rect x="9" y="-22" width="5" height="22" fill="url(#booksUp)" stroke="#5b3a24" stroke-width="0.3" class="nonScaleStroke"/>
+        <rect x="15" y="-14" width="4" height="14" fill="url(#booksUp)" stroke="#5b3a24" stroke-width="0.3" class="nonScaleStroke"/>
+        <rect x="20" y="-22" width="5" height="22" fill="url(#booksUp)" stroke="#5b3a24" stroke-width="0.3" class="nonScaleStroke"/>
+      </g>
+    </g>
+
+    <!-- Upper flight, oriented oppositely to suggest paradox -->
+    <g transform="translate(190,260)" stroke="#c7c7c7" stroke-width="0.8" class="nonScaleStroke">
+      <polygon points="0,0 50,-10 70,-60 20,-50"
+               fill="#243543"/>
+      <line x1="5" y1="-2" x2="55" y2="-12"/>
+      <line x1="10" y1="-12" x2="60" y2="-22"/>
+      <line x1="15" y1="-22" x2="65" y2="-32"/>
+    </g>
+
+    <!-- Upper landing shelves: gradient inverted -->
+    <g>
+      <polygon points="210,210 280,200 330,210 260,220"
+               fill="#223341" stroke="#3b4e5b" stroke-width="0.8" class="nonScaleStroke"/>
+      <g transform="translate(220,200)">
+        <rect x="0" y="-14" width="4" height="14" fill="url(#booksDown)" stroke="#5b3a24" stroke-width="0.3" class="nonScaleStroke"/>
+        <rect x="5" y="-22" width="5" height="22" fill="url(#booksDown)" stroke="#5b3a24" stroke-width="0.3" class="nonScaleStroke"/>
+        <rect x="11" y="-14" width="3" height="14" fill="url(#booksDown)" stroke="#5b3a24" stroke-width="0.3" class="nonScaleStroke"/>
+        <rect x="15" y="-22" width="5" height="22" fill="url(#booksDown)" stroke="#5b3a24" stroke-width="0.3" class="nonScaleStroke"/>
+        <rect x="21" y="-14" width="3" height="14" fill="url(#booksDown)" stroke="#5b3a24" stroke-width="0.3" class="nonScaleStroke"/>
+      </g>
+    </g>
+
+    <!-- Railings with non-scaling strokes -->
+    <g stroke="#c7d4dd" stroke-width="1" fill="none" class="nonScaleStroke">
+      <polyline points="120,330 130,310 140,280" />
+      <polyline points="170,320 180,295 210,270" />
+      <polyline points="210,270 230,240 250,215" />
+    </g>
+
+    <!-- Scholars from different eras -->
+    <!-- Togas (left) -->
+    <g transform="translate(105,260)" filter="url(#softShadow)">
+      <ellipse cx="0" cy="10" rx="7" ry="3" fill="rgba(0,0,0,0.3)"/>
+      <circle cx="0" cy="-12" r="4" fill="#f0d0a0"/>
+      <path d="M-6,-10 Q0,-16 6,-10 Q4,0 -4,0 Z"
+            fill="#d6d6e0" stroke="#b0b0c0" stroke-width="0.5" class="nonScaleStroke"/>
+      <rect x="-3" y="-4" width="6" height="4" fill="#c9b080"/>
+    </g>
+
+    <!-- Abayas (center) -->
+    <g transform="translate(250,240)" filter="url(#softShadow)">
+      <ellipse cx="0" cy="12" rx="7" ry="3" fill="rgba(0,0,0,0.3)"/>
+      <circle cx="0" cy="-10" r="4" fill="#f5d3a8"/>
+      <path d="M-6,-8 Q0,-18 6,-8 Q4,2 -4,2 Z"
+            fill="#161616" stroke="#404040" stroke-width="0.5" class="nonScaleStroke"/>
+      <rect x="-3" y="-2" width="6" height="4" fill="#c9b080"/>
+    </g>
+
+    <!-- Frock coats (right) -->
+    <g transform="translate(345,305)" filter="url(#softShadow)">
+      <ellipse cx="0" cy="12" rx="7" ry="3" fill="rgba(0,0,0,0.3)"/>
+      <circle cx="0" cy="-10" r="4" fill="#f2cda0"/>
+      <path d="M-6,-8 L0,-16 L6,-8 L4,4 -4,4 Z"
+            fill="#243447" stroke="#41566a" stroke-width="0.5" class="nonScaleStroke"/>
+      <rect x="-3" y="-1" width="6" height="4" fill="#c9b080"/>
+    </g>
+
+    <!-- Reading tables with lamps (3000K feel, green shades) -->
+    <g>
+      <rect x="90" y="270" width="40" height="6" fill="#40352a" stroke="#6b5844" stroke-width="0.6" class="nonScaleStroke"/>
+      <rect x="235" y="248" width="40" height="6" fill="#40352a" stroke="#6b5844" stroke-width="0.6" class="nonScaleStroke"/>
+      <rect x="320" y="310" width="40" height="6" fill="#40352a" stroke="#6b5844" stroke-width="0.6" class="nonScaleStroke"/>
+
+      <!-- Lamps -->
+      <g transform="translate(110,265)">
+        <rect x="-1.5" y="-7" width="3" height="7" fill="#b0a58a"/>
+        <ellipse cx="0" cy="-9" rx="9" ry="4" fill="#006633" stroke="#00aa55" stroke-width="0.6" class="nonScaleStroke"/>
+        <circle cx="0" cy="-7" r="11" fill="url(#lampRadial)" opacity="0.8"/>
+      </g>
+      <g transform="translate(255,243)">
+        <rect x="-1.5" y="-7" width="3" height="7" fill="#b0a58a"/>
+        <ellipse cx="0" cy="-9" rx="9" ry="4" fill="#006633" stroke="#00aa55" stroke-width="0.6" class="nonScaleStroke"/>
+        <circle cx="0" cy="-7" r="11" fill="url(#lampRadial)" opacity="0.8"/>
+      </g>
+      <g transform="translate(340,305)">
+        <rect x="-1.5" y="-7" width="3" height="7" fill="#b0a58a"/>
+        <ellipse cx="0" cy="-9" rx="9" ry="4" fill="#006633" stroke="#00aa55" stroke-width="0.6" class="nonScaleStroke"/>
+        <circle cx="0" cy="-7" r="11" fill="url(#lampRadial)" opacity="0.8"/>
+      </g>
+    </g>
+
+    <!-- Central brass orrery -->
+    <g transform="translate(260,165)" filter="url(#specHighlight)">
+      <!-- Stand -->
+      <rect x="-4" y="12" width="8" height="20" fill="#6f5a32" stroke="#a48846" stroke-width="0.7" class="nonScaleStroke"/>
+      <ellipse cx="0" cy="33" rx="18" ry="4" fill="#1a1510" opacity="0.6"/>
+      <circle cx="0" cy="10" r="12" fill="#876734" stroke="#c69c53" stroke-width="0.7" class="nonScaleStroke"/>
+
+      <!-- Orbits as proportional radii circles (not scale distances) -->
+      <circle cx="0" cy="0" r="6" fill="none" stroke="#c8a86a" stroke-width="0.6" class="nonScaleStroke"/>
+      <circle cx="0" cy="0" r="12" fill="none" stroke="#c8a86a" stroke-width="0.6" class="nonScaleStroke"/>
+      <circle cx="0" cy="0" r="18" fill="none" stroke="#c8a86a" stroke-width="0.6" class="nonScaleStroke"/>
+
+      <!-- Planets (size roughly proportional) -->
+      <circle cx="6" cy="0" r="1.5" fill="#9cb6ff"/>
+      <circle cx="-10" cy="4" r="2.5" fill="#e3c48b"/>
+      <circle cx="0" cy="-12" r="3.5" fill="#a0c0ff"/>
+      <!-- Saturn with ring system at ~35° tilt via skew -->
+      <g transform="translate(0,18)">
+        <use href="#saturnSystem" fill="#f4d29c"/>
+      </g>
+    </g>
+
+    <!-- Text-on-path quotes along helical paths -->
+    <g fill="#d7e2ff" font-size="4" font-family="serif">
+      <text>
+        <textPath href="#helixLatin" startOffset="0%">
+          "IN LIBRIS LIBERTAS · TEMPUS TACITUM IN FOLIIS LATET"
+        </textPath>
+      </text>
+      <text fill="#ffd7c0">
+        <textPath href="#helixGreek" startOffset="5%">
+          "ΓΝΩΘΙ ΣΕΑΥΤΟΝ · ΠΑΝΤΑ ΡΕΙ · ΛΟΓΟΣ ΕΝ ΒΙΒΛΙΟΘΗΚΗ"
+        </textPath>
+      </text>
+    </g>
+  </g>
+
+  <!-- Cast shadows roughly coherent to all three vanishing directions -->
+  <!-- Long vertical-ish shadow from central orrery -->
+  <polygon points="260,165 270,190 255,215 245,200"
+           fill="rgba(0,0,0,0.25)"/>
+
+  <!-- Structural outer frame to hide impossible edges -->
+  <rect x="40" y="60" width="420" height="360"
+        fill="none" stroke="#101822" stroke-width="6" class="nonScaleStroke"/>
+</svg>

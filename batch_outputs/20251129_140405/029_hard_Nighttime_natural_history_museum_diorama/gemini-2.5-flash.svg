@@ -1,0 +1,123 @@
+<svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <!-- Filter for subtle floor texture/imperfections (simplification of feDisplacementMap) -->
+    <filter id="floorTexture" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" result="noise"/>
+      <feColorMatrix in="noise" type="saturate" values="0" result="desaturatedNoise"/>
+      <feComposite in="SourceGraphic" in2="desaturatedNoise" operator="arithmetic" k1="0" k2="1" k3="0.05" k4="0"/>
+    </filter>
+
+    <!-- Filter for LED bloom -->
+    <filter id="bloom" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Linear gradient for floor reflection intensity drop -->
+    <linearGradient id="floorReflectGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.08)"/>
+      <stop offset="50%" stop-color="rgba(255,255,255,0.03)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </linearGradient>
+
+    <!-- A simplified Smilodon skeleton path -->
+    <g id="smilodonSkeleton">
+        <!-- Simplified head with canine -->
+        <path d="M 230 180 C 240 170, 260 170, 270 180 L 265 190 C 260 185, 245 185, 240 190 Z" fill="#ccc" stroke="#aaa" stroke-width="0.5"/>
+        <path d="M 245 185 L 250 178 L 255 185 L 250 192 Z" fill="#ccc" stroke="#aaa" stroke-width="0.3"/> <!-- canine -->
+        <!-- Spine (7 lumbar vertebrae implied by curve) -->
+        <path d="M 210 210 C 220 205, 250 205, 260 210 S 280 220, 290 230 S 300 240, 295 245 C 290 240, 280 235, 270 230 S 240 220, 210 210 Z" fill="#ddd" stroke="#bbb" stroke-width="0.5"/>
+        <!-- Ribs (simplified occlusion) -->
+        <path d="M 260 210 Q 255 220, 260 230" fill="none" stroke="#bbb" stroke-width="0.5"/>
+        <path d="M 255 215 Q 250 225, 255 235" fill="none" stroke="#bbb" stroke-width="0.5"/>
+        <path d="M 250 220 Q 245 230, 250 240" fill="none" stroke="#bbb" stroke-width="0.5"/>
+        <!-- Pelvis -->
+        <path d="M 285 240 C 295 235, 305 235, 310 240 C 305 245, 295 245, 285 240 Z" fill="#ccc" stroke="#aaa" stroke-width="0.5"/>
+        <!-- Legs (simplified) -->
+        <path d="M 235 215 L 225 240 L 230 260 L 240 250 Z" fill="#ccc" stroke="#aaa" stroke-width="0.5"/>
+        <path d="M 250 215 L 240 240 L 245 265 L 255 255 Z" fill="#ccc" stroke="#aaa" stroke-width="0.5"/>
+        <path d="M 290 240 L 280 265 L 285 285 L 295 275 Z" fill="#ccc" stroke="#aaa" stroke-width="0.5"/>
+        <path d="M 300 240 L 290 260 L 295 280 L 305 270 Z" fill="#ccc" stroke="#aaa" stroke-width="0.5"/>
+        <!-- Tail (short) -->
+        <path d="M 305 240 Q 310 245, 315 242" fill="none" stroke="#bbb" stroke-width="0.5"/>
+        <!-- Mount rods discretely under mandible and pelvis -->
+        <rect x="250" y="190" width="1" height="5" fill="#888"/>
+        <rect x="295" y="245" width="1" height="5" fill="#888"/>
+    </g>
+
+    <!-- Simplified janitor silhouette -->
+    <g id="janitorSilhouette">
+        <path d="M 120 400 Q 110 390, 115 380 L 125 360 Q 130 350, 140 360 L 150 370 Q 155 380, 145 390 L 135 400 Z" fill="#222233"/> <!-- Body and head -->
+        <rect x="130" y="385" width="10" height="20" fill="#222233"/> <!-- Leg -->
+        <rect x="120" y="390" width="10" height="20" fill="#222233"/> <!-- Other leg -->
+        <path d="M 145 375 Q 150 365, 160 370 Q 170 375, 165 385 Z" fill="#222233"/> <!-- Arm holding mop -->
+        <path d="M 160 370 L 170 375 L 175 390 L 165 385 Z" fill="#222233"/> <!-- Mop handle -->
+        <circle cx="170" cy="390" r="5" fill="#222233"/> <!-- Mop head -->
+    </g>
+  </defs>
+
+  <!-- Background (Dark night) -->
+  <rect x="0" y="0" width="500" height="500" fill="#1a1a2e"/>
+
+  <!-- Backdrop painting layer (simplified parallax) -->
+  <rect x="0" y="0" width="500" height="280" fill="#333344"/>
+  <rect x="50" y="50" width="400" height="180" fill="#222233"/> <!-- Darker inner for painting -->
+  <text x="250" y="130" text-anchor="middle" font-family="Georgia, serif" font-size="20" fill="#555">Ancient Savanna</text>
+
+  <!-- Moonlight beam from 15° right (simplified dust shafts via masked gradients) -->
+  <g opacity="0.3" transform="skewX(-10)">
+    <linearGradient id="moonbeamGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#aaffee" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#aaffee" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="moonbeamGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#aaffee" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#aaffee" stop-opacity="0"/>
+    </linearGradient>
+    <path d="M 380 0 L 320 250 L 400 250 L 460 0 Z" fill="url(#moonbeamGrad1)" opacity="0.8"/>
+    <path d="M 400 0 L 350 200 L 420 200 L 470 0 Z" fill="url(#moonbeamGrad2)" opacity="0.8"/>
+  </g>
+
+  <!-- Floor (terrazzo look, reflection) -->
+  <rect x="0" y="280" width="500" height="220" fill="#444455" filter="url(#floorTexture)"/>
+  <rect x="0" y="280" width="500" height="220" fill="url(#floorReflectGradient)"/>
+  <!-- Terrazzo speckles -->
+  <circle cx="100" cy="350" r="2" fill="#777"/>
+  <circle cx="250" cy="400" r="2.5" fill="#888"/>
+  <circle cx="400" cy="450" r="3" fill="#666"/>
+  <circle cx="150" cy="430" r="1.5" fill="#777"/>
+
+  <!-- Plinth for Smilodon -->
+  <rect x="180" y="290" width="150" height="30" fill="#333344" rx="5" ry="5"/>
+  <path d="M 180 290 L 170 310 L 170 320 L 340 320 L 330 310 L 330 290 Z" fill="#222233"/> <!-- Shadow/depth for plinth -->
+
+  <!-- Smilodon skeleton on plinth -->
+  <use xlink:href="#smilodonSkeleton" transform="translate(0, -30)"/>
+  <!-- Skeleton shadow across plinth -->
+  <path d="M 230 260 C 240 265, 270 265, 280 260 S 300 270, 310 280 C 300 285, 270 285, 260 280 S 240 270, 230 260 Z" fill="rgba(0,0,0,0.3)" transform="translate(0, 30)"/>
+
+  <!-- Wall plaque with microtext -->
+  <rect x="60" y="230" width="40" height="20" fill="#9999aa"/>
+  <text x="63" y="240" font-family="Arial" font-size="5" fill="#111111">SMILODON</text>
+  <text x="63" y="247" font-family="Arial" font-size="4" fill="#333333">Cap Height: ~2.2mm (scaled)</text>
+
+  <!-- Red security LED with faint bloom -->
+  <circle cx="55" cy="235" r="2" fill="#ff0000" filter="url(#bloom)"/>
+
+  <!-- Janitor silhouette mopping -->
+  <use xlink:href="#janitorSilhouette" transform="translate(0, -50)"/>
+
+  <!-- Janitor reflection (aligned and faded) -->
+  <g transform="translate(0, 480) scale(1, -1)">
+    <use xlink:href="#janitorSilhouette" fill-opacity="0.1"/>
+  </g>
+
+  <!-- Reflections of skeleton and plinth (simplified, intensity drops with distance) -->
+  <g transform="translate(0, 600) scale(1, -1)">
+    <use xlink:href="#smilodonSkeleton" transform="translate(0, -30)" fill-opacity="0.08" stroke-opacity="0.04"/>
+    <rect x="180" y="290" width="150" height="30" fill="#333344" fill-opacity="0.08"/>
+  </g>
+</svg>

@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Escher-inspired multi-level library in 3-point perspective with orrery and helix text">
+  <defs>
+    <!-- Wood-like shelves gradient -->
+    <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#b07a3a"/>
+      <stop offset="100%" stop-color="#6a4523"/>
+    </linearGradient>
+
+    <!-- Book spines gradient (varied by fill in rects) -->
+    <linearGradient id="bookGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9b5e2b"/>
+      <stop offset="100%" stop-color="#4a2b14"/>
+    </linearGradient>
+
+    <!-- Lamp glow for greenish 3000K ambience -->
+    <radialGradient id="lampGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#cfffaf" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#0e2f0a" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Specular highlight for brass/orb rings -->
+    <filter id="spec" x="-50%" y="-50%" width="200%" height="200%">
+      <feSpecularLighting in="SourceGraphic" surfaceScale="6" specularConstant="0.9" specularExponent="20" lighting-color="#ffffff">
+        <fePointLight x="0" y="-60" z="200"/>
+      </feSpecularLighting>
+    </filter>
+
+    <!-- Simple soft shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="4" dy="6" stdDeviation="4" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+
+    <!-- Clip region to hide "impossible connections" (layer clipping) -->
+    <clipPath id="clipImpossible">
+      <polygon points="60,100 440,120 420,300 80,280" />
+    </clipPath>
+
+    <!-- Helical text paths (approximate) -->
+    <path id="helix1" d="M 40 210 C 90 170, 150 230, 200 210 C 250 190, 310 230, 360 210" fill="none"/>
+    <path id="helix2" d="M 20 240 C 80 200, 140 260, 200 240 C 260 220, 320 260, 380 240" fill="none"/>
+  </defs>
+
+  <!-- Background -->
+  <rect width="500" height="500" fill="#0c2f22"/>
+
+  <!-- Perspective hints: long converging lines to far vanishing points (off-screen to imply 3-point) -->
+  <line x1="60" y1="360" x2="-4200" y2="700" stroke="#5bd" stroke-width="0.8" opacity="0.6"/>
+  <line x1="420" y1="360" x2="6400" y2="700" stroke="#5bd" stroke-width="0.8" opacity="0.6"/>
+  <line x1="250" y1="500" x2="1100" y2="-2600" stroke="#5bd" stroke-width="0.8" opacity="0.4"/>
+
+  <!-- Main three perspective planes (simple multi-level shelves) -->
+  <g filter="url(#shadow)" id="shelves">
+    <!-- Level 1 (bottom plane) -->
+    <polygon points="40,420 460,420 430,350 70,350" fill="url(#wood)"/>
+    <!-- Level 2 (middle plane) -->
+    <polygon points="50,350 450,350 420,320 60,320" fill="#9b6a2a"/>
+    <!-- Level 3 (top plane) -->
+    <polygon points="60,320 440,320 420,290 80,290" fill="#b57a2f"/>
+  </g>
+
+  <!-- Stairs with inverted gradients at landings (simplified) -->
+  <defs>
+    <linearGradient id="stepGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e6b863"/>
+      <stop offset="100%" stop-color="#7a4f1f"/>
+    </linearGradient>
+    <linearGradient id="stepGradInv" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0%" stop-color="#e6b863"/>
+      <stop offset="100%" stop-color="#7a4f1f"/>
+    </linearGradient>
+  </defs>
+  <!-- Inset diagonal stairs (stylized) -->
+  <polygon points="60,360 120,360 90,380" fill="url(#stepGrad)"/>
+  <polygon points="140,360 210,360 170,385" fill="url(#stepGradInv)"/>
+  <polygon points="220,360 290,360 260,392" fill="url(#stepGrad)"/>
+  <polygon points="300,360 360,360 330,395" fill="url(#stepGrad)"/>
+
+  <!-- Railings: constant stroke width via non-scaling-stroke -->
+  <path d="M 60 360 L 460 330" fill="none" stroke="#d9d9d9" stroke-width="3" vector-effect="non-scaling-stroke" />
+  <path d="M 80 360 L 420 330" fill="none" stroke="#d9d9d9" stroke-width="3" vector-effect="non-scaling-stroke" />
+
+  <!-- Shelves: book spines (240 mm tall standard; some folios 380 mm tall) in perspective -->
+  <g id="spines" fill="none" stroke="#2b2b2b">
+    <!-- Bottom shelf spines (11-12) -->
+    <rect x="60" y="290" width="8" height="60" fill="#7a4f2b" stroke="#2b2b2b"/>
+    <rect x="78" y="290" width="8" height="60" fill="#8a5a2b" stroke="#2b2b2b"/>
+    <rect x="96" y="290" width="8" height="60" fill="#7f4c28" stroke="#2b2b2b"/>
+    <rect x="114" y="290" width="8" height="60" fill="#9b6a2b" stroke="#2b2b2b"/>
+    <rect x="132" y="290" width="8" height="60" fill="#8a5a2b" stroke="#2b2b2b"/>
+    <rect x="150" y="290" width="8" height="60" fill="#6b3f21" stroke="#2b2b2b"/>
+    <rect x="168" y="290" width="8" height="60" fill="#8e5e2a" stroke="#2b2b2b"/>
+    <rect x="186" y="290" width="8" height="60" fill="#7a4f2b" stroke="#2b2b2b"/>
+    <rect x="204" y="290" width="8" height="60" fill="#9b6a2b" stroke="#2b2b2b"/>
+    <rect x="222" y="290" width="8" height="60" fill="#7c5227" stroke="#2b2b2b"/>
+    <rect x="240" y="290" width="8" height="60" fill="#8a5a2b" stroke="#2b2b2b"/>
+    <!-- Additional few spines to emphasize depth -->
+    <rect x="258" y="290" width="8" height="60" fill="#7b5a2b" stroke="#2b2b2b"/>
+    <rect x="276" y="290" width="8" height="60" fill="#8c6a2a" stroke="#2b2b2b"/>
+  </g>
+
+  <!-- Folios (380 mm tall) as wider spine accents on middle/top planes -->
+  <rect x="140" y="260" width="16" height="90" fill="#c69a2b" stroke="#2b2b2b"/>
+  <rect x="360" y="260" width="16" height="90" fill="#c69a2b" stroke="#2b2b2b"/>
+
+  <!-- Central brass orrery (planets radii proportional; distances not to scale) -->
+  <g id="orrery" transform="translate(0,0)">
+    <!-- Orbits (unscaled radii for visual effect) -->
+    <circle cx="250" cy="240" r="60" fill="none" stroke="#6e6e6e" stroke-width="1" opacity="0.5"/>
+    <circle cx="250" cy="240" r="90" fill="none" stroke="#6e6e6e" stroke-width="1" opacity="0.4"/>
+    <circle cx="250" cy="240" r="120" fill="none" stroke="#6e6e6e" stroke-width="1" opacity="0.3"/>
+
+    <!-- Central brass core (not to scale with distances) -->
+    <circle cx="250" cy="240" r="18" fill="#c89f31" filter="url(#spec)"/>
+
+    <!-- Planets (radii proportional, distances not) -->
+    <circle cx="310" cy="240" r="6" fill="#4caf50"/>
+    <circle cx="205" cy="316" r="5" fill="#e6d54a"/>
+    <circle cx="130" cy="240" r="7" fill="#d2a300"/>
+
+    <!-- Saturn with ring tilted to 35° via skew transform -->
+    <g transform="translate(190,240)">
+      <!-- Saturn body -->
+      <circle cx="40" cy="0" r="7" fill="#d2b48c" />
+      <!-- Ring: ellipse tilted by 35° via skew -->
+      <g transform="translate(40,0) skewX(-35) translate(-40,-0)">
+        <ellipse cx="40" cy="0" rx="28" ry="8" fill="none" stroke="#d2a300" stroke-width="2"/>
+      </g>
+    </g>
+
+    <!-- A distant, subtle highlight on the brass core -->
+    <circle cx="250" cy="240" r="16" fill="white" fill-opacity="0.15" />
+  </g>
+
+  <!-- Green-shaded lamps at 3000K illuminating scholars -->
+  <ellipse cx="120" cy="260" rx="60" ry="28" fill="url(#lampGlow)" opacity="0.9"/>
+  <ellipse cx="380" cy="260" rx="60" ry="28" fill="url(#lampGlow)" opacity="0.9"/>
+
+  <!-- Scholars from distinct eras (togas, abayas, frock coats) reading by lamps -->
+  <!-- Togas reader (left) -->
+  <g transform="translate(60,320)">
+    <ellipse cx="0" cy="-8" rx="9" ry="9" fill="#f1d9b0" />
+    <!-- simple draped robe -->
+    <path d="M-12 0 Q0 28 12 0 L4 40 Q-4 40 -12 0Z" fill="#f0efe8" stroke="#d0c5a8" />
+  </g>
+
+  <!-- Abaya reader (center) -->
+  <g transform="translate(260,320)">
+    <ellipse cx="0" cy="-6" rx="9" ry="9" fill="#d0d0d0"/>
+    <path d="M-14 2 Q0 40 14 2 L8 52 Q0 52 -8 2Z" fill="#0a0a0a"/>
+  </g>
+
+  <!-- Frock coat reader (right) -->
+  <g transform="translate(420,320)">
+    <ellipse cx="0" cy="-6" rx="9" ry="9" fill="#f6e0c9"/>
+    <path d="M-12 6 Q0 40 12 6 L6 62 Q-4 62 -6 6Z" fill="#2e2e2e"/>
+  </g>
+
+  <!-- Text-on-path along helices: Latin and Greek quotes -->
+  <path id="helixA" d="M 40 210 C 90 170, 150 230, 200 210 C 250 190, 310 230, 360 210" fill="none"/>
+  <path id="helixB" d="M 20 240 C 80 200, 140 260, 200 240 C 260 220, 320 260, 380 240" fill="none"/>
+
+  <text font-family="Georgia, 'Times New Roman', serif" font-size="11" fill="#d9ffcc" style="letter-spacing:1">
+    <textPath href="#helixA" startOffset="0%">
+      Tempus fugit — Γνῶθι σεαυτόν
+    </textPath>
+  </text>
+
+  <text font-family="Georgia, 'Times New Roman', serif" font-size="11" fill="#d9ffcc" style="letter-spacing:1" >
+    <textPath href="#helixB" startOffset="0%" >
+      Carpe diem — Μολὼν λαβέ
+    </textPath>
+  </text>
+
+  <!-- Coherent cast shadows for three VPs (soft ground shadow under shelves/figures) -->
+  <ellipse cx="250" cy="470" rx="260" ry="40" fill="black" opacity="0.25" />
+
+  <!-- Impossible connections hidden by precise layer clipping (clip region hides some lines) -->
+  <g clip-path="url(#clipImpossible)" opacity="0.8" >
+    <line x1="60" y1="360" x2="440" y2="320" stroke="#66e" stroke-width="2" />
+    <line x1="80" y1="360" x2="420" y2="320" stroke="#66e" stroke-width="2" />
+  </g>
+
+  <!-- Optional decorative subtle vignette -->
+  <rect x="0" y="0" width="500" height="500" fill="none" stroke="none"/>
+</svg>

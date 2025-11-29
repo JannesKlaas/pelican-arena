@@ -1,0 +1,155 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="stairGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B7355;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5C4633;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="stairGrad2" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#8B7355;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5C4633;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="lampGlow">
+      <stop offset="0%" style="stop-color:#90EE90;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#2F4F2F;stop-opacity:0" />
+    </radialGradient>
+    <filter id="specular">
+      <feSpecularLighting surfaceScale="5" specularConstant="0.8" specularExponent="20" lighting-color="#FFD700">
+        <fePointLight x="250" y="150" z="200"/>
+      </feSpecularLighting>
+    </filter>
+    <clipPath id="clip1">
+      <rect x="0" y="0" width="250" height="500"/>
+    </clipPath>
+    <clipPath id="clip2">
+      <rect x="250" y="0" width="250" height="500"/>
+    </clipPath>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="500" height="500" fill="#2C1810"/>
+  
+  <!-- Left section shelves with perspective -->
+  <g clip-path="url(#clip1)">
+    <path d="M 50 150 L 220 120 L 220 180 L 50 200 Z" fill="#4A3728" stroke="#2C1810" stroke-width="1"/>
+    <path d="M 50 200 L 220 180 L 220 240 L 50 250 Z" fill="#5C4633" stroke="#2C1810" stroke-width="1"/>
+    <path d="M 50 250 L 220 240 L 220 300 L 50 300 Z" fill="#4A3728" stroke="#2C1810" stroke-width="1"/>
+    
+    <!-- Books on shelves -->
+    <g>
+      <rect x="55" y="155" width="8" height="40" fill="#8B4513"/>
+      <rect x="65" y="155" width="12" height="40" fill="#A0522D"/>
+      <rect x="79" y="155" width="7" height="40" fill="#654321"/>
+      <rect x="88" y="155" width="15" height="40" fill="#8B0000"/>
+      <rect x="105" y="155" width="10" height="40" fill="#2F4F4F"/>
+      <rect x="117" y="155" width="18" height="40" fill="#556B2F"/>
+      <rect x="137" y="155" width="8" height="40" fill="#8B4513"/>
+      <rect x="147" y="155" width="12" height="40" fill="#6B4423"/>
+      
+      <!-- Folio (tall book) -->
+      <rect x="161" y="140" width="14" height="55" fill="#4B0082"/>
+      
+      <rect x="177" y="155" width="9" height="40" fill="#800000"/>
+      <rect x="188" y="155" width="11" height="40" fill="#8B7355"/>
+    </g>
+  </g>
+  
+  <!-- Right section shelves with opposite perspective -->
+  <g clip-path="url(#clip2)">
+    <path d="M 450 150 L 280 120 L 280 180 L 450 200 Z" fill="#4A3728" stroke="#2C1810" stroke-width="1"/>
+    <path d="M 450 200 L 280 180 L 280 240 L 450 250 Z" fill="#5C4633" stroke="#2C1810" stroke-width="1"/>
+    <path d="M 450 250 L 280 240 L 280 300 L 450 300 Z" fill="#4A3728" stroke="#2C1810" stroke-width="1"/>
+    
+    <!-- Books on right shelves -->
+    <g>
+      <rect x="285" y="155" width="10" height="40" fill="#654321"/>
+      <rect x="297" y="155" width="8" height="40" fill="#A0522D"/>
+      <rect x="307" y="155" width="13" height="40" fill="#8B0000"/>
+      <rect x="322" y="155" width="11" height="40" fill="#2F4F4F"/>
+      <rect x="335" y="155" width="16" height="40" fill="#556B2F"/>
+      <rect x="353" y="140" width="15" height="55" fill="#191970"/>
+      <rect x="370" y="155" width="9" height="40" fill="#800000"/>
+      <rect x="381" y="155" width="12" height="40" fill="#8B7355"/>
+    </g>
+  </g>
+  
+  <!-- Stairs with gradient flip -->
+  <g>
+    <path d="M 200 320 L 240 315 L 240 330 L 200 335 Z" fill="url(#stairGrad1)" stroke="#3C2F2F" stroke-width="0.5" vector-effect="non-scaling-stroke"/>
+    <path d="M 240 315 L 280 320 L 280 335 L 240 330 Z" fill="url(#stairGrad1)" stroke="#3C2F2F" stroke-width="0.5" vector-effect="non-scaling-stroke"/>
+    
+    <path d="M 210 350 L 250 345 L 250 360 L 210 365 Z" fill="url(#stairGrad2)" stroke="#3C2F2F" stroke-width="0.5" vector-effect="non-scaling-stroke"/>
+    <path d="M 250 345 L 290 350 L 290 365 L 250 360 Z" fill="url(#stairGrad2)" stroke="#3C2F2F" stroke-width="0.5" vector-effect="non-scaling-stroke"/>
+    
+    <path d="M 220 380 L 260 375 L 260 390 L 220 395 Z" fill="url(#stairGrad1)" stroke="#3C2F2F" stroke-width="0.5" vector-effect="non-scaling-stroke"/>
+    
+    <!-- Railing -->
+    <polyline points="200,320 210,350 220,380" fill="none" stroke="#8B7355" stroke-width="2" vector-effect="non-scaling-stroke"/>
+    <polyline points="280,320 290,350 300,380" fill="none" stroke="#8B7355" stroke-width="2" vector-effect="non-scaling-stroke"/>
+  </g>
+  
+  <!-- Central brass orrery -->
+  <g transform="translate(250,250)">
+    <circle r="25" fill="#B8860B" filter="url(#specular)" opacity="0.9"/>
+    
+    <!-- Sun -->
+    <circle r="8" fill="#FFD700" filter="url(#specular)"/>
+    
+    <!-- Mercury -->
+    <circle cx="15" cy="0" r="2" fill="#8C7853"/>
+    
+    <!-- Venus -->
+    <circle cx="-20" cy="5" r="3" fill="#FFA07A"/>
+    
+    <!-- Earth -->
+    <circle cx="10" cy="25" r="3.5" fill="#4169E1"/>
+    
+    <!-- Mars -->
+    <circle cx="-28" cy="-8" r="2.5" fill="#CD5C5C"/>
+    
+    <!-- Jupiter -->
+    <circle cx="30" cy="-20" r="6" fill="#DAA520"/>
+    
+    <!-- Saturn with rings -->
+    <ellipse cx="-35" cy="20" rx="5" ry="3" fill="#F4A460"/>
+    <ellipse cx="-35" cy="20" rx="10" ry="4" fill="none" stroke="#CD853F" stroke-width="1.5" transform="skewX(-15)"/>
+  </g>
+  
+  <!-- Scholars -->
+  <g>
+    <!-- Toga scholar (left) -->
+    <ellipse cx="100" cy="280" rx="15" ry="20" fill="#F5F5DC"/>
+    <circle cx="100" cy="265" r="8" fill="#D2B48C"/>
+    <rect x="90" y="275" width="20" height="3" fill="#8B7355"/>
+    
+    <!-- Lamp -->
+    <ellipse cx="120" cy="270" rx="30" ry="30" fill="url(#lampGlow)" opacity="0.6"/>
+    <path d="M 115 275 Q 120 265 125 275" fill="#2F4F2F" stroke="#1C3F1C" stroke-width="1"/>
+    
+    <!-- Abaya scholar (right) -->
+    <ellipse cx="380" cy="280" rx="15" ry="20" fill="#1C1C1C"/>
+    <circle cx="380" cy="265" r="8" fill="#8B7355"/>
+    <rect x="370" y="275" width="20" height="3" fill="#654321"/>
+    
+    <!-- Lamp -->
+    <ellipse cx="360" cy="270" rx="30" ry="30" fill="url(#lampGlow)" opacity="0.6"/>
+    <path d="M 355 275 Q 360 265 365 275" fill="#2F4F2F" stroke="#1C3F1C" stroke-width="1"/>
+    
+    <!-- Frock coat scholar (center bottom) -->
+    <ellipse cx="250" cy="420" rx="12" ry="18" fill="#2C1810"/>
+    <circle cx="250" cy="407" r="7" fill="#FFDAB9"/>
+    <rect x="242" y="415" width="16" height="2" fill="#654321"/>
+  </g>
+  
+  <!-- Text paths (simplified Latin) -->
+  <defs>
+    <path id="helix1" d="M 50 100 Q 150 80 250 100 T 450 100"/>
+  </defs>
+  <text font-family="serif" font-size="8" fill="#8B7355" opacity="0.7">
+    <textPath href="#helix1">SCIENTIA POTENTIA EST</textPath>
+  </text>
+  
+  <!-- Shadows -->
+  <ellipse cx="100" cy="305" rx="18" ry="6" fill="#000000" opacity="0.3"/>
+  <ellipse cx="380" cy="305" rx="18" ry="6" fill="#000000" opacity="0.3"/>
+  <ellipse cx="250" cy="442" rx="15" ry="5" fill="#000000" opacity="0.3"/>
+</svg>

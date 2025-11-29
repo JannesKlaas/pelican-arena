@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <!-- Lighting Filter for Brass -->
+    <filter id="brassGlow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feSpecularLighting in="blur" surfaceScale="5" specularConstant="1" specularExponent="20" lighting-color="#fffae0" result="specOut">
+        <fePointLight x="250" y="250" z="100"/>
+      </feSpecularLighting>
+      <feComposite in="specOut" in2="SourceAlpha" operator="in" result="specOut"/>
+      <feComposite in="SourceGraphic" in2="specOut" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
+    </filter>
+
+    <!-- Wood Gradient -->
+    <linearGradient id="woodGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3e2723"/>
+      <stop offset="50%" stop-color="#5d4037"/>
+      <stop offset="100%" stop-color="#3e2723"/>
+    </linearGradient>
+
+    <!-- Lamp Glow -->
+    <radialGradient id="lampGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff9c4" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#fff9c4" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Stair Inversion Pattern -->
+    <pattern id="stairPat" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="10" height="20" fill="#4e342e"/>
+      <rect x="10" width="10" height="20" fill="#6d4c41"/>
+    </pattern>
+
+    <!-- Book Spine Pattern -->
+    <pattern id="books" x="0" y="0" width="40" height="20" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="5" height="20" fill="#880e4f"/>
+      <rect x="5" y="2" width="8" height="18" fill="#1a237e"/>
+      <rect x="13" y="0" width="4" height="20" fill="#1b5e20"/>
+      <rect x="17" y="1" width="6" height="19" fill="#e65100"/>
+      <rect x="23" y="0" width="7" height="20" fill="#3e2723"/>
+      <rect x="30" y="3" width="10" height="17" fill="#f57f17"/>
+    </pattern>
+    
+    <path id="helixPath" d="M150,400 C100,350 100,150 250,100 C400,150 400,350 350,400" fill="none"/>
+  </defs>
+
+  <!-- Background -->
+  <rect width="500" height="500" fill="#1a1a1a"/>
+
+  <!-- Deep Perspective Walls (3-point implied) -->
+  <path d="M0,0 L150,100 L150,400 L0,500 Z" fill="url(#woodGrad)"/>
+  <path d="M500,0 L350,100 L350,400 L500,500 Z" fill="url(#woodGrad)"/>
+  
+  <!-- Bookshelves on Walls -->
+  <rect x="0" y="50" width="150" height="350" fill="url(#books)" opacity="0.6" transform="skewY(10)"/>
+  <rect x="350" y="-10" width="150" height="350" fill="url(#books)" opacity="0.6" transform="skewY(-10)"/>
+
+  <!-- Impossible Architecture Structure -->
+  <g stroke="#2d1b15" stroke-width="2">
+    <!-- Central Pillar Background -->
+    <rect x="220" y="150" width="60" height="350" fill="#4e342e"/>
+    
+    <!-- Staircase Loop (Escherian) -->
+    <!-- Left Stairs (Gravity Vertical) -->
+    <path d="M50,400 L150,350 L150,250 L50,300 Z" fill="url(#stairPat)"/>
+    <!-- Connecting Bridge (Impossible twist) -->
+    <path d="M150,250 L350,250 L350,300 L150,300 Z" fill="#5d4037"/>
+    <!-- Right Stairs (Gravity Sideways) -->
+    <path d="M350,250 L450,150 L450,250 L350,350 Z" fill="url(#stairPat)"/>
+    
+    <!-- Railings -->
+    <path d="M50,380 L150,330 M150,330 L350,230 M350,230 L450,130" stroke="#bcaaa4" vector-effect="non-scaling-stroke" fill="none"/>
+  </g>
+
+  <!-- Scholars -->
+  <!-- Scholar 1: Frock Coat (Vertical Gravity on Left) -->
+  <g transform="translate(100, 310) scale(0.8)">
+    <path d="M0,0 L10,-40 L-10,-40 Z" fill="#000"/> <!-- Coat -->
+    <circle cx="0" cy="-45" r="5" fill="#e0e0e0"/> <!-- Head -->
+    <rect x="-6" y="-55" width="12" height="8" fill="#000"/> <!-- Top hat -->
+  </g>
+
+  <!-- Scholar 2: Toga (Sideways Gravity on Right Wall) -->
+  <g transform="translate(410, 200) rotate(-90) scale(0.8)">
+    <path d="M0,0 Q5,-20 10,-40 L-10,-40 Q-5,-20 0,0" fill="#f5f5f5"/>
+    <circle cx="0" cy="-45" r="5" fill="#d7ccc8"/>
+    <path d="M-5,-25 L5,-25" stroke="#8d6e63" stroke-width="2"/> <!-- Scroll -->
+  </g>
+
+  <!-- Central Brass Orrery -->
+  <g transform="translate(250, 200)" filter="url(#brassGlow)">
+    <!-- Main Axis -->
+    <rect x="-5" y="-80" width="10" height="200" fill="#b8860b"/>
+    
+    <!-- Rings -->
+    <ellipse cx="0" cy="0" rx="120" ry="40" stroke="#ffd700" stroke-width="2" fill="none" opacity="0.5"/>
+    <ellipse cx="0" cy="0" rx="80" ry="25" stroke="#ffd700" stroke-width="2" fill="none" opacity="0.7"/>
+    
+    <!-- Sun -->
+    <circle cx="0" cy="0" r="15" fill="#ffd700"/>
+    
+    <!-- Planet 1 -->
+    <circle cx="-70" cy="10" r="8" fill="#8d6e63"/>
+    
+    <!-- Saturn with Skewed Ring -->
+    <g transform="translate(60, -15)">
+      <ellipse cx="0" cy="0" rx="25" ry="5" fill="none" stroke="#ffd700" stroke-width="3" transform="rotate(20)"/>
+      <circle cx="0" cy="0" r="10" fill="#d4af37"/>
+    </g>
+  </g>
+
+  <!-- Lighting Fixtures -->
+  <!-- Lamp 1 -->
+  <g transform="translate(100, 100)">
+    <line x1="0" y1="0" x2="0" y2="50" stroke="#333" stroke-width="2"/>
+    <path d="M-15,50 L15,50 L25,70 L-25,70 Z" fill="#2e7d32"/>
+    <path d="M0,70 L-40,200 L40,200 Z" fill="url(#lampGlow)"/>
+  </g>
+
+  <!-- Lamp 2 (Sideways for the sideways scholar) -->
+  <g transform="translate(400, 300) rotate(-90)">
+    <line x1="0" y1="0" x2="0" y2="50" stroke="#333" stroke-width="2"/>
+    <path d="M-15,50 L15,50 L25,70 L-25,70 Z" fill="#2e7d32"/>
+    <path d="M0,70 L-40,200 L40,200 Z" fill="url(#lampGlow)"/>
+  </g>
+
+  <!-- Text on Path (Latin/Greek) -->
+  <text fill="#d4af37" font-family="serif" font-size="14" font-weight="bold" opacity="0.8">
+    <textPath href="#helixPath" startOffset="20%">
+      VITA BREVIS ARS LONGA - SCIENTIA POTENTIA EST
+    </textPath>
+  </text>
+  
+  <!-- Foreground Shadows to tie 3 VPs together -->
+  <path d="M0,500 L150,400 L350,400 L500,500 Z" fill="#000" opacity="0.3"/>
+</svg>

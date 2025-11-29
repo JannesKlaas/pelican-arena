@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f1a2a"/>
+      <stop offset="100%" stop-color="#243b55"/>
+    </linearGradient>
+    <linearGradient id="stairGrad1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#c6d1e3"/>
+      <stop offset="100%" stop-color="#77839a"/>
+    </linearGradient>
+    <linearGradient id="stairGrad2" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#77839a"/>
+      <stop offset="100%" stop-color="#c6d1e3"/>
+    </linearGradient>
+    <linearGradient id="lampLight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c9ffba"/>
+      <stop offset="100%" stop-color="#ffe6aa"/>
+    </linearGradient>
+    <filter id="orrerySpec" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feSpecularLighting in="blur" surfaceScale="5" specularConstant="0.75" specularExponent="20" lighting-color="#ffe6aa" result="spec">
+        <fePointLight x="240" y="140" z="120"/>
+      </feSpecularLighting>
+      <feComposite in="spec" in2="SourceGraphic" operator="in" result="lit"/>
+      <feBlend in="SourceGraphic" in2="lit" mode="screen"/>
+    </filter>
+    <clipPath id="clipImpossible">
+      <path d="M40,60 L460,60 L460,440 L40,440 Z"/>
+    </clipPath>
+    <path id="helix1" d="M170,120 C150,200 210,260 190,340" />
+    <path id="helix2" d="M330,120 C350,200 290,260 310,340" />
+  </defs>
+  <rect width="500" height="500" fill="url(#bgGrad)"/>
+  <g clip-path="url(#clipImpossible)">
+    <g opacity="0.2">
+      <path d="M110,500 L1100,-2600" stroke="#445" stroke-width="1"/>
+      <path d="M390,500 L1100,-2600" stroke="#445" stroke-width="1"/>
+      <path d="M-4200,700 L500,260" stroke="#445" stroke-width="0.6"/>
+      <path d="M6400,700 L0,260" stroke="#445" stroke-width="0.6"/>
+    </g>
+    <g id="platforms">
+      <path d="M60,220 L250,200 L440,230 L240,260 Z" fill="#44546a" opacity="0.8"/>
+      <path d="M80,310 L260,300 L420,330 L240,350 Z" fill="#39465c" opacity="0.85"/>
+      <path d="M100,400 L260,390 L380,410 L220,420 Z" fill="#2b3a4f" opacity="0.9"/>
+      <path d="M160,140 L340,130 L320,170 L140,180 Z" fill="#516179" opacity="0.75"/>
+    </g>
+    <g id="stairs">
+      <path d="M130,180 L210,170 L210,190 L130,200 Z" fill="url(#stairGrad1)"/>
+      <path d="M210,170 L300,180 L300,198 L210,190 Z" fill="url(#stairGrad2)"/>
+      <path d="M130,200 L210,190 L210,210 L130,220 Z" fill="url(#stairGrad2)"/>
+      <path d="M210,190 L300,198 L300,218 L210,210 Z" fill="url(#stairGrad1)"/>
+      <path d="M150,260 L230,252 L230,272 L150,280 Z" fill="url(#stairGrad1)"/>
+      <path d="M230,252 L320,262 L320,280 L230,272 Z" fill="url(#stairGrad2)"/>
+    </g>
+    <g id="railings" fill="none" stroke="#d2d9e6" stroke-width="1.2" vector-effect="non-scaling-stroke">
+      <path d="M130,180 L130,220"/>
+      <path d="M300,180 L300,220"/>
+      <path d="M150,260 L150,300"/>
+      <path d="M320,260 L320,300"/>
+      <path d="M210,170 L210,210"/>
+    </g>
+    <g id="shelves">
+      <g transform="matrix(1,0,-0.2,1,80,150)">
+        <rect x="0" y="0" width="120" height="10" fill="#171f2a"/>
+        <g>
+          <rect x="2" y="-24" width="8" height="24" fill="#ad3f3f"/>
+          <rect x="12" y="-24" width="6" height="24" fill="#3f6fad"/>
+          <rect x="20" y="-38" width="10" height="38" fill="#7864b7"/>
+          <rect x="32" y="-24" width="9" height="24" fill="#c49f4b"/>
+          <rect x="43" y="-24" width="8" height="24" fill="#497c57"/>
+          <rect x="53" y="-24" width="7" height="24" fill="#d46a50"/>
+          <rect x="62" y="-24" width="9" height="24" fill="#7f95ba"/>
+          <rect x="73" y="-38" width="12" height="38" fill="#b07652"/>
+          <rect x="87" y="-24" width="7" height="24" fill="#5a6e8c"/>
+          <rect x="96" y="-24" width="6" height="24" fill="#c2c9de"/>
+        </g>
+      </g>
+      <g transform="matrix(1,0,0.25,1,290,190)">
+        <rect x="0" y="0" width="110" height="10" fill="#161e29"/>
+        <g>
+          <rect x="4" y="-24" width="7" height="24" fill="#e37c46"/>
+          <rect x="13" y="-24" width="6" height="24" fill="#5f96c7"/>
+          <rect x="21" y="-38" width="10" height="38" fill="#6f4fb5"/>
+          <rect x="33" y="-24" width="9" height="24" fill="#ccae51"/>
+          <rect x="45" y="-24" width="8" height="24" fill="#3d8856"/>
+          <rect x="55" y="-24" width="7" height="24" fill="#c45856"/>
+          <rect x="64" y="-24" width="9" height="24" fill="#95a2c7"/>
+          <rect x="75" y="-24" width="6" height="24" fill="#4f6b89"/>
+          <rect x="83" y="-38" width="13" height="38" fill="#b18060"/>
+        </g>
+      </g>
+    </g>
+    <g id="orrery" transform="translate(250,230)" filter="url(#orrerySpec)">
+      <circle cx="0" cy="0" r="45" fill="#1b2c3f" stroke="#7892bf" stroke-width="1.5"/>
+      <circle cx="0" cy="0" r="6" fill="#d9c17d"/>
+      <circle cx="0" cy="-18" r="4" fill="#88c6f1"/>
+      <circle cx="22" cy="10" r="9" fill="#f1c27d"/>
+      <circle cx="-28" cy="12" r="12" fill="#d88f36"/>
+      <g transform="skewX(-20)">
+        <ellipse cx="0" cy="0" rx="22" ry="8" fill="none" stroke="#e9d8a6" stroke-width="2"/>
+      </g>
+    </g>
+    <g id="lamps">
+      <g transform="translate(150,210)">
+        <line x1="0" y1="0" x2="0" y2="30" stroke="#1c2a33" stroke-width="2"/>
+        <ellipse cx="0" cy="35" rx="18" ry="8" fill="#285c3a"/>
+        <ellipse cx="0" cy="35" rx="12" ry="5" fill="url(#lampLight)" opacity="0.8"/>
+      </g>
+      <g transform="translate(350,250)">
+        <line x1="0" y1="0" x2="0" y2="30" stroke="#1c2a33" stroke-width="2"/>
+        <ellipse cx="0" cy="35" rx="18" ry="8" fill="#285c3a"/>
+        <ellipse cx="0" cy="35" rx="12" ry="5" fill="url(#lampLight)" opacity="0.8"/>
+      </g>
+    </g>
+    <g id="scholars">
+      <g transform="translate(140,230)">
+        <path d="M0,-10 C6,-12 8,-3 4,2 C0,6 -6,6 -8,0 Z" fill="#c6a887"/>
+        <path d="M0,0 L-10,28 L12,28 Z" fill="#77654f"/>
+        <path d="M-8,0 L-14,26" stroke="#77654f" stroke-width="2"/>
+        <path d="M8,0 L14,26" stroke="#77654f" stroke-width="2"/>
+      </g>
+      <g transform="translate(310,280)">
+        <path d="M0,-12 C5,-14 9,-6 6,-1 C2,5 -4,6 -7,1 Z" fill="#d6b79a"/>
+        <path d="M0,0 L-12,34 L14,34 Z" fill="#1f2d3f"/>
+        <path d="M-9,3 L-14,33" stroke="#1f2d3f" stroke-width="2"/>
+        <path d="M9,3 L14,33" stroke="#1f2d3f" stroke-width="2"/>
+      </g>
+      <g transform="translate(240,320)">
+        <path d="M0,-11 C4,-14 9,-8 8,-2 C6,4 -3,7 -7,2 Z" fill="#b89374"/>
+        <path d="M0,0 L-8,30 L10,32 Z" fill="#3a4456"/>
+        <path d="M-6,4 L-10,32" stroke="#3a4456" stroke-width="2"/>
+        <path d="M8,4 L12,32" stroke="#3a4456" stroke-width="2"/>
+      </g>
+    </g>
+    <g id="texts" fill="#d7e4f3" font-family="serif" font-size="7">
+      <text>
+        <textPath href="#helix1" startOffset="0%">
+          "Festina lente" — Σπεῦδε βραδέως
+        </textPath>
+      </text>
+      <text>
+        <textPath href="#helix2" startOffset="100%">
+          "Sapere aude" — Γνῶθι σαυτόν
+        </textPath>
+      </text>
+    </g>
+    <g id="shadows" fill="rgba(15,20,30,0.5)">
+      <path d="M210,210 L290,220 L260,240 L180,230 Z" fill="#0b111b" opacity="0.4"/>
+      <path d="M250,260 L330,270 L300,300 L220,290 Z" fill="#0b111b" opacity="0.35"/>
+    </g>
+  </g>
+</svg>

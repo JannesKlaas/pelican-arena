@@ -1,0 +1,146 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <defs>
+    <!-- Dust shafts -->
+    <radialGradient id="dustGradient1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.3)" />
+      <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+    </radialGradient>
+    <filter id="dustMask1" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.5" />
+      </feComponentTransfer>
+    </filter>
+    <mask id="dustMask1Mask">
+      <rect width="100%" height="100%" fill="url(#dustGradient1)" />
+      <use xlink:href="#dustGradient1" filter="url(#dustMask1)" />
+    </mask>
+
+    <radialGradient id="dustGradient2" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.2)" />
+      <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+    </radialGradient>
+    <filter id="dustMask2" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.7" />
+      </feComponentTransfer>
+    </filter>
+    <mask id="dustMask2Mask">
+      <rect width="100%" height="100%" fill="url(#dustGradient2)" />
+      <use xlink:href="#dustGradient2" filter="url(#dustMask2)" />
+    </mask>
+
+    <!-- Subtle noise for floor reflection -->
+    <filter id="noiseFilter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+
+    <!-- Text for plaque -->
+    <text id="plaqueText" font-family="Arial, sans-serif" font-size="0.5" fill="#eee" text-anchor="middle">Smilodon fatalis</text>
+  </defs>
+
+  <!-- Background layers (parallax effect) -->
+  <rect x="0" y="0" width="100%" height="100%" fill="#1a1a2e" /> <!-- Dark backdrop -->
+
+  <!-- Faint starry sky painted backdrop -->
+  <g opacity="0.2">
+    <circle cx="100" cy="150" r="2" fill="#ccc" />
+    <circle cx="250" cy="100" r="1.5" fill="#ccc" />
+    <circle cx="400" cy="180" r="3" fill="#eee" />
+    <circle cx="50" cy="80" r="1" fill="#aaa" />
+    <circle cx="450" cy="120" r="2.5" fill="#ccc" />
+  </g>
+
+  <!-- Moonlit skylight beams -->
+  <polygon points="250,0 270,0 300,600 220,600" fill="#003366" opacity="0.4" />
+  <polygon points="280,0 300,0 330,550 250,550" fill="#003366" opacity="0.3" />
+
+  <!-- Dust shafts through skylight -->
+  <rect x="220" y="0" width="80" height="600" fill="white" mask="url(#dustMask1Mask)" opacity="0.7" />
+  <rect x="250" y="0" width="80" height="550" fill="white" mask="url(#dustMask2Mask)" opacity="0.5" />
+
+
+  <!-- Plinth for Smilodon -->
+  <rect x="300" y="450" width="150" height="50" fill="#333" />
+  <rect x="320" y="470" width="110" height="30" fill="#444" />
+
+  <!-- Smilodon skeleton -->
+  <g id="smilodon-skeleton">
+    <!-- Skull -->
+    <path d="M 380 350 Q 400 330 420 350 T 440 370 Q 420 390 400 370 T 380 350 Z" fill="#ccc" stroke="#999" stroke-width="1" />
+    <line x1="400" y1="360" x2="410" y2="360" stroke="#999" stroke-width="0.5" /> <!-- Canine suggestion -->
+
+    <!-- Vertebrae (simplified) -->
+    <g transform="translate(390, 370)">
+      <circle cx="0" cy="0" r="2" fill="#ccc" stroke="#999" stroke-width="0.5" />
+      <circle cx="5" cy="0" r="2" fill="#ccc" stroke="#999" stroke-width="0.5" />
+      <circle cx="10" cy="0" r="2" fill="#ccc" stroke="#999" stroke-width="0.5" />
+      <circle cx="15" cy="0" r="2" fill="#ccc" stroke="#999" stroke-width="0.5" />
+      <circle cx="20" cy="0" r="2" fill="#ccc" stroke="#999" stroke-width="0.5" />
+      <circle cx="25" cy="0" r="2" fill="#ccc" stroke="#999" stroke-width="0.5" />
+      <circle cx="30" cy="0" r="2" fill="#ccc" stroke="#999" stroke-width="0.5" /> <!-- 7 lumbar -->
+    </g>
+
+    <!-- Scapula (simplified) -->
+    <path d="M 370 350 L 360 370 L 375 385 Z" fill="#ccc" stroke="#999" stroke-width="1" />
+
+    <!-- Ribs (simplified, occlusion) -->
+    <g stroke="#999" stroke-width="1" fill="none">
+      <path d="M 380 370 Q 390 380 400 375" />
+      <path d="M 385 375 Q 395 385 405 380" />
+      <path d="M 390 380 Q 400 390 410 385" />
+      <path d="M 395 385 Q 405 395 415 390" />
+      <path d="M 400 390 Q 410 400 420 395" />
+    </g>
+
+    <!-- Pelvis -->
+    <path d="M 420 400 Q 430 410 440 405 T 445 395 Q 435 385 425 390 Z" fill="#ccc" stroke="#999" stroke-width="1" />
+
+    <!-- Mount rods -->
+    <line x1="400" y1="380" x2="400" y2="395" stroke="#888" stroke-width="1.5" /> <!-- Under mandible -->
+    <line x1="430" y1="410" x2="430" y2="425" stroke="#888" stroke-width="1.5" /> <!-- Under pelvis -->
+
+    <!-- Tail (short) -->
+    <path d="M 445 400 Q 450 405 455 400" stroke="#ccc" stroke-width="1" fill="none" />
+  </g>
+
+  <!-- Janitor silhouette -->
+  <g id="janitor">
+    <circle cx="150" cy="480" r="10" fill="#444" /> <!-- Head -->
+    <rect x="145" y="490" width="10" height="30" fill="#444" /> <!-- Body -->
+    <rect x="140" y="520" width="15" height="5" fill="#444" /> <!-- Legs -->
+    <!-- Mop -->
+    <line x1="150" y1="520" x2="130" y2="550" stroke="#666" stroke-width="3" />
+    <rect x="125" y="545" width="10" height="5" fill="#666" />
+  </g>
+
+  <!-- Reflective terrazzo floor -->
+  <rect id="terrazzo-floor" x="0" y="600" width="100%" height="400" fill="#222" filter="url(#noiseFilter)" opacity="0.8" />
+
+  <!-- Janitor reflection (aligned with floor and VP) -->
+  <g id="janitor-reflection" transform="translate(0, 1200) scale(1, -1)">
+    <use xlink:href="#janitor" opacity="0.3" />
+  </g>
+
+  <!-- Smilodon reflection (aligned with floor and VP) -->
+  <g id="smilodon-reflection" transform="translate(0, 1200) scale(1, -1)">
+    <use xlink:href="#smilodon-skeleton" opacity="0.3" />
+    <!-- Reflection of mount rods (discreet) -->
+    <line x1="400" y1="395" x2="400" y2="380" stroke="#888" stroke-width="1.5" opacity="0.3"/>
+    <line x1="430" y1="425" x2="430" y2="410" stroke="#888" stroke-width="1.5" opacity="0.3"/>
+  </g>
+
+  <!-- Wall plaque with security LED -->
+  <rect x="50" y="450" width="100" height="40" fill="#555" />
+  <rect x="55" y="455" width="90" height="30" fill="#666" />
+  <!-- Plaque microtext -->
+  <use xlink:href="#plaqueText" x="100" y="470" />
+  <!-- Security LED -->
+  <circle cx="140" cy="470" r="3" fill="red" />
+  <!-- Faint bloom around LED -->
+  <circle cx="140" cy="470" r="5" fill="red" opacity="0.2" filter="blur(2px)" />
+
+</svg>

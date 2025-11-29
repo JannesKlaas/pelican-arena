@@ -1,0 +1,302 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" aria-hidden="true">
+  <defs>
+    <!-- Background -->
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#eef3f6"/>
+      <stop offset="1" stop-color="#dfe9ec"/>
+    </linearGradient>
+
+    <!-- Stairs gradients: normal and inverted to force perceptual flips -->
+    <linearGradient id="stepGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#bfb8a5"/>
+      <stop offset="1" stop-color="#8f7f63"/>
+    </linearGradient>
+    <linearGradient id="stepGradInv" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#bfb8a5"/>
+      <stop offset="1" stop-color="#8f7f63"/>
+    </linearGradient>
+
+    <!-- Book spines -->
+    <linearGradient id="bookGradA" x1="0" x2="1">
+      <stop offset="0" stop-color="#f3c982"/>
+      <stop offset="1" stop-color="#d9a24a"/>
+    </linearGradient>
+    <linearGradient id="bookGradB" x1="0" x2="1">
+      <stop offset="0" stop-color="#9ad3c2"/>
+      <stop offset="1" stop-color="#347b6f"/>
+    </linearGradient>
+    <linearGradient id="folioGrad" x1="0" x2="1">
+      <stop offset="0" stop-color="#efe7d6"/>
+      <stop offset="1" stop-color="#c9b699"/>
+    </linearGradient>
+
+    <!-- Lamp: green shade with warm (3000K-like) glow inside -->
+    <radialGradient id="lampShade" cx="40%" cy="40%" r="70%">
+      <stop offset="0" stop-color="#7bbf8a" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#3a7a4f" stop-opacity="0.9"/>
+    </radialGradient>
+    <radialGradient id="lampGlow" cx="50%" cy="30%" r="60%">
+      <stop offset="0" stop-color="#ffd59a" stop-opacity="0.9"/> <!-- warm 3000K core -->
+      <stop offset="1" stop-color="#ffb86b" stop-opacity="0.2"/>
+    </radialGradient>
+
+    <!-- Brass orrery base and specular lighting -->
+    <radialGradient id="brass" cx="40%" cy="30%">
+      <stop offset="0" stop-color="#ffe79b"/>
+      <stop offset="1" stop-color="#b7862f"/>
+    </radialGradient>
+    <filter id="orrerySpec" x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox">
+      <!-- slight blur to create height map for specular highlight -->
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feSpecularLighting in="blur" surfaceScale="5" specularConstant="0.9" specularExponent="25" lighting-color="#fff" result="spec">
+        <!-- simulated light from above-left -->
+        <fePointLight x="-200" y="-200" z="400"/>
+      </feSpecularLighting>
+      <feComposite in="spec" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
+    </filter>
+
+    <!-- Shadow stylings: three-direction composite (coherent to three VPs) -->
+    <linearGradient id="shadowA" x1="0" x2="1">
+      <stop offset="0" stop-color="#000" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.0"/>
+    </linearGradient>
+    <linearGradient id="shadowB" x1="1" x2="0">
+      <stop offset="0" stop-color="#000" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.0"/>
+    </linearGradient>
+    <linearGradient id="shadowC" x1="0" x2="1" y1="1" y2="0">
+      <stop offset="0" stop-color="#000" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.0"/>
+    </linearGradient>
+
+    <!-- Clip to hide impossible connections -->
+    <clipPath id="maskImpossible">
+      <!-- a polygon that masks out a connecting platform to create an impossible connection -->
+      <path d="M140 160 L360 160 L360 220 L260 220 L260 240 L140 240 Z"/>
+    </clipPath>
+
+    <!-- Helical paths for text (approximated by loopy paths) -->
+    <path id="helix1" d="M250 120 C270 130, 300 130, 320 140 S360 160, 340 180"/>
+    <path id="helix2" d="M260 200 C240 210, 210 210, 190 220 S150 240, 170 260"/>
+
+    <!-- simple silhouettes for scholars -->
+    <g id="silhouetteToga">
+      <path d="M0 0 C6 -8, 22 -8, 28 0 L28 26 L16 34 L4 26 Z" fill="#efe6d8"/>
+    </g>
+    <g id="silhouetteAbaya">
+      <path d="M0 0 C8 -6, 24 -6, 32 0 L32 36 C20 48, 12 48, 0 36 Z" fill="#163028"/>
+    </g>
+    <g id="silhouetteFrock">
+      <path d="M0 0 C10 -6, 26 -6, 36 0 L36 38 C24 46, 12 46, 0 38 Z" fill="#6b4428"/>
+    </g>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bg)"/>
+
+  <!-- Shelving structure: blends isometric with perspective illusion by skew/scale -->
+  <g id="shelves" transform="translate(40,80) skewX(-10) scale(1,0.95)">
+    <!-- shelf frame -->
+    <rect x="0" y="0" width="420" height="28" fill="#e0d7c6" stroke="#b8ad98" stroke-width="1.5"/>
+    <rect x="0" y="56" width="420" height="28" fill="#e0d7c6" stroke="#b8ad98" stroke-width="1.5"/>
+    <rect x="0" y="112" width="420" height="28" fill="#e0d7c6" stroke="#b8ad98" stroke-width="1.5"/>
+
+    <!-- packed books on lower shelf (standard spines ~240mm, folios taller ~380mm) -->
+    <!-- scale chosen so 'standard' height ~42, folio ~67 (ratio ~0.6316) -->
+    <g transform="translate(8,6)">
+      <!-- realistic pack ratios with groups -->
+      <!-- group 1 -->
+      <rect x="0" y="6" width="18" height="42" fill="url(#bookGradA)" stroke="#6c5236" stroke-width="0.6"/>
+      <rect x="20" y="4" width="14" height="44" fill="#9bd3c8" stroke="#2d6e5e" stroke-width="0.6"/>
+      <rect x="36" y="6" width="12" height="42" fill="#cfa27a" stroke="#7b5a3a" stroke-width="0.5"/>
+      <!-- folio -->
+      <rect x="52" y="-1" width="20" height="67" fill="url(#folioGrad)" stroke="#a58e6e" stroke-width="0.7"/>
+      <!-- group 2 -->
+      <rect x="76" y="6" width="10" height="42" fill="#e68b8b" stroke="#8e4b4b" stroke-width="0.5"/>
+      <rect x="88" y="6" width="16" height="42" fill="#7aa1dd" stroke="#2e5b8a" stroke-width="0.5"/>
+      <rect x="106" y="6" width="22" height="42" fill="#f1d07a" stroke="#a57d3a" stroke-width="0.6"/>
+      <!-- pack spacing -->
+      <rect x="130" y="6" width="12" height="42" fill="#c6d7a8" stroke="#6b7d4d" stroke-width="0.5"/>
+      <rect x="144" y="6" width="14" height="42" fill="#d9b2e1" stroke="#8b5b86" stroke-width="0.5"/>
+      <!-- occasional folio at end -->
+      <rect x="160" y="-1" width="18" height="67" fill="url(#folioGrad)" stroke="#a58e6e" stroke-width="0.7"/>
+      <!-- more books, organized pack ratio -->
+      <rect x="180" y="6" width="12" height="42" fill="#94c7ff" stroke="#3a6fa0" stroke-width="0.5"/>
+      <rect x="194" y="6" width="10" height="42" fill="#d6a77f" stroke="#8b5b3b" stroke-width="0.5"/>
+      <rect x="206" y="6" width="14" height="42" fill="#b6e2cf" stroke="#3d8f72" stroke-width="0.5"/>
+      <rect x="222" y="6" width="26" height="42" fill="#f0b26a" stroke="#aa7a40" stroke-width="0.6"/>
+      <rect x="250" y="6" width="12" height="42" fill="#a08bce" stroke="#755fa6" stroke-width="0.5"/>
+      <rect x="264" y="6" width="8" height="42" fill="#d8e0ff" stroke="#9aa4d6" stroke-width="0.4"/>
+      <rect x="274" y="6" width="18" height="42" fill="#c7d6a1" stroke="#7a8b54" stroke-width="0.5"/>
+    </g>
+
+    <!-- mid shelf books, different grouping -->
+    <g transform="translate(8,62)">
+      <rect x="0" y="6" width="14" height="42" fill="#e6b5c4" stroke="#a55b6b" stroke-width="0.5"/>
+      <rect x="16" y="6" width="22" height="42" fill="#f0d18a" stroke="#a07a3c" stroke-width="0.6"/>
+      <rect x="40" y="2" width="18" height="46" fill="#cbd0df" stroke="#8e97a6" stroke-width="0.5"/>
+      <rect x="60" y="6" width="12" height="42" fill="#a8d0b8" stroke="#3b7d62" stroke-width="0.5"/>
+      <rect x="74" y="6" width="10" height="42" fill="#ffd9a3" stroke="#b6782f" stroke-width="0.4"/>
+      <rect x="86" y="6" width="20" height="42" fill="#86b0ff" stroke="#3f6fc0" stroke-width="0.6"/>
+      <rect x="108" y="-1" width="18" height="67" fill="url(#folioGrad)" stroke="#a58e6e" stroke-width="0.6"/>
+      <rect x="128" y="6" width="12" height="42" fill="#b89ad0" stroke="#7a5a90" stroke-width="0.5"/>
+      <rect x="142" y="6" width="16" height="42" fill="#c6a77f" stroke="#8b5b3b" stroke-width="0.5"/>
+      <rect x="160" y="6" width="24" height="42" fill="#d3e6c9" stroke="#76986b" stroke-width="0.6"/>
+      <rect x="186" y="6" width="16" height="42" fill="#ffc4a3" stroke="#b36d3c" stroke-width="0.5"/>
+    </g>
+
+    <!-- upper shelf: sparser to show height differences -->
+    <g transform="translate(8,126)">
+      <rect x="0" y="6" width="22" height="42" fill="#e7d6b2" stroke="#9f8b67" stroke-width="0.6"/>
+      <rect x="26" y="-1" width="20" height="67" fill="url(#folioGrad)" stroke="#a58e6e" stroke-width="0.7"/>
+      <rect x="48" y="6" width="12" height="42" fill="#9bd3c9" stroke="#2e7b68" stroke-width="0.5"/>
+      <rect x="62" y="6" width="14" height="42" fill="#f2a07a" stroke="#8d583a" stroke-width="0.5"/>
+      <rect x="78" y="6" width="16" height="42" fill="#b2c4f0" stroke="#5a6fa2" stroke-width="0.5"/>
+      <rect x="96" y="6" width="18" height="42" fill="#c6d7a8" stroke="#6b7d4d" stroke-width="0.6"/>
+      <rect x="116" y="6" width="24" height="42" fill="#f0b26a" stroke="#aa7a40" stroke-width="0.6"/>
+    </g>
+  </g>
+
+  <!-- Stairs and railings: stairs invert gradient at a landing -->
+  <g id="stairs" transform="translate(40,260) skewX(-6)">
+    <!-- lower run -->
+    <g>
+      <rect x="0" y="0" width="180" height="18" fill="url(#stepGrad)"/>
+      <rect x="0" y="22" width="180" height="18" fill="url(#stepGrad)"/>
+      <rect x="0" y="44" width="180" height="18" fill="url(#stepGrad)"/>
+    </g>
+    <!-- landing with inverted gradient causing perceptual flip -->
+    <rect x="180" y="20" width="80" height="40" fill="url(#stepGradInv)" stroke="#7b6b50" stroke-width="1"/>
+    <!-- upper run continues (rotated slightly to create impossible flip) -->
+    <g transform="translate(260,-8) rotate(-6) skewX(4)">
+      <rect x="0" y="0" width="160" height="18" fill="url(#stepGrad)"/>
+      <rect x="0" y="22" width="160" height="18" fill="url(#stepGrad)"/>
+      <rect x="0" y="44" width="160" height="18" fill="url(#stepGrad)"/>
+    </g>
+
+    <!-- railings that maintain constant stroke width -->
+    <g stroke="#3d3d3d" stroke-width="3" fill="none" vector-effect="non-scaling-stroke">
+      <path d="M6 0 Q90 15 180 15" />
+      <path d="M6 22 Q90 37 180 37" />
+      <path d="M186 30 Q220 30 260 14" />
+      <path d="M266 6 Q320 -4 400 -4" />
+    </g>
+  </g>
+
+  <!-- impossible connection masked to create Escher flip (clipPath applied) -->
+  <g clip-path="url(#maskImpossible)">
+    <rect x="140" y="160" width="220" height="80" fill="#cfc6b7" stroke="#9e927d" stroke-width="1"/>
+    <rect x="160" y="180" width="80" height="12" fill="#e8dfcf"/>
+  </g>
+
+  <!-- Shadows: composite of three directional shadow gradients to approximate coherence to three VPs -->
+  <g id="shadows" opacity="0.6">
+    <!-- shadow from vertical VP (casts slightly upward) -->
+    <ellipse cx="300" cy="190" rx="100" ry="24" fill="url(#shadowA)" transform="translate(-20,-40) rotate(-12)"/>
+    <!-- shadow from left horizontal VP -->
+    <ellipse cx="120" cy="320" rx="80" ry="14" fill="url(#shadowB)" transform="translate(-30,10) rotate(-6)"/>
+    <!-- shadow from right horizontal VP -->
+    <ellipse cx="360" cy="340" rx="90" ry="16" fill="url(#shadowC)" transform="translate(10,20) rotate(8)"/>
+  </g>
+
+  <!-- Central brass orrery (planetary radii proportional; Saturn ring elliptical for 35° tilt) -->
+  <g id="orrery" transform="translate(300,170)">
+    <!-- base -->
+    <ellipse cx="0" cy="90" rx="70" ry="24" fill="#8a6b2f" stroke="#5a3f18" stroke-width="1"/>
+    <rect x="-36" y="20" width="72" height="20" rx="6" fill="url(#brass)" stroke="#6b4d26" stroke-width="0.8" filter="url(#orrerySpec)"/>
+    <!-- spheres for planets (radii proportional) -->
+    <!-- small inner (Mercury) -->
+    <circle cx="-12" cy="8" r="3" fill="#bfbfbf" stroke="#777" stroke-width="0.6" />
+    <!-- Venus -->
+    <circle cx="-30" cy= "20" r="5" fill="#f7e0b2" stroke="#b88f43" stroke-width="0.6"/>
+    <!-- Earth -->
+    <circle cx="8" cy="6" r="5.2" fill="#68a0d8" stroke="#2c5f87" stroke-width="0.6"/>
+    <!-- Mars -->
+    <circle cx="28" cy="18" r="3.6" fill="#d65a3a" stroke="#8b3b2a" stroke-width="0.5"/>
+    <!-- Jupiter (big) -->
+    <circle cx="0" cy="-6" r="10" fill="#e0b07a" stroke="#a07035" stroke-width="0.8"/>
+    <!-- Saturn with elliptical ring: apply scaleY = cos(35°) ≈ 0.819 to ring ellipse via transform -->
+    <g transform="translate(36,-2)">
+      <!-- planet -->
+      <circle cx="0" cy="0" r="8.5" fill="#e8d09a" stroke="#b28b46" stroke-width="0.7"/>
+      <!-- ring: draw wider ellipse then scale Y for tilt -->
+      <g transform="scale(1,0.819)">
+        <ellipse cx="0" cy="0" rx="14" ry="6.5" fill="none" stroke="#a58a48" stroke-width="2"/>
+        <ellipse cx="0" cy="0" rx="11" ry="5" fill="rgba(165,138,72,0.08)" />
+      </g>
+    </g>
+
+    <!-- orrery highlight via filter applied to central group (subtle) -->
+    <g filter="url(#orrerySpec)">
+      <circle cx="0" cy="0" r="2.5" fill="#fff" opacity="0.85"/>
+    </g>
+  </g>
+
+  <!-- Lamps with green shades and warm 3000K glow illuminating readers -->
+  <g id="lamps">
+    <!-- left lamp -->
+    <g transform="translate(120,280)">
+      <ellipse cx="0" cy="0" rx="12" ry="6" fill="#2b6b4a" opacity="0.9" />
+      <path d="M-12 0 Q0 -26 12 0 Z" fill="url(#lampShade)"/>
+      <circle cx="0" cy="6" r="18" fill="url(#lampGlow)" opacity="0.6"/>
+      <rect x="-2" y="8" width="4" height="30" fill="#333"/>
+      <!-- scholar in toga under lamp -->
+      <g transform="translate(-6,36) scale(1.6)">
+        <use href="#silhouetteToga"/>
+      </g>
+    </g>
+
+    <!-- central lamp -->
+    <g transform="translate(240,250)">
+      <ellipse cx="0" cy="0" rx="14" ry="7" fill="#2b6b4a" opacity="0.95" />
+      <path d="M-14 0 Q0 -30 14 0 Z" fill="url(#lampShade)"/>
+      <circle cx="0" cy="6" r="22" fill="url(#lampGlow)" opacity="0.65"/>
+      <rect x="-2" y="8" width="4" height="38" fill="#333"/>
+      <!-- scholar in abaya -->
+      <g transform="translate(-6,44) scale(1.6)">
+        <use href="#silhouetteAbaya"/>
+      </g>
+    </g>
+
+    <!-- right lamp -->
+    <g transform="translate(360,300)">
+      <ellipse cx="0" cy="0" rx="11" ry="5" fill="#2b6b4a" opacity="0.95" />
+      <path d="M-11 0 Q0 -24 11 0 Z" fill="url(#lampShade)"/>
+      <circle cx="0" cy="6" r="16" fill="url(#lampGlow)" opacity="0.6"/>
+      <rect x="-2" y="8" width="4" height="28" fill="#333"/>
+      <!-- scholar in frock coat -->
+      <g transform="translate(-8,40) scale(1.5)">
+        <use href="#silhouetteFrock"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- Latin and Greek quotes along helical paths -->
+  <g id="quotes" font-family="Georgia, serif" font-size="9" fill="#2f2f2f">
+    <text>
+      <textPath href="#helix1" startOffset="0%">
+        "In libris infinita sagacitas" — Latin
+      </textPath>
+    </text>
+    <text>
+      <textPath href="#helix2" startOffset="0%">
+        "γνῶθι σεαυτόν" — Greek
+      </textPath>
+    </text>
+  </g>
+
+  <!-- additional subtle architectural lines to enhance 3-point/isometric blend -->
+  <g stroke="#c3bdb0" stroke-width="1" fill="none" opacity="0.9">
+    <path d="M20 120 L120 40 L420 40" />
+    <path d="M60 360 L160 280 L420 280" />
+    <path d="M220 30 L220 420" />
+  </g>
+
+  <!-- small legend-like color accents to keep it clean -->
+  <g transform="translate(10,460)" opacity="0.9">
+    <rect x="0" y="0" width="18" height="8" fill="#7bbf8a" />
+    <text x="24" y="7" font-size="8" fill="#2f2f2f">Green lamp shade</text>
+    <rect x="140" y="0" width="18" height="8" fill="#ffd59a" />
+    <text x="166" y="7" font-size="8" fill="#2f2f2f">3000K warm glow</text>
+  </g>
+</svg>

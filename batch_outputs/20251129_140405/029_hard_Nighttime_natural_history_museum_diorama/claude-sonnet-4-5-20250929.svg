@@ -1,0 +1,133 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Noise for floor reflection -->
+    <filter id="floorReflect">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="5"/>
+      <feDisplacementMap in="SourceGraphic" scale="2"/>
+      <feGaussianBlur stdDeviation="0.5"/>
+    </filter>
+    
+    <!-- Moonlight gradient -->
+    <linearGradient id="moonbeam" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9ab5d9;stop-opacity:0.4"/>
+      <stop offset="100%" style="stop-color:#4a6b8a;stop-opacity:0"/>
+    </linearGradient>
+    
+    <!-- Dust shaft mask -->
+    <mask id="dustMask">
+      <rect fill="url(#moonbeam)" x="280" y="0" width="80" height="400" transform="skewX(-15)"/>
+    </mask>
+    
+    <!-- LED bloom -->
+    <radialGradient id="ledGlow">
+      <stop offset="0%" style="stop-color:#ff0000;stop-opacity:0.8"/>
+      <stop offset="50%" style="stop-color:#ff0000;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#ff0000;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect fill="#1a1a2e" width="500" height="500"/>
+  
+  <!-- Backdrop painting layers (parallax) -->
+  <ellipse cx="250" cy="200" rx="180" ry="90" fill="#0f3d3e" opacity="0.3"/>
+  <ellipse cx="250" cy="220" rx="150" ry="70" fill="#1a4d4e" opacity="0.4"/>
+  
+  <!-- Floor base -->
+  <path d="M 0 300 Q 250 320 500 300 L 500 500 L 0 500 Z" fill="#2d4654"/>
+  
+  <!-- Terrazzo pattern -->
+  <circle cx="120" cy="350" r="2" fill="#8b9da8"/>
+  <circle cx="180" cy="380" r="1.5" fill="#a3b5c0"/>
+  <circle cx="340" cy="370" r="2" fill="#7a8a95"/>
+  <circle cx="280" cy="400" r="1" fill="#95a5b0"/>
+  <circle cx="400" cy="390" r="1.5" fill="#6a7a85"/>
+  
+  <!-- Plinth -->
+  <path d="M 150 280 L 350 280 L 360 300 L 140 300 Z" fill="#4a5a6a"/>
+  <rect x="140" y="300" width="220" height="15" fill="#3a4a5a"/>
+  
+  <!-- Plinth shadow -->
+  <ellipse cx="250" cy="315" rx="115" ry="8" fill="#000" opacity="0.3"/>
+  
+  <!-- Mount rods -->
+  <rect x="245" y="260" width="3" height="40" fill="#555" opacity="0.6"/>
+  <rect x="270" y="270" width="3" height="30" fill="#555" opacity="0.6"/>
+  
+  <!-- Smilodon skeleton -->
+  <!-- Skull -->
+  <ellipse cx="200" cy="220" rx="20" ry="18" fill="none" stroke="#d4c8b0" stroke-width="2"/>
+  <path d="M 195 228 L 188 245" stroke="#d4c8b0" stroke-width="2.5" fill="none"/>
+  <path d="M 205 228 L 212 245" stroke="#d4c8b0" stroke-width="2.5" fill="none"/>
+  <!-- Mandible -->
+  <path d="M 188 245 Q 200 250 212 245" stroke="#d4c8b0" stroke-width="2" fill="none"/>
+  
+  <!-- Vertebrae (7 lumbar) -->
+  <circle cx="220" cy="225" r="3" fill="#d4c8b0"/>
+  <circle cx="230" cy="228" r="3" fill="#d4c8b0"/>
+  <circle cx="240" cy="232" r="3" fill="#d4c8b0"/>
+  <circle cx="250" cy="237" r="3" fill="#d4c8b0"/>
+  <circle cx="260" cy="242" r="3" fill="#d4c8b0"/>
+  <circle cx="270" cy="247" r="3" fill="#d4c8b0"/>
+  <circle cx="280" cy="252" r="3" fill="#d4c8b0"/>
+  
+  <!-- Ribs (left side, occluded) -->
+  <path d="M 230 228 Q 225 245 230 260" stroke="#c4b8a0" stroke-width="1.5" fill="none" opacity="0.7"/>
+  <path d="M 240 232 Q 235 250 240 268" stroke="#c4b8a0" stroke-width="1.5" fill="none" opacity="0.7"/>
+  <path d="M 250 237 Q 245 255 250 275" stroke="#c4b8a0" stroke-width="1.5" fill="none" opacity="0.7"/>
+  <path d="M 260 242 Q 255 260 260 280" stroke="#c4b8a0" stroke-width="1.5" fill="none" opacity="0.7"/>
+  
+  <!-- Ribs (right side, visible) -->
+  <path d="M 230 228 Q 235 245 230 260" stroke="#d4c8b0" stroke-width="1.5" fill="none"/>
+  <path d="M 240 232 Q 245 250 240 268" stroke="#d4c8b0" stroke-width="1.5" fill="none"/>
+  <path d="M 250 237 Q 255 255 250 275" stroke="#d4c8b0" stroke-width="1.5" fill="none"/>
+  <path d="M 260 242 Q 265 260 260 280" stroke="#d4c8b0" stroke-width="1.5" fill="none"/>
+  
+  <!-- Scapula -->
+  <path d="M 230 230 L 225 250 L 235 255 Z" fill="#d4c8b0" opacity="0.8"/>
+  
+  <!-- Pelvis -->
+  <ellipse cx="275" cy="252" rx="12" ry="10" fill="none" stroke="#d4c8b0" stroke-width="2"/>
+  
+  <!-- Front legs -->
+  <line x1="215" y1="240" x2="210" y2="280" stroke="#d4c8b0" stroke-width="2"/>
+  <line x1="210" y1="280" x2="205" y2="300" stroke="#d4c8b0" stroke-width="2"/>
+  
+  <!-- Rear legs -->
+  <line x1="275" y1="260" x2="280" y2="285" stroke="#d4c8b0" stroke-width="2"/>
+  <line x1="280" y1="285" x2="285" y2="300" stroke="#d4c8b0" stroke-width="2"/>
+  
+  <!-- Short tail -->
+  <path d="M 285 252 Q 295 255 300 258" stroke="#d4c8b0" stroke-width="2" fill="none"/>
+  
+  <!-- Moonlight shaft -->
+  <rect x="280" y="0" width="80" height="400" fill="url(#moonbeam)" mask="url(#dustMask)" transform="skewX(-15)"/>
+  
+  <!-- Floor reflection (skeleton) -->
+  <g opacity="0.15" filter="url(#floorReflect)" transform="translate(0, 620) scale(1, -1)">
+    <ellipse cx="200" cy="220" rx="20" ry="18" fill="none" stroke="#8a9aa8" stroke-width="2"/>
+    <path d="M 195 228 L 188 245" stroke="#8a9aa8" stroke-width="2.5" fill="none"/>
+    <path d="M 205 228 L 212 245" stroke="#8a9aa8" stroke-width="2.5" fill="none"/>
+    <circle cx="250" cy="237" r="3" fill="#8a9aa8"/>
+    <circle cx="270" cy="247" r="3" fill="#8a9aa8"/>
+  </g>
+  
+  <!-- Janitor silhouette -->
+  <ellipse cx="420" cy="260" rx="8" ry="10" fill="#0a0a15"/>
+  <rect x="416" y="270" width="8" height="25" fill="#0a0a15"/>
+  <line x1="425" y1="280" x2="440" y2="290" stroke="#0a0a15" stroke-width="2"/>
+  
+  <!-- Janitor reflection -->
+  <ellipse cx="420" cy="340" rx="8" ry="8" fill="#0a0a15" opacity="0.2"/>
+  <rect x="416" y="330" width="8" height="15" fill="#0a0a15" opacity="0.2"/>
+  
+  <!-- Wall plaque -->
+  <rect x="360" y="250" width="50" height="30" fill="#2a3a4a" stroke="#4a5a6a" stroke-width="0.5"/>
+  <text x="385" y="262" font-family="Arial" font-size="4" fill="#8a9aa8" text-anchor="middle">SMILODON</text>
+  <text x="385" y="267" font-family="Arial" font-size="2.2" fill="#7a8a98" text-anchor="middle">FATALIS</text>
+  <text x="385" y="272" font-family="Arial" font-size="1.8" fill="#6a7a88" text-anchor="middle">Pleistocene</text>
+  
+  <!-- Security LED -->
+  <circle cx="470" cy="260" r="8" fill="url(#ledGlow)"/>
+  <circle cx="470" cy="260" r="2" fill="#ff0000"/>
+</svg>

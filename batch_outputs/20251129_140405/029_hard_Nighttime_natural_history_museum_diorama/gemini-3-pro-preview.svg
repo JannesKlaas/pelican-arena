@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" style="background-color:#050510">
+  <defs>
+    <!-- Filters for Terrazzo and Reflection -->
+    <filter id="terrazzoNoise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.1"/>
+      </feComponentTransfer>
+    </filter>
+    
+    <filter id="floorReflection">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02 0.1" numOctaves="1" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+      <feGaussianBlur stdDeviation="1.5"/>
+    </filter>
+
+    <!-- Gradients -->
+    <linearGradient id="moonlight" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#aaddff" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#050510" stop-opacity="0"/>
+    </linearGradient>
+    
+    <linearGradient id="floorFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#151525" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#050510" stop-opacity="1"/>
+    </linearGradient>
+
+    <radialGradient id="ledGlow">
+      <stop offset="0%" stop-color="#ff0000" stop-opacity="1"/>
+      <stop offset="40%" stop-color="#ff0000" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#ff0000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background / Wall -->
+  <rect width="500" height="350" fill="#0a0a15"/>
+  
+  <!-- Painted Diorama Backdrop (Layers of mountains) -->
+  <path d="M0,350 L0,280 Q100,250 200,300 T500,290 L500,350 Z" fill="#0f0f1e"/>
+  <path d="M0,350 L0,320 Q150,300 300,330 T500,310 L500,350 Z" fill="#141423"/>
+
+  <!-- Floor -->
+  <rect y="350" width="500" height="150" fill="url(#floorFade)"/>
+  <rect y="350" width="500" height="150" filter="url(#terrazzoNoise)"/>
+
+  <!-- SCENE GEOMETRY DEFINITION (To be reused for reflection) -->
+  <g id="sceneObjects">
+    <!-- Janitor Silhouette (Far back) -->
+    <g transform="translate(120, 330) scale(0.6)">
+      <path d="M20,0 L20,60 M10,20 L30,20 M20,0 A5,5 0 1,1 20.1,0" stroke="#000" stroke-width="8" stroke-linecap="round"/>
+      <line x1="25" y1="20" x2="45" y2="70" stroke="#000" stroke-width="2"/> <!-- Mop handle -->
+      <path d="M40,70 Q50,75 60,70" stroke="#333" stroke-width="4"/> <!-- Mop head -->
+    </g>
+
+    <!-- Plinth -->
+    <path d="M150,350 L350,350 L370,380 L130,380 Z" fill="#1a1a2a"/> <!-- Top surface not visible from low angle, just front face -->
+    <rect x="150" y="350" width="200" height="20" fill="#222"/>
+
+    <!-- Smilodon Skeleton -->
+    <g transform="translate(250, 350)">
+      <!-- Far Legs (Darker) -->
+      <path d="M-60,-20 L-70,0 M60,-20 L70,0" stroke="#444" stroke-width="4"/>
+      
+      <!-- Mount Rods -->
+      <line x1="-50" y1="0" x2="-50" y2="-55" stroke="#333" stroke-width="1"/> <!-- Pelvis -->
+      <line x1="65" y1="0" x2="65" y2="-50" stroke="#333" stroke-width="1"/> <!-- Mandible -->
+
+      <!-- Tail -->
+      <path d="M-70,-60 Q-80,-50 -80,-30" stroke="#888" stroke-width="3" fill="none"/>
+
+      <!-- Spine & Ribcage -->
+      <path d="M-70,-60 Q0,-80 70,-50" stroke="#999" stroke-width="5" fill="none"/>
+      <path d="M-40,-65 Q-40,-40 -20,-40 T0,-68" stroke="#777" stroke-width="2" fill="none"/>
+      <path d="M-20,-70 Q-20,-45 0,-45 T20,-70" stroke="#777" stroke-width="2" fill="none"/>
+      <path d="M20,-65 Q20,-40 40,-40 T50,-60" stroke="#777" stroke-width="2" fill="none"/>
+
+      <!-- Scapula -->
+      <path d="M50,-60 L50,-80 L65,-65 Z" fill="#888"/>
+
+      <!-- Near Legs -->
+      <path d="M-60,-60 L-70,-30 L-60,0 M50,-60 L60,-30 L50,0" stroke="#aaa" stroke-width="5" fill="none" stroke-linecap="round"/>
+
+      <!-- Skull -->
+      <g transform="translate(70, -60)">
+        <path d="M0,0 L20,-5 L25,10 L10,15 Z" fill="#ddd"/> <!-- Cranium -->
+        <path d="M5,12 L20,10 L15,15 Z" fill="#aaa"/> <!-- Mandible -->
+        <path d="M20,0 L22,25 L18,25 Z" fill="#eee"/> <!-- Saber Tooth -->
+        <circle cx="12" cy="2" r="2" fill="#000" opacity="0.5"/> <!-- Eye socket -->
+      </g>
+    </g>
+  </g>
+
+  <!-- Reflection (Flipped, Blurred, Masked) -->
+  <g transform="translate(0, 700) scale(1, -1)" opacity="0.3" filter="url(#floorReflection)">
+     <use href="#sceneObjects"/>
+  </g>
+
+  <!-- Real Scene Placement -->
+  <use href="#sceneObjects"/>
+
+  <!-- Lighting and Atmosphere -->
+  <!-- Moonlight Beams -->
+  <path d="M500,0 L300,500 L450,500 L500,100 Z" fill="url(#moonlight)" style="mix-blend-mode: overlay;"/>
+  <path d="M450,0 L200,500 L250,500 L500,50 Z" fill="url(#moonlight)" style="mix-blend-mode: overlay;"/>
+
+  <!-- Wall Plaque -->
+  <rect x="380" y="250" width="40" height="30" fill="#222" stroke="#444" stroke-width="1"/>
+  <rect x="385" y="255" width="30" height="2" fill="#666"/> <!-- Title -->
+  <rect x="385" y="260" width="30" height="15" fill="url(#terrazzoNoise)" opacity="0.5"/> <!-- Microtext block -->
+
+  <!-- Security LED -->
+  <circle cx="415" cy="275" r="1.5" fill="#f00"/>
+  <circle cx="415" cy="275" r="6" fill="url(#ledGlow)"/>
+
+</svg>

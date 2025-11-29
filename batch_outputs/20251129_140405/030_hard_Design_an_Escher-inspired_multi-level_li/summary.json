@@ -1,0 +1,85 @@
+{
+  "prompt_idx": 30,
+  "difficulty": "hard",
+  "prompt": "Design an Escher-inspired multi-level library that blends 3-point perspective with isometric illusions (viewBox 0 0 2200 1400). Vertical vanishing point at (1100,-2600); horizontals at (-4200,700) and (6400,700). Stairs invert gradients at landings to force perceptual flips; railings maintain constant stroke via vector-effect='non-scaling-stroke'. Shelves: book spines 240 mm tall standard; occasional folios 380 mm; pack ratios realistic. Central brass orrery: planetary radii proportional (not scale distances), with Saturn\u2019s ring ellipticity correct for 35\u00b0 tilt via skew transform; highlights via feSpecularLighting. Scholars from distinct eras (Togas, abayas, frock coats) reading by green-shaded lamps at 3000K. Latin and Greek quotes as text-on-path along helices. Require cast shadows coherent to all three VPs, and impossible connections hidden by precise layer clipping.",
+  "timestamp": "2025-11-29T15:18:12.148214",
+  "models": [
+    {
+      "model": "openai/gpt-5-codex",
+      "status": "success",
+      "files": {
+        "svg": "gpt-5-codex.svg",
+        "png": "gpt-5-codex.png"
+      }
+    },
+    {
+      "model": "openai/gpt-5.1-2025-11-13",
+      "status": "success",
+      "files": {
+        "svg": "gpt-5.1-2025-11-13.svg",
+        "png": "gpt-5.1-2025-11-13.png"
+      }
+    },
+    {
+      "model": "anthropic/claude-opus-4-1-20250805",
+      "status": "success",
+      "files": {
+        "svg": "claude-opus-4-1-20250805.svg",
+        "png": "claude-opus-4-1-20250805.png"
+      }
+    },
+    {
+      "model": "anthropic/claude-haiku-4-5-20251001",
+      "status": "error",
+      "error": "not well-formed (invalid token): line 218, column 17"
+    },
+    {
+      "model": "openai/gpt-5-mini-2025-08-07",
+      "status": "success",
+      "files": {
+        "svg": "gpt-5-mini-2025-08-07.svg",
+        "png": "gpt-5-mini-2025-08-07.png"
+      }
+    },
+    {
+      "model": "anthropic/claude-sonnet-4-5-20250929",
+      "status": "success",
+      "files": {
+        "svg": "claude-sonnet-4-5-20250929.svg",
+        "png": "claude-sonnet-4-5-20250929.png"
+      }
+    },
+    {
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "success",
+      "files": {
+        "svg": "gemini-2.5-flash-lite.svg",
+        "png": "gemini-2.5-flash-lite.png"
+      }
+    },
+    {
+      "model": "openai/gpt-5-nano-2025-08-07",
+      "status": "success",
+      "files": {
+        "svg": "gpt-5-nano-2025-08-07.svg",
+        "png": "gpt-5-nano-2025-08-07.png"
+      }
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "status": "success",
+      "files": {
+        "svg": "gemini-2.5-flash.svg",
+        "png": "gemini-2.5-flash.png"
+      }
+    },
+    {
+      "model": "google/gemini-3-pro-preview",
+      "status": "success",
+      "files": {
+        "svg": "gemini-3-pro-preview.svg",
+        "png": "gemini-3-pro-preview.png"
+      }
+    }
+  ]
+}

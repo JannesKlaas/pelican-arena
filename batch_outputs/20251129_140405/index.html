@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Batch Comparison Results</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #eee;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #fff;
+            border-bottom: 3px solid #666;
+            padding-bottom: 15px;
+        }
+        h2 {
+            color: #fff;
+            border-left: 4px solid;
+            padding-left: 12px;
+            margin-top: 30px;
+        }
+        .stats {
+            background: #2a2a2a;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 30px;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: #888;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+        }
+        .card {
+            background: #2a2a2a;
+            border: 1px solid #333;
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: inherit;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .card:hover {
+            border-color: #555;
+            transform: translateY(-2px);
+        }
+        .card-header {
+            font-family: monospace;
+            color: #666;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+        .card-prompt {
+            font-size: 14px;
+            line-height: 1.4;
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+        .card-status {
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <h1>Batch Comparison Results</h1>
+    <div class="stats">
+        <div class="stat">
+            <div class="stat-value">30</div>
+            <div class="stat-label">Total Prompts</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value">10</div>
+            <div class="stat-label">Easy</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value">10</div>
+            <div class="stat-label">Medium</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value">10</div>
+            <div class="stat-label">Hard</div>
+        </div>
+    </div>
+    
+        <div class="section">
+            <h2 style="border-color: #4CAF50;">EASY (10)</h2>
+            <div class="cards">
+                
+            <a href="001_easy_a_turtle_wearing_roller_skates/index.html" class="card">
+                <div class="card-header">001</div>
+                <div class="card-prompt">a turtle wearing roller skates</div>
+                <div class="card-status">✅</div>
+            </a>
+            <a href="002_easy_a_donut_with_a_smiling_face/index.html" class="card">
+                <div class="card-header">002</div>
+                <div class="card-prompt">a donut with a smiling face</div>
+                <div class="card-status">✅</div>
+            </a>
+            <a href="003_easy_a_giraffe_blowing_a_bubble/index.html" class="card">
+                <div class="card-header">003</div>
+                <div class="card-prompt">a giraffe blowing a bubble</div>
+                <div class="card-status">✅</div>
+            </a>
+            <a href="004_easy_a_robot_walking_a_dog/index.html" class="card">
+                <div class="card-header">004</div>
+                <div class="card-prompt">a robot walking a dog</div>
+                <div class="card-status">✅</div>
+            </a>
+            <a href="005_easy_a_dinosaur_flying_a_kite/index.html" class="card">
+                <div class="card-header">005</div>
+                <div class="card-prompt">a dinosaur flying a kite</div>
+                <div class="card-status">✅</div>
+            </a>
+            <a href="006_easy_a_rabbit_holding_a_balloon/index.html" class="card">
+                <div class="card-header">006</div>
+                <div class="card-prompt">a rabbit holding a balloon</div>
+                <div class="card-status">✅</div>
+            </a>
+            <a href="007_easy_a_fox_playing_a_guitar/index.html" class="card">
+                <div class="card-header">007</div>
+                <div class="card-prompt">a fox playing a guitar</div>
+                <div class="card-status">✅</div>
+            </a>
+            <a href="008_easy_a_cupcake_wearing_a_crown/index.html" class="card">
+                <div class="card-header">008</div>
+                <div class="card-prompt">a cupcake wearing a crown</div>
+                <div class="card-status">✅</div>
+            </a>
+            <a href="009_easy_a_smiling_cloud_raining_hearts/index.html" class="card">
+                <div class="card-header">009</div>
+                <div class="card-prompt">a smiling cloud raining hearts</div>
+                <div class="card-status">✅</div>
+            </a>
+            <a href="010_easy_a_panda_with_sunglasses/index.html" class="card">
+                <div class="card-header">010</div>
+                <div class="card-prompt">a panda with sunglasses</div>
+                <div class="card-status">✅</div>
+            </a>
+            </div>
+        </div>
+        <div class="section">
+            <h2 style="border-color: #FF9800;">MEDIUM (10)</h2>
+            <div class="cards">
+                
+            <a href="011_medium_Generate_an_SVG_of_a_praying_mantis_on_a/index.html" class="card">
+                <div class="card-header">011</div>
+                <div class="card-prompt">Generate an SVG of a praying mantis on a dew-covered leaf. Show a triangular hea...</div>
+                <div class="card-status">✅</div>
+            </a>
+            <a href="012_medium_Create_an_SVG_side_view_of_a_steam_locom/index.html" class="card">
+                <div class="card-header">012</div>
+                <div class="card-prompt">Create an SVG side view of a steam locomotive (4-6-2 Pacific). Show four leading...</div>
+                <div class="card-status">✅</div>
+            </a>
+            <a href="013_medium_Produce_an_SVG_of_an_Apollo-era_astronau/index.html" class="card">
+                <div class="card-header">013</div>
+                <div class="card-prompt">Produce an SVG of an Apollo-era astronaut on the Moon. Include an A7L suit with ...</div>
+                <div class="card-status">✅</div>
+            </a>
+            <a href="014_medium_Draw_an_SVG_of_a_great_white_shark_in_pr/index.html" class="card">
+                <div class="card-header">014</div>
+                <div class="card-prompt">Draw an SVG of a great white shark in profile. Show countershading: dark gray do...</div>
+                <div class="card-status">✅</div>
+            </a>
+            <a href="015_medium_Generate_an_SVG_of_a_worker_honeybee_gat/index.html" class="card">
+                <div class="card-header">015</div>
+                <div class="card-prompt">Generate an SVG of a worker honeybee gathering pollen from a sunflower head. Sho...</div>
+                <div class="card-status">⚠️ 2 failed</div>
+            </a>
+            <a href="016_medium_Create_an_SVG_of_a_medieval_trebuchet_in/index.html" class="card">
+                <div class="card-header">016</div>
+                <div class="card-prompt">Create an SVG of a medieval trebuchet in side view. Show a sturdy triangular fra...</div>
+                <div class="card-status">✅</div>
+            </a>
+            <a href="017_medium_Render_an_SVG_top_view_of_a_2022-era_gro/index.html" class="card">
+                <div class="card-header">017</div>
+                <div class="card-prompt">Render an SVG top view of a 2022-era ground-effect Formula 1 car. Show the halo ...</div>
+                <div class="card-status">✅</div>
+            </a>
+            <a href="018_medium_Draw_an_SVG_of_a_male_northern_cardinal/index.html" class="card">
+                <div class="card-header">018</div>
+                <div class="card-prompt">Draw an SVG of a male northern cardinal perched on a thin branch. Show the raise...</div>
+                <div class="card-status">⚠️ 1 failed</div>
+            </a>
+            <a href="019_medium_Generate_an_SVG_cross-section_of_a_chamb/index.html" class="card">
+                <div class="card-header">019</div>
+                <div class="card-prompt">Generate an SVG cross-section of a chambered nautilus. Show a precise logarithmi...</div>
+                <div class="card-status">⚠️ 1 failed</div>
+            </a>
+            <a href="020_medium_Produce_an_SVG_of_a_common_octopus_inves/index.html" class="card">
+                <div class="card-header">020</div>
+                <div class="card-prompt">Produce an SVG of a common octopus investigating a glass jar on the seafloor. De...</div>
+                <div class="card-status">✅</div>
+            </a>
+            </div>
+        </div>
+        <div class="section">
+            <h2 style="border-color: #f44336;">HARD (10)</h2>
+            <div class="cards">
+                
+            <a href="021_hard_Inside_a_late-15th-century_Florentine_wo/index.html" class="card">
+                <div class="card-header">021</div>
+                <div class="card-prompt">Inside a late-15th-century Florentine workshop (viewBox 0 0 2000 1200), stage a ...</div>
+                <div class="card-status">⚠️ 1 failed</div>
+            </a>
+            <a href="022_hard_Render_a_cutaway_blueprint_of_a_1930s_ba/index.html" class="card">
+                <div class="card-header">022</div>
+                <div class="card-prompt">Render a cutaway blueprint of a 1930s bathysphere mid-dive, mixing orthographic ...</div>
+                <div class="card-status">⚠️ 1 failed</div>
+            </a>
+            <a href="023_hard_Depict_a_High_Gothic_cathedral_nave_at_g/index.html" class="card">
+                <div class="card-header">023</div>
+                <div class="card-prompt">Depict a High Gothic cathedral nave at golden hour with rigorous geometry (viewB...</div>
+                <div class="card-status">⚠️ 1 failed</div>
+            </a>
+            <a href="024_hard_Design_a_Martian_spaceport_loading_scene/index.html" class="card">
+                <div class="card-header">024</div>
+                <div class="card-prompt">Design a Martian spaceport loading scene with a bipedal cargo mech and dust phys...</div>
+                <div class="card-status">⚠️ 2 failed</div>
+            </a>
+            <a href="025_hard_Illustrate_an_1890s_surgical_amphitheatr/index.html" class="card">
+                <div class="card-header">025</div>
+                <div class="card-prompt">Illustrate an 1890s surgical amphitheatre with precise anatomy yet restrained de...</div>
+                <div class="card-status">⚠️ 2 failed</div>
+            </a>
+            <a href="026_hard_Compose_a_Baroque_still_life_silver_ewe/index.html" class="card">
+                <div class="card-header">026</div>
+                <div class="card-prompt">Compose a Baroque still life: silver ewer, glass goblet (n≈1.52), peeled lemon, ...</div>
+                <div class="card-status">⚠️ 2 failed</div>
+            </a>
+            <a href="027_hard_Create_an_Edo-period_Nihonbashi_bridge_s/index.html" class="card">
+                <div class="card-header">027</div>
+                <div class="card-prompt">Create an Edo-period Nihonbashi bridge scene rendered as a woodblock-print-style...</div>
+                <div class="card-status">⚠️ 1 failed</div>
+            </a>
+            <a href="028_hard_Cutaway_of_a_1930s_Art_Deco_ocean_liner/index.html" class="card">
+                <div class="card-header">028</div>
+                <div class="card-prompt">Cutaway of a 1930s Art Deco ocean liner engine room with turbo-electric drive (v...</div>
+                <div class="card-status">⚠️ 2 failed</div>
+            </a>
+            <a href="029_hard_Nighttime_natural_history_museum_diorama/index.html" class="card">
+                <div class="card-header">029</div>
+                <div class="card-prompt">Nighttime natural history museum diorama featuring a Smilodon skeleton and refle...</div>
+                <div class="card-status">⚠️ 1 failed</div>
+            </a>
+            <a href="030_hard_Design_an_Escher-inspired_multi-level_li/index.html" class="card">
+                <div class="card-header">030</div>
+                <div class="card-prompt">Design an Escher-inspired multi-level library that blends 3-point perspective wi...</div>
+                <div class="card-status">⚠️ 1 failed</div>
+            </a>
+            </div>
+        </div>
+</body>
+</html>

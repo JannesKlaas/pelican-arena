@@ -1,0 +1,213 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500" aria-label="Nighttime natural history museum diorama with Smilodon skeleton and terrazzo floor">
+  <defs>
+    <!-- Night sky gradient -->
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0b1a2b"/>
+      <stop offset="100%" stop-color="#060b14"/>
+    </linearGradient>
+
+    <!-- Wall gradient -->
+    <linearGradient id="wallGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1c1f2b"/>
+      <stop offset="100%" stop-color="#0b0f1a"/>
+    </linearGradient>
+
+    <!-- Floor terrazzo gradient -->
+    <linearGradient id="floorGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a2a2a"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </linearGradient>
+
+    <!-- Subtle terrazzo speckle pattern (pattern fill) -->
+    <pattern id="speckle" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#c9c9c9" opacity="0.6" />
+      <circle cx="12" cy="6" r="0.8" fill="#a9a9a9" opacity="0.6" />
+      <circle cx="6" cy="14" r="1" fill="#d0d0d0" opacity="0.5" />
+    </pattern>
+
+    <!-- Skylight cut; beams stay within skylight -->
+    <clipPath id="skylightClip">
+      <rect x="0" y="0" width="500" height="140" />
+    </clipPath>
+
+    <!-- Dust gradient for shafts -->
+    <linearGradient id="dustFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="white" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Floor displacement filter to simulate polish imperfections -->
+    <filter id="floorDistort" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" seed="7" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <!-- Soft shadow for plinth and objects -->
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="0" dy="4" result="offset"/>
+      <feMerge>
+        <feMergeNode in="offset"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Red security LED glow -->
+    <radialGradient id="ledGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff2b2b"/>
+      <stop offset="60%" stop-color="#770000" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#330000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Simple soft glow for plaque text (microtext blur) -->
+    <filter id="microGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="0.6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Reusable janitor silhouette (base) to be used for reflection via <use> -->
+    <g id="janitorBase" fill="#ffffff" stroke="#d7e7ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <!-- head -->
+      <circle cx="0" cy="0" r="8"/>
+      <!-- body -->
+      <rect x="-6" y="6" width="12" height="28" rx="4" />
+      <!-- arms (one reaching with mop) -->
+      <path d="M6,12 L22,20" />
+      <!-- mop handle -->
+      <line x1="22" y1="20" x2="40" y2="40" stroke="#fff" stroke-width="3" />
+      <!-- mop head -->
+      <rect x="36" y="40" width="12" height="6" rx="1" fill="#fff"/>
+    </g>
+  </defs>
+
+  <!-- Night sky -->
+  <rect x="0" y="0" width="500" height="260" fill="url(#skyGrad)" />
+
+  <!-- Skylight glow (moonlight from 15° to the right) -->
+  <g clip-path="url(#skylightClip)" opacity="0.95">
+    <!-- Beams angled to the right; subtle cool beams -->
+    <polygon points="120,0 180,0 420,170 360,170" fill="#a6cfff" opacity="0.25"/>
+    <polygon points="150,0 190,0 420,190 380,190" fill="#a0d0ff" opacity="0.22"/>
+    <polygon points="180,0 210,0 420,210 390,210" fill="#b8e0ff" opacity="0.18"/>
+  </g>
+
+  <!-- Dust shafts masked gradients for depth -->
+  <g clip-path="url(#skylightClip)" opacity="0.4">
+    <rect x="130" y="0" width="6" height="140" fill="url(#dustFade)"/>
+    <rect x="180" y="0" width="5" height="140" fill="url(#dustFade)"/>
+    <rect x="230" y="0" width="4" height="140" fill="url(#dustFade)"/>
+  </g>
+
+  <!-- Backdrop paintings with parallax separation -->
+  <g id="paintingFar" transform="translate(-25,40)">
+    <rect x="40" y="160" width="210" height="100" fill="#1a1c2a" stroke="#2a2a2a" />
+    <path d="M60,170 h170" stroke="#2b2b2b" stroke-width="4" />
+    <rect x="60" y="165" width="70" height="14" fill="#2d2d2d" />
+  </g>
+
+  <g id="paintingNear" transform="translate(60,50)">
+    <rect x="0" y="260" width="260" height="110" fill="#1a1a24" stroke="#2b2b2b" />
+    <path d="M20,290 q60,-40 180,-28" fill="none" stroke="#2f2f2f" stroke-width="3"/>
+    <path d="M40,320 q60,-20 180,-20" fill="none" stroke="#444" stroke-width="2"/>
+  </g>
+
+  <!-- Floor (terrazzo) -->
+  <g id="floor" transform="translate(0,0)">
+    <polygon points="0,360 500,360 500,500 0,500" fill="url(#floorGrad)"/>
+    <!-- terrazzo speckles on floor -->
+    <rect x="0" y="360" width="500" height="140" fill="url(#speckle)" opacity="0.25"/>
+  </g>
+
+  <!-- Floor reflection (displaced + faded with distance) -->
+  <g id="floorReflection" filter="url(#floorDistort)" opacity="0.42" clip-path="url(#floorClip)" transform="translate(0,360)">
+    <!-- Reflect Smilodon skeleton and janitor; represented as simplified shapes to imply reflection -->
+    <!-- Smilodon reflection (stylized) -->
+    <g transform="translate(150,60) scale(0.9) rotate(0 0 0)" opacity="0.65">
+      <ellipse cx="0" cy="0" rx="60" ry="28" fill="#fff" opacity="0.4"/>
+      <path d="M-60,0 C -30,-4  -8,-2 20,6" fill="none" stroke="#dce6ff" stroke-width="3" opacity="0.5"/>
+      <!-- simple rib-like lines to suggest silhouette -->
+      <path d="M-20,-6 q10,6 18,4" fill="none" stroke="#e8f2ff" stroke-width="2"/>
+    </g>
+    <!-- Janitor reflection (uses same base silhouette via use) -->
+    <use href="#janitorBase" x="320" y="320" transform="scale(0.9)" opacity="0.65"/>
+  </g>
+
+  <!-- Smilodon skeleton (stylized, on a plinth) -->
+  <g id="skeleton" transform="translate(150,260)">
+    <!-- plinth shadow under skeleton -->
+    <ellipse cx="60" cy="150" rx="70" ry="14" fill="#000" opacity="0.18" filter="url(#softShadow)"/>
+
+    <!-- plinth top to place skeleton -->
+    <rect x="0" y="0" width="120" height="40" rx="6" fill="#d8c79f" stroke="#9a7a2f" />
+    <rect x="6" y="6" width="108" height="28" rx="4" fill="#f0e1c0" stroke="#b0892a" />
+
+    <!-- Smilodon skeleton (simplified) -->
+    <g transform="translate(20,20)">
+      <!-- Skull -->
+      <ellipse cx="40" cy="20" rx="24" ry="14" fill="#fff" stroke="#d9d9d9" stroke-width="3"/>
+      <!-- Canines (fanged silhouette) -->
+      <rect x="60" y="14" width="14" height="6" fill="#fff" stroke="#d9d9d9" />
+      <rect x="60" y="28" width="14" height="6" fill="#fff" stroke="#d9d9d9" />
+      <!-- Spine -->
+      <path d="M40,20 C54,40 68,60 72,90" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+      <!-- Ribs (occluding) -->
+      <path d="M42,28 C26,40 22,52 26,66" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+      <path d="M42,32 C28,46 20,56 26,70" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+      <!-- More ribs to convey ribcage -->
+      <path d="M40,36 C28,48 22,60 28,72" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" />
+      <path d="M46,40 C34,54 28,66 32,78" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" />
+      <!-- 7 lumbar vertebrae (tiny blocks along spine) -->
+      <g fill="#fff" stroke="#d9d9d9" stroke-width="2">
+        <rect x="64" y="92" width="6" height="8" rx="1"/>
+        <rect x="70" y="100" width="6" height="8" rx="1"/>
+        <rect x="76" y="108" width="6" height="8" rx="1"/>
+        <rect x="82" y="116" width="6" height="8" rx="1"/>
+        <rect x="88" y="124" width="6" height="8" rx="1"/>
+        <rect x="94" y="132" width="6" height="8" rx="1"/>
+        <rect x="100" y="140" width="6" height="8" rx="1"/>
+      </g>
+      <!-- Pelvis -->
+      <ellipse cx="60" cy="150" rx="22" ry="12" fill="#fff" stroke="#d9d9d9" stroke-width="3"/>
+      <!-- Tail (short) -->
+      <path d="M70,150 q-16,6 -28,6" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+      <!-- Mount rod discreet (under mandible region and pelvis) -->
+      <line x1="60" y1="20" x2="60" y2="60" stroke="#dddddd" stroke-width="2" opacity="0.7"/>
+      <line x1="60" y1="150" x2="60" y2="170" stroke="#dddddd" stroke-width="2" opacity="0.8"/>
+    </g>
+  </g>
+
+  <!-- Janitor silhouette with mop on left; reflection aligned -->
+  <g id="janitor" transform="translate(90,320)">
+    <!-- Mopping figure (simple silhouette) -->
+    <circle cx="0" cy="-10" r="8" fill="#fff" />
+    <rect x="-6" y=" -2" width="12" height="40" rx="4" fill="#fff" stroke="#d9e5ff" />
+    <line x1="14" y1="6" x2="52" y2="34" stroke="#fff" stroke-width="4" />
+    <rect x="52" y="30" width="6" height="22" rx="2" fill="#fff" />
+    <!-- Mop head -->
+    <rect x="44" y="34" width="20" height="6" rx="2" fill="#fff"/>
+  </g>
+
+  <!-- Reflection of janitor (aligned with floor) -->
+  <g id="janitorReflection" opacity="0.55" transform="translate(0,360) scale(1,-1)">
+    <use href="#janitor" transform="translate(0,-360)" />
+  </g>
+
+  <!-- Wall plaque with microtext (2.2 mm cap height approx 8px at 500px canvas) -->
+  <g transform="translate(40,240)">
+    <rect x="0" y="0" width="180" height="60" rx="6" fill="#d9c89b" stroke="#a3832f" />
+    <text x="12" y="20" font-family="Times New Roman, serif" font-size="8" fill="#1a1a1a" filter="url(#microGlow)">
+      Smilodon fatalis
+    </text>
+    <text x="12" y="34" font-family="Times New Roman, serif" font-size="8" fill="#1a1a1a" filter="url(#microGlow)">
+      Pleistocene carnivore • Late Ice Age
+    </text>
+  </g>
+
+  <!-- Red security LED next to plaque with faint bloom -->
+  <circle cx="54" cy="260" r="4" fill="red" />
+  <circle cx="54" cy="260" r="8" fill="url(#ledGlow)" opacity="0.9"/>
+
+</svg>

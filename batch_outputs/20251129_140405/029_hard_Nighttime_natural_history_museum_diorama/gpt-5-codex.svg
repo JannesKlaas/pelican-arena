@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b1730"/>
+      <stop offset="0.55" stop-color="#101a33"/>
+      <stop offset="1" stop-color="#050910"/>
+    </linearGradient>
+    <linearGradient id="paintingSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e2f49"/>
+      <stop offset="0.6" stop-color="#162337"/>
+      <stop offset="1" stop-color="#10172a"/>
+    </linearGradient>
+    <linearGradient id="floorGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a1f2d"/>
+      <stop offset="0.4" stop-color="#131724"/>
+      <stop offset="1" stop-color="#0b0d15"/>
+    </linearGradient>
+    <linearGradient id="plinthTopGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2a3143"/>
+      <stop offset="1" stop-color="#1a2130"/>
+    </linearGradient>
+    <linearGradient id="plinthSideGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#141926"/>
+      <stop offset="1" stop-color="#0b0f18"/>
+    </linearGradient>
+    <linearGradient id="skylightGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1c2c45"/>
+      <stop offset="1" stop-color="#0f1728"/>
+    </linearGradient>
+    <linearGradient id="beamGrad" x1="0" y1="0" x2="0.2" y2="1">
+      <stop offset="0" stop-color="#8fbef2" stop-opacity="0.32"/>
+      <stop offset="0.6" stop-color="#4e7aa8" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#1b2f4d" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="dustAlpha" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="white" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="reflectionGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="white" stop-opacity="0.65"/>
+      <stop offset="0.7" stop-color="white" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="white" stop-opacity="0.12"/>
+    </linearGradient>
+    <filter id="reflectionDistort" x="-0.05" y="-0.2" width="1.1" height="1.4">
+      <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="2" seed="18" result="noise"/>
+      <feGaussianBlur in="noise" stdDeviation="0.35" result="blurNoise"/>
+      <feDisplacementMap in="SourceGraphic" in2="blurNoise" scale="2.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <filter id="ledGlow" x="-0.5" y="-0.5" width="2" height="2">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <mask id="dustMask">
+      <rect width="500" height="500" fill="black"/>
+      <rect x="180" y="-80" width="170" height="480" fill="url(#dustAlpha)" transform="rotate(15 250 250)"/>
+      <rect x="260" y="-100" width="110" height="520" fill="url(#dustAlpha)" opacity="0.6" transform="rotate(15 250 250)"/>
+    </mask>
+    <mask id="reflectionMask">
+      <rect x="0" y="360" width="500" height="140" fill="url(#reflectionGradient)"/>
+    </mask>
+    <g id="museumSetup">
+      <g id="plinth">
+        <polygon points="170,320 330,320 298,342 202,342" fill="url(#plinthTopGrad)"/>
+        <polygon points="170,320 330,320 330,360 170,360" fill="#1b202f"/>
+        <polygon points="330,320 298,342 298,382 330,360" fill="url(#plinthSideGrad)"/>
+        <polygon points="170,320 202,342 202,382 170,360" fill="#121621"/>
+        <path d="M200 330 C220 336 280 336 300 328 L308 336 L216 340 Z" fill="#04060a" opacity="0.4"/>
+        <polyline points="170,320 330,320 298,342" fill="none" stroke="#2f3646" stroke-width="0.8" opacity="0.6"/>
+        <polyline points="170,320 202,342 298,342" fill="none" stroke="#2f3646" stroke-width="0.8" opacity="0.4"/>
+      </g>
+      <g stroke="#5d6473" stroke-width="0.9" opacity="0.6" fill="none">
+        <line x1="246" y1="296" x2="246" y2="320"/>
+        <line x1="296" y1="302" x2="296" y2="336"/>
+      </g>
+      <g fill="#2a2f3d" opacity="0.65" stroke="none">
+        <rect x="242" y="320" width="8" height="2"/>
+        <rect x="292" y="336" width="8" height="2"/>
+      </g>
+      <g id="skeleton" stroke="#eadcc6" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none">
+        <g opacity="0.55">
+          <path d="M296 288 L312 316 L304 336"/>
+          <path d="M312 316 L300 338" stroke-width="1.1"/>
+        </g>
+        <g opacity="0.55">
+          <path d="M236 284 L222 312 L228 332"/>
+          <path d="M222 312 L234 336" stroke-width="1.1"/>
+        </g>
+        <g stroke="#cdbfa9" stroke-width="1.1" opacity="0.45">
+          <path d="M244 272 C212 288 212 320 246 326"/>
+          <path d="M254 270 C226 288 226 314 256 322"/>
+        </g>
+        <path d="M304 288 C320 292 324 300 320 306" stroke="#e2d3bb" stroke-width="1.1"/>
+        <path d="M280 282 C296 280 312 292 310 304 C296 308 282 302 274 292 Z" fill="#d8cab1" stroke="#eadcc6" stroke-width="1.1"/>
+        <path d="M236 282 C252 268 276 268 298 282"/>
+        <circle cx="244" cy="274" r="1.5" fill="#f2e6cf" stroke="none"/>
+        <circle cx="251" cy="270" r="1.5" fill="#f2e6cf" stroke="none"/>
+        <circle cx="258" cy="269" r="1.5" fill="#f2e6cf" stroke="none"/>
+        <circle cx="265" cy="270" r="1.5" fill="#f2e6cf" stroke="none"/>
+        <circle cx="272" cy="272" r="1.5" fill="#f2e6cf" stroke="none"/>
+        <circle cx="279" cy="275" r="1.5" fill="#f2e6cf" stroke="none"/>
+        <circle cx="286" cy="278" r="1.5" fill="#f2e6cf" stroke="none"/>
+        <path d="M246 274 C212 292 214 326 250 334"/>
+        <path d="M258 272 C232 290 234 316 264 326"/>
+        <path d="M268 274 C252 292 254 312 274 320"/>
+        <path d="M236 282 L224 262 L232 244 L244 268 Z" fill="#dacdb5" stroke="#eadcc6" stroke-width="1.1"/>
+        <path d="M292 284 L308 312 L298 334"/>
+        <path d="M308 312 L296 336" stroke-width="1.1"/>
+        <path d="M238 284 L226 312 L236 334"/>
+        <path d="M226 312 L242 332" stroke-width="1.1"/>
+        <path d="M236 334 L248 334" stroke-width="0.9"/>
+        <path d="M292 336 L306 336" stroke-width="0.9"/>
+        <path d="M204 262 C210 244 236 236 256 242 C266 246 270 260 262 268 C252 276 226 280 206 272 Z" fill="#e8dcc4" stroke="#eadcc6" stroke-width="1.2"/>
+        <path d="M206 272 C226 288 244 292 260 282 C266 278 266 292 252 300 C228 308 204 296 196 280 Z" fill="#d8cbb3" stroke="#eadcc6" stroke-width="1.1"/>
+        <path d="M224 264 C228 258 236 254 244 254" stroke-width="1"/>
+        <path d="M252 244 L256 272" stroke-width="1.2"/>
+        <path d="M246 246 L250 274" stroke-width="1.2"/>
+        <circle cx="228" cy="254" r="2" fill="#1a1f2e" stroke="none"/>
+        <path d="M220 286 C232 294 248 298 266 294" stroke-width="1"/>
+      </g>
+      <path d="M345 360 C356 368 392 368 404 360 C392 354 358 352 345 360 Z" fill="#080a0f" opacity="0.45"/>
+      <g id="janitor">
+        <circle cx="377" cy="274" r="7" fill="#161c28"/>
+        <path d="M368 300 C366 284 374 268 386 272 C392 274 398 284 396 302 C394 320 388 338 372 336 L362 316 Z" fill="#111623"/>
+        <path d="M376 298 L352 324 L358 330 L382 304 Z" fill="#161c28"/>
+        <path d="M368 336 L372 360 L360 360 L356 338 Z" fill="#0c1018"/>
+        <path d="M380 336 L390 360 L378 360 L370 338 Z" fill="#0c1018"/>
+        <path d="M392 332 L408 332 L404 360 L388 360 Z" fill="#1b2334"/>
+        <path d="M392 332 C394 326 406 326 408 332" stroke="#2e384c" stroke-width="1" fill="none"/>
+        <line x1="380" y1="300" x2="338" y2="360" stroke="#9bb6d8" stroke-width="2" stroke-linecap="round"/>
+        <path d="M334 356 C342 362 356 366 366 362 L344 360 Z" fill="#5e6f8a" opacity="0.75"/>
+        <path d="M366 304 C358 312 350 320 348 330" stroke="#1d2536" stroke-width="2" fill="none"/>
+      </g>
+    </g>
+  </defs>
+  <rect width="500" height="500" fill="url(#bgGrad)"/>
+  <rect x="40" y="120" width="420" height="260" fill="#111b2b"/>
+  <rect x="70" y="150" width="360" height="212" fill="#0f1523" stroke="#2a3448" stroke-width="2"/>
+  <rect x="80" y="160" width="340" height="192" fill="url(#paintingSky)"/>
+  <g opacity="0.8">
+    <g transform="translate(-12,0)">
+      <path d="M80 320 C120 260 200 240 260 256 C320 272 360 262 420 240 L420 352 L80 352 Z" fill="#1f3148"/>
+    </g>
+    <g transform="translate(10,0)">
+      <path d="M80 344 C140 300 220 292 300 314 C360 332 420 324 420 352 L80 352 Z" fill="#28405c" opacity="0.8"/>
+      <path d="M150 320 C160 296 176 288 186 320 Z" fill="#22334c" opacity="0.7"/>
+      <path d="M280 310 C292 286 308 282 320 308 Z" fill="#24364f" opacity="0.65"/>
+    </g>
+  </g>
+  <g opacity="0.5">
+    <path d="M70 350 L430 350" stroke="#1c2438" stroke-width="2"/>
+  </g>
+  <line x1="0" y1="375" x2="500" y2="375" stroke="#23314a" stroke-width="0.6" opacity="0.3"/>
+  <g>
+    <polygon points="170,80 330,80 360,120 140,120" fill="url(#skylightGrad)" stroke="#223147" stroke-width="1"/>
+    <line x1="250" y1="80" x2="250" y2="120" stroke="#2d3c55" stroke-width="1" opacity="0.6"/>
+    <line x1="200" y1="80" x2="220" y2="120" stroke="#2d3c55" stroke-width="0.8" opacity="0.6"/>
+    <line x1="300" y1="80" x2="280" y2="120" stroke="#2d3c55" stroke-width="0.8" opacity="0.6"/>
+  </g>
+  <g mask="url(#dustMask)">
+    <rect x="180" y="-40" width="180" height="460" fill="url(#beamGrad)" transform="rotate(15 250 250)"/>
+    <rect x="260" y="-60" width="110" height="460" fill="url(#beamGrad)" opacity="0.6" transform="rotate(15 250 250)"/>
+  </g>
+  <rect x="0" y="360" width="500" height="140" fill="url(#floorGrad)"/>
+  <g opacity="0.25" fill="#2b3141">
+    <circle cx="70" cy="392" r="1"/>
+    <circle cx="120" cy="410" r="0.8"/>
+    <circle cx="160" cy="380" r="0.9"/>
+    <circle cx="210" cy="428" r="0.7"/>
+    <circle cx="260" cy="388" r="0.9"/>
+    <circle cx="300" cy="420" r="1"/>
+    <circle cx="340" cy="372" r="0.8"/>
+    <circle cx="380" cy="440" r="0.9"/>
+    <circle cx="430" cy="396" r="1"/>
+    <circle cx="460" cy="430" r="0.8"/>
+  </g>
+  <g mask="url(#reflectionMask)" filter="url(#reflectionDistort)" opacity="0.55" transform="translate(0,720) scale(1,-1)">
+    <use href="#museumSetup"/>
+  </g>
+  <use href="#museumSetup"/>
+  <rect x="130" y="242" width="58" height="30" fill="#161d2c" stroke="#2b3547" stroke-width="1"/>
+  <text x="135" y="252" fill="#8e99af" font-size="1.8" font-family="sans-serif" letter-spacing="0.4">SMILODON</text>
+  <text x="135" y="256" fill="#8e99af" font-size="1.8" font-family="sans-serif" letter-spacing="0.4">FATALIS</text>
+  <text x="135" y="260" fill="#8e99af" font-size="1.6" font-family="sans-serif" letter-spacing="0.3">FMNH CAT. 2241</text>
+  <circle cx="420" cy="170" r="2" fill="#ff4141" filter="url(#ledGlow)"/>
+  <circle cx="420" cy="170" r="4" fill="none" stroke="#ff4141" stroke-width="0.6" opacity="0.2"/>
+</svg>
