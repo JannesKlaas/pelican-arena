@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HARD: Inside a late-15th-century Florentine workshop (viewBox 0 0 </title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #eee;
+        }
+        h1 {
+            color: #fff;
+            border-bottom: 3px solid #f44336;
+            padding-bottom: 10px;
+        }
+        .difficulty {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            background: #f44336;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        .metadata {
+            background: #2a2a2a;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #333;
+        }
+        .prompt-text {
+            font-style: italic;
+            color: #bbb;
+            margin: 10px 0;
+            line-height: 1.5;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .model {
+            background: #2a2a2a;
+            border: 1px solid #333;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .model h3 {
+            margin: 0 0 10px 0;
+            color: #aaa;
+            font-size: 12px;
+            font-family: monospace;
+        }
+        .model img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #444;
+            border-radius: 4px;
+            background: white;
+        }
+        .error {
+            background: #3a2020;
+            border-color: #5a3030;
+        }
+        .error p {
+            color: #f88;
+            font-size: 12px;
+        }
+        .download-links {
+            margin-top: 10px;
+            font-size: 11px;
+        }
+        .download-links a {
+            margin-right: 10px;
+            color: #f44336;
+            text-decoration: none;
+        }
+        .download-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <span class="difficulty">hard</span>
+    <h1>Model Comparison</h1>
+    <div class="metadata">
+        <div class="prompt-text">Inside a late-15th-century Florentine workshop (viewBox 0 0 2000 1200), stage a camera obscura projecting a sunlit street onto a 500x700 mm poplar panel (scaled 1px=1mm). Two-point perspective: horizon y=700; vanishing points at (-2500,700) and (4500,700). Place an apprentice referenced at 7.5 heads tall; head = 1/7.5 of body; elbow at waist; hands = 1/10 of height. Sun at 35° elev, 20° azimuth; use feSpecularLighting with fePointLight matching window coords. Paper notes in mirror-script as textPath on a spiral spline. Oak workbench uses patternUnits='userSpaceOnUse' wood grain, clipped with mask for wear. Metal compasses reflect via feColorMatrix cool highlights; quill nibs use marker-end. Require chiaroscuro via layered radial gradients and cast shadows consistent with vanishing geometry.</div>
+    </div>
+    <div class="grid">
+        
+        <div class="model">
+            <h3>anthropic/claude-haiku-4-5-20251001</h3>
+            <img src="claude-haiku-4-5-20251001.png" alt="anthropic/claude-haiku-4-5-20251001">
+            <div class="download-links">
+                <a href="claude-haiku-4-5-20251001.png" download>PNG</a>
+                <a href="claude-haiku-4-5-20251001.svg" download>SVG</a>
+            </div>
+        </div>
+        <div class="model">
+            <h3>anthropic/claude-opus-4-1-20250805</h3>
+            <img src="claude-opus-4-1-20250805.png" alt="anthropic/claude-opus-4-1-20250805">
+            <div class="download-links">
+                <a href="claude-opus-4-1-20250805.png" download>PNG</a>
+                <a href="claude-opus-4-1-20250805.svg" download>SVG</a>
+            </div>
+        </div>
+        <div class="model">
+            <h3>anthropic/claude-sonnet-4-5-20250929</h3>
+            <img src="claude-sonnet-4-5-20250929.png" alt="anthropic/claude-sonnet-4-5-20250929">
+            <div class="download-links">
+                <a href="claude-sonnet-4-5-20250929.png" download>PNG</a>
+                <a href="claude-sonnet-4-5-20250929.svg" download>SVG</a>
+            </div>
+        </div>
+        <div class="model error">
+            <h3>google/gemini-2.5-flash</h3>
+            <p>Error: could not convert string to float: '0='</p>
+        </div>
+        <div class="model">
+            <h3>google/gemini-2.5-flash-lite</h3>
+            <img src="gemini-2.5-flash-lite.png" alt="google/gemini-2.5-flash-lite">
+            <div class="download-links">
+                <a href="gemini-2.5-flash-lite.png" download>PNG</a>
+                <a href="gemini-2.5-flash-lite.svg" download>SVG</a>
+            </div>
+        </div>
+        <div class="model">
+            <h3>google/gemini-3-pro-preview</h3>
+            <img src="gemini-3-pro-preview.png" alt="google/gemini-3-pro-preview">
+            <div class="download-links">
+                <a href="gemini-3-pro-preview.png" download>PNG</a>
+                <a href="gemini-3-pro-preview.svg" download>SVG</a>
+            </div>
+        </div>
+        <div class="model">
+            <h3>openai/gpt-5-codex</h3>
+            <img src="gpt-5-codex.png" alt="openai/gpt-5-codex">
+            <div class="download-links">
+                <a href="gpt-5-codex.png" download>PNG</a>
+                <a href="gpt-5-codex.svg" download>SVG</a>
+            </div>
+        </div>
+        <div class="model">
+            <h3>openai/gpt-5-mini-2025-08-07</h3>
+            <img src="gpt-5-mini-2025-08-07.png" alt="openai/gpt-5-mini-2025-08-07">
+            <div class="download-links">
+                <a href="gpt-5-mini-2025-08-07.png" download>PNG</a>
+                <a href="gpt-5-mini-2025-08-07.svg" download>SVG</a>
+            </div>
+        </div>
+        <div class="model">
+            <h3>openai/gpt-5-nano-2025-08-07</h3>
+            <img src="gpt-5-nano-2025-08-07.png" alt="openai/gpt-5-nano-2025-08-07">
+            <div class="download-links">
+                <a href="gpt-5-nano-2025-08-07.png" download>PNG</a>
+                <a href="gpt-5-nano-2025-08-07.svg" download>SVG</a>
+            </div>
+        </div>
+        <div class="model">
+            <h3>openai/gpt-5.1-2025-11-13</h3>
+            <img src="gpt-5.1-2025-11-13.png" alt="openai/gpt-5.1-2025-11-13">
+            <div class="download-links">
+                <a href="gpt-5.1-2025-11-13.png" download>PNG</a>
+                <a href="gpt-5.1-2025-11-13.svg" download>SVG</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

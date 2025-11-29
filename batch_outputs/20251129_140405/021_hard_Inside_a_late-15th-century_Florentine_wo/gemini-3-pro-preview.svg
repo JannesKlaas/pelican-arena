@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <!-- Wood Grain Pattern -->
+    <pattern id="oakGrain" patternUnits="userSpaceOnUse" width="100" height="100">
+      <rect width="100" height="100" fill="#3b2818"/>
+      <path d="M0,10 Q25,5 50,10 T100,10 M0,30 Q30,35 60,30 T120,30 M0,70 Q40,60 80,70" fill="none" stroke="#26180c" stroke-width="2"/>
+      <path d="M0,0 Q50,50 100,0" fill="none" stroke="#4a3625" stroke-width="1" opacity="0.5"/>
+    </pattern>
+
+    <!-- Wear Mask -->
+    <mask id="wearMask">
+      <rect width="100%" height="100%" fill="white"/>
+      <path d="M0,500 L500,500 L500,480 Q250,490 0,480 Z" fill="black" opacity="0.6"/>
+    </mask>
+
+    <!-- Lighting Filter (Sun) -->
+    <filter id="sunlight">
+      <feSpecularLighting result="spec" specularConstant="1.2" specularExponent="20" lighting-color="#fff5cc">
+        <fePointLight x="50" y="50" z="300"/>
+      </feSpecularLighting>
+      <feComposite in="SourceGraphic" in2="spec" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
+    </filter>
+
+    <!-- Metal Filter (Cool highlights) -->
+    <filter id="metalGlow">
+      <feColorMatrix type="matrix" values="0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0.4 0.4 0.5 0 0  0 0 0 1 0"/>
+      <feGaussianBlur stdDeviation="1" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <!-- Chiaroscuro Gradient -->
+    <radialGradient id="chiaroscuro" cx="0.4" cy="0.4" r="0.8">
+      <stop offset="0%" stop-color="#fff5cc" stop-opacity="0.2"/>
+      <stop offset="40%" stop-color="#3e2723" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.95"/>
+    </radialGradient>
+
+    <!-- Quill Marker -->
+    <marker id="nib" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#e0e0e0"/>
+    </marker>
+  </defs>
+
+  <!-- Background / Room Darkness -->
+  <rect width="500" height="500" fill="#1a1008"/>
+
+  <!-- Perspective Lines (Implied Room) -->
+  <path d="M0,150 L200,200 L500,150" fill="none" stroke="#000" opacity="0.5"/>
+
+  <!-- The Window (Source of Light) -->
+  <rect x="20" y="20" width="100" height="150" fill="#fffee0" opacity="0.9"/>
+  
+  <!-- Light Beam (Volumetric) -->
+  <path d="M120,20 L400,350 L200,450 L20,170 Z" fill="url(#chiaroscuro)" opacity="0.3"/>
+
+  <!-- Oak Workbench (Perspective) -->
+  <g mask="url(#wearMask)">
+    <!-- Top -->
+    <path d="M-50,400 L150,300 L550,300 L650,450 L-50,450 Z" fill="url(#oakGrain)"/>
+    <!-- Side -->
+    <path d="M-50,450 L650,450 L650,500 L-50,500 Z" fill="#1f130a"/>
+  </g>
+
+  <!-- Poplar Panel (The Screen) -->
+  <g transform="translate(220, 250)">
+    <!-- Panel Stand -->
+    <path d="M-10,150 L160,150 L150,160 L0,160 Z" fill="#5d4037"/>
+    <!-- The Board -->
+    <rect x="0" y="0" width="150" height="150" fill="#e6d7b8" transform="skewY(-5)"/>
+    
+    <!-- Projected Image (Inverted Street Scene) -->
+    <g transform="translate(75,75) rotate(180) scale(0.8) skewY(-5)">
+      <!-- Sky -->
+      <rect x="-70" y="-70" width="140" height="60" fill="#87ceeb" opacity="0.4"/>
+      <!-- Duomo Dome outline -->
+      <path d="M-40,0 Q0,-60 40,0 Z" fill="#b25238" opacity="0.6"/>
+      <!-- Ground -->
+      <rect x="-70" y="0" width="140" height="70" fill="#cfb997" opacity="0.5"/>
+      <text x="-30" y="20" font-family="serif" font-size="10" fill="#333" opacity="0.7">FLORENTIA</text>
+    </g>
+  </g>
+
+  <!-- Cast Shadows on Table -->
+  <path d="M220,400 L300,420 L400,400" fill="black" opacity="0.4" filter="url(#blur)"/>
+
+  <!-- Metal Compass -->
+  <g transform="translate(350, 420) rotate(15)" filter="url(#metalGlow)">
+    <path d="M0,0 L-20,60" stroke="#a0a0a0" stroke-width="3" stroke-linecap="round"/>
+    <path d="M0,0 L20,60" stroke="#a0a0a0" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="0" cy="0" r="4" fill="#d0d0d0"/>
+  </g>
+
+  <!-- Scroll with Mirror Script -->
+  <g transform="translate(150, 380) rotate(-10)">
+    <path id="spiralPath" d="M0,0 C20,10 40,-10 60,0 S100,20 120,0" fill="none" stroke="none"/>
+    <path d="M-10,-10 L130,-10 L130,20 L-10,20 Z" fill="#f5f5dc" opacity="0.9"/> <!-- Paper bg -->
+    <text font-family="serif" font-size="8" fill="#3e2723">
+      <textPath href="#spiralPath" startOffset="5%">
+        snaY .pordraeT .noitcejorP .secnavdA
+      </textPath>
+    </text>
+    <!-- Quill -->
+    <path d="M100,10 L140,-30" stroke="#fff" stroke-width="2" marker-end="url(#nib)"/>
+  </g>
+
+  <!-- The Apprentice (Silhouette/Chiaroscuro) -->
+  <g transform="translate(80, 200)">
+    <!-- Head (1/7.5 proportion approx) -->
+    <ellipse cx="20" cy="0" rx="15" ry="18" fill="#1a0f0a"/>
+    <!-- Body -->
+    <path d="M0,20 Q-10,25 -5,60 L-10,150 L60,150 L50,50 Q55,25 40,20 Z" fill="#2d1e15"/>
+    <!-- Arm/Elbow at waist -->
+    <path d="M40,30 Q60,70 30,90 L60,100" fill="none" stroke="#2d1e15" stroke-width="12" stroke-linecap="round"/>
+    <!-- Hand -->
+    <circle cx="60" cy="100" r="6" fill="#bcaaa4"/>
+  </g>
+
+  <!-- Foreground Vignette (Chiaroscuro finishing touch) -->
+  <rect width="500" height="500" fill="url(#chiaroscuro)" style="mix-blend-mode: multiply;"/>
+
+</svg>

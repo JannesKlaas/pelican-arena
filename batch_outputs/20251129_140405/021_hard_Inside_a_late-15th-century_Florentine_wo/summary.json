@@ -1,0 +1,85 @@
+{
+  "prompt_idx": 21,
+  "difficulty": "hard",
+  "prompt": "Inside a late-15th-century Florentine workshop (viewBox 0 0 2000 1200), stage a camera obscura projecting a sunlit street onto a 500x700 mm poplar panel (scaled 1px=1mm). Two-point perspective: horizon y=700; vanishing points at (-2500,700) and (4500,700). Place an apprentice referenced at 7.5 heads tall; head = 1/7.5 of body; elbow at waist; hands = 1/10 of height. Sun at 35\u00b0 elev, 20\u00b0 azimuth; use feSpecularLighting with fePointLight matching window coords. Paper notes in mirror-script as textPath on a spiral spline. Oak workbench uses patternUnits='userSpaceOnUse' wood grain, clipped with mask for wear. Metal compasses reflect via feColorMatrix cool highlights; quill nibs use marker-end. Require chiaroscuro via layered radial gradients and cast shadows consistent with vanishing geometry.",
+  "timestamp": "2025-11-29T14:46:59.305672",
+  "models": [
+    {
+      "model": "openai/gpt-5.1-2025-11-13",
+      "status": "success",
+      "files": {
+        "svg": "gpt-5.1-2025-11-13.svg",
+        "png": "gpt-5.1-2025-11-13.png"
+      }
+    },
+    {
+      "model": "openai/gpt-5-codex",
+      "status": "success",
+      "files": {
+        "svg": "gpt-5-codex.svg",
+        "png": "gpt-5-codex.png"
+      }
+    },
+    {
+      "model": "anthropic/claude-haiku-4-5-20251001",
+      "status": "success",
+      "files": {
+        "svg": "claude-haiku-4-5-20251001.svg",
+        "png": "claude-haiku-4-5-20251001.png"
+      }
+    },
+    {
+      "model": "openai/gpt-5-mini-2025-08-07",
+      "status": "success",
+      "files": {
+        "svg": "gpt-5-mini-2025-08-07.svg",
+        "png": "gpt-5-mini-2025-08-07.png"
+      }
+    },
+    {
+      "model": "anthropic/claude-opus-4-1-20250805",
+      "status": "success",
+      "files": {
+        "svg": "claude-opus-4-1-20250805.svg",
+        "png": "claude-opus-4-1-20250805.png"
+      }
+    },
+    {
+      "model": "google/gemini-2.5-flash-lite",
+      "status": "success",
+      "files": {
+        "svg": "gemini-2.5-flash-lite.svg",
+        "png": "gemini-2.5-flash-lite.png"
+      }
+    },
+    {
+      "model": "anthropic/claude-sonnet-4-5-20250929",
+      "status": "success",
+      "files": {
+        "svg": "claude-sonnet-4-5-20250929.svg",
+        "png": "claude-sonnet-4-5-20250929.png"
+      }
+    },
+    {
+      "model": "google/gemini-2.5-flash",
+      "status": "error",
+      "error": "could not convert string to float: '0='"
+    },
+    {
+      "model": "openai/gpt-5-nano-2025-08-07",
+      "status": "success",
+      "files": {
+        "svg": "gpt-5-nano-2025-08-07.svg",
+        "png": "gpt-5-nano-2025-08-07.png"
+      }
+    },
+    {
+      "model": "google/gemini-3-pro-preview",
+      "status": "success",
+      "files": {
+        "svg": "gemini-3-pro-preview.svg",
+        "png": "gemini-3-pro-preview.png"
+      }
+    }
+  ]
+}
