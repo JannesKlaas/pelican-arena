@@ -9,6 +9,16 @@ import anthropic
 from google import genai
 from google.genai.types import HttpOptions
 from google.oauth2.credentials import Credentials
+from pydantic import BaseModel
+from enum import Enum
+
+class Winner(Enum):
+    A = "a"
+    B = "b"
+
+class JudgeResponse(BaseModel):
+    winner: Winner
+
 
 load_dotenv() 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
@@ -104,46 +114,33 @@ def openai_vision_judge(
     image_a_b64 = _load_image_as_base64(image_a_path)
     image_b_b64 = _load_image_as_base64(image_b_path)
     
-    response = client.chat.completions.create(
+    response = client.responses.parse(
         model=model,
-        messages=[
+        input=[
             {"role": "system", "content": JUDGE_SYSTEM_PROMPT},
             {
                 "role": "user",
                 "content": [
-                    {"type": "text", "text": _build_judge_prompt(prompt)},
+                    {"type": "input_text", "text": _build_judge_prompt(prompt)},
                     {
-                        "type": "image_url",
-                        "image_url": {"url": f"data:image/png;base64,{image_a_b64}"},
+                        "type": "input_image",
+                        "image_url":f"data:image/png;base64,{image_a_b64}",
                     },
                     {
-                        "type": "image_url",
-                        "image_url": {"url": f"data:image/png;base64,{image_b_b64}"},
+                        "type": "input_image",
+                        "image_url": f"data:image/png;base64,{image_b_b64}",
                     },
                 ],
             },
         ],
-        response_format={
-            "type": "json_schema",
-            "json_schema": {
-                "name": "judge_response",
-                "strict": True,
-                "schema": {
-                    "type": "object",
-                    "properties": {
-                        "winner": {"type": "string", "enum": ["a", "b"]}
-                    },
-                    "required": ["winner"],
-                    "additionalProperties": False,
-                },
-            },
-        },
-        max_completion_tokens=50,
+        text_format=JudgeResponse,
     )
+
     
-    import json
-    result = json.loads(response.choices[0].message.content)
-    return result["winner"]
+    if response.output_parsed.winner == Winner.A:
+        return "a"
+    else:
+        return "b"
 
 
 def anthropic_vision_judge(
